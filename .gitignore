@@ -20,3 +20,9 @@ build
 # other
 eclipse
 run
+gradlew.bat
+gradlew
+gradle/wrapper/gradle-wrapper.properties
+gradle/wrapper/gradle-wrapper.jar
+gradle.properties
+build.gradle
