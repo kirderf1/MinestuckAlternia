@@ -1,7 +1,10 @@
 package com.apocfarce.minestuck_alternia;
 
+import com.apocfarce.minestuck_alternia.block.AlterniaBlocks;
+import com.apocfarce.minestuck_alternia.item.AlterniaItems;
 import com.apocfarce.minestuck_alternia.proxy.CommonProxy;
 
+import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.Mod.Instance;
@@ -22,7 +25,9 @@ public class Minestuck_Alternia {
 	
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event) {
-		
+		proxy.preInit();
+		MinecraftForge.EVENT_BUS.register(AlterniaBlocks.class);
+		MinecraftForge.EVENT_BUS.register(AlterniaItems.class);
 	}
 	
 	@EventHandler
