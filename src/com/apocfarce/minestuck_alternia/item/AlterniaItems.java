@@ -1,10 +1,14 @@
 package com.apocfarce.minestuck_alternia.item;
 
+import com.apocfarce.minestuck_alternia.Minestuck_Alternia;
 import com.apocfarce.minestuck_alternia.block.AlterniaBlocks;
 
+import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
+import net.minecraft.item.ItemFood;
+import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.registries.IForgeRegistry;
@@ -19,12 +23,18 @@ public class AlterniaItems
 	{
 		//get the registry
 		IForgeRegistry<Item> registry = event.getRegistry();
+		/**-----------------------------------
+		 * items
+		 *-------------------------------------*/		
 		//items
-		RegisterItem(registry,item,"item");
-		//blocks
+		registerItem(registry,item,"item");
+		/**-----------------------------------
+		 *blocks
+		 -------------------------------------*/
 		registerItemBlock(registry,new ItemBlock(AlterniaBlocks.block));
 	}
-	private static Item RegisterItem(IForgeRegistry<Item> registry,Item item, String name) {
+	private static Item registerItem(IForgeRegistry<Item> registry,Item item, String name) {
+		ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(Minestuck_Alternia.modId + ":" + name, "inventory"));
 		item.setCreativeTab(tabAlternia);
 		item.setUnlocalizedName(name);
 		item.setRegistryName(name);
@@ -32,6 +42,7 @@ public class AlterniaItems
 		return item;
 	}
 	
+
 	
 	private static Item registerItemBlock(IForgeRegistry<Item> registry, ItemBlock item)
 	{
