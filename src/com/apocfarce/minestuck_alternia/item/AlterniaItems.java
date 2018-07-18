@@ -18,6 +18,8 @@ public class AlterniaItems
 	public static CreativeTabs tabAlternia = TabAlternia.instance;
 	//items
 	public static Item item= new ExampleItem();
+	//food
+	public static Item oblongMeatPoduct=new ItemFood(6, true);
 	@SubscribeEvent
 	public static void registerItems(RegistryEvent.Register<Item> event)
 	{
@@ -28,6 +30,8 @@ public class AlterniaItems
 		 *-------------------------------------*/		
 		//items
 		registerItem(registry,item,"item");
+		//food
+		registerItem(registry,oblongMeatPoduct,"oblong_meat_product");
 		/**-----------------------------------
 		 *blocks
 		 -------------------------------------*/
