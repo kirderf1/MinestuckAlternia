@@ -32,6 +32,7 @@ public class Minestuck_Alternia {
 			ClientProxy.registerRenderers();
 		}
 	}
+	
 
 	@Mod.EventHandler
 	public void postInit(FMLPostInitializationEvent event) {

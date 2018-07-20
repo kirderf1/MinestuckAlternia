@@ -1,7 +1,8 @@
 {
 	"credit": "Made with Blockbench, a free, modern block model editor by JannisX11",
 	"textures": {
-		"1": "minestuck_alternia:items/oblong_meat_product_texture2"
+		"1": "minestuck_alternia:items/oblong_meat_product_texture2",
+		"particle":"minestuck_alternia:items/oblong_meat_product_texture2"
 	},
 	"elements": [
 		{
