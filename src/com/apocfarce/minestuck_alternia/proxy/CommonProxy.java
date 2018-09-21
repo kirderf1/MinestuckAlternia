@@ -1,6 +1,7 @@
 package com.apocfarce.minestuck_alternia.proxy;
 
 import com.apocfarce.minestuck_alternia.block.AlterniaBlocks;
+import com.apocfarce.minestuck_alternia.client.util.ModdleManager;
 import com.apocfarce.minestuck_alternia.item.AlterniaItems;
 
 import net.minecraftforge.common.MinecraftForge;
@@ -11,6 +12,7 @@ public abstract class CommonProxy {
 		//MinecraftForge.EVENT_BUS.register(AlterniaSoundHandler.instance);
 		MinecraftForge.EVENT_BUS.register(AlterniaBlocks.class);
 		MinecraftForge.EVENT_BUS.register(AlterniaItems.class);
+		MinecraftForge.EVENT_BUS.register(ModdleManager.class);
 		//MinecraftForge.EVENT_BUS.register(BiomeAlternia.class);
 		
 		//AlterniaSoundHandler.initSound();

@@ -38,7 +38,6 @@ public class AlterniaItems
 		registerItemBlock(registry,new ItemBlock(AlterniaBlocks.block));
 	}
 	private static Item registerItem(IForgeRegistry<Item> registry,Item item, String name) {
-		ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(Minestuck_Alternia.modId + ":" + name, "inventory"));
 		item.setCreativeTab(tabAlternia);
 		item.setUnlocalizedName(name);
 		item.setRegistryName(name);
