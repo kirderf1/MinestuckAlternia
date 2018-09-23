@@ -20,8 +20,10 @@ public class ModdleManager {
 		blockModels();
 	}
 	private static void itemModels() {
+		//items
 		register(item);
-		register(oblongMeatPoduct);
+		//food
+		register(oblongMeatProduct);
 	}
 	private static void blockModels() {
 		register(block);
