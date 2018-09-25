@@ -17,8 +17,19 @@ public class AlterniaItems
 	
 	//items
 	public static Item item= new ExampleItem();
+	
+	//multi colored items
+	public static Item[] BloodPotions;
+	
 	//food
 	public static Item oblongMeatProduct=new ItemFood(6,true);
+	
+	
+	
+	
+	
+	
+	
 	@SubscribeEvent
 	public static void registerItems(RegistryEvent.Register<Item> event)
 	{
@@ -31,6 +42,13 @@ public class AlterniaItems
 		registerItem(registry,item,"item");
 		//food
 		registerItem(registry,oblongMeatProduct,"oblong_meat_product");
+		//blood colored items
+		BloodPotions=new Item[13];
+		for(int i=0;i<BloodPotions.length;i++) {
+			BloodPotions[i]=new BloodBottle(i);
+			registerItem(registry,BloodPotions[i],EnumBloodColors.values()[i].name().toLowerCase()+"_blood_bottle");
+		}
+		
 		/**-----------------------------------
 		 *blocks
 		 -------------------------------------*/
@@ -43,6 +61,7 @@ public class AlterniaItems
 		registry.register(item);
 		return item;
 	}
+
 	
 
 	
@@ -50,5 +69,10 @@ public class AlterniaItems
 	{
 		registry.register(item.setRegistryName(item.getBlock().getRegistryName()));
 		return item;
+	}
+	private static Item[] RegisterArray(IForgeRegistry<Item> registry, Item[] items) {
+
+		
+		return items;
 	}
 }

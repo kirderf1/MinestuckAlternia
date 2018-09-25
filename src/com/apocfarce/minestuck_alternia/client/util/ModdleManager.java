@@ -24,6 +24,10 @@ public class ModdleManager {
 		register(item);
 		//food
 		register(oblongMeatProduct);
+		//blood colored Items
+		for(int i=0;i<BloodPotions.length;i++) {
+			register(BloodPotions[i]);
+		}
 	}
 	private static void blockModels() {
 		register(block);
