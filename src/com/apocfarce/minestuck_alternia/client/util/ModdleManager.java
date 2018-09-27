@@ -25,12 +25,16 @@ public class ModdleManager {
 		//food
 		register(oblongMeatProduct);
 		//blood colored Items
-		for(int i=0;i<BloodPotions.length;i++) {
-			register(BloodPotions[i]);
+		for(int i=0;i<bloodPotions.length;i++) {
+			register(bloodPotions[i]);
 		}
 	}
 	private static void blockModels() {
 		register(block);
+		//blood colored blocks
+		for(int i=0;i<hiveGlass.length;i++) {
+			register(hiveGlass[i]);
+		}
 	}
 	
 	

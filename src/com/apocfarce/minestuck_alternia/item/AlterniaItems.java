@@ -1,6 +1,6 @@
 package com.apocfarce.minestuck_alternia.item;
 
-import com.apocfarce.minestuck_alternia.block.AlterniaBlocks;
+import static com.apocfarce.minestuck_alternia.block.AlterniaBlocks.*;
 
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
@@ -19,7 +19,7 @@ public class AlterniaItems
 	public static Item item= new ExampleItem();
 	
 	//multi colored items
-	public static Item[] BloodPotions;
+	public static Item[] bloodPotions;
 	
 	//food
 	public static Item oblongMeatProduct=new ItemFood(6,true);
@@ -43,16 +43,19 @@ public class AlterniaItems
 		//food
 		registerItem(registry,oblongMeatProduct,"oblong_meat_product");
 		//blood colored items
-		BloodPotions=new Item[13];
-		for(int i=0;i<BloodPotions.length;i++) {
-			BloodPotions[i]=new BloodBottle(i);
-			registerItem(registry,BloodPotions[i],EnumBloodColors.values()[i].name().toLowerCase()+"_blood_bottle");
+		bloodPotions=new Item[13];
+		for(int i=0;i<bloodPotions.length;i++) {
+			bloodPotions[i]=new BloodBottle(i);
+			registerItem(registry,bloodPotions[i],"blood_bottle_"+EnumBloodColors.values()[i].name().toLowerCase());
 		}
 		
 		/**-----------------------------------
 		 *blocks
 		 -------------------------------------*/
-		registerItemBlock(registry,new ItemBlock(AlterniaBlocks.block));
+		registerItemBlock(registry,new ItemBlock(block));
+		for(int i=0;i<hiveGlass.length;i++) {
+			registerItemBlock(registry,new ItemBlock(hiveGlass[i]));
+		}
 	}
 	private static Item registerItem(IForgeRegistry<Item> registry,Item item, String name) {
 		item.setCreativeTab(modTab);
