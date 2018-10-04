@@ -11,6 +11,10 @@ public class AlterniaBlocks
 {
 	//Blocks
 	public static Block block = new ExampleBlock();
+	public static Block darkStone = new DarkStone();
+	public static Block darkCobble = new DarkCobble();
+	public static Block redRock = new RedRock();
+	public static Block redCobble = new RedCobble();
 	//BloodColoredBlocks
 	public static Block hiveGlass[];
 	@SubscribeEvent
@@ -27,10 +31,12 @@ public class AlterniaBlocks
 		hiveGlass[hiveGlass.length-2]=new HiveGlass(EnumBloodColors.LIME);
 		registry.register(hiveGlass[hiveGlass.length-2]);
 		//grey hive glass
-			hiveGlass[hiveGlass.length-1]=new HiveGlass(EnumBloodColors.GREY);
-			registry.register(hiveGlass[hiveGlass.length-1]);
+		hiveGlass[hiveGlass.length-1]=new HiveGlass(EnumBloodColors.GREY);
+		registry.register(hiveGlass[hiveGlass.length-1]);
+
+			
 		//blocks
-		final Block[] blocks = {block};
+		final Block[] blocks = {block,darkStone,darkCobble,redRock,redCobble};
 		
 		
 		for(Block block : blocks) {

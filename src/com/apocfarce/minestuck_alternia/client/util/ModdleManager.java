@@ -31,6 +31,10 @@ public class ModdleManager {
 	}
 	private static void blockModels() {
 		register(block);
+		register(darkStone);
+		register(darkCobble);
+		register(redRock);
+		register(redCobble);
 		//blood colored blocks
 		for(int i=0;i<hiveGlass.length;i++) {
 			register(hiveGlass[i]);

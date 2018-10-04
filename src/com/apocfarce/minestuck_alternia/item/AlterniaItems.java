@@ -53,6 +53,10 @@ public class AlterniaItems
 		 *blocks
 		 -------------------------------------*/
 		registerItemBlock(registry,new ItemBlock(block));
+		registerItemBlock(registry,new ItemBlock(darkStone));
+		registerItemBlock(registry,new ItemBlock(darkCobble));
+		registerItemBlock(registry,new ItemBlock(redRock));
+		registerItemBlock(registry,new ItemBlock(redCobble));
 		for(int i=0;i<hiveGlass.length;i++) {
 			registerItemBlock(registry,new ItemBlock(hiveGlass[i]));
 		}
