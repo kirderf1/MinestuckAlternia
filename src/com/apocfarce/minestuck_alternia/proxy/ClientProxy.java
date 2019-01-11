@@ -1,6 +1,5 @@
 package com.apocfarce.minestuck_alternia.proxy;
 
-import net.minecraft.client.Minecraft;
 
 public class ClientProxy extends CommonProxy {
 	public void preInit()
