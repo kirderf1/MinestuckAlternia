@@ -1,0 +1,6 @@
+{
+    "parent": "block/glass_pane_noside",
+    "textures": {
+        "pane": "minestuck_alternia:blocks/hiveglass_purple"
+    }
+}
