@@ -30,11 +30,11 @@ public class AlterniaBlocks
 		}
 
 
-		block=register("minestuck_alternia:block",new ExampleBlock(Block.Properties.create(Material.ROCK).sound(SoundType.STONE).hardnessAndResistance(1.5F, 10.0F)));
+		block=register("minestuck_alternia:block",new Block(Block.Properties.create(Material.ROCK).sound(SoundType.STONE).hardnessAndResistance(1.5F, 10.0F)));
 		darkStone=register("minestuck_alternia:dark_stone",new DarkStone(Block.Properties.create(Material.ROCK).sound(SoundType.STONE).hardnessAndResistance(1.5F, 10.0F)));
-		darkCobble=register("minestuck_alternia:dark_cobble",new DarkCobble(Block.Properties.create(Material.ROCK).sound(SoundType.STONE).hardnessAndResistance(1.5F, 10.0F)));
+		darkCobble=register("minestuck_alternia:dark_cobble",new Block(Block.Properties.create(Material.ROCK).sound(SoundType.STONE).hardnessAndResistance(1.5F, 10.0F)));
 		redRock=register("minestuck_alternia:red_rock",new RedRock(Block.Properties.create(Material.ROCK).sound(SoundType.STONE).hardnessAndResistance(1.5F, 10.0F)));
-		redCobble=register("minestuck_alternia:red_cobble",new RedCobble(Block.Properties.create(Material.ROCK).sound(SoundType.STONE).hardnessAndResistance(1.5F, 10.0F)));
+		redCobble=register("minestuck_alternia:red_cobble",new Block(Block.Properties.create(Material.ROCK).sound(SoundType.STONE).hardnessAndResistance(1.5F, 10.0F)));
 
 	}
 	

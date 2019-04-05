@@ -77,12 +77,12 @@ public class Minestuck_alternia {
             // register a new block here
             LOGGER.info("HELLO from Register Block");
             AlterniaBlocks.registerBlocks();
-            AlterniaItems.registerItems(); 
         } 
-        public static void onItemRegistry() {
+        @SubscribeEvent
+        public static void onItemRegistry(final RegistryEvent.Register<Item> ItemRegistryEvent) {
             // register a new block here
             LOGGER.info("HELLO from Register Item");
- //           AlterniaItems.registerItems(); 
+            AlterniaItems.registerItems(ItemRegistryEvent); 
         }
     }
 
