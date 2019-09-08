@@ -1,4 +1,4 @@
-package main.java.com.apocfarce.minestuck_alternia.Item;
+package com.apocfarce.minestuck_alternia.Item;
 
 public enum ENUM_BLOOD_COLOR {
 	BURGUNDY,

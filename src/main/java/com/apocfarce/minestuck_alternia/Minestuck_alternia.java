@@ -1,13 +1,13 @@
-package main.java.com.apocfarce.minestuck_alternia;
+package com.apocfarce.minestuck_alternia;
 
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import main.java.com.apocfarce.minestuck_alternia.Item.AlterniaItems;
-import main.java.com.apocfarce.minestuck_alternia.block.AlterniaBlocks;
+import com.apocfarce.minestuck_alternia.Item.AlterniaItems;
+import com.apocfarce.minestuck_alternia.block.AlterniaBlocks;
+
 import net.minecraft.block.Block;
-import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
@@ -22,8 +22,7 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 
 @Mod("minestuck_alternia")
 public class Minestuck_alternia {
-    // Directly reference a log4j logger.
-    public static final Logger LOGGER = LogManager.getLogger();
+	public static String MOD_ID = "minestuck_alternia";
 
     public Minestuck_alternia() {
         // Register the setup method for modloading
@@ -40,18 +39,11 @@ public class Minestuck_alternia {
     }
     private void preInit(final FMLCommonSetupEvent event)
     {
-        // some preinit code
-        LOGGER.info("HELLO FROM PREINIT");
-        LOGGER.info("DIRT BLOCK >> {}", Blocks.DIRT.getRegistryName());
     }
     private void doClientStuff(final FMLClientSetupEvent event) {
-        // do something that can only be done on the client
-        LOGGER.info("Got game settings {}", event.getMinecraftSupplier().get().gameSettings);
     }
     @SubscribeEvent
     public void onServerStarting(FMLServerStartingEvent event) {
-        // do something when the server starts
-        LOGGER.info("HELLO from server starting");
     }
     private void SendInterModCom(final InterModEnqueueEvent event)
     {
@@ -74,14 +66,10 @@ public class Minestuck_alternia {
     public static class RegistryEvents {
         @SubscribeEvent
         public static void onBlocksRegistry(final RegistryEvent.Register<Block> blockRegistryEvent) {
-            // register a new block here
-            LOGGER.info("HELLO from Register Block");
-            AlterniaBlocks.registerBlocks();
+            AlterniaBlocks.registerBlocks(blockRegistryEvent);
         } 
         @SubscribeEvent
         public static void onItemRegistry(final RegistryEvent.Register<Item> ItemRegistryEvent) {
-            // register a new block here
-            LOGGER.info("HELLO from Register Item");
             AlterniaItems.registerItems(ItemRegistryEvent); 
         }
     }

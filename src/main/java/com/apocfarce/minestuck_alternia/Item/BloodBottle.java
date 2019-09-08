@@ -1,19 +1,21 @@
-package main.java.com.apocfarce.minestuck_alternia.Item;
+package com.apocfarce.minestuck_alternia.Item;
 
-import main.java.com.apocfarce.minestuck_alternia.Minestuck_alternia;
+import com.apocfarce.minestuck_alternia.Minestuck_alternia;
 import net.minecraft.advancements.CriteriaTriggers;
-import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.entity.player.EntityPlayerMP;
-import net.minecraft.init.Items;
-import net.minecraft.init.MobEffects;
-import net.minecraft.item.EnumAction;
+import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.entity.player.ServerPlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.potion.PotionEffect;
+import net.minecraft.item.Items;
+import net.minecraft.item.UseAction;
+import net.minecraft.potion.Effect;
+import net.minecraft.potion.EffectInstance;
+import net.minecraft.potion.Effects;
+import net.minecraft.potion.Potions;
 import net.minecraft.util.ActionResult;
-import net.minecraft.util.EnumActionResult;
-import net.minecraft.util.EnumHand;
+import net.minecraft.util.ActionResultType;
+import net.minecraft.util.Hand;
 import net.minecraft.world.World;
 
 public class BloodBottle extends Item  {
@@ -28,23 +30,24 @@ public class BloodBottle extends Item  {
 	
 	
 	@Override
-	 public ItemStack onItemUseFinish(ItemStack stack, World worldIn, EntityLivingBase entityLiving)
+	 public ItemStack onItemUseFinish(ItemStack stack, World worldIn, LivingEntity entityLiving)
 	 {
-		 EntityPlayer entityplayer = entityLiving instanceof EntityPlayer ? (EntityPlayer)entityLiving : null;
+		PlayerEntity entityplayer = entityLiving instanceof PlayerEntity ? (PlayerEntity)entityLiving : null;
 		 //destroy this potion(as it has been drank)
 		 if (entityplayer == null || !entityplayer.isCreative());
 		 {
 			 stack.shrink(1);
 		 }
 		 //???? it seems to break when i remove this set of code, so i keep it in
-		 if (entityplayer instanceof EntityPlayerMP)
+		 if (entityplayer instanceof ServerPlayerEntity)
 		 {
-			 CriteriaTriggers.CONSUME_ITEM.trigger((EntityPlayerMP)entityplayer, stack);
+			 CriteriaTriggers.CONSUME_ITEM.trigger((ServerPlayerEntity)entityplayer, stack);
 		 }
 		 //give the player nausia
 		 if (!worldIn.isRemote)
 		 {
-			 entityLiving.addPotionEffect(new PotionEffect(new PotionEffect(MobEffects.NAUSEA, 600, 0)));
+			 entityLiving.addPotionEffect(new EffectInstance(new EffectInstance(Effects.NAUSEA,600,0)));
+
 		 }
 		 //let the player keep the glass bottle
 		 if (entityplayer == null)
@@ -71,14 +74,13 @@ public class BloodBottle extends Item  {
         return 32;
     }
 	 @Override
-	 public EnumAction getUseAction(ItemStack stack)
-	 {
-		 return EnumAction.DRINK;
-	 }
+	   public UseAction getUseAction(ItemStack stack) {
+	      return UseAction.DRINK;
+	   }
 	 @Override
-	 public ActionResult<ItemStack> onItemRightClick(World worldIn, EntityPlayer playerIn, EnumHand handIn)
+	 public ActionResult<ItemStack> onItemRightClick(World worldIn, PlayerEntity playerIn, Hand handIn)
 	 {
 		  playerIn.setActiveHand(handIn);
-		 return new ActionResult<ItemStack>(EnumActionResult.SUCCESS, playerIn.getHeldItem(handIn));
+		 return new ActionResult<ItemStack>(ActionResultType.SUCCESS, playerIn.getHeldItem(handIn));
 	 }
 }

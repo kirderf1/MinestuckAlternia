@@ -1,4 +1,4 @@
-package main.java.com.apocfarce.minestuck_alternia.Item;
+package com.apocfarce.minestuck_alternia.Item;
 
 import net.minecraft.item.Item;
 
