@@ -24,7 +24,7 @@ public class DimensionsHandeler {
 	public static void registerDimensionTypes() {
 		alterniaType =  DimensionType.byName(AlterniaID);
 		if(alterniaType==null) {
-			alterniaType = DimensionManager.registerDimension(AlterniaID, alternia, null,false);
+			alterniaType = DimensionManager.registerDimension(AlterniaID, alternia, null,true);
 		}
 		
 		
