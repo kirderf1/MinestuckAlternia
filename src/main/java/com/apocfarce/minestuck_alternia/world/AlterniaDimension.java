@@ -1,10 +1,12 @@
 package com.apocfarce.minestuck_alternia.world;
 
 import java.util.function.BiFunction;
-import java.util.function.Function;
 
 import javax.annotation.Nullable;
 
+import com.apocfarce.minestuck_alternia.world.biome.provider.AlterniaBioimeProviderHandeler;
+import com.apocfarce.minestuck_alternia.world.biome.provider.AlterniaBiomeProvider;
+import com.apocfarce.minestuck_alternia.world.biome.provider.AlterniaBiomeProviderSettings;
 import com.apocfarce.minestuck_alternia.world.gen.AlterniaChunkGenerator;
 import com.apocfarce.minestuck_alternia.world.gen.AlterniaGenSettings;
 import com.apocfarce.minestuck_alternia.world.gen.GenTypesHandeler;
@@ -17,9 +19,7 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
-import net.minecraft.world.biome.Biomes;
 import net.minecraft.world.biome.provider.BiomeProviderType;
-import net.minecraft.world.biome.provider.OverworldBiomeProvider;
 import net.minecraft.world.biome.provider.OverworldBiomeProviderSettings;
 import net.minecraft.world.chunk.Chunk;
 import net.minecraft.world.dimension.Dimension;
@@ -48,12 +48,12 @@ public class AlterniaDimension extends Dimension {
 		
 //		-------------------------------OVERWORLD ALGORyTHIM-------------------------		
 		ChunkGeneratorType<AlterniaGenSettings,AlterniaChunkGenerator> alterniaChunkGenerator = GenTypesHandeler.ALTERNIA;
-		BiomeProviderType<OverworldBiomeProviderSettings, OverworldBiomeProvider> biomeprovidertype1 = BiomeProviderType.VANILLA_LAYERED;
+		BiomeProviderType<AlterniaBiomeProviderSettings, AlterniaBiomeProvider> biomeprovidertype = AlterniaBioimeProviderHandeler.ALTERNIA;
 		
 	      
 		AlterniaGenSettings alterniagensettings = alterniaChunkGenerator.createSettings();
-        OverworldBiomeProviderSettings overworldbiomeprovidersettings = biomeprovidertype1.createSettings().setWorldInfo(this.world.getWorldInfo()).setGeneratorSettings(alterniagensettings);
-		return alterniaChunkGenerator.create(this.world, biomeprovidertype1.create(overworldbiomeprovidersettings), alterniagensettings);
+        AlterniaBiomeProviderSettings alterniabiomeprovidersettings = biomeprovidertype.createSettings().setWorldInfo(this.world.getWorldInfo()).setGeneratorSettings(alterniagensettings);
+		return alterniaChunkGenerator.create(this.world, biomeprovidertype.create(alterniabiomeprovidersettings), alterniagensettings);
 	   
 //		------------------------------MIDNIGHT ALGORYTHEM-----------------------------	   
 //	   long seed = world.getSeed();
