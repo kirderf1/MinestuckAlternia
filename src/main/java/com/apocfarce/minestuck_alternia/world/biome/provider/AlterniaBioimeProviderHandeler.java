@@ -17,6 +17,7 @@ public class AlterniaBioimeProviderHandeler{
 	
 	public static void RegisterBiomeProviderTypes(RegistryEvent.Register<BiomeProviderType<?, ?>> event) {
 		IForgeRegistry<BiomeProviderType<?, ?>> registery = event.getRegistry();
+		AlterniaBiomeProvider.AddVanillaBiomes();
 		ALTERNIA = register(registery,new ResourceLocation("alternia"),AlterniaBiomeProvider::new,AlterniaBiomeProviderSettings::new);	
 	}
 	

@@ -1,5 +1,6 @@
 package com.apocfarce.minestuck_alternia.world.biome.provider;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Random;
@@ -8,6 +9,8 @@ import java.util.Set;
 import javax.annotation.Nullable;
 
 import com.apocfarce.minestuck_alternia.world.gen.AlterniaGenSettings;
+import com.apocfarce.minestuck_alternia.world.gen.layer.AlterniaLayerUtil;
+import com.google.common.collect.ImmutableList;
 import com.google.common.collect.Sets;
 
 import net.minecraft.block.BlockState;
@@ -17,36 +20,65 @@ import net.minecraft.world.biome.Biomes;
 import net.minecraft.world.biome.provider.BiomeProvider;
 import net.minecraft.world.gen.feature.structure.Structure;
 import net.minecraft.world.gen.layer.Layer;
-import net.minecraft.world.gen.layer.LayerUtil;
 import net.minecraft.world.storage.WorldInfo;
+import net.minecraftforge.common.BiomeManager.BiomeEntry;
+import net.minecraftforge.common.BiomeManager.BiomeType;
 
 public class AlterniaBiomeProvider extends BiomeProvider {
-   private final Layer genBiomes;
-   private final Layer biomeFactoryLayer;
-   private final Biome[] biomes = new Biome[]{Biomes.OCEAN, Biomes.PLAINS, Biomes.DESERT, Biomes.MOUNTAINS, Biomes.FOREST, Biomes.TAIGA, Biomes.SWAMP, Biomes.RIVER, Biomes.FROZEN_OCEAN, Biomes.FROZEN_RIVER, Biomes.SNOWY_TUNDRA, Biomes.SNOWY_MOUNTAINS, Biomes.MUSHROOM_FIELDS, Biomes.MUSHROOM_FIELD_SHORE, Biomes.BEACH, Biomes.DESERT_HILLS, Biomes.WOODED_HILLS, Biomes.TAIGA_HILLS, Biomes.MOUNTAIN_EDGE, Biomes.JUNGLE, Biomes.JUNGLE_HILLS, Biomes.JUNGLE_EDGE, Biomes.DEEP_OCEAN, Biomes.STONE_SHORE, Biomes.SNOWY_BEACH, Biomes.BIRCH_FOREST, Biomes.BIRCH_FOREST_HILLS, Biomes.DARK_FOREST, Biomes.SNOWY_TAIGA, Biomes.SNOWY_TAIGA_HILLS, Biomes.GIANT_TREE_TAIGA, Biomes.GIANT_TREE_TAIGA_HILLS, Biomes.WOODED_MOUNTAINS, Biomes.SAVANNA, Biomes.SAVANNA_PLATEAU, Biomes.BADLANDS, Biomes.WOODED_BADLANDS_PLATEAU, Biomes.BADLANDS_PLATEAU, Biomes.WARM_OCEAN, Biomes.LUKEWARM_OCEAN, Biomes.COLD_OCEAN, Biomes.DEEP_WARM_OCEAN, Biomes.DEEP_LUKEWARM_OCEAN, Biomes.DEEP_COLD_OCEAN, Biomes.DEEP_FROZEN_OCEAN, Biomes.SUNFLOWER_PLAINS, Biomes.DESERT_LAKES, Biomes.GRAVELLY_MOUNTAINS, Biomes.FLOWER_FOREST, Biomes.TAIGA_MOUNTAINS, Biomes.SWAMP_HILLS, Biomes.ICE_SPIKES, Biomes.MODIFIED_JUNGLE, Biomes.MODIFIED_JUNGLE_EDGE, Biomes.TALL_BIRCH_FOREST, Biomes.TALL_BIRCH_HILLS, Biomes.DARK_FOREST_HILLS, Biomes.SNOWY_TAIGA_MOUNTAINS, Biomes.GIANT_SPRUCE_TAIGA, Biomes.GIANT_SPRUCE_TAIGA_HILLS, Biomes.MODIFIED_GRAVELLY_MOUNTAINS, Biomes.SHATTERED_SAVANNA, Biomes.SHATTERED_SAVANNA_PLATEAU, Biomes.ERODED_BADLANDS, Biomes.MODIFIED_WOODED_BADLANDS_PLATEAU, Biomes.MODIFIED_BADLANDS_PLATEAU};
+	private final Layer genBiomes;
+	private final Layer biomeFactoryLayer;
+	private static List<BiomeEntry>[] biomes= SetupBiomesList();
+   
+   
+	public AlterniaBiomeProvider(AlterniaBiomeProviderSettings settingsProvider) {
+		WorldInfo worldinfo = settingsProvider.getWorldInfo();
+		AlterniaGenSettings alterniagensettings = settingsProvider.getGeneratorSettings();
+		Layer[] alayer = AlterniaLayerUtil.buildAlterniaProcedure(worldinfo.getSeed(), worldinfo.getGenerator(), alterniagensettings);
+		this.genBiomes = alayer[0];
+		this.biomeFactoryLayer = alayer[1];
+	}	
+	public static List<BiomeEntry>[] SetupBiomesList() {
+		List<BiomeEntry>[] tbiomes= new ArrayList[BiomeType.values().length];
+		for(int i = 0; i<tbiomes.length;i++) {
+			tbiomes[i]=new ArrayList<BiomeEntry>();
+		}
+		return tbiomes;
+	}
+   
+	public static void AddVanillaBiomes(){
+		biomes[BiomeType.WARM.ordinal()].add(new BiomeEntry(Biomes.BAMBOO_JUNGLE,10));
+		biomes[BiomeType.COOL.ordinal()].add(new BiomeEntry(Biomes.SWAMP,10));
+		biomes[BiomeType.ICY.ordinal()].add(new BiomeEntry(Biomes.ICE_SPIKES,10));
+		biomes[BiomeType.DESERT.ordinal()].add(new BiomeEntry(Biomes.BADLANDS,10));
+	}	
+	public static void AddBiome(Biome biome,BiomeType type, int weight) {
+		biomes[type.ordinal()].add(new BiomeEntry(biome,weight));
+	}
+	
+	public static ImmutableList<BiomeEntry> getBiomes(BiomeType biomeType){
+		
+		int idx = biomeType.ordinal();
+		List<BiomeEntry> list = idx >= biomes.length ? null : biomes[idx];
 
-   public AlterniaBiomeProvider(AlterniaBiomeProviderSettings settingsProvider) {
-      WorldInfo worldinfo = settingsProvider.getWorldInfo();
-      AlterniaGenSettings alterniagensettings = settingsProvider.getGeneratorSettings();
-      Layer[] alayer = LayerUtil.buildOverworldProcedure(worldinfo.getSeed(), worldinfo.getGenerator(), alterniagensettings);
-      this.genBiomes = alayer[0];
-      this.biomeFactoryLayer = alayer[1];
-   }
+		return list != null ? ImmutableList.copyOf(list) : null;
+	}
+   
+	/**
+	 * Gets the biome from the provided coordinates
+	 */
+	public Biome getBiome(int x, int y) {
+		return this.biomeFactoryLayer.func_215738_a(x, y);
+	}
 
-   /**
-    * Gets the biome from the provided coordinates
-    */
-   public Biome getBiome(int x, int y) {
-      return this.biomeFactoryLayer.func_215738_a(x, y);
-   }
+	public Biome func_222366_b(int p_222366_1_, int p_222366_2_) {
+		return this.genBiomes.func_215738_a(p_222366_1_, p_222366_2_);
+	}
+	
+	public Biome[] getBiomes(int x, int z, int width, int length, boolean cacheFlag) {
+		return this.biomeFactoryLayer.generateBiomes(x, z, width, length);
+	}
 
-   public Biome func_222366_b(int p_222366_1_, int p_222366_2_) {
-      return this.genBiomes.func_215738_a(p_222366_1_, p_222366_2_);
-   }
-
-   public Biome[] getBiomes(int x, int z, int width, int length, boolean cacheFlag) {
-      return this.biomeFactoryLayer.generateBiomes(x, z, width, length);
-   }
+   
 
    public Set<Biome> getBiomesInSquare(int centerX, int centerZ, int sideLength) {
       int i = centerX - sideLength >> 2;
@@ -89,23 +121,28 @@ public class AlterniaBiomeProvider extends BiomeProvider {
 
    public boolean hasStructure(Structure<?> structureIn) {
       return this.hasStructureCache.computeIfAbsent(structureIn, (p_205006_1_) -> {
-         for(Biome biome : this.biomes) {
-            if (biome.hasStructure(p_205006_1_)) {
-               return true;
+         for(List<BiomeEntry> biomeList : this.biomes) {
+        	 for(BiomeEntry biome:biomeList) {
+        		 if(biome.biome.hasStructure(p_205006_1_)) {
+        			 return true;
+        		 }
             }
          }
-
          return false;
       });
    }
 
    public Set<BlockState> getSurfaceBlocks() {
       if (this.topBlocksCache.isEmpty()) {
-         for(Biome biome : this.biomes) {
-            this.topBlocksCache.add(biome.getSurfaceBuilderConfig().getTop());
+    	  for(List<BiomeEntry> biomeList : this.biomes) {
+    		  for(BiomeEntry biome:biomeList) {
+    			  this.topBlocksCache.add(biome.biome.getSurfaceBuilderConfig().getTop());
+    		  }
          }
       }
-
       return this.topBlocksCache;
    }
+   
+   
+   
 }
