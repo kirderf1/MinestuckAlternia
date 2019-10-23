@@ -4,11 +4,13 @@ package com.apocfarce.minestuck_alternia;
 import com.apocfarce.minestuck_alternia.Item.AlterniaItems;
 import com.apocfarce.minestuck_alternia.block.AlterniaBlocks;
 import com.apocfarce.minestuck_alternia.world.DimensionsHandeler;
+import com.apocfarce.minestuck_alternia.world.biome.AlterniaBiomeHandeler;
 import com.apocfarce.minestuck_alternia.world.biome.provider.AlterniaBioimeProviderHandeler;
 import com.apocfarce.minestuck_alternia.world.gen.GenTypesHandeler;
 
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
+import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.provider.BiomeProviderType;
 import net.minecraft.world.gen.ChunkGeneratorType;
 import net.minecraftforge.common.MinecraftForge;
@@ -79,6 +81,10 @@ public class Minestuck_alternia {
         @SubscribeEvent
         public static void onBiomeTypeRegistry(final RegistryEvent.Register<BiomeProviderType<?, ?>> biomeTypeRegistryEvent) {
         	AlterniaBioimeProviderHandeler.RegisterBiomeProviderTypes(biomeTypeRegistryEvent);
+        }
+        @SubscribeEvent
+        public static void onBiomeRegistry(final RegistryEvent.Register<Biome> biomeRegistryEvent) {
+        	AlterniaBiomeHandeler.RegisterBiomes(biomeRegistryEvent);
         }
         
     }
