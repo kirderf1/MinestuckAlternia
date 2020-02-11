@@ -45,9 +45,7 @@ public class AlterniaBiomeLayer implements IC0Transformer {
 
       int desertIdx = BiomeType.DESERT.ordinal();
 
-      biomes[desertIdx].add(new BiomeEntry(Biomes.DESERT, 30));
-      biomes[desertIdx].add(new BiomeEntry(Biomes.SAVANNA, 20));
-      biomes[desertIdx].add(new BiomeEntry(Biomes.PLAINS, 10));
+
 
       this.settings = p_i48641_2_;
 

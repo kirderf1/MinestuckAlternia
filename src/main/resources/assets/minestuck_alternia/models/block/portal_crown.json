@@ -1,0 +1,12 @@
+{
+	"parent": "block/cube",
+	"textures": {
+		"particle":"minestuck_alternia:blocks/portal_inside",
+		"down": "minestuck_alternia:blocks/portal_inside",
+		"up": "minestuck_alternia:blocks/portal_inside",
+		"north": "minestuck_alternia:blocks/portal_inside",
+		"east": "minestuck_alternia:blocks/crown_left",
+		"south": "minestuck_alternia:blocks/portal_inside",
+		"west": "minestuck_alternia:blocks/crown_right"
+	}
+}

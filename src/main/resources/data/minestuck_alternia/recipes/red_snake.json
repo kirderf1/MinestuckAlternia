@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " ER",
+    "I I",
+    "III"
+  ],
+  "key": {
+    "E": {
+      "item": "minecraft:emerald_block"
+    },
+    "R": {
+        "item": "minecraft:red_dye"
+      },
+    "I": {
+        "item": "minecraft:iron_block"
+      }
+
+  },
+  "result": {
+    "item": "minestuck_alternia:red_snake"
+  }
+}

@@ -132,16 +132,25 @@ public class AlterniaDimension extends Dimension {
     * Return Vec3D with biome specific fog color
     */
    @OnlyIn(Dist.CLIENT)
-   public Vec3d getFogColor(float p_76562_1_, float p_76562_2_) {
-      float f = MathHelper.cos(p_76562_1_ * ((float)Math.PI * 2F)) * 2.0F + 0.5F;
-      f = MathHelper.clamp(f, 0.0F, 1.0F);
-      float f1 = 0.7529412F;
-      float f2 = 0.84705883F;
-      float f3 = 1.0F;
-      f1 = f1 * (f * 0.94F + 0.06F);
-      f2 = f2 * (f * 0.94F + 0.06F);
-      f3 = f3 * (f * 0.91F + 0.09F);
-      return new Vec3d((double)f1, (double)f2, (double)f3);
+   public Vec3d getFogColor(float CelestialAngle, float partialTicks) {
+	  float dayRed=1.0F;
+	  float dayGreen=0.5F;
+	  float dayBlue=0.2F;
+	  float nightRed=0.2F;
+	  float nightGreen=0.3F;
+	  float nightBlue=0.3F; 
+	   
+      float time = MathHelper.cos(CelestialAngle * ((float)Math.PI * 2F)) * 2.0F + 0.5F;
+      time = MathHelper.clamp(time, 0.0F, 1.0F);
+      float RRange=dayRed-nightRed;
+      float GRange=dayGreen-nightGreen;
+      float BRange = dayBlue-nightBlue;
+      
+      float red = time*RRange+nightRed;
+      float green = time*GRange+nightGreen;
+      float blue = time*BRange+nightBlue;
+      
+      return new Vec3d((double)red, (double)green, (double)blue);
    }
 
    /**
