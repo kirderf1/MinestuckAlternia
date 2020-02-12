@@ -1,0 +1,59 @@
+{
+    "variants": {
+
+    	
+
+    	"facing=north,part=green_head": { "model": "minestuck_alternia:block/portal_green_head" },
+    	"facing=north,part=red_head": { "model": "minestuck_alternia:block/portal_red_head" },
+    	"facing=north,part=snake_neck": { "model": "minestuck_alternia:block/portal_snake_neck" },
+    	"facing=north,part=snake_body": { "model": "minestuck_alternia:block/portal_snake_body" },
+    	"facing=north,part=crown": { "model": "minestuck_alternia:block/portal_crown" },
+    	"facing=north,part=base_edge": { "model": "minestuck_alternia:block/portal_base_edge" },
+    	"facing=north,part=base_corner": { "model": "minestuck_alternia:block/portal_base_corner" },
+    	"facing=north,part=base_center": { "model": "minestuck_alternia:block/portal_base_center" },
+    	"facing=north,part=portal": { "model": "minestuck_alternia:block/portal_portal"},
+    	"facing=north,part=crown": { "model": "minestuck_alternia:block/portal_crown"},
+    	"facing=north,part=blast_door": { "model": "minestuck_alternia:block/portal_blastdoor"},
+    	
+
+    	"facing=east,part=green_head": { "model": "minestuck_alternia:block/portal_green_head","y":90 },
+    	"facing=east,part=red_head": { "model": "minestuck_alternia:block/portal_red_head","y":90 },
+    	"facing=east,part=snake_neck": { "model": "minestuck_alternia:block/portal_snake_neck","y":90 },
+    	"facing=east,part=snake_body": { "model": "minestuck_alternia:block/portal_snake_body","y":90 },
+    	"facing=east,part=crown": { "model": "minestuck_alternia:block/portal_crown","y":90 },
+    	"facing=east,part=base_edge": { "model": "minestuck_alternia:block/portal_base_edge","y":90 },
+    	"facing=east,part=base_corner": { "model": "minestuck_alternia:block/portal_base_corner","y":90 },
+    	"facing=east,part=base_center": { "model": "minestuck_alternia:block/portal_base_center","y":90 },
+    	"facing=east,part=portal": { "model": "minestuck_alternia:block/portal_portal","y":90 },
+    	"facing=east,part=crown": { "model": "minestuck_alternia:block/portal_crown","y":90 },
+    	"facing=east,part=blast_door": { "model": "minestuck_alternia:block/portal_blastdoor","y":90},
+    	
+    	
+    	"facing=south,part=green_head": { "model": "minestuck_alternia:block/portal_green_head","y":180 },
+    	"facing=south,part=red_head": { "model": "minestuck_alternia:block/portal_red_head","y":180 },
+    	"facing=south,part=snake_neck": { "model": "minestuck_alternia:block/portal_snake_neck","y":180 },
+    	"facing=south,part=snake_body": { "model": "minestuck_alternia:block/portal_snake_body","y":180 },
+    	"facing=south,part=crown": { "model": "minestuck_alternia:block/portal_crown","y":180 },
+    	"facing=south,part=base_edge": { "model": "minestuck_alternia:block/portal_base_edge","y":180 },
+    	"facing=south,part=base_corner": { "model": "minestuck_alternia:block/portal_base_corner","y":180 },
+    	"facing=south,part=base_center": { "model": "minestuck_alternia:block/portal_base_center","y":180 },
+    	"facing=south,part=portal": { "model": "minestuck_alternia:block/portal_portal","y":180 },
+    	"facing=south,part=crown": { "model": "minestuck_alternia:block/portal_crown","y":180},
+    	"facing=south,part=blast_door": { "model": "minestuck_alternia:block/portal_blastdoor","y":180},
+    	
+    	
+    	"facing=west,part=green_head": { "model": "minestuck_alternia:block/portal_green_head","y":270 },
+    	"facing=west,part=red_head": { "model": "minestuck_alternia:block/portal_red_head","y":270 },
+    	"facing=west,part=snake_neck": { "model": "minestuck_alternia:block/portal_snake_neck","y":270 },
+    	"facing=west,part=snake_body": { "model": "minestuck_alternia:block/portal_snake_body","y":270 },
+    	"facing=west,part=crown": { "model": "minestuck_alternia:block/portal_crown","y":270 },
+    	"facing=west,part=base_edge": { "model": "minestuck_alternia:block/portal_base_edge","y":270 },
+    	"facing=west,part=base_corner": { "model": "minestuck_alternia:block/portal_base_corner","y":270 },
+    	"facing=west,part=base_center": { "model": "minestuck_alternia:block/portal_base_center","y":270 },
+    	"facing=west,part=portal": { "model": "minestuck_alternia:block/portal_portal","y":270},
+    	"facing=west,part=crown": { "model": "minestuck_alternia:block/portal_crown","y":270},
+    	"facing=west,part=blast_door": { "model": "minestuck_alternia:block/portal_blastdoor","y":270}
+    	
+
+    }
+}

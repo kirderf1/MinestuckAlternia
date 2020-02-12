@@ -1,10 +1,11 @@
 package com.apocfarce.minestuck_alternia.Item;
 
 import com.apocfarce.minestuck_alternia.Minestuck_alternia;
-import com.apocfarce.minestuck_alternia.Item.BloodBottle;
-import com.apocfarce.minestuck_alternia.Item.ENUM_BLOOD_COLOR;
-import com.apocfarce.minestuck_alternia.Item.ExampleItem;
-import com.apocfarce.minestuck_alternia.Item.ItemGroupAlternia;
+import com.apocfarce.minestuck_alternia.Item.block.GreenSnakeItem;
+import com.apocfarce.minestuck_alternia.Item.block.PortalBaseItem;
+import com.apocfarce.minestuck_alternia.Item.block.PortalCenterItem;
+import com.apocfarce.minestuck_alternia.Item.block.PortalCrownItem;
+import com.apocfarce.minestuck_alternia.Item.block.RedSnakeItem;
 import com.apocfarce.minestuck_alternia.block.AlterniaBlocks;
 
 import net.minecraft.block.Block;
@@ -22,7 +23,13 @@ public class AlterniaItems
 	//public static CreativeTabs modTab = TabAlternia.instance;
 	
 	//items
-	public static Item ExampleItem;
+	public static Item cherubKey;
+	//items used only in crafting
+	public static Item redSnake;
+	public static Item greenSnake;
+	public static Item portalCrown;
+	public static Item portalBody;
+	public static Item portalBase;
 	//multi colored items
 	public static Item[] bloodPotions;
 	
@@ -41,7 +48,11 @@ public class AlterniaItems
 		 * items
 		 *-------------------------------------*/
 		//items
-		ExampleItem=register(registry,modid+":example_item",new ExampleItem(new Item.Properties().group(ItemGroupAlternia.instance)));
+		cherubKey=register(registry,modid+":cherub_key",new Item(new Item.Properties().group(ItemGroupAlternia.instance)));
+		
+
+		
+		
 		//food
 		register(registry,modid+":oblong_meat_product",new Item(new Item.Properties().group(ItemGroupAlternia.instance).food(new Food.Builder().hunger(6).saturation(3).build())));
 		//blood colored items
@@ -59,7 +70,16 @@ public class AlterniaItems
 		register(registry,AlterniaBlocks.darkStone,ItemGroupAlternia.instance);
 		register(registry,AlterniaBlocks.redCobble,ItemGroupAlternia.instance);
 		register(registry,AlterniaBlocks.redRock,ItemGroupAlternia.instance);
-		register(registry,AlterniaBlocks.block,ItemGroupAlternia.instance);
+		register(registry,new PortalCenterItem(AlterniaBlocks.portalCenter, new Item.Properties().group(ItemGroupAlternia.instance)));
+		register(registry,new PortalCrownItem(AlterniaBlocks.portalCrown, new Item.Properties().group(ItemGroupAlternia.instance)));
+		register(registry,new PortalBaseItem(AlterniaBlocks.portalBase, new Item.Properties().group(ItemGroupAlternia.instance)));
+		register(registry,new RedSnakeItem(AlterniaBlocks.redSnake, new Item.Properties().group(ItemGroupAlternia.instance)));
+		register(registry,new GreenSnakeItem(AlterniaBlocks.greenSnake, new Item.Properties().group(ItemGroupAlternia.instance)));
+
+			
+		
+		
+		
 		for(int i=0;i<AlterniaBlocks.hiveGlass.length;i++) {
 			if(i!= ENUM_BLOOD_COLOR.MUTANT.ordinal()) {
 				register(registry,AlterniaBlocks.hiveGlass[i],ItemGroupAlternia.instance);

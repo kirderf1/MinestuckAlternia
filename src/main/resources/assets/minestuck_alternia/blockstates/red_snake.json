@@ -1,0 +1,22 @@
+{
+    "variants": {
+    	"facing=north,part=red_head": { "model": "minestuck_alternia:block/portal_red_head" },
+    	"facing=north,part=snake_neck": { "model": "minestuck_alternia:block/portal_snake_neck" },
+    	"facing=north,part=snake_body": { "model": "minestuck_alternia:block/portal_snake_body" },
+    	
+    	
+    	"facing=east,part=red_head": { "model": "minestuck_alternia:block/portal_red_head","y":90 },
+    	"facing=east,part=snake_neck": { "model": "minestuck_alternia:block/portal_snake_neck","y":90 },
+    	"facing=east,part=snake_body": { "model": "minestuck_alternia:block/portal_snake_body","y":90 },
+    	
+    	
+    	"facing=south,part=red_head": { "model": "minestuck_alternia:block/portal_red_head","y":180 },
+    	"facing=south,part=snake_neck": { "model": "minestuck_alternia:block/portal_snake_neck","y":180 },
+    	"facing=south,part=snake_body": { "model": "minestuck_alternia:block/portal_snake_body","y":180 },
+    	
+    	
+    	"facing=west,part=red_head": { "model": "minestuck_alternia:block/portal_red_head","y":270 },
+    	"facing=west,part=snake_neck": { "model": "minestuck_alternia:block/portal_snake_neck","y":270 },
+    	"facing=west,part=snake_body": { "model": "minestuck_alternia:block/portal_snake_body","y":270 }
+    	}
+}

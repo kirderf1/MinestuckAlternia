@@ -1,0 +1,12 @@
+{
+	"parent": "block/cube",
+	"textures": {
+		"particle":"minestuck_alternia:blocks/portal_inside",
+		"down": "minestuck_alternia:blocks/snake_head_bottom",
+		"up": "minestuck_alternia:blocks/snake_head_top",
+		"north": "minestuck_alternia:blocks/red_snake_head_front",
+		"east": "minestuck_alternia:blocks/red_snake_head_right",
+		"south": "minestuck_alternia:blocks/portal_inside",
+		"west": "minestuck_alternia:blocks/red_snake_head_left"
+	}
+}

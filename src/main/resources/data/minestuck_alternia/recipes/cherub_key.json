@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "  E",
+    "ER ",
+    "GE "
+  ],
+  "key": {
+    "E": {
+      "item": "minecraft:emerald"
+    },
+    "R": {
+      "item": "minecraft:red_dye"
+    },
+    "G": {
+        "item": "minecraft:lime_dye"
+      }
+  },
+  "result": {
+    "item": "minestuck_alternia:cherub_key"
+  }
+}

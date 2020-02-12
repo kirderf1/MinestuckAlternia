@@ -1,0 +1,15 @@
+{
+    "variants": {
+		"facing=north,is_open=true": { "model": "minestuck_alternia:block/portal_portal"},
+    	"facing=north,is_open=false": { "model": "minestuck_alternia:block/portal_blastdoor"},
+    	
+    	"facing=east,is_open=true": { "model": "minestuck_alternia:block/portal_portal","y":90 },
+    	"facing=east,is_open=false": { "model": "minestuck_alternia:block/portal_blastdoor","y":90},
+    	
+    	"facing=south,is_open=true": { "model": "minestuck_alternia:block/portal_portal","y":180 },
+    	"facing=south,is_open=false": { "model": "minestuck_alternia:block/portal_blastdoor","y":180},
+    	
+    	"facing=west,is_open=true": { "model": "minestuck_alternia:block/portal_portal","y":270},
+    	"facing=west,is_open=false": { "model": "minestuck_alternia:block/portal_blastdoor","y":270}
+    }
+}

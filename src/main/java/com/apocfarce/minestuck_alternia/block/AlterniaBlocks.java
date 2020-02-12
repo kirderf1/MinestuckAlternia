@@ -13,11 +13,16 @@ public class AlterniaBlocks
 {
 	
 	//Blocks
-	public static Block block;
 	public static Block darkStone;
 	public static Block darkCobble;
 	public static Block redRock;
 	public static Block redCobble;
+	public static Block portalCenter;
+	public static Block portalBase;
+	public static Block portalCrown;
+	public static Block redSnake;
+	public static Block greenSnake;
+	
 	//BloodColoredBlocks
 	public static Block hiveGlass[];
 	
@@ -34,12 +39,16 @@ public class AlterniaBlocks
 		}
 
 
-		block=register(registry,"minestuck_alternia:block",new Block(Block.Properties.create(Material.ROCK).sound(SoundType.STONE).hardnessAndResistance(1.5F, 10.0F)));
-		darkStone=register(registry,"minestuck_alternia:dark_stone",new Block(Block.Properties.create(Material.ROCK).sound(SoundType.STONE).hardnessAndResistance(1.5F, 10.0F)));
-		darkCobble=register(registry,"minestuck_alternia:dark_cobble",new Block(Block.Properties.create(Material.ROCK).sound(SoundType.STONE).hardnessAndResistance(1.5F, 10.0F)));
-		redRock=register(registry,"minestuck_alternia:red_rock",new Block(Block.Properties.create(Material.ROCK).sound(SoundType.STONE).hardnessAndResistance(1.5F, 10.0F)));
-		redCobble=register(registry,"minestuck_alternia:red_cobble",new Block(Block.Properties.create(Material.ROCK).sound(SoundType.STONE).hardnessAndResistance(1.5F, 10.0F)));
+		darkStone=register(registry,"minestuck_alternia:dark_stone",new Block(Block.Properties.create(Material.ROCK).sound(SoundType.STONE).hardnessAndResistance(1.5F, 6.0F)));
+		darkCobble=register(registry,"minestuck_alternia:dark_cobble",new Block(Block.Properties.create(Material.ROCK).sound(SoundType.STONE).hardnessAndResistance(2.0F, 10.0F)));
+		redRock=register(registry,"minestuck_alternia:red_rock",new Block(Block.Properties.create(Material.ROCK).sound(SoundType.STONE).hardnessAndResistance(1.5F, 6.0F)));
+		redCobble=register(registry,"minestuck_alternia:red_cobble",new Block(Block.Properties.create(Material.ROCK).sound(SoundType.STONE).hardnessAndResistance(2.0F, 10.0F)));
 
+		portalCenter =register(registry,"minestuck_alternia:portal_center",new PortalCenter(Block.Properties.create(Material.IRON).sound(SoundType.STONE).hardnessAndResistance(5.0F, 6.0F)));
+		portalCrown = register(registry,"minestuck_alternia:portal_crown", new PortalCrown(Block.Properties.create(Material.IRON).sound(SoundType.STONE).hardnessAndResistance(5.0F, 6.0F)));
+		portalBase =  register(registry,"minestuck_alternia:portal_base",  new PortalBase(Block.Properties.create(Material.IRON).sound(SoundType.STONE).hardnessAndResistance(5.0F, 6.0F)));
+		redSnake =    register(registry,"minestuck_alternia:red_snake",    new RedSnake(Block.Properties.create(Material.IRON).sound(SoundType.STONE).hardnessAndResistance(5.0F, 6.0F)));
+		greenSnake =  register(registry,"minestuck_alternia:green_snake",  new GreenSnake(Block.Properties.create(Material.IRON).sound(SoundType.STONE).hardnessAndResistance(5.0F, 6.0F)));
 	}
 	
 	private static Block register(IForgeRegistry<Block> registry,ResourceLocation key, Block blockIn){
@@ -49,5 +58,4 @@ public class AlterniaBlocks
 	private static Block register(IForgeRegistry<Block> registry,String key, Block blockIn){
 		return register(registry,new ResourceLocation(key), blockIn);
 	}
-
 }
