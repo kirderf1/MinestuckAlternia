@@ -31,9 +31,9 @@ public enum AlterniaEdgeBiomeLayer implements ICastleTransformer {
 
 	public int apply(INoiseRandom context, int north, int west, int south, int east, int center) {
 		int[] aint = new int[1];
-		if(this.replaceBiomeEdge(aint, north, west, south, east, center, AlterniaBiomeHandeler.AlterniaDeepForest, AlterniaBiomeHandeler.AlterniaWoods)) {
-			return aint[0];
-		}
+//		if(this.replaceBiomeEdge(aint, north, west, south, east, center, AlterniaBiomeHandeler.AlterniaDeepForest, AlterniaBiomeHandeler.AlterniaWoods)) {
+//			return aint[0];
+//		}
 		
 		
 		return center;

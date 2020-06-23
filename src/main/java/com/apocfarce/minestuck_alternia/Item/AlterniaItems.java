@@ -70,12 +70,41 @@ public class AlterniaItems
 		register(registry,AlterniaBlocks.darkStone,ItemGroupAlternia.instance);
 		register(registry,AlterniaBlocks.redCobble,ItemGroupAlternia.instance);
 		register(registry,AlterniaBlocks.redRock,ItemGroupAlternia.instance);
+		
+
+		register(registry,AlterniaBlocks.pyralSapling,ItemGroupAlternia.instance);
+		register(registry,AlterniaBlocks.pyralLeaves,ItemGroupAlternia.instance);
+		register(registry,AlterniaBlocks.pyralLog,ItemGroupAlternia.instance);
+		register(registry,AlterniaBlocks.pyralWood,ItemGroupAlternia.instance);
+		register(registry,AlterniaBlocks.strippedPyralLog,ItemGroupAlternia.instance);
+		register(registry,AlterniaBlocks.strippedPyralWood,ItemGroupAlternia.instance);
+		register(registry,AlterniaBlocks.pyralPlanks,ItemGroupAlternia.instance);
+		register(registry,AlterniaBlocks.pyralStairs,ItemGroupAlternia.instance);
+		register(registry,AlterniaBlocks.pyralSlab,ItemGroupAlternia.instance);
+		register(registry,AlterniaBlocks.pyralFence,ItemGroupAlternia.instance);
+		register(registry,AlterniaBlocks.pyralFenceGate,ItemGroupAlternia.instance);
+
+		register(registry,AlterniaBlocks.mirrageSapling,ItemGroupAlternia.instance);
+		register(registry,AlterniaBlocks.mirrageLeaves,ItemGroupAlternia.instance);
+		register(registry,AlterniaBlocks.mirrageLog,ItemGroupAlternia.instance);
+		register(registry,AlterniaBlocks.mirrageWood,ItemGroupAlternia.instance);
+		register(registry,AlterniaBlocks.strippedmirrageLog,ItemGroupAlternia.instance);
+		register(registry,AlterniaBlocks.strippedmirrageWood,ItemGroupAlternia.instance);
+		register(registry,AlterniaBlocks.mirragePlanks,ItemGroupAlternia.instance);
+		register(registry,AlterniaBlocks.mirrageStairs,ItemGroupAlternia.instance);
+		register(registry,AlterniaBlocks.mirrageSlab,ItemGroupAlternia.instance);
+		register(registry,AlterniaBlocks.mirrageFence,ItemGroupAlternia.instance);
+		register(registry,AlterniaBlocks.mirrageFenceGate,ItemGroupAlternia.instance);
+		
+		register(registry,AlterniaBlocks.pyralGrass,ItemGroupAlternia.instance);
+		
+		
 		register(registry,new PortalCenterItem(AlterniaBlocks.portalCenter, new Item.Properties().group(ItemGroupAlternia.instance)));
 		register(registry,new PortalCrownItem(AlterniaBlocks.portalCrown, new Item.Properties().group(ItemGroupAlternia.instance)));
 		register(registry,new PortalBaseItem(AlterniaBlocks.portalBase, new Item.Properties().group(ItemGroupAlternia.instance)));
 		register(registry,new RedSnakeItem(AlterniaBlocks.redSnake, new Item.Properties().group(ItemGroupAlternia.instance)));
 		register(registry,new GreenSnakeItem(AlterniaBlocks.greenSnake, new Item.Properties().group(ItemGroupAlternia.instance)));
-
+	
 			
 		
 		
