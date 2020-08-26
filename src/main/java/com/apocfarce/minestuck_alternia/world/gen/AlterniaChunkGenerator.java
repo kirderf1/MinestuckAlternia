@@ -160,6 +160,7 @@ public class AlterniaChunkGenerator extends NoiseChunkGenerator<AlterniaGenSetti
       this.patrolSpawner.tick(worldIn, spawnHostileMobs, spawnPeacefulMobs);
       this.catSpawner.tick(worldIn, spawnHostileMobs, spawnPeacefulMobs);
       this.field_225495_n.func_225477_a(worldIn, spawnHostileMobs, spawnPeacefulMobs);
+
    }
 
    public int getGroundHeight() {

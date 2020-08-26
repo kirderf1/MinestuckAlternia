@@ -1,5 +1,8 @@
 package com.apocfarce.minestuck_alternia.world.biome;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import com.apocfarce.minestuck_alternia.block.AlterniaBlocks;
 import com.apocfarce.minestuck_alternia.world.gen.feature.AlterniaFeatureHandeler;
 import com.apocfarce.minestuck_alternia.world.gen.surfacebuilder.SurfaceBuilderHandeler;
@@ -8,17 +11,20 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.DefaultBiomeFeatures;
 import net.minecraft.world.gen.GenerationStage;
+import net.minecraft.world.gen.feature.ConfiguredFeature;
+import net.minecraft.world.gen.feature.ConfiguredRandomFeatureList;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.GrassFeatureConfig;
 import net.minecraft.world.gen.feature.IFeatureConfig;
 import net.minecraft.world.gen.feature.MultipleRandomFeatureConfig;
+import net.minecraft.world.gen.feature.NoFeatureConfig;
 import net.minecraft.world.gen.placement.AtSurfaceWithExtraConfig;
+import net.minecraft.world.gen.placement.ChanceConfig;
 import net.minecraft.world.gen.placement.FrequencyConfig;
 import net.minecraft.world.gen.placement.Placement;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
 
 public class RainbowDesertBiome extends Biome {
-
 	protected RainbowDesertBiome() {
 		super(new Biome.Builder()
 				.surfaceBuilder(SurfaceBuilderHandeler.ColoredSands,SurfaceBuilder.SAND_CONFIG)
@@ -33,22 +39,32 @@ public class RainbowDesertBiome extends Biome {
 				.waterFogColor(0x115588)
 				.parent((String)null)
 				);
-	      DefaultBiomeFeatures.addCarvers(this);
-	      DefaultBiomeFeatures.addStructures(this);
-	      DefaultBiomeFeatures.addMonsterRooms(this);
-	      DefaultBiomeFeatures.addStoneVariants(this);
-	      DefaultBiomeFeatures.addOres(this);
-	      DefaultBiomeFeatures.addSedimentDisks(this);
-	      
-	      
-
-	      DefaultBiomeFeatures.addExtraDefaultFlowers(this);
-	      DefaultBiomeFeatures.addJungleGrass(this);
-	      DefaultBiomeFeatures.addMushrooms(this);
-	      DefaultBiomeFeatures.addSprings(this);
-	      DefaultBiomeFeatures.addFreezeTopLayer(this);
 		
+		List<ConfiguredRandomFeatureList<?>> biomeHives = new ArrayList<ConfiguredRandomFeatureList<?>>();
+		
+		biomeHives.add(new ConfiguredRandomFeatureList<NoFeatureConfig>(AlterniaFeatureHandeler.bronzeHiveFeature,IFeatureConfig.NO_FEATURE_CONFIG,0.5F));
+		biomeHives.add(new ConfiguredRandomFeatureList<NoFeatureConfig>(AlterniaFeatureHandeler.bronzeGreenHouseFeature,IFeatureConfig.NO_FEATURE_CONFIG,0.5F));
+		
+		this.addFeature(GenerationStage.Decoration.LOCAL_MODIFICATIONS, Biome.createDecoratedFeature(Feature.RANDOM_SELECTOR, new MultipleRandomFeatureConfig(biomeHives, new ConfiguredFeature<NoFeatureConfig>(AlterniaFeatureHandeler.bronzeHiveFeature, IFeatureConfig.NO_FEATURE_CONFIG)),Placement.CHANCE_HEIGHTMAP, new ChanceConfig(500)));
 
+		
+		
+		DefaultBiomeFeatures.addCarvers(this);
+		DefaultBiomeFeatures.addStructures(this);
+		DefaultBiomeFeatures.addMonsterRooms(this);
+		DefaultBiomeFeatures.addStoneVariants(this);
+		DefaultBiomeFeatures.addOres(this);
+		DefaultBiomeFeatures.addSedimentDisks(this);
+		
+	      
+
+		DefaultBiomeFeatures.addExtraDefaultFlowers(this);
+		DefaultBiomeFeatures.addJungleGrass(this);
+		DefaultBiomeFeatures.addMushrooms(this);
+		DefaultBiomeFeatures.addSprings(this);
+		DefaultBiomeFeatures.addFreezeTopLayer(this);
+			
+		
 		
 	}
 	@Override

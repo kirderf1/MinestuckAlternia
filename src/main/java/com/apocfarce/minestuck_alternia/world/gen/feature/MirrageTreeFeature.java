@@ -28,7 +28,7 @@ public class MirrageTreeFeature  extends AbstractTreeFeature<NoFeatureConfig>{
 
 	@Override
 	protected boolean place(Set<BlockPos> changedBlocks, IWorldGenerationReader worldIn, Random rand, BlockPos position, MutableBoundingBox boundsIn) {
-		int height = rand.nextInt(3) + 5;
+ 		int height = rand.nextInt(3) + 5;
 
 		boolean flag = true;
 
