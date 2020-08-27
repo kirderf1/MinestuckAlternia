@@ -30,26 +30,15 @@ public class AlterniaTemplateFeature extends Feature<NoFeatureConfig> {
 	@Override
 	public boolean place(IWorld worldIn, ChunkGenerator<? extends GenerationSettings> generator, Random rand, BlockPos pos, NoFeatureConfig config) {
 		if(worldIn.getWorld() instanceof ServerWorld){
-			ChunkPos chunkpos = new ChunkPos(pos);
 			TemplateManager manager = ((ServerWorld)worldIn.getWorld()).getSaveHandler().getStructureTemplateManager();
 			Template template = manager.getTemplateDefaulted(this.getRegistryName());
-			
 			PlacementSettings placementSettings = new PlacementSettings();
-			pos = floorTransform(placementSettings,pos);
-			System.out.println(pos);
-		    
-			
-		    
 			template.addBlocksToWorld(worldIn, pos.subtract(floorPos), placementSettings);
-			worldIn.setBlockState(pos, Blocks.GOLD_BLOCK.getDefaultState(), 1);
 			return true;
 		}
 		return false;
 	}
 	
-	private BlockPos floorTransform(PlacementSettings settings,BlockPos pos) {
-		//TODO
-		return pos;
-	}
+
 	
 }
