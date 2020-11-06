@@ -17,49 +17,49 @@ public class AlterniaFeatureHandeler {
 
 	
 	
-	public static Feature<NoFeatureConfig> burgundyHiveFeature1 = new AlterniaTemplateFeature(NoFeatureConfig::deserialize,new BlockPos(5,1,6));//--
-	public static Feature<NoFeatureConfig> burgundyHiveFeature2 = new AlterniaTemplateFeature(NoFeatureConfig::deserialize,new BlockPos(3,1,5));//--
-	public static Feature<NoFeatureConfig> burgundyHiveFeature3 = new AlterniaTemplateFeature(NoFeatureConfig::deserialize,new BlockPos(15,1,0));//--
+	public static Feature<NoFeatureConfig> burgundyHiveFeature1 = new AlterniaTemplateFeature(NoFeatureConfig::deserialize,new BlockPos(5,1,6));
+	public static Feature<NoFeatureConfig> burgundyHiveFeature2 = new AlterniaTemplateFeature(NoFeatureConfig::deserialize,new BlockPos(3,1,5));
+	public static Feature<NoFeatureConfig> burgundyHiveFeature3 = new AlterniaTemplateFeature(NoFeatureConfig::deserialize,new BlockPos(15,1,0));
 	
-	public static Feature<NoFeatureConfig> bronzeHiveFeature1 = new AlterniaTemplateFeature(NoFeatureConfig::deserialize,new BlockPos(8,5,1));//--
-	public static Feature<NoFeatureConfig> bronzeHiveFeature2 = new AlterniaTemplateFeature(NoFeatureConfig::deserialize, new BlockPos(8,4,0));//--
-	public static Feature<NoFeatureConfig> bronzeHiveFeature3 = new AlterniaTemplateFeature(NoFeatureConfig::deserialize, new BlockPos(1,1,6));//--
+	public static Feature<NoFeatureConfig> bronzeHiveFeature1 = new AlterniaTemplateFeature(NoFeatureConfig::deserialize,new BlockPos(8,5,1));
+	public static Feature<NoFeatureConfig> bronzeHiveFeature2 = new AlterniaTemplateFeature(NoFeatureConfig::deserialize, new BlockPos(8,4,0));
+	public static Feature<NoFeatureConfig> bronzeHiveFeature3 = new AlterniaTemplateFeature(NoFeatureConfig::deserialize, new BlockPos(1,1,6));
 	
-	public static Feature<NoFeatureConfig> goldHiveFeature1 = new AlterniaTemplateFeature(NoFeatureConfig::deserialize,new BlockPos(15,0,0));//--
-	public static Feature<NoFeatureConfig> goldHiveFeature2 = new AlterniaTemplateFeature(NoFeatureConfig::deserialize, new BlockPos(7,1,9));//--
-	public static Feature<NoFeatureConfig> goldHiveFeature3 = new AlterniaTemplateFeature(NoFeatureConfig::deserialize, new BlockPos(0,1,11));//--
+	public static Feature<NoFeatureConfig> goldHiveFeature1 = new AlterniaTemplateFeature(NoFeatureConfig::deserialize,new BlockPos(15,0,0));
+	public static Feature<NoFeatureConfig> goldHiveFeature2 = new AlterniaTemplateFeature(NoFeatureConfig::deserialize, new BlockPos(7,1,9));
+	public static Feature<NoFeatureConfig> goldHiveFeature3 = new AlterniaTemplateFeature(NoFeatureConfig::deserialize, new BlockPos(0,1,11));
 
-	public static Feature<NoFeatureConfig> mutantHiveFeature1 = new AlterniaTemplateFeature(NoFeatureConfig::deserialize,new BlockPos(1,4,8));//--
-	public static Feature<NoFeatureConfig> mutantHiveFeature2 = new AlterniaTemplateFeature(NoFeatureConfig::deserialize, new BlockPos(14,0,0));//--
-	public static Feature<NoFeatureConfig> mutantHiveFeature3 = new AlterniaTemplateFeature(NoFeatureConfig::deserialize, new BlockPos(0,0,6));//--
+	public static Feature<NoFeatureConfig> mutantHiveFeature1 = new AlterniaTemplateFeature(NoFeatureConfig::deserialize,new BlockPos(1,4,8));
+	public static Feature<NoFeatureConfig> mutantHiveFeature2 = new AlterniaTemplateFeature(NoFeatureConfig::deserialize, new BlockPos(14,0,0));
+	public static Feature<NoFeatureConfig> mutantHiveFeature3 = new AlterniaTemplateFeature(NoFeatureConfig::deserialize, new BlockPos(0,0,6));
 
-	public static Feature<NoFeatureConfig> limeHiveFeature1 = new AlterniaTemplateFeature(NoFeatureConfig::deserialize,new BlockPos(9,1,0));//--
-	public static Feature<NoFeatureConfig> limeHiveFeature2 = new AlterniaTemplateFeature(NoFeatureConfig::deserialize, new BlockPos(0,1,15));//--
-	public static Feature<NoFeatureConfig> limeHiveFeature3 = new AlterniaTemplateFeature(NoFeatureConfig::deserialize, new BlockPos(0,0,15));//--
+	public static Feature<NoFeatureConfig> limeHiveFeature1 = new AlterniaTemplateFeature(NoFeatureConfig::deserialize,new BlockPos(9,1,0));
+	public static Feature<NoFeatureConfig> limeHiveFeature2 = new AlterniaTemplateFeature(NoFeatureConfig::deserialize, new BlockPos(0,1,15));
+	public static Feature<NoFeatureConfig> limeHiveFeature3 = new AlterniaTemplateFeature(NoFeatureConfig::deserialize, new BlockPos(0,0,15));
 
-	public static Feature<NoFeatureConfig> oliveHiveFeature1 = new AlterniaTemplateFeature(NoFeatureConfig::deserialize,new BlockPos(4,1,13));//--
-	public static Feature<NoFeatureConfig> oliveHiveFeature2 = new AlterniaTemplateFeature(NoFeatureConfig::deserialize, new BlockPos(13,1,6));//--
-	public static Feature<NoFeatureConfig> oliveHiveFeature3 = new AlterniaTemplateFeature(NoFeatureConfig::deserialize, new BlockPos(11,19,5));//--
+	public static Feature<NoFeatureConfig> oliveHiveFeature1 = new AlterniaTemplateFeature(NoFeatureConfig::deserialize,new BlockPos(4,1,13));
+	public static Feature<NoFeatureConfig> oliveHiveFeature2 = new AlterniaTemplateFeature(NoFeatureConfig::deserialize, new BlockPos(13,1,6));
+	public static Feature<NoFeatureConfig> oliveHiveFeature3 = new AlterniaTemplateFeature(NoFeatureConfig::deserialize, new BlockPos(11,19,5));
 
-	public static Feature<NoFeatureConfig> jadeHiveFeature1 = new AlterniaTemplateFeature(NoFeatureConfig::deserialize,new BlockPos(10,1,31));//--
-	public static Feature<NoFeatureConfig> jadeHiveFeature2 = new AlterniaTemplateFeature(NoFeatureConfig::deserialize, new BlockPos(14,1,0));//--
-	public static Feature<NoFeatureConfig> jadeHiveFeature3 = new AlterniaTemplateFeature(NoFeatureConfig::deserialize, new BlockPos(3,1,5));//--
+	public static Feature<NoFeatureConfig> jadeHiveFeature1 = new AlterniaTemplateFeature(NoFeatureConfig::deserialize,new BlockPos(10,1,31));
+	public static Feature<NoFeatureConfig> jadeHiveFeature2 = new AlterniaTemplateFeature(NoFeatureConfig::deserialize, new BlockPos(14,1,0));
+	public static Feature<NoFeatureConfig> jadeHiveFeature3 = new AlterniaTemplateFeature(NoFeatureConfig::deserialize, new BlockPos(3,1,5));
 
-	public static Feature<NoFeatureConfig> tealHiveFeature1 = new AlterniaTemplateFeature(NoFeatureConfig::deserialize,new BlockPos(0,1,15));//--
-	public static Feature<NoFeatureConfig> tealHiveFeature2 = new AlterniaTemplateFeature(NoFeatureConfig::deserialize, new BlockPos(1,1,15));//--
-	public static Feature<NoFeatureConfig> tealHiveFeature3 = new AlterniaTemplateFeature(NoFeatureConfig::deserialize, new BlockPos(15,1,0));//--
+	public static Feature<NoFeatureConfig> tealHiveFeature1 = new AlterniaTemplateFeature(NoFeatureConfig::deserialize,new BlockPos(0,1,15));
+	public static Feature<NoFeatureConfig> tealHiveFeature2 = new AlterniaTemplateFeature(NoFeatureConfig::deserialize, new BlockPos(1,1,15));
+	public static Feature<NoFeatureConfig> tealHiveFeature3 = new AlterniaTemplateFeature(NoFeatureConfig::deserialize, new BlockPos(15,1,0));
 
-	public static Feature<NoFeatureConfig> ceruleanHiveFeature1 = new AlterniaTemplateFeature(NoFeatureConfig::deserialize,new BlockPos(4,0,10));//--
-	public static Feature<NoFeatureConfig> ceruleanHiveFeature2 = new AlterniaTemplateFeature(NoFeatureConfig::deserialize, new BlockPos(21,10,15));//--
-	public static Feature<NoFeatureConfig> ceruleanHiveFeature3 = new AlterniaTemplateFeature(NoFeatureConfig::deserialize, new BlockPos(20,21,15));//--
+	public static Feature<NoFeatureConfig> ceruleanHiveFeature1 = new AlterniaTemplateFeature(NoFeatureConfig::deserialize,new BlockPos(4,0,10));
+	public static Feature<NoFeatureConfig> ceruleanHiveFeature2 = new AlterniaTemplateFeature(NoFeatureConfig::deserialize, new BlockPos(21,10,15));
+	public static Feature<NoFeatureConfig> ceruleanHiveFeature3 = new AlterniaTemplateFeature(NoFeatureConfig::deserialize, new BlockPos(20,21,15));
 
-	public static Feature<NoFeatureConfig> indigoHiveFeature1 = new AlterniaTemplateFeature(NoFeatureConfig::deserialize,new BlockPos(3,1,0));//--
-	public static Feature<NoFeatureConfig> indigoHiveFeature2 = new AlterniaTemplateFeature(NoFeatureConfig::deserialize, new BlockPos(1,1,15));//--
-	public static Feature<NoFeatureConfig> indigoHiveFeature3 = new AlterniaTemplateFeature(NoFeatureConfig::deserialize, new BlockPos(0,1,15));//--
+	public static Feature<NoFeatureConfig> indigoHiveFeature1 = new AlterniaTemplateFeature(NoFeatureConfig::deserialize,new BlockPos(3,1,0));
+	public static Feature<NoFeatureConfig> indigoHiveFeature2 = new AlterniaTemplateFeature(NoFeatureConfig::deserialize, new BlockPos(1,1,15));
+	public static Feature<NoFeatureConfig> indigoHiveFeature3 = new AlterniaTemplateFeature(NoFeatureConfig::deserialize, new BlockPos(0,1,15));
 	
-	public static Feature<NoFeatureConfig> purpleHiveFeature1 = new AlterniaTemplateFeature(NoFeatureConfig::deserialize,new BlockPos(15,11,13));//--
-	public static Feature<NoFeatureConfig> purpleHiveFeature2 = new AlterniaTemplateFeature(NoFeatureConfig::deserialize, new BlockPos(1,0,1));//--
-	public static Feature<NoFeatureConfig> purpleHiveFeature3 = new AlterniaTemplateFeature(NoFeatureConfig::deserialize, new BlockPos(15,0,0));//--
+	public static Feature<NoFeatureConfig> purpleHiveFeature1 = new AlterniaTemplateFeature(NoFeatureConfig::deserialize,new BlockPos(15,11,13));
+	public static Feature<NoFeatureConfig> purpleHiveFeature2 = new AlterniaTemplateFeature(NoFeatureConfig::deserialize, new BlockPos(1,0,1));
+	public static Feature<NoFeatureConfig> purpleHiveFeature3 = new AlterniaTemplateFeature(NoFeatureConfig::deserialize, new BlockPos(15,0,0));
 	
 	
 	public static void registerFeatures(RegistryEvent.Register<Feature<?>> event)

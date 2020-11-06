@@ -44,17 +44,17 @@ public final class AlterniaPlains extends Biome {
 
 		List<ConfiguredRandomFeatureList<?>> biomeHives = new ArrayList<ConfiguredRandomFeatureList<?>>();
 		
-		//biomeHives.add(new ConfiguredRandomFeatureList<NoFeatureConfig>(AlterniaFeatureHandeler.burgundyHiveFeature1,IFeatureConfig.NO_FEATURE_CONFIG,0.1F));
-		//biomeHives.add(new ConfiguredRandomFeatureList<NoFeatureConfig>(AlterniaFeatureHandeler.burgundyHiveFeature2,IFeatureConfig.NO_FEATURE_CONFIG,0.1F));
-		//biomeHives.add(new ConfiguredRandomFeatureList<NoFeatureConfig>(AlterniaFeatureHandeler.burgundyHiveFeature3,IFeatureConfig.NO_FEATURE_CONFIG,0.1F));
+		biomeHives.add(new ConfiguredRandomFeatureList<NoFeatureConfig>(AlterniaFeatureHandeler.burgundyHiveFeature1,IFeatureConfig.NO_FEATURE_CONFIG,0.1F));
+		biomeHives.add(new ConfiguredRandomFeatureList<NoFeatureConfig>(AlterniaFeatureHandeler.burgundyHiveFeature2,IFeatureConfig.NO_FEATURE_CONFIG,0.1F));
+		biomeHives.add(new ConfiguredRandomFeatureList<NoFeatureConfig>(AlterniaFeatureHandeler.burgundyHiveFeature3,IFeatureConfig.NO_FEATURE_CONFIG,0.1F));
 		
-		//biomeHives.add(new ConfiguredRandomFeatureList<NoFeatureConfig>(AlterniaFeatureHandeler.bronzeHiveFeature1,IFeatureConfig.NO_FEATURE_CONFIG,0.3F));
-		//biomeHives.add(new ConfiguredRandomFeatureList<NoFeatureConfig>(AlterniaFeatureHandeler.bronzeHiveFeature2,IFeatureConfig.NO_FEATURE_CONFIG,0.3F));
-		//biomeHives.add(new ConfiguredRandomFeatureList<NoFeatureConfig>(AlterniaFeatureHandeler.bronzeHiveFeature3,IFeatureConfig.NO_FEATURE_CONFIG,0.3F));
+		biomeHives.add(new ConfiguredRandomFeatureList<NoFeatureConfig>(AlterniaFeatureHandeler.bronzeHiveFeature1,IFeatureConfig.NO_FEATURE_CONFIG,0.3F));
+		biomeHives.add(new ConfiguredRandomFeatureList<NoFeatureConfig>(AlterniaFeatureHandeler.bronzeHiveFeature2,IFeatureConfig.NO_FEATURE_CONFIG,0.3F));
+		biomeHives.add(new ConfiguredRandomFeatureList<NoFeatureConfig>(AlterniaFeatureHandeler.bronzeHiveFeature3,IFeatureConfig.NO_FEATURE_CONFIG,0.3F));
 
-		//biomeHives.add(new ConfiguredRandomFeatureList<NoFeatureConfig>(AlterniaFeatureHandeler.goldHiveFeature1,IFeatureConfig.NO_FEATURE_CONFIG,0.1F));
-		//biomeHives.add(new ConfiguredRandomFeatureList<NoFeatureConfig>(AlterniaFeatureHandeler.goldHiveFeature2,IFeatureConfig.NO_FEATURE_CONFIG,0.1F));
-		//biomeHives.add(new ConfiguredRandomFeatureList<NoFeatureConfig>(AlterniaFeatureHandeler.goldHiveFeature3,IFeatureConfig.NO_FEATURE_CONFIG,0.1F));
+		biomeHives.add(new ConfiguredRandomFeatureList<NoFeatureConfig>(AlterniaFeatureHandeler.goldHiveFeature1,IFeatureConfig.NO_FEATURE_CONFIG,0.1F));
+		biomeHives.add(new ConfiguredRandomFeatureList<NoFeatureConfig>(AlterniaFeatureHandeler.goldHiveFeature2,IFeatureConfig.NO_FEATURE_CONFIG,0.1F));
+		biomeHives.add(new ConfiguredRandomFeatureList<NoFeatureConfig>(AlterniaFeatureHandeler.goldHiveFeature3,IFeatureConfig.NO_FEATURE_CONFIG,0.1F));
 		
 		this.addFeature(GenerationStage.Decoration.SURFACE_STRUCTURES, Biome.createDecoratedFeature(Feature.RANDOM_SELECTOR, new MultipleRandomFeatureConfig(biomeHives, new ConfiguredFeature<NoFeatureConfig>(AlterniaFeatureHandeler.burgundyHiveFeature3, IFeatureConfig.NO_FEATURE_CONFIG)),Placement.CHANCE_HEIGHTMAP, new ChanceConfig(50)));
 

@@ -42,13 +42,13 @@ public class RainbowDesertBiome extends Biome {
 		
 		List<ConfiguredRandomFeatureList<?>> biomeHives = new ArrayList<ConfiguredRandomFeatureList<?>>();
 		
-		//biomeHives.add(new ConfiguredRandomFeatureList<NoFeatureConfig>(AlterniaFeatureHandeler.indigoHiveFeature1,IFeatureConfig.NO_FEATURE_CONFIG,0.1F));
-		//biomeHives.add(new ConfiguredRandomFeatureList<NoFeatureConfig>(AlterniaFeatureHandeler.indigoHiveFeature2,IFeatureConfig.NO_FEATURE_CONFIG,0.1F));
-		//biomeHives.add(new ConfiguredRandomFeatureList<NoFeatureConfig>(AlterniaFeatureHandeler.indigoHiveFeature3,IFeatureConfig.NO_FEATURE_CONFIG,0.1F));
+		biomeHives.add(new ConfiguredRandomFeatureList<NoFeatureConfig>(AlterniaFeatureHandeler.indigoHiveFeature1,IFeatureConfig.NO_FEATURE_CONFIG,0.1F));
+		biomeHives.add(new ConfiguredRandomFeatureList<NoFeatureConfig>(AlterniaFeatureHandeler.indigoHiveFeature2,IFeatureConfig.NO_FEATURE_CONFIG,0.1F));
+		biomeHives.add(new ConfiguredRandomFeatureList<NoFeatureConfig>(AlterniaFeatureHandeler.indigoHiveFeature3,IFeatureConfig.NO_FEATURE_CONFIG,0.1F));
 
 		biomeHives.add(new ConfiguredRandomFeatureList<NoFeatureConfig>(AlterniaFeatureHandeler.purpleHiveFeature1,IFeatureConfig.NO_FEATURE_CONFIG,1F));
-		//biomeHives.add(new ConfiguredRandomFeatureList<NoFeatureConfig>(AlterniaFeatureHandeler.purpleHiveFeature2,IFeatureConfig.NO_FEATURE_CONFIG,0.1F));
-		//biomeHives.add(new ConfiguredRandomFeatureList<NoFeatureConfig>(AlterniaFeatureHandeler.purpleHiveFeature3,IFeatureConfig.NO_FEATURE_CONFIG,0.1F));
+		biomeHives.add(new ConfiguredRandomFeatureList<NoFeatureConfig>(AlterniaFeatureHandeler.purpleHiveFeature2,IFeatureConfig.NO_FEATURE_CONFIG,0.1F));
+		biomeHives.add(new ConfiguredRandomFeatureList<NoFeatureConfig>(AlterniaFeatureHandeler.purpleHiveFeature3,IFeatureConfig.NO_FEATURE_CONFIG,0.1F));
 
 		this.addFeature(GenerationStage.Decoration.SURFACE_STRUCTURES, Biome.createDecoratedFeature(Feature.RANDOM_SELECTOR, new MultipleRandomFeatureConfig(biomeHives, new ConfiguredFeature<NoFeatureConfig>(AlterniaFeatureHandeler.indigoHiveFeature1, IFeatureConfig.NO_FEATURE_CONFIG)),Placement.CHANCE_HEIGHTMAP, new ChanceConfig(50)));
 
