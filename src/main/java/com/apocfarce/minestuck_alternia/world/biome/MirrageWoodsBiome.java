@@ -43,11 +43,22 @@ public class MirrageWoodsBiome extends Biome {
 		
 		List<ConfiguredRandomFeatureList<?>> biomeHives = new ArrayList<ConfiguredRandomFeatureList<?>>();
 		
-		biomeHives.add(new ConfiguredRandomFeatureList<NoFeatureConfig>(AlterniaFeatureHandeler.burgundyHiveFeature1,IFeatureConfig.NO_FEATURE_CONFIG,0.4F));
-		biomeHives.add(new ConfiguredRandomFeatureList<NoFeatureConfig>(AlterniaFeatureHandeler.burgundyHiveFeature2,IFeatureConfig.NO_FEATURE_CONFIG,0.4F));
-		biomeHives.add(new ConfiguredRandomFeatureList<NoFeatureConfig>(AlterniaFeatureHandeler.bronzeWindmillFeature,IFeatureConfig.NO_FEATURE_CONFIG,0.2F));
 
-		this.addFeature(GenerationStage.Decoration.LOCAL_MODIFICATIONS, Biome.createDecoratedFeature(Feature.RANDOM_SELECTOR, new MultipleRandomFeatureConfig(biomeHives, new ConfiguredFeature<NoFeatureConfig>(AlterniaFeatureHandeler.burgundyHiveFeature1, IFeatureConfig.NO_FEATURE_CONFIG)),Placement.CHANCE_HEIGHTMAP, new ChanceConfig(100)));
+		
+		//biomeHives.add(new ConfiguredRandomFeatureList<NoFeatureConfig>(AlterniaFeatureHandeler.mutantHiveFeature1,IFeatureConfig.NO_FEATURE_CONFIG,0.1F));
+		//biomeHives.add(new ConfiguredRandomFeatureList<NoFeatureConfig>(AlterniaFeatureHandeler.mutantHiveFeature2,IFeatureConfig.NO_FEATURE_CONFIG,0.3F));
+		//biomeHives.add(new ConfiguredRandomFeatureList<NoFeatureConfig>(AlterniaFeatureHandeler.mutantHiveFeature3,IFeatureConfig.NO_FEATURE_CONFIG,0.1F));
+		
+		//biomeHives.add(new ConfiguredRandomFeatureList<NoFeatureConfig>(AlterniaFeatureHandeler.limeHiveFeature1,IFeatureConfig.NO_FEATURE_CONFIG,0.1F));
+		//biomeHives.add(new ConfiguredRandomFeatureList<NoFeatureConfig>(AlterniaFeatureHandeler.limeHiveFeature2,IFeatureConfig.NO_FEATURE_CONFIG,0.1F));
+		//biomeHives.add(new ConfiguredRandomFeatureList<NoFeatureConfig>(AlterniaFeatureHandeler.limeHiveFeature3,IFeatureConfig.NO_FEATURE_CONFIG,0.1F));
+
+		//biomeHives.add(new ConfiguredRandomFeatureList<NoFeatureConfig>(AlterniaFeatureHandeler.oliveHiveFeature1,IFeatureConfig.NO_FEATURE_CONFIG,0.1F));
+		//biomeHives.add(new ConfiguredRandomFeatureList<NoFeatureConfig>(AlterniaFeatureHandeler.oliveHiveFeature2,IFeatureConfig.NO_FEATURE_CONFIG,1F));
+		//biomeHives.add(new ConfiguredRandomFeatureList<NoFeatureConfig>(AlterniaFeatureHandeler.oliveHiveFeature3,IFeatureConfig.NO_FEATURE_CONFIG,0.3F));
+
+		
+		this.addFeature(GenerationStage.Decoration.SURFACE_STRUCTURES, Biome.createDecoratedFeature(Feature.RANDOM_SELECTOR, new MultipleRandomFeatureConfig(biomeHives, new ConfiguredFeature<NoFeatureConfig>(AlterniaFeatureHandeler.mutantHiveFeature1, IFeatureConfig.NO_FEATURE_CONFIG)),Placement.CHANCE_HEIGHTMAP, new ChanceConfig(50)));
 
 		
 		DefaultBiomeFeatures.addCarvers(this);

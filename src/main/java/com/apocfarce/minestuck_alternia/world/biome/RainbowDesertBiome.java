@@ -42,12 +42,16 @@ public class RainbowDesertBiome extends Biome {
 		
 		List<ConfiguredRandomFeatureList<?>> biomeHives = new ArrayList<ConfiguredRandomFeatureList<?>>();
 		
-		biomeHives.add(new ConfiguredRandomFeatureList<NoFeatureConfig>(AlterniaFeatureHandeler.bronzeHiveFeature,IFeatureConfig.NO_FEATURE_CONFIG,0.5F));
-		biomeHives.add(new ConfiguredRandomFeatureList<NoFeatureConfig>(AlterniaFeatureHandeler.bronzeGreenHouseFeature,IFeatureConfig.NO_FEATURE_CONFIG,0.5F));
-		
-		this.addFeature(GenerationStage.Decoration.LOCAL_MODIFICATIONS, Biome.createDecoratedFeature(Feature.RANDOM_SELECTOR, new MultipleRandomFeatureConfig(biomeHives, new ConfiguredFeature<NoFeatureConfig>(AlterniaFeatureHandeler.bronzeHiveFeature, IFeatureConfig.NO_FEATURE_CONFIG)),Placement.CHANCE_HEIGHTMAP, new ChanceConfig(500)));
+		//biomeHives.add(new ConfiguredRandomFeatureList<NoFeatureConfig>(AlterniaFeatureHandeler.indigoHiveFeature1,IFeatureConfig.NO_FEATURE_CONFIG,0.1F));
+		//biomeHives.add(new ConfiguredRandomFeatureList<NoFeatureConfig>(AlterniaFeatureHandeler.indigoHiveFeature2,IFeatureConfig.NO_FEATURE_CONFIG,0.1F));
+		//biomeHives.add(new ConfiguredRandomFeatureList<NoFeatureConfig>(AlterniaFeatureHandeler.indigoHiveFeature3,IFeatureConfig.NO_FEATURE_CONFIG,0.1F));
 
-		
+		biomeHives.add(new ConfiguredRandomFeatureList<NoFeatureConfig>(AlterniaFeatureHandeler.purpleHiveFeature1,IFeatureConfig.NO_FEATURE_CONFIG,1F));
+		//biomeHives.add(new ConfiguredRandomFeatureList<NoFeatureConfig>(AlterniaFeatureHandeler.purpleHiveFeature2,IFeatureConfig.NO_FEATURE_CONFIG,0.1F));
+		//biomeHives.add(new ConfiguredRandomFeatureList<NoFeatureConfig>(AlterniaFeatureHandeler.purpleHiveFeature3,IFeatureConfig.NO_FEATURE_CONFIG,0.1F));
+
+		this.addFeature(GenerationStage.Decoration.SURFACE_STRUCTURES, Biome.createDecoratedFeature(Feature.RANDOM_SELECTOR, new MultipleRandomFeatureConfig(biomeHives, new ConfiguredFeature<NoFeatureConfig>(AlterniaFeatureHandeler.indigoHiveFeature1, IFeatureConfig.NO_FEATURE_CONFIG)),Placement.CHANCE_HEIGHTMAP, new ChanceConfig(50)));
+
 		
 		DefaultBiomeFeatures.addCarvers(this);
 		DefaultBiomeFeatures.addStructures(this);

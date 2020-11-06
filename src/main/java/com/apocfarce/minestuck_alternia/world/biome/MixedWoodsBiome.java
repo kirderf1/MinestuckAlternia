@@ -1,5 +1,8 @@
 package com.apocfarce.minestuck_alternia.world.biome;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import com.apocfarce.minestuck_alternia.block.AlterniaBlocks;
 import com.apocfarce.minestuck_alternia.world.gen.feature.AlterniaFeatureHandeler;
 
@@ -7,11 +10,15 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.DefaultBiomeFeatures;
 import net.minecraft.world.gen.GenerationStage;
+import net.minecraft.world.gen.feature.ConfiguredFeature;
+import net.minecraft.world.gen.feature.ConfiguredRandomFeatureList;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.GrassFeatureConfig;
 import net.minecraft.world.gen.feature.IFeatureConfig;
 import net.minecraft.world.gen.feature.MultipleRandomFeatureConfig;
+import net.minecraft.world.gen.feature.NoFeatureConfig;
 import net.minecraft.world.gen.placement.AtSurfaceWithExtraConfig;
+import net.minecraft.world.gen.placement.ChanceConfig;
 import net.minecraft.world.gen.placement.FrequencyConfig;
 import net.minecraft.world.gen.placement.Placement;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
@@ -32,6 +39,26 @@ public class MixedWoodsBiome extends Biome {
 				.waterFogColor(0x115588)
 				.parent((String)null)
 				);
+		
+		List<ConfiguredRandomFeatureList<?>> biomeHives = new ArrayList<ConfiguredRandomFeatureList<?>>();
+		
+		//biomeHives.add(new ConfiguredRandomFeatureList<NoFeatureConfig>(AlterniaFeatureHandeler.jadeHiveFeature1,IFeatureConfig.NO_FEATURE_CONFIG,0.1F));
+		//biomeHives.add(new ConfiguredRandomFeatureList<NoFeatureConfig>(AlterniaFeatureHandeler.jadeHiveFeature2,IFeatureConfig.NO_FEATURE_CONFIG,0.1F));
+		//biomeHives.add(new ConfiguredRandomFeatureList<NoFeatureConfig>(AlterniaFeatureHandeler.jadeHiveFeature3,IFeatureConfig.NO_FEATURE_CONFIG,0.1F));
+		
+		//biomeHives.add(new ConfiguredRandomFeatureList<NoFeatureConfig>(AlterniaFeatureHandeler.tealHiveFeature1,IFeatureConfig.NO_FEATURE_CONFIG,0.1F));
+		//biomeHives.add(new ConfiguredRandomFeatureList<NoFeatureConfig>(AlterniaFeatureHandeler.tealHiveFeature2,IFeatureConfig.NO_FEATURE_CONFIG,0.3F));
+		//biomeHives.add(new ConfiguredRandomFeatureList<NoFeatureConfig>(AlterniaFeatureHandeler.tealHiveFeature3,IFeatureConfig.NO_FEATURE_CONFIG,0.1F));
+
+		//biomeHives.add(new ConfiguredRandomFeatureList<NoFeatureConfig>(AlterniaFeatureHandeler.ceruleanHiveFeature1,IFeatureConfig.NO_FEATURE_CONFIG,0.3F));
+		//biomeHives.add(new ConfiguredRandomFeatureList<NoFeatureConfig>(AlterniaFeatureHandeler.ceruleanHiveFeature2,IFeatureConfig.NO_FEATURE_CONFIG,0.3F));
+		//biomeHives.add(new ConfiguredRandomFeatureList<NoFeatureConfig>(AlterniaFeatureHandeler.ceruleanHiveFeature3,IFeatureConfig.NO_FEATURE_CONFIG,0.1F));
+
+		
+		this.addFeature(GenerationStage.Decoration.SURFACE_STRUCTURES, Biome.createDecoratedFeature(Feature.RANDOM_SELECTOR, new MultipleRandomFeatureConfig(biomeHives, new ConfiguredFeature<NoFeatureConfig>(AlterniaFeatureHandeler.tealHiveFeature1, IFeatureConfig.NO_FEATURE_CONFIG)),Placement.CHANCE_HEIGHTMAP, new ChanceConfig(100)));
+
+		
+		
 	      DefaultBiomeFeatures.addCarvers(this);
 	      DefaultBiomeFeatures.addStructures(this);
 	      DefaultBiomeFeatures.addLakes(this);

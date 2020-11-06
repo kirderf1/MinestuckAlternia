@@ -34,6 +34,7 @@ public class AlterniaTemplateFeature extends Feature<NoFeatureConfig> {
 			Template template = manager.getTemplateDefaulted(this.getRegistryName());
 			PlacementSettings placementSettings = new PlacementSettings();
 			template.addBlocksToWorld(worldIn, pos.subtract(floorPos), placementSettings);
+			worldIn.setBlockState(pos, Blocks.GOLD_BLOCK.getDefaultState(),0);
 			return true;
 		}
 		return false;
