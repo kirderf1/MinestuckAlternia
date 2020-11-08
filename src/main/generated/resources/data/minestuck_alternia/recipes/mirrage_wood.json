@@ -7,11 +7,11 @@
   ],
   "key": {
     "#": {
-      "item": "minecraft:acacia_log"
+      "item": "minestuck_alternia:mirrage_log"
     }
   },
   "result": {
-    "item": "minecraft:acacia_wood",
+    "item": "minestuck_alternia:mirrage_wood",
     "count": 3
   }
 }

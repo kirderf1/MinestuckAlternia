@@ -3,8 +3,8 @@
   "group": "cherub_key",
   "pattern": [
     "  E",
-    "EG ",
-    "RE "
+    "ER ",
+    "GE "
   ],
   "key": {
     "E": {
@@ -14,8 +14,8 @@
       "item": "minecraft:red_dye"
     },
     "G": {
-        "item": "minecraft:lime_dye"
-      }
+      "item": "minecraft:lime_dye"
+    }
   },
   "result": {
     "item": "minestuck_alternia:cherub_key"

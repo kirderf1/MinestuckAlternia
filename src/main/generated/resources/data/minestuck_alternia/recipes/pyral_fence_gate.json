@@ -6,14 +6,14 @@
     "#W#"
   ],
   "key": {
+    "W": {
+      "item": "minestuck_alternia:pyral_planks"
+    },
     "#": {
       "item": "minecraft:stick"
-    },
-    "W": {
-      "item": "minestuck_alternia:mirrage_planks"
     }
   },
   "result": {
-    "item": "minestuck_alternia:mirrage_fence_gate"
+    "item": "minestuck_alternia:pyral_fence_gate"
   }
 }

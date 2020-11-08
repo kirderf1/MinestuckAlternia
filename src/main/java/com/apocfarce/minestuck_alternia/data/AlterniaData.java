@@ -11,6 +11,7 @@ public class AlterniaData {
 		
 		if(event.includeServer()) {
 			generator.addProvider(new AlterniaLootTableProvider(generator));
+			generator.addProvider(new AlterniaRecipeProvider(generator));
 		}
 	}
 }

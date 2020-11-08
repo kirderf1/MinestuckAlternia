@@ -1,23 +1,22 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    " GE",
+    " RE",
     " I ",
     "II "
   ],
   "key": {
+    "I": {
+      "item": "minecraft:iron_block"
+    },
     "E": {
       "item": "minecraft:emerald_block"
     },
-    "G": {
-        "item": "minecraft:lime_dye"
-      },
-    "I": {
-        "item": "minecraft:iron_block"
-      }
-
+    "R": {
+      "item": "minecraft:red_dye"
+    }
   },
   "result": {
-    "item": "minestuck_alternia:green_snake"
+    "item": "minestuck_alternia:red_snake"
   }
 }

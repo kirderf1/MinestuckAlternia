@@ -34,9 +34,7 @@ public class AlterniaItems
 	public static Item[] bloodPotions;
 	
 	//food
-	//public static Item oblongMeatProduct=new ItemFood(6,true);
-	
-	
+	public static Item oblongMeatProduct;
 	
 	public static void registerItems(Register<Item> event)
 	{
@@ -54,7 +52,7 @@ public class AlterniaItems
 		
 		
 		//food
-		register(registry,modid+":oblong_meat_product",new Item(new Item.Properties().group(ItemGroupAlternia.instance).food(new Food.Builder().hunger(6).saturation(3).build())));
+		oblongMeatProduct = register(registry,modid+":oblong_meat_product",new Item(new Item.Properties().group(ItemGroupAlternia.instance).food(new Food.Builder().hunger(6).saturation(3).build())));
 		//blood colored items
 		bloodPotions=new Item[ENUM_BLOOD_COLOR.values().length];
 		for(int i=0;i<bloodPotions.length;i++) {

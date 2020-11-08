@@ -1,7 +1,6 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    "DID",
     "IOI",
     "DID"
   ],
@@ -13,10 +12,10 @@
       "item": "minecraft:diamond"
     },
     "O": {
-        "item": "minecraft:obsidian"
-      }
+      "item": "minecraft:obsidian"
+    }
   },
   "result": {
-    "item": "minestuck_alternia:portal_center"
+    "item": "minestuck_alternia:portal_crown"
   }
 }

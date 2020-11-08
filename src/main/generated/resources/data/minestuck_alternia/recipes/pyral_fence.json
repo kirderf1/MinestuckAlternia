@@ -1,19 +1,20 @@
 {
   "type": "minecraft:crafting_shaped",
-  "group": "wooden_fence_gate",
+  "group": "wooden_fence",
   "pattern": [
-    "#W#",
-    "#W#"
+    "W#W",
+    "W#W"
   ],
   "key": {
-    "#": {
-      "item": "minecraft:stick"
-    },
     "W": {
       "item": "minestuck_alternia:pyral_planks"
+    },
+    "#": {
+      "item": "minecraft:stick"
     }
   },
   "result": {
-    "item": "minestuck_alternia:pyral_fence_gate"
+    "item": "minestuck_alternia:pyral_fence",
+    "count": 3
   }
 }
