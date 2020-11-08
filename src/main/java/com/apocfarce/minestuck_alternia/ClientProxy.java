@@ -5,9 +5,15 @@ import net.minecraft.block.Block;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.RenderTypeLookup;
 
-
+/**
+ * Handles any client-side registering, such as setting render layers
+ * @author kirderf1
+ */
 public class ClientProxy {
 	
+	/**
+	 * Sets render layers for alternia blocks, which informs minecraft of blocks that has cutout or tansparent textures
+	 */
 	static void setupBlockRenderLayers() {
 		
 		RenderTypeLookup.setRenderLayer(AlterniaBlocks.pyralLeaves, RenderType.getCutoutMipped());
