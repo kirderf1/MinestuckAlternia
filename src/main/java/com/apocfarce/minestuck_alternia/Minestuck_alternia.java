@@ -3,6 +3,7 @@ package com.apocfarce.minestuck_alternia;
 
 import com.apocfarce.minestuck_alternia.Item.AlterniaItems;
 import com.apocfarce.minestuck_alternia.block.AlterniaBlocks;
+import com.apocfarce.minestuck_alternia.data.AlterniaData;
 import com.apocfarce.minestuck_alternia.world.DimensionsHandeler;
 import com.apocfarce.minestuck_alternia.world.biome.AlterniaBiomeHandeler;
 import com.apocfarce.minestuck_alternia.world.biome.provider.AlterniaBioimeProviderHandeler;
@@ -39,6 +40,7 @@ public class Minestuck_alternia {
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::SendInterModCom);
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::ReciveInterModCom);
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::doClientStuff);
+        FMLJavaModLoadingContext.get().getModEventBus().addListener(AlterniaData::gatherData);
         MinecraftForge.EVENT_BUS.register(this);
     }
     private void preInit(final FMLCommonSetupEvent event){
