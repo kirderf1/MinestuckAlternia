@@ -73,7 +73,7 @@ public class AlterniaBlocks
 		hiveGlass=new Block[ENUM_BLOOD_COLOR.values().length];
 		for(int i=0;i<hiveGlass.length;i++) {
 			if(i!=ENUM_BLOOD_COLOR.MUTANT.ordinal()) {
-				hiveGlass[i]=register(registry,"minestuck_alternia:hiveglass_"+ENUM_BLOOD_COLOR.values()[i].name().toLowerCase(), new HiveGlass(Block.Properties.create(Material.GLASS).sound(SoundType.GLASS), ENUM_BLOOD_COLOR.values()[i]));
+				hiveGlass[i]=register(registry,"minestuck_alternia:hiveglass_"+ENUM_BLOOD_COLOR.values()[i].name().toLowerCase(), new HiveGlass(Block.Properties.create(Material.GLASS).sound(SoundType.GLASS).notSolid(), ENUM_BLOOD_COLOR.values()[i]));
 			}
 		}
 
@@ -90,8 +90,8 @@ public class AlterniaBlocks
 		greenSnake =  register(registry,"minestuck_alternia:green_snake",  new GreenSnake(Block.Properties.create(Material.IRON).sound(SoundType.STONE).hardnessAndResistance(5.0F, 6.0F)));
 		
 		//wood
-		pyralSapling = (BushBlock) register(registry,"minestuck_alternia:pyral_sapling", new AlterniaSapling(new PyralTree(), Block.Properties.create(Material.PLANTS).doesNotBlockMovement().tickRandomly().sound(SoundType.PLANT)));
-		pyralLeaves =  register(registry,"minestuck_alternia:pyral_leaves",  new LeavesBlock(Block.Properties.create(Material.LEAVES).sound(SoundType.PLANT).hardnessAndResistance(0.2F).tickRandomly()));
+		pyralSapling = (BushBlock) register(registry,"minestuck_alternia:pyral_sapling", new AlterniaSapling(new PyralTree(), Block.Properties.create(Material.PLANTS).doesNotBlockMovement().tickRandomly().sound(SoundType.PLANT).notSolid()));
+		pyralLeaves =  register(registry,"minestuck_alternia:pyral_leaves",  new LeavesBlock(Block.Properties.create(Material.LEAVES).sound(SoundType.PLANT).hardnessAndResistance(0.2F).tickRandomly().notSolid()));
 		strippedPyralLog =  register(registry,"minestuck_alternia:stripped_pyral_log",  new LogBlock(MaterialColor.BLUE,Block.Properties.create(Material.WOOD).sound(SoundType.WOOD).hardnessAndResistance(2.0F)));
 		strippedPyralWood =  register(registry,"minestuck_alternia:stripped_pyral_wood",  new RotatedPillarBlock(Block.Properties.create(Material.WOOD).sound(SoundType.WOOD).hardnessAndResistance(2.0F)));
 		pyralLog =  register(registry,"minestuck_alternia:pyral_log",  new AlterniaLogBlock(MaterialColor.BLUE,strippedPyralLog,Block.Properties.create(Material.WOOD,MaterialColor.BLUE).sound(SoundType.WOOD).hardnessAndResistance(2.0F)));
@@ -109,8 +109,8 @@ public class AlterniaBlocks
 		
 		
 		
-		mirrageSapling = (BushBlock) register(registry,"minestuck_alternia:mirrage_sapling", new AlterniaSapling(new MirrageTree(), Block.Properties.create(Material.PLANTS).doesNotBlockMovement().tickRandomly().sound(SoundType.PLANT)));
-		mirrageLeaves =  register(registry,"minestuck_alternia:mirrage_leaves",  new LeavesBlock(Block.Properties.create(Material.LEAVES).sound(SoundType.PLANT).hardnessAndResistance(0.2F).tickRandomly()));
+		mirrageSapling = (BushBlock) register(registry,"minestuck_alternia:mirrage_sapling", new AlterniaSapling(new MirrageTree(), Block.Properties.create(Material.PLANTS).doesNotBlockMovement().tickRandomly().sound(SoundType.PLANT).notSolid()));
+		mirrageLeaves =  register(registry,"minestuck_alternia:mirrage_leaves",  new LeavesBlock(Block.Properties.create(Material.LEAVES).sound(SoundType.PLANT).hardnessAndResistance(0.2F).tickRandomly().notSolid()));
 		strippedmirrageLog =  register(registry,"minestuck_alternia:stripped_mirrage_log",  new LogBlock(MaterialColor.BLACK,Block.Properties.create(Material.WOOD).sound(SoundType.WOOD).hardnessAndResistance(2.0F)));
 		strippedmirrageWood =  register(registry,"minestuck_alternia:stripped_mirrage_wood",  new RotatedPillarBlock(Block.Properties.create(Material.WOOD).sound(SoundType.WOOD).hardnessAndResistance(2.0F)));
 		mirrageLog =  register(registry,"minestuck_alternia:mirrage_log",  new AlterniaLogBlock(MaterialColor.GRAY,strippedmirrageLog,Block.Properties.create(Material.WOOD,MaterialColor.BLUE).sound(SoundType.WOOD).hardnessAndResistance(2.0F)));
@@ -122,7 +122,7 @@ public class AlterniaBlocks
 		mirrageFenceGate = register(registry,"minestuck_alternia:mirrage_fence_gate", new FenceGateBlock(Block.Properties.from(mirragePlanks)));
 
 		
-		pyralGrass = register(registry,"minestuck_alternia:pyral_grass",new AlterniaTallGrass(Block.Properties.create(Material.TALL_PLANTS).sound(SoundType.PLANT).doesNotBlockMovement().hardnessAndResistance(0)));
+		pyralGrass = register(registry,"minestuck_alternia:pyral_grass",new AlterniaTallGrass(Block.Properties.create(Material.TALL_PLANTS).sound(SoundType.PLANT).doesNotBlockMovement().hardnessAndResistance(0).notSolid()));
 		
 		
 	}
