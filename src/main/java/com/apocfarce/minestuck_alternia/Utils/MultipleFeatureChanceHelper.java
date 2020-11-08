@@ -31,7 +31,7 @@ public class MultipleFeatureChanceHelper {
 		iter = listTmp.iterator();
 		while (iter.hasNext()) {
 			ConfiguredRandomFeatureList<?> hive = iter.next();
-			normalizedList.add(new ConfiguredRandomFeatureList<NoFeatureConfig>((Feature<NoFeatureConfig>)hive.feature,(NoFeatureConfig)hive.config, hive.chance/ChanceSum));
+			normalizedList.add(new ConfiguredRandomFeatureList<>(hive.feature, hive.chance/ChanceSum));
 		}
 		
 		return normalizedList;

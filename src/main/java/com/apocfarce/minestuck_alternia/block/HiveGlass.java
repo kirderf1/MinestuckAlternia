@@ -6,7 +6,6 @@ import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.PaneBlock;
-import net.minecraft.util.BlockRenderLayer;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockReader;
 
@@ -25,9 +24,4 @@ public class HiveGlass  extends PaneBlock {
 	public int getOpacity(BlockState state, IBlockReader worldIn, BlockPos pos) {
 		return(Blocks.GLASS_PANE.getDefaultState().getOpacity(worldIn, pos));
 	}
-	  public BlockRenderLayer getRenderLayer() {
-	      return BlockRenderLayer.TRANSLUCENT;
-	   }
-	
-	
 }

@@ -7,6 +7,7 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.biome.provider.BiomeProvider;
 import net.minecraft.world.biome.provider.BiomeProviderType;
 import net.minecraft.world.biome.provider.IBiomeProviderSettings;
+import net.minecraft.world.storage.WorldInfo;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.registries.IForgeRegistry;
 
@@ -21,7 +22,7 @@ public class AlterniaBioimeProviderHandeler{
 		ALTERNIA = register(registery,new ResourceLocation("alternia"),AlterniaBiomeProvider::new,AlterniaBiomeProviderSettings::new);	
 	}
 	
-	private static <C extends IBiomeProviderSettings, T extends BiomeProvider> BiomeProviderType<C,T> register(IForgeRegistry<BiomeProviderType<?, ?>> registry,ResourceLocation key, Function<C,T> provider, Supplier<C> settings){
+	private static <C extends IBiomeProviderSettings, T extends BiomeProvider> BiomeProviderType<C,T> register(IForgeRegistry<BiomeProviderType<?, ?>> registry,ResourceLocation key, Function<C,T> provider, Function<WorldInfo, C> settings){
 		BiomeProviderType<C,T> type = new BiomeProviderType<C,T>(provider,settings);
 		type.setRegistryName(key);
 		registry.register(type);
