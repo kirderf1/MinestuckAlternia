@@ -3,6 +3,7 @@ package com.apocfarce.minestuck_alternia.data;
 import com.apocfarce.minestuck_alternia.Item.AlterniaItems;
 import com.apocfarce.minestuck_alternia.Item.ENUM_BLOOD_COLOR;
 import com.apocfarce.minestuck_alternia.Item.ItemGroupAlternia;
+import com.apocfarce.minestuck_alternia.Minestuck_alternia;
 import com.apocfarce.minestuck_alternia.block.AlterniaBlocks;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.item.ItemGroup;
@@ -10,8 +11,8 @@ import net.minecraftforge.common.data.LanguageProvider;
 
 public class AlterniaEnUsLanguageProvider extends LanguageProvider {
 	
-	public AlterniaEnUsLanguageProvider(DataGenerator gen, String modid, String locale) {
-		super(gen, modid, locale);
+	public AlterniaEnUsLanguageProvider(DataGenerator gen) {
+		super(gen, Minestuck_alternia.MOD_ID, "en_us");
 	}
 	
 	@Override
@@ -27,6 +28,32 @@ public class AlterniaEnUsLanguageProvider extends LanguageProvider {
 		add(AlterniaBlocks.redSnake, "Cherub Portal Red Snake");
 		add(AlterniaBlocks.greenSnake, "Cherub Portal Green Snake");
 		
+		add(AlterniaBlocks.pyralSapling, "Pyral Sapling");
+		add(AlterniaBlocks.pyralLeaves, "Pyral Leaves");
+		add(AlterniaBlocks.pyralLog, "Pyral Log");
+		add(AlterniaBlocks.strippedPyralLog, "Stripped Pyral Log");
+		add(AlterniaBlocks.pyralWood, "Pyral Wood");
+		add(AlterniaBlocks.strippedPyralWood, "Stripped Pyral Wood");
+		add(AlterniaBlocks.pyralPlanks, "Pyral Planks");
+		add(AlterniaBlocks.pyralStairs, "Pyral Stairs");
+		add(AlterniaBlocks.pyralSlab, "Pyral Slab");
+		add(AlterniaBlocks.pyralFence, "Pyral Fence");
+		add(AlterniaBlocks.pyralFenceGate, "Pyral Fence Gate");
+		
+		add(AlterniaBlocks.mirrageSapling, "Mirrage Sapling");
+		add(AlterniaBlocks.mirrageLeaves, "Mirrage Leaves");
+		add(AlterniaBlocks.mirrageLog, "Mirrage Log");
+		add(AlterniaBlocks.strippedmirrageLog, "Stripped Mirrage Log");
+		add(AlterniaBlocks.mirrageWood, "Mirrage Wood");
+		add(AlterniaBlocks.strippedmirrageWood, "Stripped Mirrage Wood");
+		add(AlterniaBlocks.mirragePlanks, "Mirrage Planks");
+		add(AlterniaBlocks.mirrageStairs, "Mirrage Stairs");
+		add(AlterniaBlocks.mirrageSlab, "Mirrage Slab");
+		add(AlterniaBlocks.mirrageFence, "Mirrage Fence");
+		add(AlterniaBlocks.mirrageFenceGate, "Mirrage Fence Gate");
+		
+		add(AlterniaBlocks.pyralGrass, "Pyral Grass");
+		
 		add(AlterniaBlocks.hiveGlass[ENUM_BLOOD_COLOR.BURGUNDY.ordinal()], "Burgundy Hive Glass");
 		add(AlterniaBlocks.hiveGlass[ENUM_BLOOD_COLOR.BRONZE.ordinal()], "Bronze Hive Glass");
 		add(AlterniaBlocks.hiveGlass[ENUM_BLOOD_COLOR.GOLD.ordinal()], "Gold Hive Glass");
@@ -37,7 +64,7 @@ public class AlterniaEnUsLanguageProvider extends LanguageProvider {
 		add(AlterniaBlocks.hiveGlass[ENUM_BLOOD_COLOR.INDIGO.ordinal()], "Indigo Hive Glass");
 		add(AlterniaBlocks.hiveGlass[ENUM_BLOOD_COLOR.PURPLE.ordinal()], "Purple Hive Glass");
 		add(AlterniaBlocks.hiveGlass[ENUM_BLOOD_COLOR.VIOLET.ordinal()], "Violet Hive Glass");
-		add(AlterniaBlocks.hiveGlass[ENUM_BLOOD_COLOR.FUCHSIA.ordinal()], "Fucshia Hive Glass");
+		add(AlterniaBlocks.hiveGlass[ENUM_BLOOD_COLOR.FUCHSIA.ordinal()], "Fuchsia Hive Glass");
 		add(AlterniaBlocks.hiveGlass[ENUM_BLOOD_COLOR.LIME.ordinal()], "Lime Hive Glass");
 		add(AlterniaBlocks.hiveGlass[ENUM_BLOOD_COLOR.GREY.ordinal()], "Grey Hive Glass");
 		
@@ -49,11 +76,11 @@ public class AlterniaEnUsLanguageProvider extends LanguageProvider {
 		add(AlterniaItems.bloodPotions[ENUM_BLOOD_COLOR.OLIVE.ordinal()], "Olive Blood Bottle");
 		add(AlterniaItems.bloodPotions[ENUM_BLOOD_COLOR.JADE.ordinal()], "Jade Blood Bottle");
 		add(AlterniaItems.bloodPotions[ENUM_BLOOD_COLOR.TEAL.ordinal()], "Teal Blood Bottle");
-		add(AlterniaItems.bloodPotions[ENUM_BLOOD_COLOR.CERULEAN.ordinal()], "Cerulian Blood Bottle");
+		add(AlterniaItems.bloodPotions[ENUM_BLOOD_COLOR.CERULEAN.ordinal()], "Cerulean Blood Bottle");
 		add(AlterniaItems.bloodPotions[ENUM_BLOOD_COLOR.INDIGO.ordinal()], "Indigo Blood Bottle");
 		add(AlterniaItems.bloodPotions[ENUM_BLOOD_COLOR.PURPLE.ordinal()], "Purple Blood Bottle");
 		add(AlterniaItems.bloodPotions[ENUM_BLOOD_COLOR.VIOLET.ordinal()], "Violet Blood Bottle");
-		add(AlterniaItems.bloodPotions[ENUM_BLOOD_COLOR.FUCHSIA.ordinal()], "Fucshia Blood Bottle");
+		add(AlterniaItems.bloodPotions[ENUM_BLOOD_COLOR.FUCHSIA.ordinal()], "Fuchsia Blood Bottle");
 		add(AlterniaItems.bloodPotions[ENUM_BLOOD_COLOR.LIME.ordinal()], "Lime Blood Bottle");
 		add(AlterniaItems.bloodPotions[ENUM_BLOOD_COLOR.MUTANT.ordinal()], "Mutant Blood Bottle");
 		
@@ -63,7 +90,7 @@ public class AlterniaEnUsLanguageProvider extends LanguageProvider {
 		
 		add("message.cant_place.portal_center", "You must place the crown before placing the center");
 		add("message.cant_place.portal_crown", "You must place both of the snakes before placing the crown");
-		add("message.cant_place.portal_base", "not enough room to place this(needs a 4x4 space)");
+		add("message.cant_place.portal_base", "Not enough room to place this (needs a 4x4 space)");
 	}
 	
 	protected void add(ItemGroup key, String value)
