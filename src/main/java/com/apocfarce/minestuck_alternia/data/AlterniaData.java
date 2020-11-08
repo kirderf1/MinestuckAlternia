@@ -10,8 +10,9 @@ public class AlterniaData {
 		DataGenerator generator = event.getGenerator();
 		
 		if(event.includeServer()) {
-			generator.addProvider(new AlterniaLootTableProvider(generator));
+			generator.addProvider(new AlterniaBlockTagsProvider(generator));
 			generator.addProvider(new AlterniaRecipeProvider(generator));
+			generator.addProvider(new AlterniaLootTableProvider(generator));
 		}
 	}
 }
