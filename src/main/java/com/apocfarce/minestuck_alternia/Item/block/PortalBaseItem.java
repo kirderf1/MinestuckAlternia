@@ -17,6 +17,8 @@ import net.minecraft.world.World;
 
 public class PortalBaseItem extends MultiBlockItem
 {
+	public static final String CANT_PLACE = "message.cant_place.portal_base";
+	
 	public PortalBaseItem(Block block,Properties properties)
 	{
 		super(block, properties);
@@ -30,7 +32,7 @@ public class PortalBaseItem extends MultiBlockItem
 		for(int x=0;x<=3;x++) {
 				for(int z=0;z<=3;z++) {
 					if(!context.getWorld().getBlockState(context.getPos().offset(facing, x).up(0).offset(facing.rotateY(),z)).isReplaceable(context)) {
-						context.getPlayer().sendStatusMessage(new TranslationTextComponent("message.cant_place.portal_base"), true);
+						context.getPlayer().sendStatusMessage(new TranslationTextComponent(CANT_PLACE), true);
 						return false;
 					}
 				}

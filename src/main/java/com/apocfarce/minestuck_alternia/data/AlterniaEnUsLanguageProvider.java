@@ -3,6 +3,9 @@ package com.apocfarce.minestuck_alternia.data;
 import com.apocfarce.minestuck_alternia.Item.AlterniaItems;
 import com.apocfarce.minestuck_alternia.Item.ENUM_BLOOD_COLOR;
 import com.apocfarce.minestuck_alternia.Item.ItemGroupAlternia;
+import com.apocfarce.minestuck_alternia.Item.block.PortalBaseItem;
+import com.apocfarce.minestuck_alternia.Item.block.PortalCenterItem;
+import com.apocfarce.minestuck_alternia.Item.block.PortalCrownItem;
 import com.apocfarce.minestuck_alternia.Minestuck_alternia;
 import com.apocfarce.minestuck_alternia.block.AlterniaBlocks;
 import net.minecraft.data.DataGenerator;
@@ -88,9 +91,9 @@ public class AlterniaEnUsLanguageProvider extends LanguageProvider {
 		
 		add(ItemGroupAlternia.instance, "Minestuck Alternia");
 		
-		add("message.cant_place.portal_center", "You must place the crown before placing the center");
-		add("message.cant_place.portal_crown", "You must place both of the snakes before placing the crown");
-		add("message.cant_place.portal_base", "Not enough room to place this (needs a 4x4 space)");
+		add(PortalCenterItem.CANT_PLACE, "You must place the crown before placing the center");
+		add(PortalCrownItem.CANT_PLACE, "You must place both of the snakes before placing the crown");
+		add(PortalBaseItem.CANT_PLACE, "Not enough room to place this (needs a 4x4 space)");
 	}
 	
 	protected void add(ItemGroup key, String value)

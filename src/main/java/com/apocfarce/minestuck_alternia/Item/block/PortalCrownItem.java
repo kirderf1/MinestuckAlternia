@@ -20,6 +20,8 @@ import net.minecraft.world.World;
 
 public class PortalCrownItem extends MultiBlockItem
 {
+	public static final String CANT_PLACE = "message.cant_place.portal_crown";
+	
 	public PortalCrownItem(Block block,Properties properties)
 	{
 		super(block, properties);
@@ -39,7 +41,7 @@ public class PortalCrownItem extends MultiBlockItem
 					return true;
 				}
 
-				context.getPlayer().sendStatusMessage(new TranslationTextComponent("message.cant_place.portal_crown"), true);
+				context.getPlayer().sendStatusMessage(new TranslationTextComponent(CANT_PLACE), true);
 			}
 		}
 		return false;
