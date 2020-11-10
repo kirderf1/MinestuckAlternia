@@ -9,7 +9,7 @@ import com.apocfarce.minestuck_alternia.world.biome.AlterniaBiomeHandeler;
 import com.apocfarce.minestuck_alternia.world.biome.provider.AlterniaBioimeProviderHandeler;
 import com.apocfarce.minestuck_alternia.world.gen.GenTypesHandeler;
 import com.apocfarce.minestuck_alternia.world.gen.feature.AlterniaFeatureHandeler;
-import com.apocfarce.minestuck_alternia.world.gen.surfacebuilder.SurfaceBuilderHandeler;
+import com.apocfarce.minestuck_alternia.world.gen.surfacebuilder.AlterniaSurfaceBuilders;
 
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
@@ -42,6 +42,8 @@ public class Minestuck_alternia {
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::doClientStuff);
         FMLJavaModLoadingContext.get().getModEventBus().addListener(AlterniaData::gatherData);
         MinecraftForge.EVENT_BUS.register(this);
+        
+        AlterniaSurfaceBuilders.REGISTER.register(FMLJavaModLoadingContext.get().getModEventBus());
     }
     private void preInit(final FMLCommonSetupEvent event){
     }
@@ -97,11 +99,6 @@ public class Minestuck_alternia {
         public static void onBiomeRegistry(final RegistryEvent.Register<Biome> biomeRegistryEvent) {
         	AlterniaBiomeHandeler.RegisterBiomes(biomeRegistryEvent);
         }
-        @SubscribeEvent
-        public static void onSurfaceBuilderRegistry(final RegistryEvent.Register<SurfaceBuilder<?>> biomeRegistryEvent) {
-        	SurfaceBuilderHandeler.registerSurfaceBuilders(biomeRegistryEvent);
-        }
-        
     }
 
 }
