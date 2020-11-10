@@ -8,6 +8,7 @@ import com.apocfarce.minestuck_alternia.Item.block.PortalCenterItem;
 import com.apocfarce.minestuck_alternia.Item.block.PortalCrownItem;
 import com.apocfarce.minestuck_alternia.Minestuck_alternia;
 import com.apocfarce.minestuck_alternia.block.AlterniaBlocks;
+import com.apocfarce.minestuck_alternia.world.biome.AlterniaBiomeHandeler;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.item.ItemGroup;
 import net.minecraftforge.common.data.LanguageProvider;
@@ -90,6 +91,12 @@ public class AlterniaEnUsLanguageProvider extends LanguageProvider {
 		add(AlterniaItems.cherubKey, "Cherub Key");
 		
 		add(ItemGroupAlternia.instance, "Minestuck Alternia");
+		
+		add(AlterniaBiomeHandeler.AlterniaPlains, "Alternia Plains");
+		add(AlterniaBiomeHandeler.mirrageForest, "Mirrage Forest");
+		add(AlterniaBiomeHandeler.pyralForest, "Pyral Forest");
+		add(AlterniaBiomeHandeler.mixedForest, "Mixed Forest");
+		add(AlterniaBiomeHandeler.ColoredDesert, "Colored Desert");
 		
 		add(PortalCenterItem.CANT_PLACE, "You must place the crown before placing the center");
 		add(PortalCrownItem.CANT_PLACE, "You must place both of the snakes before placing the crown");
