@@ -11,6 +11,7 @@ public class AlterniaData {
 		
 		if(event.includeClient()) {
 			generator.addProvider(new AlterniaBlockStateProvider(generator, event.getExistingFileHelper()));
+			generator.addProvider(new AlterniaItemModelProvider(generator, event.getExistingFileHelper()));
 			generator.addProvider(new AlterniaEnUsLanguageProvider(generator));
 		}
 		

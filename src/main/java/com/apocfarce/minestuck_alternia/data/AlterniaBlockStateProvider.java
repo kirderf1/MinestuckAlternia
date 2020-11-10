@@ -101,8 +101,7 @@ public class AlterniaBlockStateProvider extends BlockStateProvider {
 	}
 	
 	protected void simpleFlatBlockItem(Block block) {
-		itemModels().getBuilder(block.getRegistryName().getPath()).parent(itemModels().getExistingFile(mcLoc("item/generated")))
-				.texture("layer0", blockTexture(block));
+		itemModels().singleTexture(block.getRegistryName().getPath(), mcLoc("item/generated"), "layer0", blockTexture(block));
 	}
 	
 	protected void cross(Block block) {
