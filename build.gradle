@@ -74,7 +74,7 @@ minecraft {
             // Recommended logging level for the console
             property 'forge.logging.console.level', 'debug'
 
-            args '--mod', 'minestuck_alternia', '--all', '--output', file('src/main/generated/resources/')
+            args '--mod', 'minestuck_alternia', '--all', '--output', file('src/main/generated/resources/'), '--existing', sourceSets.main.resources.srcDirs[0]
 
             mods {
                 examplemod {

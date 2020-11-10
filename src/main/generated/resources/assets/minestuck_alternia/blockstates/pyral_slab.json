@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=top": {
+      "model": "minestuck_alternia:block/pyral_slab_top"
+    },
+    "type=bottom": {
+      "model": "minestuck_alternia:block/pyral_slab"
+    },
+    "type=double": {
+      "model": "minestuck_alternia:block/pyral_planks"
+    }
+  }
+}

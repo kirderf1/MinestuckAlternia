@@ -1,6 +1,0 @@
-{
-    "parent": "block/leaves",
-    "textures": {
-        "all": "minestuck_alternia:blocks/pyral_leaves"
-    }
-}

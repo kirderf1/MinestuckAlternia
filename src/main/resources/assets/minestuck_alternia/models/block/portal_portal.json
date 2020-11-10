@@ -1,7 +1,7 @@
 {
     "textures": {
-        "particle": "minestuck_alternia:blocks/portal_face",
-        "side":"minestuck_alternia:blocks/portal_face"
+        "particle": "minestuck_alternia:block/portal_face",
+        "side":"minestuck_alternia:block/portal_face"
     },
     "elements": [
         {   "from": [ 0, 0, 0 ],

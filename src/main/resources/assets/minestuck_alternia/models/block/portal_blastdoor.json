@@ -1,7 +1,7 @@
 {
     "textures": {
-        "particle": "minestuck_alternia:blocks/blast_door",
-        "side":"minestuck_alternia:blocks/blast_door"
+        "particle": "minestuck_alternia:block/blast_door",
+        "side":"minestuck_alternia:block/blast_door"
     },
     "elements": [
         {   "from": [ 0, 0, 0 ],
