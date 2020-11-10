@@ -6,16 +6,11 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.IFeatureConfig;
 import net.minecraft.world.gen.feature.NoFeatureConfig;
+import net.minecraft.world.gen.feature.TreeFeatureConfig;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.registries.IForgeRegistry;
 
 public class AlterniaFeatureHandeler {
-	public static Feature<NoFeatureConfig> pyralTreeFeature=new PyralTreeFeature(NoFeatureConfig::deserialize,false);
-	public static Feature<NoFeatureConfig> pyralTreeLargeFeature=new PyralTreeLargeFeature(NoFeatureConfig::deserialize, false);
-	public static Feature<NoFeatureConfig> mirrageTreeFeature=new MirrageTreeFeature(NoFeatureConfig::deserialize,false);
-	public static Feature<NoFeatureConfig> mirrageTreeLargeFeature=new MirrageTreeLargeFeature(NoFeatureConfig::deserialize, false);	
-
-	
 	
 	public static Feature<NoFeatureConfig> burgundyHiveFeature1 = new AlterniaTemplateFeature(NoFeatureConfig::deserialize,new BlockPos(5,1,6));
 	public static Feature<NoFeatureConfig> burgundyHiveFeature2 = new AlterniaTemplateFeature(NoFeatureConfig::deserialize,new BlockPos(3,1,5));
@@ -65,13 +60,6 @@ public class AlterniaFeatureHandeler {
 	public static void registerFeatures(RegistryEvent.Register<Feature<?>> event)
 	{
 		IForgeRegistry<Feature<?>> registry = event.getRegistry();
-		
-		pyralTreeFeature = register(registry,"minestuck_alternia:pyral_tree",pyralTreeFeature);
-		pyralTreeLargeFeature = register(registry,"minestuck_alternia:pyral_tree_large",pyralTreeLargeFeature);
-		mirrageTreeFeature = register(registry,"minestuck_alternia:mirrage_tree",mirrageTreeFeature);
-		mirrageTreeLargeFeature = register(registry,"minestuck_alternia:mirrage_tree_large",mirrageTreeLargeFeature);
-		
-		
 		
 		burgundyHiveFeature1 = register(registry,"minestuck_alternia:burgundy_hive1",burgundyHiveFeature1);
 		burgundyHiveFeature2 = register(registry,"minestuck_alternia:burgundy_hive2",burgundyHiveFeature2);

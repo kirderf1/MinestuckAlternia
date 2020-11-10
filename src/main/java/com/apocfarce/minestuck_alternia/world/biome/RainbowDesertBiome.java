@@ -14,7 +14,6 @@ import net.minecraft.world.gen.GenerationStage;
 import net.minecraft.world.gen.feature.ConfiguredFeature;
 import net.minecraft.world.gen.feature.ConfiguredRandomFeatureList;
 import net.minecraft.world.gen.feature.Feature;
-import net.minecraft.world.gen.feature.GrassFeatureConfig;
 import net.minecraft.world.gen.feature.IFeatureConfig;
 import net.minecraft.world.gen.feature.MultipleRandomFeatureConfig;
 import net.minecraft.world.gen.feature.NoFeatureConfig;
@@ -42,16 +41,16 @@ public class RainbowDesertBiome extends Biome {
 		
 		List<ConfiguredRandomFeatureList<?>> biomeHives = new ArrayList<ConfiguredRandomFeatureList<?>>();
 		
-		biomeHives.add(new ConfiguredRandomFeatureList<NoFeatureConfig>(AlterniaFeatureHandeler.indigoHiveFeature1,IFeatureConfig.NO_FEATURE_CONFIG,0.1F));
-		biomeHives.add(new ConfiguredRandomFeatureList<NoFeatureConfig>(AlterniaFeatureHandeler.indigoHiveFeature2,IFeatureConfig.NO_FEATURE_CONFIG,0.1F));
-		biomeHives.add(new ConfiguredRandomFeatureList<NoFeatureConfig>(AlterniaFeatureHandeler.indigoHiveFeature3,IFeatureConfig.NO_FEATURE_CONFIG,0.1F));
+		biomeHives.add(AlterniaFeatureHandeler.indigoHiveFeature1.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withChance(0.1F));
+		biomeHives.add(AlterniaFeatureHandeler.indigoHiveFeature2.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withChance(0.1F));
+		biomeHives.add(AlterniaFeatureHandeler.indigoHiveFeature3.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withChance(0.1F));
 
-		biomeHives.add(new ConfiguredRandomFeatureList<NoFeatureConfig>(AlterniaFeatureHandeler.purpleHiveFeature1,IFeatureConfig.NO_FEATURE_CONFIG,1F));
-		biomeHives.add(new ConfiguredRandomFeatureList<NoFeatureConfig>(AlterniaFeatureHandeler.purpleHiveFeature2,IFeatureConfig.NO_FEATURE_CONFIG,0.1F));
-		biomeHives.add(new ConfiguredRandomFeatureList<NoFeatureConfig>(AlterniaFeatureHandeler.purpleHiveFeature3,IFeatureConfig.NO_FEATURE_CONFIG,0.1F));
-
-		this.addFeature(GenerationStage.Decoration.SURFACE_STRUCTURES, Biome.createDecoratedFeature(Feature.RANDOM_SELECTOR, new MultipleRandomFeatureConfig(biomeHives, new ConfiguredFeature<NoFeatureConfig>(AlterniaFeatureHandeler.indigoHiveFeature1, IFeatureConfig.NO_FEATURE_CONFIG)),Placement.CHANCE_HEIGHTMAP, new ChanceConfig(50)));
-
+		biomeHives.add(AlterniaFeatureHandeler.purpleHiveFeature1.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withChance(1F));
+		biomeHives.add(AlterniaFeatureHandeler.purpleHiveFeature2.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withChance(0.1F));
+		biomeHives.add(AlterniaFeatureHandeler.purpleHiveFeature3.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withChance(0.1F));
+		
+		ConfiguredFeature<?, ?> defaultHive = AlterniaFeatureHandeler.indigoHiveFeature1.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG);
+		this.addFeature(GenerationStage.Decoration.SURFACE_STRUCTURES, Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(biomeHives, defaultHive)).withPlacement(Placement.CHANCE_HEIGHTMAP.configure(new ChanceConfig(50))));
 		
 		DefaultBiomeFeatures.addCarvers(this);
 		DefaultBiomeFeatures.addStructures(this);
@@ -72,11 +71,11 @@ public class RainbowDesertBiome extends Biome {
 		
 	}
 	@Override
-	public int getFoliageColor(BlockPos pos) {
+	public int getFoliageColor() {
 		return(0x666666);
 	}
 	@Override
-	public int getGrassColor(BlockPos pos) {
+	public int getGrassColor(double posX, double posZ) {
 		return(0x666666);
 	}
 

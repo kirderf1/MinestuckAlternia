@@ -39,34 +39,35 @@ public final class AlterniaPlains extends Biome {
 
       
 
-		this.addStructure(Feature.MINESHAFT, new MineshaftConfig(0.004D, MineshaftStructure.Type.NORMAL));
-		this.addStructure(Feature.STRONGHOLD, IFeatureConfig.NO_FEATURE_CONFIG);
+		this.addStructure(Feature.MINESHAFT.withConfiguration(new MineshaftConfig(0.004D, MineshaftStructure.Type.NORMAL)));
+		this.addStructure(Feature.STRONGHOLD.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG));
 
 		List<ConfiguredRandomFeatureList<?>> biomeHives = new ArrayList<ConfiguredRandomFeatureList<?>>();
 		
-		biomeHives.add(new ConfiguredRandomFeatureList<NoFeatureConfig>(AlterniaFeatureHandeler.burgundyHiveFeature1,IFeatureConfig.NO_FEATURE_CONFIG,0.1F));
-		biomeHives.add(new ConfiguredRandomFeatureList<NoFeatureConfig>(AlterniaFeatureHandeler.burgundyHiveFeature2,IFeatureConfig.NO_FEATURE_CONFIG,0.1F));
-		biomeHives.add(new ConfiguredRandomFeatureList<NoFeatureConfig>(AlterniaFeatureHandeler.burgundyHiveFeature3,IFeatureConfig.NO_FEATURE_CONFIG,0.1F));
+		biomeHives.add(AlterniaFeatureHandeler.burgundyHiveFeature1.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withChance(0.1F));
+		biomeHives.add(AlterniaFeatureHandeler.burgundyHiveFeature2.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withChance(0.1F));
+		biomeHives.add(AlterniaFeatureHandeler.burgundyHiveFeature3.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withChance(0.1F));
 		
-		biomeHives.add(new ConfiguredRandomFeatureList<NoFeatureConfig>(AlterniaFeatureHandeler.bronzeHiveFeature1,IFeatureConfig.NO_FEATURE_CONFIG,0.3F));
-		biomeHives.add(new ConfiguredRandomFeatureList<NoFeatureConfig>(AlterniaFeatureHandeler.bronzeHiveFeature2,IFeatureConfig.NO_FEATURE_CONFIG,0.3F));
-		biomeHives.add(new ConfiguredRandomFeatureList<NoFeatureConfig>(AlterniaFeatureHandeler.bronzeHiveFeature3,IFeatureConfig.NO_FEATURE_CONFIG,0.3F));
+		biomeHives.add(AlterniaFeatureHandeler.bronzeHiveFeature1.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withChance(0.3F));
+		biomeHives.add(AlterniaFeatureHandeler.bronzeHiveFeature2.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withChance(0.3F));
+		biomeHives.add(AlterniaFeatureHandeler.bronzeHiveFeature3.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withChance(0.3F));
 
-		biomeHives.add(new ConfiguredRandomFeatureList<NoFeatureConfig>(AlterniaFeatureHandeler.goldHiveFeature1,IFeatureConfig.NO_FEATURE_CONFIG,0.1F));
-		biomeHives.add(new ConfiguredRandomFeatureList<NoFeatureConfig>(AlterniaFeatureHandeler.goldHiveFeature2,IFeatureConfig.NO_FEATURE_CONFIG,0.1F));
-		biomeHives.add(new ConfiguredRandomFeatureList<NoFeatureConfig>(AlterniaFeatureHandeler.goldHiveFeature3,IFeatureConfig.NO_FEATURE_CONFIG,0.1F));
+		biomeHives.add(AlterniaFeatureHandeler.goldHiveFeature1.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withChance(0.1F));
+		biomeHives.add(AlterniaFeatureHandeler.goldHiveFeature2.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withChance(0.1F));
+		biomeHives.add(AlterniaFeatureHandeler.goldHiveFeature3.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withChance(0.1F));
 		
-		this.addFeature(GenerationStage.Decoration.SURFACE_STRUCTURES, Biome.createDecoratedFeature(Feature.RANDOM_SELECTOR, new MultipleRandomFeatureConfig(biomeHives, new ConfiguredFeature<NoFeatureConfig>(AlterniaFeatureHandeler.burgundyHiveFeature3, IFeatureConfig.NO_FEATURE_CONFIG)),Placement.CHANCE_HEIGHTMAP, new ChanceConfig(50)));
+		ConfiguredFeature<?, ?> defaultHive = AlterniaFeatureHandeler.burgundyHiveFeature3.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG);
+		this.addFeature(GenerationStage.Decoration.SURFACE_STRUCTURES, Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(biomeHives, defaultHive)).withPlacement(Placement.CHANCE_HEIGHTMAP.configure(new ChanceConfig(50))));
 
 		DefaultBiomeFeatures.addCarvers(this);
 		DefaultBiomeFeatures.addStructures(this);
 		DefaultBiomeFeatures.addLakes(this);
 		DefaultBiomeFeatures.addMonsterRooms(this);
-		DefaultBiomeFeatures.func_222283_Y(this);
+		DefaultBiomeFeatures.addPlainsTallGrass(this);
 		DefaultBiomeFeatures.addStoneVariants(this);
 		DefaultBiomeFeatures.addOres(this);
 		DefaultBiomeFeatures.addSedimentDisks(this);
-		DefaultBiomeFeatures.func_222299_R(this);
+		DefaultBiomeFeatures.addOakTreesFlowersGrass(this);
 		DefaultBiomeFeatures.addMushrooms(this);
 		DefaultBiomeFeatures.addReedsAndPumpkins(this);
 		DefaultBiomeFeatures.addSprings(this);
@@ -75,11 +76,11 @@ public final class AlterniaPlains extends Biome {
 
 	}
 	@Override
-	public int getFoliageColor(BlockPos pos) {
+	public int getFoliageColor() {
 		return(0x9955DD);
 	}
 	@Override
-	public int getGrassColor(BlockPos pos) {
+	public int getGrassColor(double posX, double posZ) {
 		return(0x004411);
 	}
 }

@@ -44,7 +44,7 @@ public class ColoredSandsSurfaceBuilder extends SurfaceBuilder<SurfaceBuilderCon
 		int zInChunk = z & 15;
 		int color = (int)(noise / 3.0D + 3.0D + random.nextDouble() * 0.25D);
 		
-		BlockPos.MutableBlockPos blockpos$mutableblockpos = new BlockPos.MutableBlockPos();
+		BlockPos.Mutable blockpos$mutableblockpos = new BlockPos.Mutable();
 		BlockState surfaceBlock;
 		int depth = 0;
 
@@ -168,9 +168,9 @@ public class ColoredSandsSurfaceBuilder extends SurfaceBuilder<SurfaceBuilderCon
 		}
 
 		if (this.field_215433_b != seed || this.octive1 == null || this.octive2 == null) {
-			Random random = new SharedSeedRandom(seed);
-			this.octive1 = new PerlinNoiseGenerator(random, 4);
-			this.octive2 = new PerlinNoiseGenerator(random, 1);
+			SharedSeedRandom random = new SharedSeedRandom(seed);
+			this.octive1 = new PerlinNoiseGenerator(random, 3, 0);
+			this.octive2 = new PerlinNoiseGenerator(random, 0, 0);
 		}
 		
 		this.field_215433_b = seed;
@@ -179,8 +179,8 @@ public class ColoredSandsSurfaceBuilder extends SurfaceBuilder<SurfaceBuilderCon
    protected void func_215430_b(long p_215430_1_) {
       this.field_215432_a = new BlockState[64];
       Arrays.fill(this.field_215432_a, red_concrete_powder);
-      Random random = new SharedSeedRandom(p_215430_1_);
-      this.octive3 = new PerlinNoiseGenerator(random, 1);
+      SharedSeedRandom random = new SharedSeedRandom(p_215430_1_);
+      this.octive3 = new PerlinNoiseGenerator(random, 0, 0);
 
       for(int l1 = 0; l1 < 64; ++l1) {
          l1 += random.nextInt(5) + 1;
