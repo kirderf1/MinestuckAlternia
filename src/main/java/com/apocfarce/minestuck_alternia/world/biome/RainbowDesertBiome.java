@@ -5,10 +5,9 @@ import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.DefaultBiomeFeatures;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
 
-public class RainbowDesertBiome extends Biome {
+public class RainbowDesertBiome extends CustomSurfaceBiome {
 	protected RainbowDesertBiome() {
-		super(new Biome.Builder()
-				.surfaceBuilder(AlterniaSurfaceBuilders.COLORED_SANDS.get(), SurfaceBuilder.SAND_CONFIG)
+		super(AlterniaSurfaceBuilders.COLORED_SANDS, () -> SurfaceBuilder.SAND_CONFIG, new Biome.Builder()
 				.precipitation(Biome.RainType.NONE)
 				.category(Biome.Category.DESERT)
 				.temperature(0.5F)
@@ -30,15 +29,11 @@ public class RainbowDesertBiome extends Biome {
 		DefaultBiomeFeatures.addOres(this);
 		DefaultBiomeFeatures.addSedimentDisks(this);
 		
-	      
-
 		DefaultBiomeFeatures.addExtraDefaultFlowers(this);
 		DefaultBiomeFeatures.addJungleGrass(this);
 		DefaultBiomeFeatures.addMushrooms(this);
 		DefaultBiomeFeatures.addSprings(this);
 		DefaultBiomeFeatures.addFreezeTopLayer(this);
-			
-		
 		
 	}
 	@Override
