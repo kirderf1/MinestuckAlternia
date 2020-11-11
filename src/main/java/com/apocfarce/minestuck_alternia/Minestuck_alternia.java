@@ -6,8 +6,8 @@ import com.apocfarce.minestuck_alternia.block.AlterniaBlocks;
 import com.apocfarce.minestuck_alternia.data.AlterniaData;
 import com.apocfarce.minestuck_alternia.world.DimensionsHandeler;
 import com.apocfarce.minestuck_alternia.world.biome.AlterniaBiomeHandeler;
-import com.apocfarce.minestuck_alternia.world.biome.provider.AlterniaBioimeProviderHandeler;
-import com.apocfarce.minestuck_alternia.world.gen.GenTypesHandeler;
+import com.apocfarce.minestuck_alternia.world.biome.provider.AlterniaBiomeProviderTypes;
+import com.apocfarce.minestuck_alternia.world.gen.AlterniaChunkGenTypes;
 import com.apocfarce.minestuck_alternia.world.gen.feature.AlterniaFeatureHandeler;
 import com.apocfarce.minestuck_alternia.world.gen.surfacebuilder.AlterniaSurfaceBuilders;
 
@@ -15,9 +15,7 @@ import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.provider.BiomeProviderType;
-import net.minecraft.world.gen.ChunkGeneratorType;
 import net.minecraft.world.gen.feature.Feature;
-import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.ModDimension;
 import net.minecraftforge.event.RegistryEvent;
@@ -44,6 +42,8 @@ public class Minestuck_alternia {
         MinecraftForge.EVENT_BUS.register(this);
         
         AlterniaSurfaceBuilders.REGISTER.register(FMLJavaModLoadingContext.get().getModEventBus());
+        AlterniaChunkGenTypes.REGISTER.register(FMLJavaModLoadingContext.get().getModEventBus());
+        AlterniaBiomeProviderTypes.REGISTER.register(FMLJavaModLoadingContext.get().getModEventBus());
     }
     private void preInit(final FMLCommonSetupEvent event){
     }
@@ -86,14 +86,6 @@ public class Minestuck_alternia {
         @SubscribeEvent
         public static void onDimensionRegistry(final RegistryEvent.Register<ModDimension> DimensionRegistryEvent) {
             DimensionsHandeler.registerDimensions(DimensionRegistryEvent); 
-        }
-        @SubscribeEvent
-        public static void onGenTypeRegistry(final RegistryEvent.Register<ChunkGeneratorType<?, ?>> GenTypeRegistryEvent) {
-        	GenTypesHandeler.registerChunkGenerators(GenTypeRegistryEvent);
-        }
-        @SubscribeEvent
-        public static void onBiomeTypeRegistry(final RegistryEvent.Register<BiomeProviderType<?, ?>> biomeTypeRegistryEvent) {
-        	AlterniaBioimeProviderHandeler.RegisterBiomeProviderTypes(biomeTypeRegistryEvent);
         }
         @SubscribeEvent
         public static void onBiomeRegistry(final RegistryEvent.Register<Biome> biomeRegistryEvent) {

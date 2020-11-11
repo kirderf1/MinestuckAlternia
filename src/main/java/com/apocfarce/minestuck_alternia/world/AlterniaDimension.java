@@ -4,12 +4,12 @@ import java.util.function.BiFunction;
 
 import javax.annotation.Nullable;
 
-import com.apocfarce.minestuck_alternia.world.biome.provider.AlterniaBioimeProviderHandeler;
+import com.apocfarce.minestuck_alternia.world.biome.provider.AlterniaBiomeProviderTypes;
 import com.apocfarce.minestuck_alternia.world.biome.provider.AlterniaBiomeProvider;
 import com.apocfarce.minestuck_alternia.world.biome.provider.AlterniaBiomeProviderSettings;
 import com.apocfarce.minestuck_alternia.world.gen.AlterniaChunkGenerator;
 import com.apocfarce.minestuck_alternia.world.gen.AlterniaGenSettings;
-import com.apocfarce.minestuck_alternia.world.gen.GenTypesHandeler;
+import com.apocfarce.minestuck_alternia.world.gen.AlterniaChunkGenTypes;
 
 import net.minecraft.block.BlockState;
 import net.minecraft.tags.BlockTags;
@@ -20,7 +20,6 @@ import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.provider.BiomeProviderType;
-import net.minecraft.world.biome.provider.OverworldBiomeProviderSettings;
 import net.minecraft.world.chunk.Chunk;
 import net.minecraft.world.dimension.Dimension;
 import net.minecraft.world.dimension.DimensionType;
@@ -47,8 +46,8 @@ public class AlterniaDimension extends Dimension {
 
 		
 //		-------------------------------OVERWORLD ALGORyTHIM-------------------------		
-		ChunkGeneratorType<AlterniaGenSettings,AlterniaChunkGenerator> alterniaChunkGenerator = GenTypesHandeler.ALTERNIA;
-		BiomeProviderType<AlterniaBiomeProviderSettings, AlterniaBiomeProvider> biomeprovidertype = AlterniaBioimeProviderHandeler.ALTERNIA;
+		ChunkGeneratorType<AlterniaGenSettings,AlterniaChunkGenerator> alterniaChunkGenerator = AlterniaChunkGenTypes.ALTERNIA.get();
+		BiomeProviderType<AlterniaBiomeProviderSettings, AlterniaBiomeProvider> biomeprovidertype = AlterniaBiomeProviderTypes.ALTERNIA.get();
 		
 	      
 		AlterniaGenSettings alterniagensettings = alterniaChunkGenerator.createSettings();
