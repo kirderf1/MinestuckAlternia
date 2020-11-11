@@ -2,22 +2,15 @@ package com.apocfarce.minestuck_alternia.world.biome.provider;
 
 import java.util.*;
 
-import javax.annotation.Nullable;
-
+import com.apocfarce.minestuck_alternia.world.biome.AlterniaBiomes;
 import com.apocfarce.minestuck_alternia.world.gen.AlterniaGenSettings;
 import com.apocfarce.minestuck_alternia.world.gen.layer.AlterniaLayerUtil;
 import com.google.common.collect.ImmutableList;
-import com.google.common.collect.ImmutableSet;
-import com.google.common.collect.Sets;
 
-import net.minecraft.block.BlockState;
-import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.Biomes;
 import net.minecraft.world.biome.provider.BiomeProvider;
-import net.minecraft.world.gen.feature.structure.Structure;
 import net.minecraft.world.gen.layer.Layer;
-import net.minecraft.world.storage.WorldInfo;
 import net.minecraftforge.common.BiomeManager.BiomeEntry;
 import net.minecraftforge.common.BiomeManager.BiomeType;
 
@@ -39,13 +32,20 @@ public class AlterniaBiomeProvider extends BiomeProvider {
 		return tbiomes;
 	}
    
-	public static void AddVanillaBiomes(){
-//		AddBiome(Biomes.BAMBOO_JUNGLE, BiomeType.WARM, 10);
-//		AddBiome(Biomes.SWAMP, BiomeType.COOL, 10);
-		AddBiome(Biomes.ICE_SPIKES, BiomeType.ICY, 10);
-		AddBiome(Biomes.BADLANDS, BiomeType.DESERT, 10);
-	}	
-	public static void AddBiome(Biome biome,BiomeType type, int weight) {
+	public static void initBiomeList() {
+//		addBiome(Biomes.BAMBOO_JUNGLE, BiomeType.WARM, 10);
+//		addBiome(Biomes.SWAMP, BiomeType.COOL, 10);
+		addBiome(Biomes.ICE_SPIKES, BiomeType.ICY, 10);
+		addBiome(Biomes.BADLANDS, BiomeType.DESERT, 10);
+		
+		addBiome(AlterniaBiomes.MIRRAGE_FOREST.get(), BiomeType.WARM, 10);
+		addBiome(AlterniaBiomes.PYRAL_FOREST.get(), BiomeType.WARM, 10);
+		addBiome(AlterniaBiomes.ALTERNIA_PLAINS.get(), BiomeType.COOL, 30);
+		addBiome(AlterniaBiomes.MIXED_FOREST.get(), BiomeType.WARM, 10);
+		addBiome(AlterniaBiomes.COLORED_DESERT.get(), BiomeType.DESERT, 40);
+	}
+	
+	private static void addBiome(Biome biome, BiomeType type, int weight) {
 		biomes[type.ordinal()].add(new BiomeEntry(biome,weight));
 		biomeSet.add(biome);
 	}

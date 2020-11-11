@@ -7,8 +7,6 @@ import net.minecraft.world.gen.INoiseRandom;
 import net.minecraft.world.gen.layer.LayerUtil;
 import net.minecraft.world.gen.layer.traits.ICastleTransformer;
 
-import com.apocfarce.minestuck_alternia.world.biome.AlterniaBiomeHandeler;
-
 public enum AlterniaEdgeBiomeLayer implements ICastleTransformer {
 	INSTANCE;
 
