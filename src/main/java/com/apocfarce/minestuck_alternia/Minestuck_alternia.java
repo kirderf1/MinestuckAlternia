@@ -4,7 +4,7 @@ package com.apocfarce.minestuck_alternia;
 import com.apocfarce.minestuck_alternia.Item.AlterniaItems;
 import com.apocfarce.minestuck_alternia.block.AlterniaBlocks;
 import com.apocfarce.minestuck_alternia.data.AlterniaData;
-import com.apocfarce.minestuck_alternia.world.DimensionsHandeler;
+import com.apocfarce.minestuck_alternia.world.AlterniaDimensions;
 import com.apocfarce.minestuck_alternia.world.biome.AlterniaBiomes;
 import com.apocfarce.minestuck_alternia.world.biome.provider.AlterniaBiomeProvider;
 import com.apocfarce.minestuck_alternia.world.biome.provider.AlterniaBiomeProviderTypes;
@@ -14,7 +14,6 @@ import com.apocfarce.minestuck_alternia.world.gen.surfacebuilder.AlterniaSurface
 
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
-import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.ModDimension;
@@ -43,6 +42,7 @@ public class Minestuck_alternia {
         modBus.addListener(AlterniaData::gatherData);
         MinecraftForge.EVENT_BUS.register(this);
         
+        AlterniaDimensions.REGISTER.register(modBus);
         AlterniaSurfaceBuilders.REGISTER.register(modBus);
         AlterniaChunkGenTypes.REGISTER.register(modBus);
         AlterniaBiomeProviderTypes.REGISTER.register(modBus);
@@ -65,14 +65,12 @@ public class Minestuck_alternia {
     }
     
     @Mod.EventBusSubscriber(modid = "minestuck_alternia", bus=Mod.EventBusSubscriber.Bus.FORGE)
-	public static class ForgeRegistryEvents{
+	public static class ForgeRegistryEvents {
         @SubscribeEvent
     	public static void registerDimensionTypes(final RegisterDimensionsEvent event) {
-        	DimensionsHandeler.registerDimensionTypes();
-        } 
- 
+        	AlterniaDimensions.registerDimensionTypes();
+        }
 	}
-
 
     @Mod.EventBusSubscriber(modid = "minestuck_alternia",bus=Mod.EventBusSubscriber.Bus.MOD)
     public static class RegistryEvents {
@@ -87,10 +85,6 @@ public class Minestuck_alternia {
         @SubscribeEvent
         public static void onFeatureRegistry(final RegistryEvent.Register<Feature<?>> featureRegistryEvent) {
         	AlterniaFeatureHandeler.registerFeatures(featureRegistryEvent);
-        }
-        @SubscribeEvent
-        public static void onDimensionRegistry(final RegistryEvent.Register<ModDimension> DimensionRegistryEvent) {
-            DimensionsHandeler.registerDimensions(DimensionRegistryEvent); 
         }
     }
 

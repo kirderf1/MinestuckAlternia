@@ -1,11 +1,10 @@
 package com.apocfarce.minestuck_alternia.block;
 
 import com.apocfarce.minestuck_alternia.Item.AlterniaItems;
-import com.apocfarce.minestuck_alternia.world.DimensionsHandeler;
+import com.apocfarce.minestuck_alternia.world.AlterniaDimensions;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.ServerPlayerEntity;
@@ -139,7 +138,7 @@ public class PortalCenter extends Portal{
 				ServerWorld to;
 				
 				if(from==from.getServer().getWorld(DimensionType.OVERWORLD)) {
-					to=from.getServer().getWorld(DimensionsHandeler.alterniaType);
+					to=from.getServer().getWorld(AlterniaDimensions.getDimensionType());
 				}else{
 					to=from.getServer().getWorld(DimensionType.OVERWORLD);
 				}
