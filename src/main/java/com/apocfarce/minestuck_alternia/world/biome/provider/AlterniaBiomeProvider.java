@@ -3,7 +3,6 @@ package com.apocfarce.minestuck_alternia.world.biome.provider;
 import java.util.*;
 
 import com.apocfarce.minestuck_alternia.world.biome.AlterniaBiomes;
-import com.apocfarce.minestuck_alternia.world.gen.AlterniaGenSettings;
 import com.apocfarce.minestuck_alternia.world.gen.layer.AlterniaLayerUtil;
 
 import net.minecraft.world.biome.Biome;
