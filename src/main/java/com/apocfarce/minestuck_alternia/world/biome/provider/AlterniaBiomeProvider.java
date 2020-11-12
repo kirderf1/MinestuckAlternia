@@ -5,7 +5,6 @@ import java.util.*;
 import com.apocfarce.minestuck_alternia.world.biome.AlterniaBiomes;
 import com.apocfarce.minestuck_alternia.world.gen.AlterniaGenSettings;
 import com.apocfarce.minestuck_alternia.world.gen.layer.AlterniaLayerUtil;
-import com.google.common.collect.ImmutableList;
 
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.Biomes;
@@ -16,22 +15,15 @@ import net.minecraftforge.common.BiomeManager.BiomeType;
 
 public class AlterniaBiomeProvider extends BiomeProvider {
 	private final Layer genBiomes;
-	private static final List<BiomeEntry>[] biomes = SetupBiomesList();
+	private static final Map<BiomeType, List<BiomeEntry>> biomes = new EnumMap<>(BiomeType.class);
+	private static final Map<BiomeType, List<BiomeEntry>> unmodifiableBiomes = new EnumMap<>(BiomeType.class);
    	private static final Set<Biome> biomeSet = new HashSet<>();
    
 	public AlterniaBiomeProvider(AlterniaBiomeProviderSettings settings) {
 		super(Collections.unmodifiableSet(biomeSet));
-		AlterniaGenSettings alterniagensettings = settings.getGeneratorSettings();
-		this.genBiomes = AlterniaLayerUtil.buildAlterniaProcedure(settings.getSeed(), settings.getWorldType(), alterniagensettings);
-	}	
-	public static List<BiomeEntry>[] SetupBiomesList() {
-		List<BiomeEntry>[] tbiomes= new ArrayList[BiomeType.values().length];
-		for(int i = 0; i<tbiomes.length;i++) {
-			tbiomes[i]=new ArrayList<BiomeEntry>();
-		}
-		return tbiomes;
+		this.genBiomes = AlterniaLayerUtil.buildAlterniaProcedure(settings.getSeed(), settings.getWorldType(), settings.getGeneratorSettings());
 	}
-   
+	
 	public static void initBiomeList() {
 //		addBiome(Biomes.BAMBOO_JUNGLE, BiomeType.WARM, 10);
 //		addBiome(Biomes.SWAMP, BiomeType.COOL, 10);
@@ -46,16 +38,19 @@ public class AlterniaBiomeProvider extends BiomeProvider {
 	}
 	
 	private static void addBiome(Biome biome, BiomeType type, int weight) {
-		biomes[type.ordinal()].add(new BiomeEntry(biome,weight));
+		biomes.computeIfAbsent(type, AlterniaBiomeProvider::makeList).add(new BiomeEntry(biome,weight));
 		biomeSet.add(biome);
 	}
 	
-	public static ImmutableList<BiomeEntry> getBiomes(BiomeType biomeType){
+	private static List<BiomeEntry> makeList(BiomeType type) {
+		List<BiomeEntry> list = new ArrayList<>();
+		unmodifiableBiomes.put(type, Collections.unmodifiableList(list));
+		return list;
+	}
+	
+	public static List<BiomeEntry> getBiomes(BiomeType biomeType) {
 		
-		int idx = biomeType.ordinal();
-		List<BiomeEntry> list = idx >= biomes.length ? null : biomes[idx];
-
-		return list != null ? ImmutableList.copyOf(list) : null;
+		return unmodifiableBiomes.get(biomeType);
 	}
 	
 	@Override
