@@ -1,7 +1,7 @@
 package com.apocfarce.minestuck_alternia.data;
 
 import com.apocfarce.minestuck_alternia.Item.AlterniaItems;
-import com.apocfarce.minestuck_alternia.Item.ENUM_BLOOD_COLOR;
+import com.apocfarce.minestuck_alternia.Item.EnumBloodColor;
 import com.apocfarce.minestuck_alternia.Item.ItemGroupAlternia;
 import com.apocfarce.minestuck_alternia.Item.block.PortalBaseItem;
 import com.apocfarce.minestuck_alternia.Item.block.PortalCenterItem;
@@ -58,37 +58,37 @@ public class AlterniaEnUsLanguageProvider extends LanguageProvider {
 		
 		add(AlterniaBlocks.pyralGrass, "Pyral Grass");
 		
-		add(AlterniaBlocks.hiveGlass[ENUM_BLOOD_COLOR.BURGUNDY.ordinal()], "Burgundy Hive Glass");
-		add(AlterniaBlocks.hiveGlass[ENUM_BLOOD_COLOR.BRONZE.ordinal()], "Bronze Hive Glass");
-		add(AlterniaBlocks.hiveGlass[ENUM_BLOOD_COLOR.GOLD.ordinal()], "Gold Hive Glass");
-		add(AlterniaBlocks.hiveGlass[ENUM_BLOOD_COLOR.OLIVE.ordinal()], "Olive Hive Glass");
-		add(AlterniaBlocks.hiveGlass[ENUM_BLOOD_COLOR.JADE.ordinal()], "Jade Hive Glass");
-		add(AlterniaBlocks.hiveGlass[ENUM_BLOOD_COLOR.TEAL.ordinal()], "Teal Hive Glass");
-		add(AlterniaBlocks.hiveGlass[ENUM_BLOOD_COLOR.CERULEAN.ordinal()], "Cerulean Hive Glass");
-		add(AlterniaBlocks.hiveGlass[ENUM_BLOOD_COLOR.INDIGO.ordinal()], "Indigo Hive Glass");
-		add(AlterniaBlocks.hiveGlass[ENUM_BLOOD_COLOR.PURPLE.ordinal()], "Purple Hive Glass");
-		add(AlterniaBlocks.hiveGlass[ENUM_BLOOD_COLOR.VIOLET.ordinal()], "Violet Hive Glass");
-		add(AlterniaBlocks.hiveGlass[ENUM_BLOOD_COLOR.FUCHSIA.ordinal()], "Fuchsia Hive Glass");
-		add(AlterniaBlocks.hiveGlass[ENUM_BLOOD_COLOR.LIME.ordinal()], "Lime Hive Glass");
-		add(AlterniaBlocks.hiveGlass[ENUM_BLOOD_COLOR.GREY.ordinal()], "Grey Hive Glass");
+		add(AlterniaBlocks.hiveGlass[EnumBloodColor.BURGUNDY.ordinal()], "Burgundy Hive Glass");
+		add(AlterniaBlocks.hiveGlass[EnumBloodColor.BRONZE.ordinal()], "Bronze Hive Glass");
+		add(AlterniaBlocks.hiveGlass[EnumBloodColor.GOLD.ordinal()], "Gold Hive Glass");
+		add(AlterniaBlocks.hiveGlass[EnumBloodColor.OLIVE.ordinal()], "Olive Hive Glass");
+		add(AlterniaBlocks.hiveGlass[EnumBloodColor.JADE.ordinal()], "Jade Hive Glass");
+		add(AlterniaBlocks.hiveGlass[EnumBloodColor.TEAL.ordinal()], "Teal Hive Glass");
+		add(AlterniaBlocks.hiveGlass[EnumBloodColor.CERULEAN.ordinal()], "Cerulean Hive Glass");
+		add(AlterniaBlocks.hiveGlass[EnumBloodColor.INDIGO.ordinal()], "Indigo Hive Glass");
+		add(AlterniaBlocks.hiveGlass[EnumBloodColor.PURPLE.ordinal()], "Purple Hive Glass");
+		add(AlterniaBlocks.hiveGlass[EnumBloodColor.VIOLET.ordinal()], "Violet Hive Glass");
+		add(AlterniaBlocks.hiveGlass[EnumBloodColor.FUCHSIA.ordinal()], "Fuchsia Hive Glass");
+		add(AlterniaBlocks.hiveGlass[EnumBloodColor.LIME.ordinal()], "Lime Hive Glass");
+		add(AlterniaBlocks.hiveGlass[EnumBloodColor.GREY.ordinal()], "Grey Hive Glass");
 		
-		add(AlterniaItems.oblongMeatProduct, "Oblong Meat Product");
+		add(AlterniaItems.OBLONG_MEAT_PRODUCT, "Oblong Meat Product");
 		
-		add(AlterniaItems.bloodPotions[ENUM_BLOOD_COLOR.BURGUNDY.ordinal()], "Burgundy Blood Bottle");
-		add(AlterniaItems.bloodPotions[ENUM_BLOOD_COLOR.BRONZE.ordinal()], "Bronze Blood Bottle");
-		add(AlterniaItems.bloodPotions[ENUM_BLOOD_COLOR.GOLD.ordinal()], "Gold Blood Bottle");
-		add(AlterniaItems.bloodPotions[ENUM_BLOOD_COLOR.OLIVE.ordinal()], "Olive Blood Bottle");
-		add(AlterniaItems.bloodPotions[ENUM_BLOOD_COLOR.JADE.ordinal()], "Jade Blood Bottle");
-		add(AlterniaItems.bloodPotions[ENUM_BLOOD_COLOR.TEAL.ordinal()], "Teal Blood Bottle");
-		add(AlterniaItems.bloodPotions[ENUM_BLOOD_COLOR.CERULEAN.ordinal()], "Cerulean Blood Bottle");
-		add(AlterniaItems.bloodPotions[ENUM_BLOOD_COLOR.INDIGO.ordinal()], "Indigo Blood Bottle");
-		add(AlterniaItems.bloodPotions[ENUM_BLOOD_COLOR.PURPLE.ordinal()], "Purple Blood Bottle");
-		add(AlterniaItems.bloodPotions[ENUM_BLOOD_COLOR.VIOLET.ordinal()], "Violet Blood Bottle");
-		add(AlterniaItems.bloodPotions[ENUM_BLOOD_COLOR.FUCHSIA.ordinal()], "Fuchsia Blood Bottle");
-		add(AlterniaItems.bloodPotions[ENUM_BLOOD_COLOR.LIME.ordinal()], "Lime Blood Bottle");
-		add(AlterniaItems.bloodPotions[ENUM_BLOOD_COLOR.MUTANT.ordinal()], "Mutant Blood Bottle");
+		add(AlterniaItems.BURGUNDY_BLOOD_BOTTLE, "Burgundy Blood Bottle");
+		add(AlterniaItems.BRONZE_BLOOD_BOTTLE, "Bronze Blood Bottle");
+		add(AlterniaItems.GOLD_BLOOD_BOTTLE, "Gold Blood Bottle");
+		add(AlterniaItems.OLIVE_BLOOD_BOTTLE, "Olive Blood Bottle");
+		add(AlterniaItems.JADE_BLOOD_BOTTLE, "Jade Blood Bottle");
+		add(AlterniaItems.TEAL_BLOOD_BOTTLE, "Teal Blood Bottle");
+		add(AlterniaItems.CERULEAN_BLOOD_BOTTLE, "Cerulean Blood Bottle");
+		add(AlterniaItems.INDIGO_BLOOD_BOTTLE, "Indigo Blood Bottle");
+		add(AlterniaItems.PURPLE_BLOOD_BOTTLE, "Purple Blood Bottle");
+		add(AlterniaItems.VIOLET_BLOOD_BOTTLE, "Violet Blood Bottle");
+		add(AlterniaItems.FUCHSIA_BLOOD_BOTTLE, "Fuchsia Blood Bottle");
+		add(AlterniaItems.LIME_BLOOD_BOTTLE, "Lime Blood Bottle");
+		add(AlterniaItems.MUTANT_BLOOD_BOTTLE, "Mutant Blood Bottle");
 		
-		add(AlterniaItems.cherubKey, "Cherub Key");
+		add(AlterniaItems.CHERUB_KEY, "Cherub Key");
 		
 		add(ItemGroupAlternia.instance, "Minestuck Alternia");
 		

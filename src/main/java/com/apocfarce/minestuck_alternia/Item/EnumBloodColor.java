@@ -1,6 +1,6 @@
 package com.apocfarce.minestuck_alternia.Item;
 
-public enum ENUM_BLOOD_COLOR {
+public enum EnumBloodColor {
 	BURGUNDY,
 	BRONZE,
 	GOLD,

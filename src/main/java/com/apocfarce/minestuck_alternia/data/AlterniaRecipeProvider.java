@@ -14,14 +14,14 @@ public class AlterniaRecipeProvider extends RecipeProvider {
 	
 	@Override
 	protected void registerRecipes(Consumer<IFinishedRecipe> consumer) {
-		ShapedRecipeBuilder.shapedRecipe(AlterniaItems.cherubKey).key('E', Items.EMERALD).key('R', Items.RED_DYE).key('G', Items.LIME_DYE).patternLine("  E").patternLine("ER ").patternLine("GE ").setGroup("cherub_key").addCriterion("has_emerald", hasItem(Items.EMERALD)).build(consumer);
-		ShapedRecipeBuilder.shapedRecipe(AlterniaItems.cherubKey).key('E', Items.EMERALD).key('R', Items.RED_DYE).key('G', Items.LIME_DYE).patternLine("  E").patternLine("EG ").patternLine("RE ").setGroup("cherub_key").addCriterion("has_emerald", hasItem(Items.EMERALD)).build(consumer, AlterniaItems.cherubKey.getRegistryName().toString()+"_inverted");
+		ShapedRecipeBuilder.shapedRecipe(AlterniaItems.CHERUB_KEY).key('E', Items.EMERALD).key('R', Items.RED_DYE).key('G', Items.LIME_DYE).patternLine("  E").patternLine("ER ").patternLine("GE ").setGroup("cherub_key").addCriterion("has_emerald", hasItem(Items.EMERALD)).build(consumer);
+		ShapedRecipeBuilder.shapedRecipe(AlterniaItems.CHERUB_KEY).key('E', Items.EMERALD).key('R', Items.RED_DYE).key('G', Items.LIME_DYE).patternLine("  E").patternLine("EG ").patternLine("RE ").setGroup("cherub_key").addCriterion("has_emerald", hasItem(Items.EMERALD)).build(consumer, AlterniaItems.CHERUB_KEY.getRegistryName().toString()+"_inverted");
 		
-		ShapedRecipeBuilder.shapedRecipe(AlterniaBlocks.portalCenter).key('I', Items.IRON_BLOCK).key('D', Items.DIAMOND).key('O', Items.OBSIDIAN).patternLine("DID").patternLine("IOI").patternLine("DID").addCriterion("has_key", hasItem(AlterniaItems.cherubKey)).build(consumer);
-		ShapedRecipeBuilder.shapedRecipe(AlterniaBlocks.portalBase).key('I', Items.IRON_BLOCK).patternLine("III").patternLine("III").addCriterion("has_key", hasItem(AlterniaItems.cherubKey)).build(consumer);
-		ShapedRecipeBuilder.shapedRecipe(AlterniaBlocks.portalCrown).key('I', Items.IRON_BLOCK).key('D', Items.DIAMOND).key('O', Items.OBSIDIAN).patternLine("IOI").patternLine("DID").addCriterion("has_key", hasItem(AlterniaItems.cherubKey)).build(consumer);
-		ShapedRecipeBuilder.shapedRecipe(AlterniaBlocks.redSnake).key('I', Items.IRON_BLOCK).key('E', Items.EMERALD_BLOCK).key('R', Items.RED_DYE).patternLine(" RE").patternLine(" I ").patternLine("II ").addCriterion("has_key", hasItem(AlterniaItems.cherubKey)).build(consumer);
-		ShapedRecipeBuilder.shapedRecipe(AlterniaBlocks.greenSnake).key('I', Items.IRON_BLOCK).key('E', Items.EMERALD_BLOCK).key('G', Items.LIME_DYE).patternLine(" GE").patternLine(" I ").patternLine("II ").addCriterion("has_key", hasItem(AlterniaItems.cherubKey)).build(consumer);
+		ShapedRecipeBuilder.shapedRecipe(AlterniaItems.PORTAL_CENTER).key('I', Items.IRON_BLOCK).key('D', Items.DIAMOND).key('O', Items.OBSIDIAN).patternLine("DID").patternLine("IOI").patternLine("DID").addCriterion("has_key", hasItem(AlterniaItems.CHERUB_KEY)).build(consumer);
+		ShapedRecipeBuilder.shapedRecipe(AlterniaItems.PORTAL_BASE).key('I', Items.IRON_BLOCK).patternLine("III").patternLine("III").addCriterion("has_key", hasItem(AlterniaItems.CHERUB_KEY)).build(consumer);
+		ShapedRecipeBuilder.shapedRecipe(AlterniaItems.PORTAL_CROWN).key('I', Items.IRON_BLOCK).key('D', Items.DIAMOND).key('O', Items.OBSIDIAN).patternLine("IOI").patternLine("DID").addCriterion("has_key", hasItem(AlterniaItems.CHERUB_KEY)).build(consumer);
+		ShapedRecipeBuilder.shapedRecipe(AlterniaItems.RED_SNAKE).key('I', Items.IRON_BLOCK).key('E', Items.EMERALD_BLOCK).key('R', Items.RED_DYE).patternLine(" RE").patternLine(" I ").patternLine("II ").addCriterion("has_key", hasItem(AlterniaItems.CHERUB_KEY)).build(consumer);
+		ShapedRecipeBuilder.shapedRecipe(AlterniaItems.GREEN_SNAKE).key('I', Items.IRON_BLOCK).key('E', Items.EMERALD_BLOCK).key('G', Items.LIME_DYE).patternLine(" GE").patternLine(" I ").patternLine("II ").addCriterion("has_key", hasItem(AlterniaItems.CHERUB_KEY)).build(consumer);
 		
 		ShapedRecipeBuilder.shapedRecipe(AlterniaBlocks.pyralWood, 3).key('#', AlterniaBlocks.pyralLog).patternLine("##").patternLine("##").setGroup("bark").addCriterion("has_log", hasItem(AlterniaBlocks.pyralLog)).build(consumer);
 		ShapelessRecipeBuilder.shapelessRecipe(AlterniaBlocks.pyralPlanks, 4).addIngredient(AlterniaBlocks.pyralLog).setGroup("planks").addCriterion("has_log", hasItem(AlterniaBlocks.pyralLog)).build(consumer);
@@ -37,7 +37,7 @@ public class AlterniaRecipeProvider extends RecipeProvider {
 		ShapedRecipeBuilder.shapedRecipe(AlterniaBlocks.mirrageFence, 3).key('W', AlterniaBlocks.mirragePlanks).key('#', Items.STICK).patternLine("W#W").patternLine("W#W").setGroup("wooden_fence").addCriterion("has_planks", hasItem(AlterniaBlocks.mirragePlanks)).build(consumer);
 		ShapedRecipeBuilder.shapedRecipe(AlterniaBlocks.mirrageFenceGate).key('W', AlterniaBlocks.mirragePlanks).key('#', Items.STICK).patternLine("#W#").patternLine("#W#").setGroup("wooden_fence_gate").addCriterion("has_planks", hasItem(AlterniaBlocks.mirragePlanks)).build(consumer);
 		
-		ShapedRecipeBuilder.shapedRecipe(AlterniaItems.oblongMeatProduct).key('B', Items.BREAD).key('G', Items.PORKCHOP).patternLine("BBB").patternLine("GGG").patternLine("BBB").addCriterion("has_bread", hasItem(Items.BREAD)).build(consumer);
+		ShapedRecipeBuilder.shapedRecipe(AlterniaItems.OBLONG_MEAT_PRODUCT).key('B', Items.BREAD).key('G', Items.PORKCHOP).patternLine("BBB").patternLine("GGG").patternLine("BBB").addCriterion("has_bread", hasItem(Items.BREAD)).build(consumer);
 	}
 	
 	@Override

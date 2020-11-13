@@ -19,19 +19,27 @@ public class AlterniaItemModelProvider extends ItemModelProvider {
 	
 	@Override
 	protected void registerModels() {
-		simpleTexture(AlterniaBlocks.portalCenter.asItem());
-		simpleTexture(AlterniaBlocks.portalBase.asItem());
-		simpleTexture(AlterniaBlocks.portalCrown.asItem());
-		simpleTexture(AlterniaBlocks.redSnake.asItem());
-		simpleTexture(AlterniaBlocks.greenSnake.asItem());
+		simpleTexture(AlterniaItems.PORTAL_CENTER);
+		simpleTexture(AlterniaItems.PORTAL_BASE);
+		simpleTexture(AlterniaItems.PORTAL_CROWN);
+		simpleTexture(AlterniaItems.RED_SNAKE);
+		simpleTexture(AlterniaItems.GREEN_SNAKE);
 		
-		simpleTexture(AlterniaItems.cherubKey);
+		simpleTexture(AlterniaItems.CHERUB_KEY);
 		
-		for(Item potion : AlterniaItems.bloodPotions) {
-			if(potion != null)
-				simpleTexture(potion);
-		}
-		
+		simpleTexture(AlterniaItems.BURGUNDY_BLOOD_BOTTLE);
+		simpleTexture(AlterniaItems.BRONZE_BLOOD_BOTTLE);
+		simpleTexture(AlterniaItems.GOLD_BLOOD_BOTTLE);
+		simpleTexture(AlterniaItems.OLIVE_BLOOD_BOTTLE);
+		simpleTexture(AlterniaItems.JADE_BLOOD_BOTTLE);
+		simpleTexture(AlterniaItems.TEAL_BLOOD_BOTTLE);
+		simpleTexture(AlterniaItems.CERULEAN_BLOOD_BOTTLE);
+		simpleTexture(AlterniaItems.INDIGO_BLOOD_BOTTLE);
+		simpleTexture(AlterniaItems.PURPLE_BLOOD_BOTTLE);
+		simpleTexture(AlterniaItems.VIOLET_BLOOD_BOTTLE);
+		simpleTexture(AlterniaItems.FUCHSIA_BLOOD_BOTTLE);
+		simpleTexture(AlterniaItems.LIME_BLOOD_BOTTLE);
+		simpleTexture(AlterniaItems.MUTANT_BLOOD_BOTTLE);
 	}
 	
 	protected ResourceLocation itemTexture(Item item) {

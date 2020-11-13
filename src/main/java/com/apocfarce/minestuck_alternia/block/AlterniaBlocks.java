@@ -1,6 +1,6 @@
 package com.apocfarce.minestuck_alternia.block;
 
-import com.apocfarce.minestuck_alternia.Item.ENUM_BLOOD_COLOR;
+import com.apocfarce.minestuck_alternia.Item.EnumBloodColor;
 import com.apocfarce.minestuck_alternia.block.tree.MirrageTree;
 import com.apocfarce.minestuck_alternia.block.tree.PyralTree;
 
@@ -70,10 +70,10 @@ public class AlterniaBlocks
 	{
 		IForgeRegistry<Block> registry = event.getRegistry();
 		//blood colored blocks
-		hiveGlass=new PaneBlock[ENUM_BLOOD_COLOR.values().length];
+		hiveGlass=new PaneBlock[EnumBloodColor.values().length];
 		for(int i=0;i<hiveGlass.length;i++) {
-			if(i!=ENUM_BLOOD_COLOR.MUTANT.ordinal()) {
-				hiveGlass[i] = (PaneBlock) register(registry,"minestuck_alternia:hiveglass_"+ENUM_BLOOD_COLOR.values()[i].name().toLowerCase(), new HiveGlass(Block.Properties.create(Material.GLASS).sound(SoundType.GLASS).notSolid(), ENUM_BLOOD_COLOR.values()[i]));
+			if(i!= EnumBloodColor.MUTANT.ordinal()) {
+				hiveGlass[i] = (PaneBlock) register(registry,"minestuck_alternia:hiveglass_"+ EnumBloodColor.values()[i].name().toLowerCase(), new HiveGlass(Block.Properties.create(Material.GLASS).sound(SoundType.GLASS).notSolid(), EnumBloodColor.values()[i]));
 			}
 		}
 

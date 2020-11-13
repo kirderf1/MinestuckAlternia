@@ -1,6 +1,5 @@
 package com.apocfarce.minestuck_alternia.Item;
 
-import com.apocfarce.minestuck_alternia.Minestuck_alternia;
 import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
@@ -9,22 +8,20 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.item.UseAction;
-import net.minecraft.potion.Effect;
 import net.minecraft.potion.EffectInstance;
 import net.minecraft.potion.Effects;
-import net.minecraft.potion.Potions;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.ActionResultType;
 import net.minecraft.util.Hand;
 import net.minecraft.world.World;
 
 public class BloodBottle extends Item  {
-	public ENUM_BLOOD_COLOR color;
-	public BloodBottle(Item.Properties properties,ENUM_BLOOD_COLOR bloodColor) {
+	public EnumBloodColor color;
+	public BloodBottle(Item.Properties properties, EnumBloodColor bloodColor) {
 		super(properties);
 		color=bloodColor;
 	}
-	public ENUM_BLOOD_COLOR GetBloodColor() {
+	public EnumBloodColor GetBloodColor() {
 		return color;
 	}
 	
