@@ -1,0 +1,6 @@
+{
+  "parent": "block/template_glass_pane_noside_alt",
+  "textures": {
+    "pane": "minestuck_alternia:block/olive_hive_glass"
+  }
+}

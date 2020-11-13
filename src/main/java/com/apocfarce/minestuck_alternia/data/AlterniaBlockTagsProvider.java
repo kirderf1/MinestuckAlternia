@@ -18,10 +18,10 @@ public class AlterniaBlockTagsProvider extends BlockTagsProvider {
 		getBuilder(BlockTags.LEAVES).add(AlterniaTags.Blocks.LEAVES);
 		getBuilder(BlockTags.FENCES).add(AlterniaTags.Blocks.FENCES);
 		
-		getBuilder(AlterniaTags.Blocks.PYRAL_LOGS).add(AlterniaBlocks.pyralLog, AlterniaBlocks.pyralWood, AlterniaBlocks.strippedPyralLog, AlterniaBlocks.strippedPyralWood);
-		getBuilder(AlterniaTags.Blocks.MIRRAGE_LOGS).add(AlterniaBlocks.mirrageLog, AlterniaBlocks.mirrageWood, AlterniaBlocks.strippedmirrageLog, AlterniaBlocks.strippedmirrageWood);
-		getBuilder(AlterniaTags.Blocks.LEAVES).add(AlterniaBlocks.pyralLeaves, AlterniaBlocks.mirrageLeaves);
-		getBuilder(AlterniaTags.Blocks.FENCES).add(AlterniaBlocks.pyralFence, AlterniaBlocks.mirrageFence);
+		getBuilder(AlterniaTags.Blocks.PYRAL_LOGS).add(AlterniaBlocks.PYRAL_LOG, AlterniaBlocks.PYRAL_WOOD, AlterniaBlocks.STRIPPED_PYRAL_LOG, AlterniaBlocks.STRIPPED_PYRAL_WOOD);
+		getBuilder(AlterniaTags.Blocks.MIRRAGE_LOGS).add(AlterniaBlocks.MIRRAGE_LOG, AlterniaBlocks.MIRRAGE_WOOD, AlterniaBlocks.STRIPPED_MIRRAGE_LOG, AlterniaBlocks.STRIPPED_MIRRAGE_WOOD);
+		getBuilder(AlterniaTags.Blocks.LEAVES).add(AlterniaBlocks.PYRAL_LEAVES, AlterniaBlocks.MIRRAGE_LEAVES);
+		getBuilder(AlterniaTags.Blocks.FENCES).add(AlterniaBlocks.PYRAL_FENCE, AlterniaBlocks.MIRRAGE_FENCE);
 	}
 	
 	@Override

@@ -16,12 +16,12 @@ import net.minecraft.util.Hand;
 import net.minecraft.world.World;
 
 public class BloodBottle extends Item  {
-	public EnumBloodColor color;
-	public BloodBottle(Item.Properties properties, EnumBloodColor bloodColor) {
+	public BloodColor color;
+	public BloodBottle(Item.Properties properties, BloodColor bloodColor) {
 		super(properties);
 		color=bloodColor;
 	}
-	public EnumBloodColor GetBloodColor() {
+	public BloodColor GetBloodColor() {
 		return color;
 	}
 	

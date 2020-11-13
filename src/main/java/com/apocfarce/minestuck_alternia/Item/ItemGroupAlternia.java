@@ -14,6 +14,6 @@ public class ItemGroupAlternia extends ItemGroup{
 	}
 	@Override
 	public ItemStack createIcon() {
-		return new ItemStack(AlterniaBlocks.redCobble);
+		return new ItemStack(AlterniaBlocks.RED_COBBLE);
 	}
 }

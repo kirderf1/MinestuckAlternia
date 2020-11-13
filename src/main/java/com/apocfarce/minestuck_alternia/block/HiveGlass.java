@@ -1,7 +1,7 @@
 package com.apocfarce.minestuck_alternia.block;
 
 
-import com.apocfarce.minestuck_alternia.Item.EnumBloodColor;
+import com.apocfarce.minestuck_alternia.Item.BloodColor;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
@@ -11,13 +11,13 @@ import net.minecraft.world.IBlockReader;
 
 public class HiveGlass  extends PaneBlock {
 	
-	public EnumBloodColor color;
+	public BloodColor color;
 	
-	public HiveGlass(Block.Properties properties, EnumBloodColor bloodColor) {
+	public HiveGlass(Block.Properties properties, BloodColor bloodColor) {
 		super(properties);
 		color=bloodColor;
 	}
-	public EnumBloodColor GetBloodColor() {
+	public BloodColor GetBloodColor() {
 		return color;
 	}
 	@Override

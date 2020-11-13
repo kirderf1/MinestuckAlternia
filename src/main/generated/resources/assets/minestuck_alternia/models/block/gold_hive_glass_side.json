@@ -1,0 +1,7 @@
+{
+  "parent": "block/template_glass_pane_side",
+  "textures": {
+    "pane": "minestuck_alternia:block/gold_hive_glass",
+    "edge": "minestuck_alternia:block/gold_hive_glass"
+  }
+}

@@ -1,7 +1,6 @@
 package com.apocfarce.minestuck_alternia.world.biome;
 
 import com.apocfarce.minestuck_alternia.block.AlterniaBlocks;
-import com.apocfarce.minestuck_alternia.world.gen.feature.AlterniaFeatureHandeler;
 import net.minecraft.block.BlockState;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.DefaultBiomeFeatures;
@@ -45,7 +44,7 @@ public class AlterniaBiomeFeatures {
 	}
 	
 	public static void addPyralGrass(Biome biome) {
-		biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.RANDOM_PATCH.withConfiguration(createGrassClusterConfig(AlterniaBlocks.pyralGrass.getDefaultState())).withPlacement(Placement.COUNT_HEIGHTMAP.configure(new FrequencyConfig(1))));
+		biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.RANDOM_PATCH.withConfiguration(createGrassClusterConfig(AlterniaBlocks.PYRAL_GRASS.getDefaultState())).withPlacement(Placement.COUNT_HEIGHTMAP.configure(new FrequencyConfig(1))));
 	}
 	
 	//While vanilla is creating their configs statically, it's not appropriate for us to do the same since mod blocks (or any registry objects)
@@ -56,18 +55,18 @@ public class AlterniaBiomeFeatures {
 	}
 	
 	public static TreeFeatureConfig createPyralTreeConfig() {
-		return new TreeFeatureConfig.Builder(new SimpleBlockStateProvider(AlterniaBlocks.pyralLog.getDefaultState()), new SimpleBlockStateProvider(AlterniaBlocks.pyralLeaves.getDefaultState()), new SpruceFoliagePlacer(2, 1)).baseHeight(6).heightRandA(3).trunkHeight(1).trunkHeightRandom(1).trunkTopOffsetRandom(2).ignoreVines().setSapling(AlterniaBlocks.pyralSapling).build();
+		return new TreeFeatureConfig.Builder(new SimpleBlockStateProvider(AlterniaBlocks.PYRAL_LOG.getDefaultState()), new SimpleBlockStateProvider(AlterniaBlocks.PYRAL_LEAVES.getDefaultState()), new SpruceFoliagePlacer(2, 1)).baseHeight(6).heightRandA(3).trunkHeight(1).trunkHeightRandom(1).trunkTopOffsetRandom(2).ignoreVines().setSapling(AlterniaBlocks.PYRAL_SAPLING).build();
 	}
 	
 	public static TreeFeatureConfig createLargePyralTreeConfig() {
-		return new TreeFeatureConfig.Builder(new SimpleBlockStateProvider(AlterniaBlocks.pyralLog.getDefaultState()), new SimpleBlockStateProvider(AlterniaBlocks.pyralLeaves.getDefaultState()), new BlobFoliagePlacer(0, 0)).setSapling(AlterniaBlocks.pyralSapling).build();
+		return new TreeFeatureConfig.Builder(new SimpleBlockStateProvider(AlterniaBlocks.PYRAL_LOG.getDefaultState()), new SimpleBlockStateProvider(AlterniaBlocks.PYRAL_LEAVES.getDefaultState()), new BlobFoliagePlacer(0, 0)).setSapling(AlterniaBlocks.PYRAL_SAPLING).build();
 	}
 	
 	public static TreeFeatureConfig createMirrageTreeConfig() {
-		return new TreeFeatureConfig.Builder(new SimpleBlockStateProvider(AlterniaBlocks.mirrageLog.getDefaultState()), new SimpleBlockStateProvider(AlterniaBlocks.mirrageLeaves.getDefaultState()), new BlobFoliagePlacer(2, 0)).baseHeight(5).heightRandA(2).foliageHeight(3).ignoreVines().setSapling(AlterniaBlocks.mirrageSapling).build();
+		return new TreeFeatureConfig.Builder(new SimpleBlockStateProvider(AlterniaBlocks.MIRRAGE_LOG.getDefaultState()), new SimpleBlockStateProvider(AlterniaBlocks.MIRRAGE_LEAVES.getDefaultState()), new BlobFoliagePlacer(2, 0)).baseHeight(5).heightRandA(2).foliageHeight(3).ignoreVines().setSapling(AlterniaBlocks.MIRRAGE_SAPLING).build();
 	}
 	
 	public static TreeFeatureConfig createLargeMirrageTreeConfig() {
-		return new TreeFeatureConfig.Builder(new SimpleBlockStateProvider(AlterniaBlocks.mirrageLog.getDefaultState()), new SimpleBlockStateProvider(AlterniaBlocks.mirrageLeaves.getDefaultState()), new BlobFoliagePlacer(0, 0)).setSapling(AlterniaBlocks.mirrageSapling).build();
+		return new TreeFeatureConfig.Builder(new SimpleBlockStateProvider(AlterniaBlocks.MIRRAGE_LOG.getDefaultState()), new SimpleBlockStateProvider(AlterniaBlocks.MIRRAGE_LEAVES.getDefaultState()), new BlobFoliagePlacer(0, 0)).setSapling(AlterniaBlocks.MIRRAGE_SAPLING).build();
 	}
 }
