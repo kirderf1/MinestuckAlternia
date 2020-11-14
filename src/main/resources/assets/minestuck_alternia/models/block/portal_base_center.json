@@ -1,7 +1,7 @@
 {
 	"parent": "block/cube_column",
 	"textures": {
-		"end":"minestuck_alternia:blocks/base_top",
-		"side": "minestuck_alternia:blocks/portal_inside"
+		"end":"minestuck_alternia:block/base_top",
+		"side": "minestuck_alternia:block/portal_inside"
 	}
 }

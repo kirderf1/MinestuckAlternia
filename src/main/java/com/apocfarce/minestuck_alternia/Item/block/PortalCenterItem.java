@@ -21,6 +21,8 @@ import net.minecraft.world.World;
 
 public class PortalCenterItem extends MultiBlockItem
 {
+	public static final String CANT_PLACE = "message.cant_place.portal_center";
+	
 	public PortalCenterItem(Block block,Properties properties)
 	{
 		super(block, properties);
@@ -40,7 +42,7 @@ public class PortalCenterItem extends MultiBlockItem
 					&&portal.hasPart(Portal.PortalPart.CROWN, worldIn, mainCorner)) {
 					return true;
 				}
-				context.getPlayer().sendStatusMessage(new TranslationTextComponent("message.cant_place.portal_center"), true);
+				context.getPlayer().sendStatusMessage(new TranslationTextComponent(CANT_PLACE), true);
 			}
 		}
 		return false;

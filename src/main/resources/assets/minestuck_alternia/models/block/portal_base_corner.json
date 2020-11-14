@@ -1,12 +1,12 @@
 {
 	"parent": "block/cube",
 	"textures": {
-		"particle":"minestuck_alternia:blocks/portal_inside",
-		"down": "minestuck_alternia:blocks/base_top",
-		"up": "minestuck_alternia:blocks/base_top",
-		"north": "minestuck_alternia:blocks/base_edge",
-		"east": "minestuck_alternia:blocks/base_edge",
-		"south": "minestuck_alternia:blocks/portal_inside",
-		"west": "minestuck_alternia:blocks/portal_inside"
+		"particle":"minestuck_alternia:block/portal_inside",
+		"down": "minestuck_alternia:block/base_top",
+		"up": "minestuck_alternia:block/base_top",
+		"north": "minestuck_alternia:block/base_edge",
+		"east": "minestuck_alternia:block/base_edge",
+		"south": "minestuck_alternia:block/portal_inside",
+		"west": "minestuck_alternia:block/portal_inside"
 	}
 }
