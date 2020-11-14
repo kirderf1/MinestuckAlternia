@@ -1,23 +1,22 @@
 package com.apocfarce.minestuck_alternia.world.biome.provider;
 
-import com.apocfarce.minestuck_alternia.world.gen.AlterniaGenSettings;
-
 import net.minecraft.world.WorldType;
 import net.minecraft.world.biome.provider.IBiomeProviderSettings;
+import net.minecraft.world.gen.OverworldGenSettings;
 import net.minecraft.world.storage.WorldInfo;
 
 public class AlterniaBiomeProviderSettings implements IBiomeProviderSettings {
    private final long seed;
    private final WorldType worldType;
-   private AlterniaGenSettings generatorSettings;
+   private OverworldGenSettings generatorSettings;
    
    public AlterniaBiomeProviderSettings(WorldInfo info) {
       this.seed = info.getSeed();
       this.worldType = info.getGenerator();
    }
    
-   public AlterniaBiomeProviderSettings setGeneratorSettings(AlterniaGenSettings p_205441_1_) {
-      this.generatorSettings = p_205441_1_;
+   public AlterniaBiomeProviderSettings setGeneratorSettings(OverworldGenSettings settings) {
+      this.generatorSettings = settings;
       return this;
    }
    
@@ -29,7 +28,7 @@ public class AlterniaBiomeProviderSettings implements IBiomeProviderSettings {
       return worldType;
    }
    
-   public AlterniaGenSettings getGeneratorSettings() {
+   public OverworldGenSettings getGeneratorSettings() {
       return this.generatorSettings;
    }
 }
