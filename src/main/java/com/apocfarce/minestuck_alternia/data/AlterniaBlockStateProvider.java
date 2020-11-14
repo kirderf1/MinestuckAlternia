@@ -18,70 +18,90 @@ public class AlterniaBlockStateProvider extends BlockStateProvider {
 	
 	@Override
 	protected void registerStatesAndModels() {
-		simpleBlock(AlterniaBlocks.darkStone);
-		simpleBlockItem(AlterniaBlocks.darkStone);
-		simpleBlock(AlterniaBlocks.darkCobble);
-		simpleBlockItem(AlterniaBlocks.darkCobble);
-		simpleBlock(AlterniaBlocks.redRock);
-		simpleBlockItem(AlterniaBlocks.redRock);
-		simpleBlock(AlterniaBlocks.redCobble);
-		simpleBlockItem(AlterniaBlocks.redCobble);
+		simpleBlock(AlterniaBlocks.DARK_STONE);
+		simpleBlockItem(AlterniaBlocks.DARK_STONE);
+		simpleBlock(AlterniaBlocks.DARK_COBBLE);
+		simpleBlockItem(AlterniaBlocks.DARK_COBBLE);
+		simpleBlock(AlterniaBlocks.RED_ROCK);
+		simpleBlockItem(AlterniaBlocks.RED_ROCK);
+		simpleBlock(AlterniaBlocks.RED_COBBLE);
+		simpleBlockItem(AlterniaBlocks.RED_COBBLE);
 		
-		cross(AlterniaBlocks.pyralSapling);
-		simpleFlatBlockItem(AlterniaBlocks.pyralSapling);
-		leaves(AlterniaBlocks.pyralLeaves);
-		simpleBlockItem(AlterniaBlocks.pyralLeaves);
-		logBlock(AlterniaBlocks.pyralLog);
-		simpleBlockItem(AlterniaBlocks.pyralLog);
-		strippedLogBlock(AlterniaBlocks.strippedPyralLog, AlterniaBlocks.pyralLog);
-		simpleBlockItem(AlterniaBlocks.strippedPyralLog);
-		simpleBlock(AlterniaBlocks.pyralWood, blockTexture(AlterniaBlocks.pyralLog));
-		simpleBlockItem(AlterniaBlocks.pyralWood);
-		simpleBlock(AlterniaBlocks.strippedPyralWood, blockTexture(AlterniaBlocks.strippedPyralLog));
-		simpleBlockItem(AlterniaBlocks.strippedPyralWood);
-		simpleBlock(AlterniaBlocks.pyralPlanks);
-		simpleBlockItem(AlterniaBlocks.pyralPlanks);
-		stairsBlock(AlterniaBlocks.pyralStairs, blockTexture(AlterniaBlocks.pyralPlanks));
-		simpleBlockItem(AlterniaBlocks.pyralStairs);
-		slabBlock(AlterniaBlocks.pyralSlab, blockTexture(AlterniaBlocks.pyralPlanks), blockTexture(AlterniaBlocks.pyralPlanks));
-		simpleBlockItem(AlterniaBlocks.pyralSlab);
-		fenceBlock(AlterniaBlocks.pyralFence, blockTexture(AlterniaBlocks.pyralPlanks));
-		inventoryFenceItem(AlterniaBlocks.pyralFence, blockTexture(AlterniaBlocks.pyralPlanks));
-		fenceGateBlock(AlterniaBlocks.pyralFenceGate, blockTexture(AlterniaBlocks.pyralPlanks));
-		simpleBlockItem(AlterniaBlocks.pyralFenceGate);
+		cross(AlterniaBlocks.PYRAL_SAPLING);
+		simpleFlatBlockItem(AlterniaBlocks.PYRAL_SAPLING);
+		leaves(AlterniaBlocks.PYRAL_LEAVES);
+		simpleBlockItem(AlterniaBlocks.PYRAL_LEAVES);
+		logBlock(AlterniaBlocks.PYRAL_LOG);
+		simpleBlockItem(AlterniaBlocks.PYRAL_LOG);
+		strippedLogBlock(AlterniaBlocks.STRIPPED_PYRAL_LOG, AlterniaBlocks.PYRAL_LOG);
+		simpleBlockItem(AlterniaBlocks.STRIPPED_PYRAL_LOG);
+		simpleBlock(AlterniaBlocks.PYRAL_WOOD, blockTexture(AlterniaBlocks.PYRAL_LOG));
+		simpleBlockItem(AlterniaBlocks.PYRAL_WOOD);
+		simpleBlock(AlterniaBlocks.STRIPPED_PYRAL_WOOD, blockTexture(AlterniaBlocks.STRIPPED_PYRAL_LOG));
+		simpleBlockItem(AlterniaBlocks.STRIPPED_PYRAL_WOOD);
+		simpleBlock(AlterniaBlocks.PYRAL_PLANKS);
+		simpleBlockItem(AlterniaBlocks.PYRAL_PLANKS);
+		stairsBlock(AlterniaBlocks.PYRAL_STAIRS, blockTexture(AlterniaBlocks.PYRAL_PLANKS));
+		simpleBlockItem(AlterniaBlocks.PYRAL_STAIRS);
+		slabBlock(AlterniaBlocks.PYRAL_SLAB, blockTexture(AlterniaBlocks.PYRAL_PLANKS), blockTexture(AlterniaBlocks.PYRAL_PLANKS));
+		simpleBlockItem(AlterniaBlocks.PYRAL_SLAB);
+		fenceBlock(AlterniaBlocks.PYRAL_FENCE, blockTexture(AlterniaBlocks.PYRAL_PLANKS));
+		inventoryFenceItem(AlterniaBlocks.PYRAL_FENCE, blockTexture(AlterniaBlocks.PYRAL_PLANKS));
+		fenceGateBlock(AlterniaBlocks.PYRAL_FENCE_GATE, blockTexture(AlterniaBlocks.PYRAL_PLANKS));
+		simpleBlockItem(AlterniaBlocks.PYRAL_FENCE_GATE);
 		
-		cross(AlterniaBlocks.mirrageSapling);
-		simpleFlatBlockItem(AlterniaBlocks.mirrageSapling);
-		leaves(AlterniaBlocks.mirrageLeaves, blockTexture(Blocks.ACACIA_LEAVES));
-		simpleBlockItem(AlterniaBlocks.mirrageLeaves);
-		logBlock(AlterniaBlocks.mirrageLog);
-		simpleBlockItem(AlterniaBlocks.mirrageLog);
-		strippedLogBlock(AlterniaBlocks.strippedmirrageLog, AlterniaBlocks.mirrageLog);
-		simpleBlockItem(AlterniaBlocks.strippedmirrageLog);
-		simpleBlock(AlterniaBlocks.mirrageWood, blockTexture(AlterniaBlocks.mirrageLog));
-		simpleBlockItem(AlterniaBlocks.mirrageWood);
-		simpleBlock(AlterniaBlocks.strippedmirrageWood, blockTexture(AlterniaBlocks.strippedmirrageLog));
-		simpleBlockItem(AlterniaBlocks.strippedmirrageWood);
-		simpleBlock(AlterniaBlocks.mirragePlanks);
-		simpleBlockItem(AlterniaBlocks.mirragePlanks);
-		stairsBlock(AlterniaBlocks.mirrageStairs, blockTexture(AlterniaBlocks.mirragePlanks));
-		simpleBlockItem(AlterniaBlocks.mirrageStairs);
-		slabBlock(AlterniaBlocks.mirrageSlab, blockTexture(AlterniaBlocks.mirragePlanks), blockTexture(AlterniaBlocks.mirragePlanks));
-		simpleBlockItem(AlterniaBlocks.mirrageSlab);
-		fenceBlock(AlterniaBlocks.mirrageFence, blockTexture(AlterniaBlocks.mirragePlanks));
-		inventoryFenceItem(AlterniaBlocks.mirrageFence, blockTexture(AlterniaBlocks.mirragePlanks));
-		fenceGateBlock(AlterniaBlocks.mirrageFenceGate, blockTexture(AlterniaBlocks.mirragePlanks));
-		simpleBlockItem(AlterniaBlocks.mirrageFenceGate);
+		cross(AlterniaBlocks.MIRRAGE_SAPLING);
+		simpleFlatBlockItem(AlterniaBlocks.MIRRAGE_SAPLING);
+		leaves(AlterniaBlocks.MIRRAGE_LEAVES, blockTexture(Blocks.ACACIA_LEAVES));
+		simpleBlockItem(AlterniaBlocks.MIRRAGE_LEAVES);
+		logBlock(AlterniaBlocks.MIRRAGE_LOG);
+		simpleBlockItem(AlterniaBlocks.MIRRAGE_LOG);
+		strippedLogBlock(AlterniaBlocks.STRIPPED_MIRRAGE_LOG, AlterniaBlocks.MIRRAGE_LOG);
+		simpleBlockItem(AlterniaBlocks.STRIPPED_MIRRAGE_LOG);
+		simpleBlock(AlterniaBlocks.MIRRAGE_WOOD, blockTexture(AlterniaBlocks.MIRRAGE_LOG));
+		simpleBlockItem(AlterniaBlocks.MIRRAGE_WOOD);
+		simpleBlock(AlterniaBlocks.STRIPPED_MIRRAGE_WOOD, blockTexture(AlterniaBlocks.STRIPPED_MIRRAGE_LOG));
+		simpleBlockItem(AlterniaBlocks.STRIPPED_MIRRAGE_WOOD);
+		simpleBlock(AlterniaBlocks.MIRRAGE_PLANKS);
+		simpleBlockItem(AlterniaBlocks.MIRRAGE_PLANKS);
+	stairsBlock(AlterniaBlocks.MIRRAGE_STAIRS, blockTexture(AlterniaBlocks.MIRRAGE_PLANKS));
+		simpleBlockItem(AlterniaBlocks.MIRRAGE_STAIRS);
+		slabBlock(AlterniaBlocks.MIRRAGE_SLAB, blockTexture(AlterniaBlocks.MIRRAGE_PLANKS), blockTexture(AlterniaBlocks.MIRRAGE_PLANKS));
+		simpleBlockItem(AlterniaBlocks.MIRRAGE_SLAB);
+		fenceBlock(AlterniaBlocks.MIRRAGE_FENCE, blockTexture(AlterniaBlocks.MIRRAGE_PLANKS));
+		inventoryFenceItem(AlterniaBlocks.MIRRAGE_FENCE, blockTexture(AlterniaBlocks.MIRRAGE_PLANKS));
+		fenceGateBlock(AlterniaBlocks.MIRRAGE_FENCE_GATE, blockTexture(AlterniaBlocks.MIRRAGE_PLANKS));
+		simpleBlockItem(AlterniaBlocks.MIRRAGE_FENCE_GATE);
 		
-		tintedCross(AlterniaBlocks.pyralGrass);
-		simpleFlatBlockItem(AlterniaBlocks.pyralGrass);
+		tintedCross(AlterniaBlocks.PYRAL_GRASS);
+		simpleFlatBlockItem(AlterniaBlocks.PYRAL_GRASS);
 		
-		for(PaneBlock glass : AlterniaBlocks.hiveGlass) {
-			if(glass != null) {
-				paneBlock(glass);
-				simpleFlatBlockItem(glass);
-			}
-		}
+		paneBlock(AlterniaBlocks.BURGUNDY_HIVE_GLASS);
+		simpleFlatBlockItem(AlterniaBlocks.BURGUNDY_HIVE_GLASS);
+		paneBlock(AlterniaBlocks.BRONZE_HIVE_GLASS);
+		simpleFlatBlockItem(AlterniaBlocks.BRONZE_HIVE_GLASS);
+		paneBlock(AlterniaBlocks.GOLD_HIVE_GLASS);
+		simpleFlatBlockItem(AlterniaBlocks.GOLD_HIVE_GLASS);
+		paneBlock(AlterniaBlocks.OLIVE_HIVE_GLASS);
+		simpleFlatBlockItem(AlterniaBlocks.OLIVE_HIVE_GLASS);
+		paneBlock(AlterniaBlocks.JADE_HIVE_GLASS);
+		simpleFlatBlockItem(AlterniaBlocks.JADE_HIVE_GLASS);
+		paneBlock(AlterniaBlocks.TEAL_HIVE_GLASS);
+		simpleFlatBlockItem(AlterniaBlocks.TEAL_HIVE_GLASS);
+		paneBlock(AlterniaBlocks.CERULEAN_HIVE_GLASS);
+		simpleFlatBlockItem(AlterniaBlocks.CERULEAN_HIVE_GLASS);
+		paneBlock(AlterniaBlocks.INDIGO_HIVE_GLASS);
+		simpleFlatBlockItem(AlterniaBlocks.INDIGO_HIVE_GLASS);
+		paneBlock(AlterniaBlocks.PURPLE_HIVE_GLASS);
+		simpleFlatBlockItem(AlterniaBlocks.PURPLE_HIVE_GLASS);
+		paneBlock(AlterniaBlocks.VIOLET_HIVE_GLASS);
+		simpleFlatBlockItem(AlterniaBlocks.VIOLET_HIVE_GLASS);
+		paneBlock(AlterniaBlocks.FUCHSIA_HIVE_GLASS);
+		simpleFlatBlockItem(AlterniaBlocks.FUCHSIA_HIVE_GLASS);
+		paneBlock(AlterniaBlocks.LIME_HIVE_GLASS);
+		simpleFlatBlockItem(AlterniaBlocks.LIME_HIVE_GLASS);
+		paneBlock(AlterniaBlocks.GREY_HIVE_GLASS);
+		simpleFlatBlockItem(AlterniaBlocks.GREY_HIVE_GLASS);
 	}
 	
 	protected ResourceLocation extend(ResourceLocation rl, String suffix) {

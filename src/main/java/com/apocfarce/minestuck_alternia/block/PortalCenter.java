@@ -123,7 +123,7 @@ public class PortalCenter extends Portal{
 		}
 	}
 	public ActionResultType onBlockActivated(BlockState state, World worldIn, BlockPos pos, PlayerEntity player, Hand handIn, BlockRayTraceResult hit) {
-		if(isComplete(worldIn,pos)&&!state.get(IsOpen)&&player.getHeldItem(handIn).getItem()==AlterniaItems.cherubKey) {
+		if(isComplete(worldIn,pos) && !state.get(IsOpen) && player.getHeldItem(handIn).getItem() == AlterniaItems.CHERUB_KEY) {
 			OpenPortal(pos,worldIn);
 			return ActionResultType.SUCCESS;
 		}

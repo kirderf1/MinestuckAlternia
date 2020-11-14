@@ -29,9 +29,9 @@ import net.minecraftforge.fml.event.lifecycle.InterModProcessEvent;
 import net.minecraftforge.fml.event.server.FMLServerStartingEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 
-@Mod("minestuck_alternia")
+@Mod(Minestuck_alternia.MOD_ID)
 public class Minestuck_alternia {
-	public static String MOD_ID = "minestuck_alternia";
+	public static final String MOD_ID = "minestuck_alternia";
 
     public Minestuck_alternia() {
         IEventBus modBus = FMLJavaModLoadingContext.get().getModEventBus();

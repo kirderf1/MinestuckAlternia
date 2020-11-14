@@ -13,21 +13,21 @@ import net.minecraft.util.math.BlockRayTraceResult;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
 
+import java.util.function.Supplier;
+
 public class AlterniaLogBlock extends LogBlock {
-	private Block stripped;
-	public AlterniaLogBlock(MaterialColor color,Block strippedIn, Properties properties) {
+	private final Supplier<Block> stripped;
+	public AlterniaLogBlock(MaterialColor color, Supplier<Block> strippedLog, Properties properties) {
 		super(color, properties);
-		this.stripped = strippedIn;
+		this.stripped = strippedLog;
 	}
 
 	@Override
+	@SuppressWarnings("deprecation")
 	public ActionResultType onBlockActivated(BlockState state, World worldIn, BlockPos pos, PlayerEntity player, Hand handIn, BlockRayTraceResult hit) {
-		if(player.getHeldItem(handIn).getItem() instanceof AxeItem){
-			worldIn.setBlockState(pos, stripped.getDefaultState().with(AXIS, state.get(AXIS)));
+		if (player.getHeldItem(handIn).getItem() instanceof AxeItem) {
+			worldIn.setBlockState(pos, stripped.get().getDefaultState().with(AXIS, state.get(AXIS)));
 		}
 		return super.onBlockActivated(state, worldIn, pos, player, handIn, hit);
 	}
-	
-	
-	
 }
