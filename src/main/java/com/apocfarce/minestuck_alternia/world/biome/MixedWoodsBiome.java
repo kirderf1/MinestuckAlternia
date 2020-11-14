@@ -13,7 +13,6 @@ import net.minecraft.world.gen.GenerationStage;
 import net.minecraft.world.gen.feature.ConfiguredFeature;
 import net.minecraft.world.gen.feature.ConfiguredRandomFeatureList;
 import net.minecraft.world.gen.feature.Feature;
-import net.minecraft.world.gen.feature.GrassFeatureConfig;
 import net.minecraft.world.gen.feature.IFeatureConfig;
 import net.minecraft.world.gen.feature.MultipleRandomFeatureConfig;
 import net.minecraft.world.gen.feature.NoFeatureConfig;
@@ -42,21 +41,20 @@ public class MixedWoodsBiome extends Biome {
 		
 		List<ConfiguredRandomFeatureList<?>> biomeHives = new ArrayList<ConfiguredRandomFeatureList<?>>();
 		
-		biomeHives.add(new ConfiguredRandomFeatureList<NoFeatureConfig>(AlterniaFeatureHandeler.jadeHiveFeature1,IFeatureConfig.NO_FEATURE_CONFIG,0.1F));
-		biomeHives.add(new ConfiguredRandomFeatureList<NoFeatureConfig>(AlterniaFeatureHandeler.jadeHiveFeature2,IFeatureConfig.NO_FEATURE_CONFIG,0.1F));
-		biomeHives.add(new ConfiguredRandomFeatureList<NoFeatureConfig>(AlterniaFeatureHandeler.jadeHiveFeature3,IFeatureConfig.NO_FEATURE_CONFIG,0.1F));
+		biomeHives.add(AlterniaFeatureHandeler.jadeHiveFeature1.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withChance(0.1F));
+		biomeHives.add(AlterniaFeatureHandeler.jadeHiveFeature2.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withChance(0.1F));
+		biomeHives.add(AlterniaFeatureHandeler.jadeHiveFeature3.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withChance(0.1F));
 		
-		biomeHives.add(new ConfiguredRandomFeatureList<NoFeatureConfig>(AlterniaFeatureHandeler.tealHiveFeature1,IFeatureConfig.NO_FEATURE_CONFIG,0.1F));
-		biomeHives.add(new ConfiguredRandomFeatureList<NoFeatureConfig>(AlterniaFeatureHandeler.tealHiveFeature2,IFeatureConfig.NO_FEATURE_CONFIG,0.3F));
-		biomeHives.add(new ConfiguredRandomFeatureList<NoFeatureConfig>(AlterniaFeatureHandeler.tealHiveFeature3,IFeatureConfig.NO_FEATURE_CONFIG,0.1F));
+		biomeHives.add(AlterniaFeatureHandeler.tealHiveFeature1.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withChance(0.1F));
+		biomeHives.add(AlterniaFeatureHandeler.tealHiveFeature2.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withChance(0.3F));
+		biomeHives.add(AlterniaFeatureHandeler.tealHiveFeature3.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withChance(0.1F));
 
-		biomeHives.add(new ConfiguredRandomFeatureList<NoFeatureConfig>(AlterniaFeatureHandeler.ceruleanHiveFeature1,IFeatureConfig.NO_FEATURE_CONFIG,0.3F));
-		biomeHives.add(new ConfiguredRandomFeatureList<NoFeatureConfig>(AlterniaFeatureHandeler.ceruleanHiveFeature2,IFeatureConfig.NO_FEATURE_CONFIG,0.3F));
-		biomeHives.add(new ConfiguredRandomFeatureList<NoFeatureConfig>(AlterniaFeatureHandeler.ceruleanHiveFeature3,IFeatureConfig.NO_FEATURE_CONFIG,0.1F));
+		biomeHives.add(AlterniaFeatureHandeler.ceruleanHiveFeature1.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withChance(0.3F));
+		biomeHives.add(AlterniaFeatureHandeler.ceruleanHiveFeature2.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withChance(0.3F));
+		biomeHives.add(AlterniaFeatureHandeler.ceruleanHiveFeature3.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withChance(0.1F));
 
-		
-		this.addFeature(GenerationStage.Decoration.SURFACE_STRUCTURES, Biome.createDecoratedFeature(Feature.RANDOM_SELECTOR, new MultipleRandomFeatureConfig(biomeHives, new ConfiguredFeature<NoFeatureConfig>(AlterniaFeatureHandeler.tealHiveFeature1, IFeatureConfig.NO_FEATURE_CONFIG)),Placement.CHANCE_HEIGHTMAP, new ChanceConfig(100)));
-
+		ConfiguredFeature<?, ?> defaultHive = AlterniaFeatureHandeler.tealHiveFeature1.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG);
+		this.addFeature(GenerationStage.Decoration.SURFACE_STRUCTURES, Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(biomeHives, defaultHive)).withPlacement(Placement.CHANCE_HEIGHTMAP.configure(new ChanceConfig(100))));
 		
 		
 	      DefaultBiomeFeatures.addCarvers(this);
@@ -68,10 +66,10 @@ public class MixedWoodsBiome extends Biome {
 	      DefaultBiomeFeatures.addSedimentDisks(this);
 	      
 	      
-	      addFeature(GenerationStage.Decoration.VEGETAL_DECORATION,Biome.createDecoratedFeature(Feature.RANDOM_SELECTOR,new MultipleRandomFeatureConfig(new Feature[]{Feature.FANCY_TREE,AlterniaFeatureHandeler.pyralTreeFeature,AlterniaFeatureHandeler.pyralTreeLargeFeature}, new IFeatureConfig[]{IFeatureConfig.NO_FEATURE_CONFIG,IFeatureConfig.NO_FEATURE_CONFIG,IFeatureConfig.NO_FEATURE_CONFIG},new float[]{0.05F,0.34F,0.34F},AlterniaFeatureHandeler.pyralTreeFeature, IFeatureConfig.NO_FEATURE_CONFIG),Placement.COUNT_EXTRA_HEIGHTMAP, new AtSurfaceWithExtraConfig(10, 0.1F, 1)));
-	      addFeature(GenerationStage.Decoration.VEGETAL_DECORATION,Biome.createDecoratedFeature(Feature.RANDOM_SELECTOR,new MultipleRandomFeatureConfig(new Feature[]{Feature.FANCY_TREE,AlterniaFeatureHandeler.mirrageTreeFeature,AlterniaFeatureHandeler.mirrageTreeLargeFeature}, new IFeatureConfig[]{IFeatureConfig.NO_FEATURE_CONFIG,IFeatureConfig.NO_FEATURE_CONFIG,IFeatureConfig.NO_FEATURE_CONFIG},new float[]{0.05F,0.34F,0.34F},AlterniaFeatureHandeler.mirrageTreeFeature, IFeatureConfig.NO_FEATURE_CONFIG),Placement.COUNT_EXTRA_HEIGHTMAP, new AtSurfaceWithExtraConfig(10, 0.1F, 1)));
+	      AlterniaBiomeFeatures.addPyralTrees(this);
+	      AlterniaBiomeFeatures.addMirrageTrees(this);
 
-	      this.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Biome.createDecoratedFeature(Feature.GRASS, new GrassFeatureConfig(AlterniaBlocks.pyralGrass.getDefaultState()), Placement.COUNT_HEIGHTMAP, new FrequencyConfig(1)));
+	      AlterniaBiomeFeatures.addPyralGrass(this);
 
 	      DefaultBiomeFeatures.addExtraDefaultFlowers(this);
 	      DefaultBiomeFeatures.addJungleGrass(this);
@@ -83,11 +81,11 @@ public class MixedWoodsBiome extends Biome {
 		
 	}
 	@Override
-	public int getFoliageColor(BlockPos pos) {
+	public int getFoliageColor() {
 		return(0xAA55EE);
 	}
 	@Override
-	public int getGrassColor(BlockPos pos) {
+	public int getGrassColor(double posX, double posZ) {
 		return(0x004455);
 	}
 

@@ -44,6 +44,7 @@ public class Minestuck_alternia {
     private void preInit(final FMLCommonSetupEvent event){
     }
     private void doClientStuff(final FMLClientSetupEvent event) {
+        ClientProxy.setupBlockRenderLayers();
     }
     @SubscribeEvent
     public void onServerStarting(FMLServerStartingEvent event) {

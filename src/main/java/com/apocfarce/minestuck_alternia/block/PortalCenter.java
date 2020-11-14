@@ -12,6 +12,7 @@ import net.minecraft.entity.player.ServerPlayerEntity;
 import net.minecraft.item.BlockItemUseContext;
 import net.minecraft.state.BooleanProperty;
 import net.minecraft.state.StateContainer;
+import net.minecraft.util.ActionResultType;
 import net.minecraft.util.Direction;
 import net.minecraft.util.Hand;
 import net.minecraft.util.math.BlockPos;
@@ -122,10 +123,10 @@ public class PortalCenter extends Portal{
 			worldIn.setBlockState(blocks[i], worldIn.getBlockState(blocks[i]).with(IsOpen, true));
 		}
 	}
-	public boolean onBlockActivated(BlockState state, World worldIn, BlockPos pos, PlayerEntity player, Hand handIn, BlockRayTraceResult hit) {
+	public ActionResultType onBlockActivated(BlockState state, World worldIn, BlockPos pos, PlayerEntity player, Hand handIn, BlockRayTraceResult hit) {
 		if(isComplete(worldIn,pos)&&!state.get(IsOpen)&&player.getHeldItem(handIn).getItem()==AlterniaItems.cherubKey) {
 			OpenPortal(pos,worldIn);
-			return true;
+			return ActionResultType.SUCCESS;
 		}
 		return super.onBlockActivated(state, worldIn, pos, player, handIn, hit);
 	}
@@ -150,7 +151,7 @@ public class PortalCenter extends Portal{
 		}
 	}
 	public static void teliport(ServerWorld from, ServerWorld to, BlockPos spawnPos,ServerPlayerEntity player) {
-		from.getChunkProvider().func_217228_a(TicketType.POST_TELEPORT, new ChunkPos(spawnPos), 1, player.getEntityId());
+		from.getChunkProvider().registerTicket(TicketType.POST_TELEPORT, new ChunkPos(spawnPos), 1, player.getEntityId());
 		while(to.isAirBlock(spawnPos)){
 			spawnPos=spawnPos.down();
 		}
@@ -160,7 +161,7 @@ public class PortalCenter extends Portal{
 		spawnPos=spawnPos.up();
 		
 		if(player.isSleeping()) {
-			player.wakeUpPlayer(true, true, false);
+			player.stopSleepInBed(true, true);
 		}
 		player.stopRiding();
 		

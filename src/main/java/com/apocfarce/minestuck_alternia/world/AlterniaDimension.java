@@ -34,7 +34,7 @@ import net.minecraftforge.common.ModDimension;
 public class AlterniaDimension extends Dimension {
 	
 	public AlterniaDimension(World worldIn, DimensionType typeIn){
-		super(worldIn, typeIn);
+		super(worldIn, typeIn, 0);
 	}
 	@Override
 	public ChunkGenerator<?> createChunkGenerator() {
@@ -52,7 +52,7 @@ public class AlterniaDimension extends Dimension {
 		
 	      
 		AlterniaGenSettings alterniagensettings = alterniaChunkGenerator.createSettings();
-        AlterniaBiomeProviderSettings alterniabiomeprovidersettings = biomeprovidertype.createSettings().setWorldInfo(this.world.getWorldInfo()).setGeneratorSettings(alterniagensettings);
+        AlterniaBiomeProviderSettings alterniabiomeprovidersettings = biomeprovidertype.createSettings(world.getWorldInfo()).setGeneratorSettings(alterniagensettings);
 		return alterniaChunkGenerator.create(this.world, biomeprovidertype.create(alterniabiomeprovidersettings), alterniagensettings);
 	   
 //		------------------------------MIDNIGHT ALGORYTHEM-----------------------------	   
@@ -82,7 +82,7 @@ public class AlterniaDimension extends Dimension {
 
    @Nullable
    public BlockPos findSpawn(int p_206921_1_, int p_206921_2_, boolean checkValid) {
-      BlockPos.MutableBlockPos blockpos$mutableblockpos = new BlockPos.MutableBlockPos(p_206921_1_, 0, p_206921_2_);
+      BlockPos.Mutable blockpos$mutableblockpos = new BlockPos.Mutable(p_206921_1_, 0, p_206921_2_);
       Biome biome = this.world.getBiome(blockpos$mutableblockpos);
       BlockState iblockstate = biome.getSurfaceBuilderConfig().getTop();
       if (checkValid && !iblockstate.getBlock().isIn(BlockTags.VALID_SPAWN)) {

@@ -16,6 +16,7 @@ import net.minecraft.util.math.shapes.VoxelShape;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.world.IWorld;
 import net.minecraft.world.World;
+import net.minecraft.world.server.ServerWorld;
 
 public class AlterniaSapling extends BushBlock implements IGrowable {
    public static final IntegerProperty STAGE = BlockStateProperties.STAGE_0_1;
@@ -31,22 +32,23 @@ public class AlterniaSapling extends BushBlock implements IGrowable {
    public VoxelShape getShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context) {
       return SHAPE;
    }
-
-   public void tick(BlockState state, World worldIn, BlockPos pos, Random random) {
-      super.tick(state, worldIn, pos, random);
+   
+   @Override
+   public void tick(BlockState state, ServerWorld worldIn, BlockPos pos, Random random) {
       if (!worldIn.isAreaLoaded(pos, 1)) return; // Forge: prevent loading unloaded chunks when checking neighbor's light
       if (worldIn.getLight(pos.up()) >= 9 && random.nextInt(7) == 0) {
-         this.grow(worldIn, pos, state, random);
+         this.grow(worldIn, random, pos, state);
       }
 
    }
-
-   public void grow(IWorld worldIn, BlockPos pos, BlockState state, Random rand) {
+   
+   @Override
+   public void grow(ServerWorld worldIn, Random rand, BlockPos pos, BlockState state) {
       if (state.get(STAGE) == 0) {
          worldIn.setBlockState(pos, state.cycle(STAGE), 4);
       } else {
          if (!net.minecraftforge.event.ForgeEventFactory.saplingGrowTree(worldIn, rand, pos)) return;
-         this.tree.spawn(worldIn, pos, state, rand);
+         this.tree.place(worldIn, worldIn.getChunkProvider().getChunkGenerator(), pos, state, rand);
       }
 
    }
@@ -60,10 +62,6 @@ public class AlterniaSapling extends BushBlock implements IGrowable {
 
    public boolean canUseBonemeal(World worldIn, Random rand, BlockPos pos, BlockState state) {
       return (double)worldIn.rand.nextFloat() < 0.45D;
-   }
-
-   public void grow(World worldIn, Random rand, BlockPos pos, BlockState state) {
-      this.grow(worldIn, pos, state, rand);
    }
 
    protected void fillStateContainer(StateContainer.Builder<Block, BlockState> builder) {

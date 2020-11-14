@@ -18,12 +18,11 @@ import net.minecraft.world.gen.layer.EdgeLayer;
 import net.minecraft.world.gen.layer.Layer;
 import net.minecraft.world.gen.layer.LayerUtil;
 import net.minecraft.world.gen.layer.ShoreLayer;
-import net.minecraft.world.gen.layer.VoroniZoomLayer;
 import net.minecraft.world.gen.layer.ZoomLayer;
 
 public class AlterniaLayerUtil extends LayerUtil {
 
-	public static <T extends IArea, C extends IExtendedNoiseRandom<T>> ImmutableList<IAreaFactory<T>> buildAlterniaProcedure(WorldType worldTypeIn, OverworldGenSettings settings, LongFunction<C> contextFactory) {
+	public static <T extends IArea, C extends IExtendedNoiseRandom<T>> IAreaFactory<T> buildAlterniaProcedure(WorldType worldTypeIn, OverworldGenSettings settings, LongFunction<C> contextFactory) {
 		IAreaFactory<T> iareafactory = AlterniaSeedLayer.INSTANCE.apply(contextFactory.apply(1L));
 		//add heat map
 		iareafactory = AddSnowLayer.INSTANCE.apply(contextFactory.apply(2L), iareafactory);
@@ -64,19 +63,15 @@ public class AlterniaLayerUtil extends LayerUtil {
 			}
 		}
 
-		IAreaFactory<T> iareafactory5 = VoroniZoomLayer.INSTANCE.apply(contextFactory.apply(10L), lvt_8_1_);
-		return ImmutableList.of(lvt_8_1_, iareafactory5, lvt_8_1_);
+		return lvt_8_1_;
 	}
 
-	public static Layer[] buildAlterniaProcedure(long seed, WorldType typeIn, OverworldGenSettings settings) {
+	public static Layer buildAlterniaProcedure(long seed, WorldType typeIn, OverworldGenSettings settings) {
 	
-		ImmutableList<IAreaFactory<LazyArea>> immutablelist = buildAlterniaProcedure(typeIn, settings, (p_215737_2_) -> {
+		IAreaFactory<LazyArea> areaFactory = buildAlterniaProcedure(typeIn, settings, (p_215737_2_) -> {
 			return new LazyAreaLayerContext(25, seed, p_215737_2_);
 		});
-		Layer layer = new Layer(immutablelist.get(0));
-		Layer layer1 = new Layer(immutablelist.get(1));
-		Layer layer2 = new Layer(immutablelist.get(2));
-		return new Layer[]{layer, layer1, layer2};
+		return new Layer(areaFactory);
 	}
    
    
