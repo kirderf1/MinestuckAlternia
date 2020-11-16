@@ -1,9 +1,10 @@
 package com.apocfarce.minestuck_alternia;
 
-
 import com.apocfarce.minestuck_alternia.Item.AlterniaItems;
 import com.apocfarce.minestuck_alternia.block.AlterniaBlocks;
 import com.apocfarce.minestuck_alternia.data.AlterniaData;
+import com.apocfarce.minestuck_alternia.network.AlterniaPacketHandler;
+import com.apocfarce.minestuck_alternia.util.EventListener;
 import com.apocfarce.minestuck_alternia.world.AlterniaDimensions;
 import com.apocfarce.minestuck_alternia.world.biome.AlterniaBiomes;
 import com.apocfarce.minestuck_alternia.world.biome.provider.AlterniaBiomeProvider;
@@ -11,12 +12,10 @@ import com.apocfarce.minestuck_alternia.world.biome.provider.AlterniaBiomeProvid
 import com.apocfarce.minestuck_alternia.world.gen.AlterniaChunkGenTypes;
 import com.apocfarce.minestuck_alternia.world.gen.feature.AlterniaFeatureHandeler;
 import com.apocfarce.minestuck_alternia.world.gen.surfacebuilder.AlterniaSurfaceBuilders;
-
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.common.ModDimension;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.event.world.RegisterDimensionsEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -41,6 +40,7 @@ public class Minestuck_alternia {
         modBus.addListener(this::doClientStuff);
         modBus.addListener(AlterniaData::gatherData);
         MinecraftForge.EVENT_BUS.register(this);
+        MinecraftForge.EVENT_BUS.register(EventListener.class);
         
         AlterniaDimensions.REGISTER.register(modBus);
         AlterniaSurfaceBuilders.REGISTER.register(modBus);
@@ -50,6 +50,7 @@ public class Minestuck_alternia {
     }
     private void setup(final FMLCommonSetupEvent event) {
         AlterniaBiomeProvider.initBiomeList();
+        AlterniaPacketHandler.registerPackets();
     }
     
     private void doClientStuff(final FMLClientSetupEvent event) {

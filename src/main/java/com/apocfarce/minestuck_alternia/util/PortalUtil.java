@@ -1,6 +1,6 @@
 /***COPPIED FROM MINESTUCK***/
 /***https://github.com/mraof/Minestuck/blob/1.14/src/com/mraof/minestuck/util/Teleport.java***/
-package com.apocfarce.minestuck_alternia.Utils;
+package com.apocfarce.minestuck_alternia.util;
 
 import net.minecraft.command.impl.TeleportCommand;
 import net.minecraft.entity.Entity;
