@@ -8,9 +8,9 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.gen.Heightmap;
 import net.minecraft.world.server.ServerWorld;
 import net.minecraftforge.common.DimensionManager;
+import net.minecraftforge.event.entity.player.AdvancementEvent;
 import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.event.server.FMLServerStartingEvent;
 import net.minecraftforge.fml.event.server.FMLServerStoppingEvent;
 import net.minecraftforge.fml.network.PacketDistributor;
 
@@ -35,6 +35,14 @@ public class EventListener {
 	@SubscribeEvent
 	public static void onServerStopped(FMLServerStoppingEvent event) {
 		playerInSelection.clear();
+	}
+	
+	@SubscribeEvent
+	public static void onAdvancement(AdvancementEvent event) {
+		//Players should not be in selection if they're actually interacting with the game
+		// (it'd be better with a different hook that catches more cases,
+		// but this should catch all practical ways of abusing dimension selection)
+		playerInSelection.remove(event.getPlayer());
 	}
 	
 	public static void handleDimensionSelection(ServerPlayerEntity player, boolean choseAlternia) {
