@@ -67,5 +67,9 @@
   "itemGroup.alternia": "Minestuck Alternia",
   "message.cant_place.portal_base": "Not enough room to place this (needs a 4x4 space)",
   "message.cant_place.portal_center": "You must place the crown before placing the center",
-  "message.cant_place.portal_crown": "You must place both of the snakes before placing the crown"
+  "message.cant_place.portal_crown": "You must place both of the snakes before placing the crown",
+  "start_dim_selection.alternia": "Alternia",
+  "start_dim_selection.overworld": "Overworld",
+  "start_dim_selection.prompt": "Select a home dimension",
+  "start_dim_selection.title": "Start-dimension selection"
 }
