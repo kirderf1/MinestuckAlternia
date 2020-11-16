@@ -2,10 +2,14 @@ package com.apocfarce.minestuck_alternia.client;
 
 import com.apocfarce.minestuck_alternia.network.AlterniaPacketHandler;
 import com.apocfarce.minestuck_alternia.network.DimensionSelectionPacket;
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.gui.widget.button.Button;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.util.text.TranslationTextComponent;
+import net.minecraftforge.client.event.ClientPlayerNetworkEvent;
+import net.minecraftforge.event.TickEvent;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
 
 public class StartDimensionSelectionScreen extends Screen {
 	
@@ -37,11 +41,32 @@ public class StartDimensionSelectionScreen extends Screen {
 	
 	private void pickOverworld(Button button) {
 		AlterniaPacketHandler.INSTANCE.sendToServer(new DimensionSelectionPacket(false));
+		shouldShowScreen = false;
 		onClose();
 	}
 	
 	private void pickAlternia(Button button) {
 		AlterniaPacketHandler.INSTANCE.sendToServer(new DimensionSelectionPacket(true));
+		shouldShowScreen = false;
 		onClose();
+	}
+	
+	private static boolean shouldShowScreen;
+	
+	public static void setShouldShowScreen() {
+		shouldShowScreen = true;
+	}
+	
+	@SubscribeEvent
+	public static void clientTickEvent(TickEvent.ClientTickEvent event) {
+		if(event.phase == TickEvent.Phase.END) {
+			if(shouldShowScreen && Minecraft.getInstance().currentScreen == null)
+				Minecraft.getInstance().displayGuiScreen(new StartDimensionSelectionScreen());
+		}
+	}
+	
+	@SubscribeEvent
+	public static void onLogin(ClientPlayerNetworkEvent.LoggedInEvent event) {
+		shouldShowScreen = false;
 	}
 }

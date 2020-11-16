@@ -9,7 +9,7 @@ import net.minecraftforge.common.util.Constants;
 public class PlayerDataHelper {
 	
 	public static boolean hasNotSelectedDimension(ServerPlayerEntity player) {
-		return getPlayerDataForReading(player).contains("chose_alternia", Constants.NBT.TAG_BYTE);
+		return !getPlayerDataForReading(player).contains("chose_alternia", Constants.NBT.TAG_BYTE);
 	}
 	
 	public static void setSelectedDimension(ServerPlayerEntity player, boolean choseAlternia) {

@@ -8,7 +8,7 @@ public class ShouldDoSelectionPacket extends PlayToClientPacket {
 	
 	@Override
 	protected void execute() {
-		Minecraft.getInstance().displayGuiScreen(new StartDimensionSelectionScreen());	//TODO set a flag instead, so that we could wait until there is no screen if some other mod set the screen first
+		StartDimensionSelectionScreen.setShouldShowScreen();
 	}
 	
 	@Override

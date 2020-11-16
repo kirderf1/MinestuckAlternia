@@ -2,6 +2,7 @@ package com.apocfarce.minestuck_alternia;
 
 import com.apocfarce.minestuck_alternia.Item.AlterniaItems;
 import com.apocfarce.minestuck_alternia.block.AlterniaBlocks;
+import com.apocfarce.minestuck_alternia.client.ClientProxy;
 import com.apocfarce.minestuck_alternia.data.AlterniaData;
 import com.apocfarce.minestuck_alternia.network.AlterniaPacketHandler;
 import com.apocfarce.minestuck_alternia.util.EventListener;
@@ -54,7 +55,7 @@ public class Minestuck_alternia {
     }
     
     private void doClientStuff(final FMLClientSetupEvent event) {
-        ClientProxy.setupBlockRenderLayers();
+        ClientProxy.setup();
     }
     @SubscribeEvent
     public void onServerStarting(FMLServerStartingEvent event) {

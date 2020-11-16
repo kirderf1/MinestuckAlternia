@@ -1,9 +1,9 @@
-package com.apocfarce.minestuck_alternia;
+package com.apocfarce.minestuck_alternia.client;
 
 import com.apocfarce.minestuck_alternia.block.AlterniaBlocks;
-import net.minecraft.block.Block;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.RenderTypeLookup;
+import net.minecraftforge.common.MinecraftForge;
 
 /**
  * Handles any client-side registering, such as setting render layers
@@ -11,10 +11,17 @@ import net.minecraft.client.renderer.RenderTypeLookup;
  */
 public class ClientProxy {
 	
+	public static void setup() {
+		
+		setupBlockRenderLayers();
+		
+		MinecraftForge.EVENT_BUS.register(StartDimensionSelectionScreen.class);
+	}
+	
 	/**
 	 * Sets render layers for alternia blocks, which informs minecraft of blocks that has cutout or tansparent textures
 	 */
-	static void setupBlockRenderLayers() {
+	private static void setupBlockRenderLayers() {
 		
 		RenderTypeLookup.setRenderLayer(AlterniaBlocks.PYRAL_LEAVES, RenderType.getCutoutMipped());
 		RenderTypeLookup.setRenderLayer(AlterniaBlocks.MIRRAGE_LEAVES, RenderType.getCutoutMipped());
