@@ -1,6 +1,7 @@
 package com.apocfarce.minestuck_alternia.world.biome;
 
 import com.apocfarce.minestuck_alternia.block.AlterniaBlocks;
+import com.apocfarce.minestuck_alternia.world.gen.feature.AlterniaFeatureHandeler;
 import net.minecraft.block.BlockState;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.DefaultBiomeFeatures;
