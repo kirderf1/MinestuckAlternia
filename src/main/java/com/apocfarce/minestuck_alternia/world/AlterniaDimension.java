@@ -96,9 +96,12 @@ public class AlterniaDimension extends Dimension {
 	 */
 	@Override
 	public float calculateCelestialAngle(long worldTime, float partialTicks) {
-		double angleFraction = MathHelper.frac((double) worldTime / 24000.0D - 0.72D);
-		double d1 = 0.5D - Math.cos(angleFraction * Math.PI) / 2.0D;
-		return (float) (angleFraction * 2.0D + d1) / 3.0F;
+		// A term representing the day-night angle. 0: noon, 0.5: midnight, 1: noon on the following day
+		double angleFraction = MathHelper.frac((double) worldTime / 24000.0 + 0.25);
+		// A term which represents the day-night angle, but modified to have longer nights (in the same manner as vanilla has longer days)
+		double longNightModifier = Math.acos(1 - 2*angleFraction) / Math.PI;
+		// The two angle terms are weighted together to lessen the impact of the "longer nights" term
+		return (float) (2*angleFraction + longNightModifier) / 3;
 	}
 	
 	@Override
