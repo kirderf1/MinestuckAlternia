@@ -1,4 +1,4 @@
-package com.apocfarce.minestuck_alternia.Utils;
+package com.apocfarce.minestuck_alternia.util;
 
 import net.minecraft.util.DamageSource;
 
