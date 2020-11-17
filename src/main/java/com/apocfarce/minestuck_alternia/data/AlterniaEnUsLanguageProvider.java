@@ -8,6 +8,7 @@ import com.apocfarce.minestuck_alternia.Item.block.PortalCrownItem;
 import com.apocfarce.minestuck_alternia.Minestuck_alternia;
 import com.apocfarce.minestuck_alternia.Utils.CustomDamageSources;
 import com.apocfarce.minestuck_alternia.block.AlterniaBlocks;
+import com.apocfarce.minestuck_alternia.client.StartDimensionSelectionScreen;
 import com.apocfarce.minestuck_alternia.world.biome.AlterniaBiomes;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.item.ItemGroup;
@@ -104,6 +105,11 @@ public class AlterniaEnUsLanguageProvider extends LanguageProvider {
 		add(PortalCenterItem.CANT_PLACE, "You must place the crown before placing the center");
 		add(PortalCrownItem.CANT_PLACE, "You must place both of the snakes before placing the crown");
 		add(PortalBaseItem.CANT_PLACE, "Not enough room to place this (needs a 4x4 space)");
+		
+		add(StartDimensionSelectionScreen.TITLE, "Start-dimension selection");
+		add(StartDimensionSelectionScreen.PROMPT, "Select a home dimension");
+		add(StartDimensionSelectionScreen.OVERWORLD, "Overworld");
+		add(StartDimensionSelectionScreen.ALTERNIA, "Alternia");
 	}
 	
 	protected void add(ItemGroup key, String value)
