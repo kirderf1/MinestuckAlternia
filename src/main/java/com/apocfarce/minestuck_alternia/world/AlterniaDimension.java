@@ -96,9 +96,9 @@ public class AlterniaDimension extends Dimension {
 	 */
 	@Override
 	public float calculateCelestialAngle(long worldTime, float partialTicks) {
-		double d0 = MathHelper.frac((double) worldTime / 24000.0D - 0.25D);
-		double d1 = 0.5D - Math.cos(d0 * Math.PI) / 2.0D;
-		return (float) (d0 * 2.0D + d1) / 3.0F;
+		double angleFraction = MathHelper.frac((double) worldTime / 24000.0D - 0.72D);
+		double d1 = 0.5D - Math.cos(angleFraction * Math.PI) / 2.0D;
+		return (float) (angleFraction * 2.0D + d1) / 3.0F;
 	}
 	
 	@Override
