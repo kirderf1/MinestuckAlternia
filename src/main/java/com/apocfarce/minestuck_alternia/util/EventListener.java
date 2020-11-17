@@ -13,11 +13,14 @@ import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.event.server.FMLServerStoppingEvent;
 import net.minecraftforge.fml.network.PacketDistributor;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.util.HashSet;
 import java.util.Set;
 
 public class EventListener {
+	private static final Logger LOGGER = LogManager.getLogger();
 	
 	private static final Set<ServerPlayerEntity> playerInSelection = new HashSet<>();
 	
@@ -50,11 +53,16 @@ public class EventListener {
 			playerInSelection.remove(player);
 			PlayerDataHelper.setSelectedDimension(player, choseAlternia);
 			if(choseAlternia) {
-				ServerWorld alternia = DimensionManager.getWorld(player.server, AlterniaDimensions.getDimensionType(), true, true);
-				//Idea: randomize spawn point slightly like regular spawn, perhaps?
-				//Other idea: spawn the player into an existing hive
-				BlockPos spawnPos = alternia.getHeight(Heightmap.Type.MOTION_BLOCKING, alternia.getSpawnPoint());
-				PortalUtil.teleportEntity(player, alternia, spawnPos.getX() + 0.5, spawnPos.getY(), spawnPos.getZ() + 0.5, 0, 0);
+				ServerWorld alterniaWorld = DimensionManager.getWorld(player.server, AlterniaDimensions.getDimensionType(), true, true);
+				
+				if(alterniaWorld != null) {
+					//Idea: randomize spawn point slightly like regular spawn, perhaps?
+					//Other idea: spawn the player into an existing hive
+					alterniaWorld.getChunk(alterniaWorld.getSpawnPoint());    //Make sure that the chunk is created and exists before calling world.getHeight()
+					BlockPos spawnPos = alterniaWorld.getHeight(Heightmap.Type.MOTION_BLOCKING, alterniaWorld.getSpawnPoint());
+					
+					PortalUtil.teleportEntity(player, alterniaWorld, spawnPos.getX() + 0.5, spawnPos.getY(), spawnPos.getZ() + 0.5, 0, 0);
+				} else LOGGER.error("Couldn't teleport player to alternia. Got null world from the DimensionManager!");
 			}
 		}
 	}
