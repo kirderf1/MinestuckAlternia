@@ -33,7 +33,7 @@ public class SimpleHiveStructurePiece extends TemplateStructurePiece implements 
 	
 	protected SimpleHiveStructurePiece(TemplateManager templates, ResourceLocation templateName, BloodColor color, BlockPos pos, BlockPos floor, BlockPos spawn, Rotation rotation) {
 		super(PieceTypes.HIVE, 0);
-		this.templateName = templateName;
+		this.templateName = new ResourceLocation(templateName.getNamespace(), "hives/" + templateName.getPath());
 		this.color = color;
 		this.templatePosition = pos;
 		this.spawn = templatePosition.add(spawn.subtract(floor).rotate(rotation));
