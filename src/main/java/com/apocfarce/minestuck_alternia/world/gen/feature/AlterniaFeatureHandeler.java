@@ -1,12 +1,12 @@
 package com.apocfarce.minestuck_alternia.world.gen.feature;
 
 
+import com.apocfarce.minestuck_alternia.world.gen.feature.structure.PieceTypes;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.IFeatureConfig;
 import net.minecraft.world.gen.feature.NoFeatureConfig;
-import net.minecraft.world.gen.feature.TreeFeatureConfig;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.registries.IForgeRegistry;
 
@@ -106,13 +106,9 @@ public class AlterniaFeatureHandeler {
 		purpleHiveFeature1 = register(registry,"minestuck_alternia:purple_hive1",purpleHiveFeature1);
 		purpleHiveFeature2 = register(registry,"minestuck_alternia:purple_hive2",purpleHiveFeature2);
 		purpleHiveFeature3 = register(registry,"minestuck_alternia:purple_hive3",purpleHiveFeature3);
-
-
+		
+		PieceTypes.register();
 	}
-	
-
-
-	
 
 	private static<FC extends IFeatureConfig> Feature<FC> register(IForgeRegistry<Feature<?>> registry,ResourceLocation key, Feature<FC> featureIn){
 		registry.register(featureIn.setRegistryName(key));
