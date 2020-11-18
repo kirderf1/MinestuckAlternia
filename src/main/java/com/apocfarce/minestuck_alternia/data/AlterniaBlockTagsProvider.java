@@ -1,6 +1,6 @@
 package com.apocfarce.minestuck_alternia.data;
 
-import com.apocfarce.minestuck_alternia.Utils.AlterniaTags;
+import com.apocfarce.minestuck_alternia.util.AlterniaTags;
 import com.apocfarce.minestuck_alternia.block.AlterniaBlocks;
 import net.minecraft.data.BlockTagsProvider;
 import net.minecraft.data.DataGenerator;

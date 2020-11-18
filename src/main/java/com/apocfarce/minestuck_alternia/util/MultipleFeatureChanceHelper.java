@@ -1,12 +1,10 @@
-package com.apocfarce.minestuck_alternia.Utils;
+package com.apocfarce.minestuck_alternia.util;
 
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
 import net.minecraft.world.gen.feature.ConfiguredRandomFeatureList;
-import net.minecraft.world.gen.feature.Feature;
-import net.minecraft.world.gen.feature.NoFeatureConfig;
 
 public class MultipleFeatureChanceHelper {
 	
