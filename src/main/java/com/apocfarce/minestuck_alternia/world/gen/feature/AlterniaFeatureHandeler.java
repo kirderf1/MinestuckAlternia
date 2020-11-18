@@ -55,7 +55,7 @@ public class AlterniaFeatureHandeler {
 	public static Feature<NoFeatureConfig> purpleHiveFeature1 = new AlterniaTemplateFeature(NoFeatureConfig::deserialize,new BlockPos(15,11,13));
 	public static Feature<NoFeatureConfig> purpleHiveFeature2 = new AlterniaTemplateFeature(NoFeatureConfig::deserialize, new BlockPos(1,0,1));
 	public static Feature<NoFeatureConfig> purpleHiveFeature3 = new AlterniaTemplateFeature(NoFeatureConfig::deserialize, new BlockPos(15,0,0));
-	
+	public static Feature<NoFeatureConfig> purpleHiveFeature4 = new AlterniaTemplateFeature(NoFeatureConfig::deserialize, new BlockPos(0,1,15));
 	
 	public static void registerFeatures(RegistryEvent.Register<Feature<?>> event)
 	{
@@ -106,6 +106,7 @@ public class AlterniaFeatureHandeler {
 		purpleHiveFeature1 = register(registry,"minestuck_alternia:purple_hive1",purpleHiveFeature1);
 		purpleHiveFeature2 = register(registry,"minestuck_alternia:purple_hive2",purpleHiveFeature2);
 		purpleHiveFeature3 = register(registry,"minestuck_alternia:purple_hive3",purpleHiveFeature3);
+		purpleHiveFeature4 = register(registry,"minestuck_alternia:purple_hive4",purpleHiveFeature4);
 		
 		PieceTypes.register();
 	}
