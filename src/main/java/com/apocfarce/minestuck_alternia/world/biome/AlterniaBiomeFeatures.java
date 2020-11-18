@@ -59,7 +59,7 @@ public class AlterniaBiomeFeatures {
 		biomeHives.add(AlterniaFeatureHandeler.limeHiveFeature3.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withChance(0.1F));
 		
 		biomeHives.add(AlterniaFeatureHandeler.oliveHiveFeature1.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withChance(0.1F));
-		biomeHives.add(AlterniaFeatureHandeler.oliveHiveFeature2.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withChance(1F));
+		biomeHives.add(AlterniaFeatureHandeler.oliveHiveFeature2.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withChance(0.3F));
 		biomeHives.add(AlterniaFeatureHandeler.oliveHiveFeature3.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withChance(0.3F));
 		
 		ConfiguredFeature<?, ?> defaultHive = AlterniaFeatureHandeler.mutantHiveFeature1.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG);
@@ -114,9 +114,10 @@ public class AlterniaBiomeFeatures {
 		biomeHives.add(AlterniaFeatureHandeler.indigoHiveFeature2.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withChance(0.1F));
 		biomeHives.add(AlterniaFeatureHandeler.indigoHiveFeature3.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withChance(0.1F));
 		
-		biomeHives.add(AlterniaFeatureHandeler.purpleHiveFeature1.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withChance(1F));
+		biomeHives.add(AlterniaFeatureHandeler.purpleHiveFeature1.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withChance(0.1F));
 		biomeHives.add(AlterniaFeatureHandeler.purpleHiveFeature2.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withChance(0.1F));
 		biomeHives.add(AlterniaFeatureHandeler.purpleHiveFeature3.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withChance(0.1F));
+		biomeHives.add(AlterniaFeatureHandeler.purpleHiveFeature4.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withChance(0.1F));
 		
 		ConfiguredFeature<?, ?> defaultHive = AlterniaFeatureHandeler.indigoHiveFeature1.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG);
 		biome.addFeature(GenerationStage.Decoration.SURFACE_STRUCTURES, Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(biomeHives, defaultHive))
