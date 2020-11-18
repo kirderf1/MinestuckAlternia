@@ -1,7 +1,6 @@
 package com.apocfarce.minestuck_alternia.world.gen.feature;
 
 import com.mojang.datafixers.Dynamic;
-import net.minecraft.block.Blocks;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IWorld;
 import net.minecraft.world.gen.ChunkGenerator;
@@ -32,7 +31,7 @@ public class AlterniaTemplateFeature extends Feature<NoFeatureConfig> {
 			Template template = manager.getTemplateDefaulted(this.getRegistryName());
 			PlacementSettings placementSettings = new PlacementSettings();
 			template.addBlocksToWorld(worldIn, pos.subtract(floorPos), placementSettings);
-			worldIn.setBlockState(pos, Blocks.GOLD_BLOCK.getDefaultState(),0);
+			//worldIn.setBlockState(pos, Blocks.GOLD_BLOCK.getDefaultState(),0);
 			return true;
 		}
 		return false;
