@@ -31,7 +31,7 @@ import java.util.function.BiFunction;
 public class AlterniaDimension extends Dimension {
 	
 	public AlterniaDimension(World worldIn, DimensionType typeIn) {
-		super(worldIn, typeIn, 0);
+		super(worldIn, typeIn, 0.1F);
 	}
 	
 	@Override
