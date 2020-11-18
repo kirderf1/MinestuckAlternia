@@ -6,7 +6,6 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.IFeatureConfig;
 import net.minecraft.world.gen.feature.NoFeatureConfig;
-import net.minecraft.world.gen.feature.TreeFeatureConfig;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.registries.IForgeRegistry;
 
@@ -55,7 +54,7 @@ public class AlterniaFeatureHandeler {
 	public static Feature<NoFeatureConfig> purpleHiveFeature1 = new AlterniaTemplateFeature(NoFeatureConfig::deserialize,new BlockPos(15,11,13));
 	public static Feature<NoFeatureConfig> purpleHiveFeature2 = new AlterniaTemplateFeature(NoFeatureConfig::deserialize, new BlockPos(1,0,1));
 	public static Feature<NoFeatureConfig> purpleHiveFeature3 = new AlterniaTemplateFeature(NoFeatureConfig::deserialize, new BlockPos(15,0,0));
-	
+	public static Feature<NoFeatureConfig> purpleHiveFeature4 = new AlterniaTemplateFeature(NoFeatureConfig::deserialize, new BlockPos(0,1,15));
 	
 	public static void registerFeatures(RegistryEvent.Register<Feature<?>> event)
 	{
@@ -106,6 +105,7 @@ public class AlterniaFeatureHandeler {
 		purpleHiveFeature1 = register(registry,"minestuck_alternia:purple_hive1",purpleHiveFeature1);
 		purpleHiveFeature2 = register(registry,"minestuck_alternia:purple_hive2",purpleHiveFeature2);
 		purpleHiveFeature3 = register(registry,"minestuck_alternia:purple_hive3",purpleHiveFeature3);
+		purpleHiveFeature4 = register(registry,"minestuck_alternia:purple_hive4",purpleHiveFeature4);
 
 
 	}
