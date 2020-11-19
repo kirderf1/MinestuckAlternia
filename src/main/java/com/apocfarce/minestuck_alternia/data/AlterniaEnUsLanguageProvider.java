@@ -7,9 +7,12 @@ import com.apocfarce.minestuck_alternia.Item.block.PortalCenterItem;
 import com.apocfarce.minestuck_alternia.Item.block.PortalCrownItem;
 import com.apocfarce.minestuck_alternia.Minestuck_alternia;
 import com.apocfarce.minestuck_alternia.block.AlterniaBlocks;
+import com.apocfarce.minestuck_alternia.client.StartDimensionSelectionScreen;
+import com.apocfarce.minestuck_alternia.util.CustomDamageSources;
 import com.apocfarce.minestuck_alternia.world.biome.AlterniaBiomes;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.item.ItemGroup;
+import net.minecraft.util.DamageSource;
 import net.minecraftforge.common.data.LanguageProvider;
 
 public class AlterniaEnUsLanguageProvider extends LanguageProvider {
@@ -91,6 +94,8 @@ public class AlterniaEnUsLanguageProvider extends LanguageProvider {
 		
 		add(ItemGroupAlternia.instance, "Minestuck Alternia");
 		
+		add(CustomDamageSources.SUNBURN, "%1$s burned to death in the sun", "%1$s burned to death in the sun whilst fighting %2$s");
+		
 		addBiome(AlterniaBiomes.ALTERNIA_PLAINS, "Alternia Plains");
 		addBiome(AlterniaBiomes.MIRRAGE_FOREST, "Mirrage Forest");
 		addBiome(AlterniaBiomes.PYRAL_FOREST, "Pyral Forest");
@@ -100,10 +105,20 @@ public class AlterniaEnUsLanguageProvider extends LanguageProvider {
 		add(PortalCenterItem.CANT_PLACE, "You must place the crown before placing the center");
 		add(PortalCrownItem.CANT_PLACE, "You must place both of the snakes before placing the crown");
 		add(PortalBaseItem.CANT_PLACE, "Not enough room to place this (needs a 4x4 space)");
+		
+		add(StartDimensionSelectionScreen.TITLE, "Start-dimension selection");
+		add(StartDimensionSelectionScreen.PROMPT, "Select a home dimension");
+		add(StartDimensionSelectionScreen.OVERWORLD, "Overworld");
+		add(StartDimensionSelectionScreen.ALTERNIA, "Alternia");
 	}
 	
 	protected void add(ItemGroup key, String value)
 	{
 		add(key.getTranslationKey(), value);
+	}
+	
+	protected void add(DamageSource source, String normalMessage, String fightingMessage) {
+		add("death.attack." + source.getDamageType(), normalMessage);
+		add("death.attack." + source.getDamageType() + ".player", fightingMessage);
 	}
 }
