@@ -40,18 +40,17 @@ public class StartDimensionSelectionScreen extends Screen {
 	}
 	
 	private void pickOverworld(Button button) {
-		AlterniaPacketHandler.INSTANCE.sendToServer(new DimensionSelectionPacket(false));
+		AlterniaPacketHandler.INSTANCE.sendToServer(DimensionSelectionPacket.overworld());
 		shouldShowScreen = false;
 		onClose();
 	}
 	
+	@SuppressWarnings("ConstantConditions")
 	private void pickAlternia(Button button) {
-		AlterniaPacketHandler.INSTANCE.sendToServer(new DimensionSelectionPacket(true));
-		shouldShowScreen = false;
-		onClose();
+		minecraft.displayGuiScreen(new BloodSelectionScreen());
 	}
 	
-	private static boolean shouldShowScreen;
+	static boolean shouldShowScreen;
 	
 	public static void setShouldShowScreen() {
 		shouldShowScreen = true;

@@ -1,5 +1,8 @@
 package com.apocfarce.minestuck_alternia.util;
 
+import net.minecraft.network.PacketBuffer;
+import net.minecraft.util.math.MathHelper;
+
 public enum BloodColor {
 	BURGUNDY("burgundy"),
 	BRONZE("bronze"),
@@ -33,5 +36,18 @@ public enum BloodColor {
 	
 	public String getBlockName() {
 		return blockName;
+	}
+	
+	public String getTranslationKey() {
+		return "blood." + getBloodName();
+	}
+	
+	public static BloodColor fromBuffer(PacketBuffer buffer) {
+		int index = buffer.readInt();
+		return values()[MathHelper.clamp(index, 0, values().length)];
+	}
+	
+	public void toBuffer(PacketBuffer buffer) {
+		buffer.writeInt(ordinal());
 	}
 }

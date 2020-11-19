@@ -13,11 +13,13 @@ public class PlayerDataHelper {
 	}
 	
 	public static void setSelectedDimension(ServerPlayerEntity player, boolean choseAlternia) {
-		if(!player.getPersistentData().contains(PlayerEntity.PERSISTED_NBT_TAG, Constants.NBT.TAG_COMPOUND))
-			player.getPersistentData().put(PlayerEntity.PERSISTED_NBT_TAG, new CompoundNBT());
-		
 		CompoundNBT data = getPersistedDataForWriting(player);
 		data.putBoolean("chose_alternia", choseAlternia);
+	}
+	
+	public static void setBloodColor(ServerPlayerEntity player, BloodColor color) {
+		CompoundNBT data = getPersistedDataForWriting(player);
+		data.putString("blood_color", color.name());
 	}
 	
 	/**

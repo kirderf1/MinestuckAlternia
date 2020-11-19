@@ -3,6 +3,7 @@ package com.apocfarce.minestuck_alternia.util;
 import com.apocfarce.minestuck_alternia.network.AlterniaPacketHandler;
 import com.apocfarce.minestuck_alternia.network.ShouldDoSelectionPacket;
 import com.apocfarce.minestuck_alternia.world.AlterniaDimensions;
+import com.apocfarce.minestuck_alternia.world.gen.feature.AlterniaFeatures;
 import net.minecraft.entity.player.ServerPlayerEntity;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.gen.Heightmap;
@@ -48,18 +49,22 @@ public class EventListener {
 		playerInSelection.remove(event.getPlayer());
 	}
 	
-	public static void handleDimensionSelection(ServerPlayerEntity player, boolean choseAlternia) {
+	public static void handleDimensionSelection(ServerPlayerEntity player, boolean choseAlternia, BloodColor color) {
 		if(playerInSelection.contains(player)) {
 			playerInSelection.remove(player);
 			PlayerDataHelper.setSelectedDimension(player, choseAlternia);
 			if(choseAlternia) {
+				PlayerDataHelper.setBloodColor(player, color);
+				
 				ServerWorld alterniaWorld = DimensionManager.getWorld(player.server, AlterniaDimensions.getDimensionType(), true, true);
 				
 				if(alterniaWorld != null) {
-					//Idea: randomize spawn point slightly like regular spawn, perhaps?
-					//Other idea: spawn the player into an existing hive
-					alterniaWorld.getChunk(alterniaWorld.getSpawnPoint());    //Make sure that the chunk is created and exists before calling world.getHeight()
-					BlockPos spawnPos = alterniaWorld.getHeight(Heightmap.Type.MOTION_BLOCKING, alterniaWorld.getSpawnPoint());
+					BlockPos spawnPos = AlterniaFeatures.HIVE.get().tryFindHiveToOccupy(alterniaWorld, color);
+					if(spawnPos == null) {
+						LOGGER.warn("Unable to find hive for {} blood color. Player is teleported to spawn.", color.getBloodName());
+						alterniaWorld.getChunk(alterniaWorld.getSpawnPoint());    //Make sure that the chunk is created and exists before calling world.getHeight()
+						spawnPos = alterniaWorld.getHeight(Heightmap.Type.MOTION_BLOCKING, alterniaWorld.getSpawnPoint());
+					}
 					
 					PortalUtil.teleportEntity(player, alterniaWorld, spawnPos.getX() + 0.5, spawnPos.getY(), spawnPos.getZ() + 0.5, 0, 0);
 				} else LOGGER.error("Couldn't teleport player to alternia. Got null world from the DimensionManager!");

@@ -7,7 +7,9 @@ import com.apocfarce.minestuck_alternia.Item.block.PortalCenterItem;
 import com.apocfarce.minestuck_alternia.Item.block.PortalCrownItem;
 import com.apocfarce.minestuck_alternia.Minestuck_alternia;
 import com.apocfarce.minestuck_alternia.block.AlterniaBlocks;
+import com.apocfarce.minestuck_alternia.client.BloodSelectionScreen;
 import com.apocfarce.minestuck_alternia.client.StartDimensionSelectionScreen;
+import com.apocfarce.minestuck_alternia.util.BloodColor;
 import com.apocfarce.minestuck_alternia.util.CustomDamageSources;
 import com.apocfarce.minestuck_alternia.world.biome.AlterniaBiomes;
 import net.minecraft.data.DataGenerator;
@@ -110,6 +112,23 @@ public class AlterniaEnUsLanguageProvider extends LanguageProvider {
 		add(StartDimensionSelectionScreen.PROMPT, "Select a home dimension");
 		add(StartDimensionSelectionScreen.OVERWORLD, "Overworld");
 		add(StartDimensionSelectionScreen.ALTERNIA, "Alternia");
+		
+		add(BloodSelectionScreen.TITLE, "Blood color selection");
+		add(BloodSelectionScreen.PROMPT, "Select a blood color");
+		
+		add(BloodColor.BURGUNDY, "Burgundy");
+		add(BloodColor.BRONZE, "Bronze");
+		add(BloodColor.GOLD, "Gold");
+		add(BloodColor.OLIVE, "Olive");
+		add(BloodColor.JADE, "Jade");
+		add(BloodColor.TEAL, "Teal");
+		add(BloodColor.CERULEAN, "Cerulean");
+		add(BloodColor.INDIGO, "Indigo");
+		add(BloodColor.PURPLE, "Purple");
+		add(BloodColor.VIOLET, "Violet");
+		add(BloodColor.FUCHSIA, "Fuchsia");
+		add(BloodColor.MUTANT, "Mutant");
+		add(BloodColor.LIME, "Lime");
 	}
 	
 	protected void add(ItemGroup key, String value)
@@ -120,5 +139,9 @@ public class AlterniaEnUsLanguageProvider extends LanguageProvider {
 	protected void add(DamageSource source, String normalMessage, String fightingMessage) {
 		add("death.attack." + source.getDamageType(), normalMessage);
 		add("death.attack." + source.getDamageType() + ".player", fightingMessage);
+	}
+	
+	protected void add(BloodColor color, String name) {
+		add(color.getTranslationKey(), name);
 	}
 }
