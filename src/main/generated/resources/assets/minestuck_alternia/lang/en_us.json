@@ -49,6 +49,8 @@
   "block.minestuck_alternia.stripped_pyral_wood": "Stripped Pyral Wood",
   "block.minestuck_alternia.teal_hive_glass": "Teal Hive Glass",
   "block.minestuck_alternia.violet_hive_glass": "Violet Hive Glass",
+  "death.attack.sunburn": "%1$s burned to death in the sun",
+  "death.attack.sunburn.player": "%1$s burned to death in the sun whilst fighting %2$s",
   "item.minestuck_alternia.bronze_blood_bottle": "Bronze Blood Bottle",
   "item.minestuck_alternia.burgundy_blood_bottle": "Burgundy Blood Bottle",
   "item.minestuck_alternia.cerulean_blood_bottle": "Cerulean Blood Bottle",
