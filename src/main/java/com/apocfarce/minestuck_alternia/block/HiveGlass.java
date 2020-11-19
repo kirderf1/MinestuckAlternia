@@ -1,7 +1,7 @@
 package com.apocfarce.minestuck_alternia.block;
 
 
-import com.apocfarce.minestuck_alternia.Item.BloodColor;
+import com.apocfarce.minestuck_alternia.util.BloodColor;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;

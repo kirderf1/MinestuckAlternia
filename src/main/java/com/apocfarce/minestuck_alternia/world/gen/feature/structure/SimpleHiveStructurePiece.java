@@ -1,6 +1,6 @@
 package com.apocfarce.minestuck_alternia.world.gen.feature.structure;
 
-import com.apocfarce.minestuck_alternia.Item.BloodColor;
+import com.apocfarce.minestuck_alternia.util.BloodColor;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.nbt.NBTUtil;
 import net.minecraft.util.Mirror;

@@ -1,5 +1,6 @@
 package com.apocfarce.minestuck_alternia.Item;
 
+import com.apocfarce.minestuck_alternia.util.BloodColor;
 import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;

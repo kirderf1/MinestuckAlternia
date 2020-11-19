@@ -1,7 +1,7 @@
 package com.apocfarce.minestuck_alternia.world.gen.feature.structure;
 
-import com.apocfarce.minestuck_alternia.Item.BloodColor;
 import com.apocfarce.minestuck_alternia.Minestuck_alternia;
+import com.apocfarce.minestuck_alternia.util.BloodColor;
 import com.mojang.datafixers.Dynamic;
 import com.mojang.datafixers.types.DynamicOps;
 import net.minecraft.util.ResourceLocation;

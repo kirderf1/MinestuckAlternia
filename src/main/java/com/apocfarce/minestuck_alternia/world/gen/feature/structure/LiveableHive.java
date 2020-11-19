@@ -1,6 +1,6 @@
 package com.apocfarce.minestuck_alternia.world.gen.feature.structure;
 
-import com.apocfarce.minestuck_alternia.Item.BloodColor;
+import com.apocfarce.minestuck_alternia.util.BloodColor;
 import net.minecraft.util.math.BlockPos;
 
 import javax.annotation.Nullable;
