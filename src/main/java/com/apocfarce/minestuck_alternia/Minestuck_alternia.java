@@ -11,21 +11,20 @@ import com.apocfarce.minestuck_alternia.world.biome.AlterniaBiomes;
 import com.apocfarce.minestuck_alternia.world.biome.provider.AlterniaBiomeProvider;
 import com.apocfarce.minestuck_alternia.world.biome.provider.AlterniaBiomeProviderTypes;
 import com.apocfarce.minestuck_alternia.world.gen.AlterniaChunkGenTypes;
-import com.apocfarce.minestuck_alternia.world.gen.feature.AlterniaFeatureHandeler;
+import com.apocfarce.minestuck_alternia.world.gen.feature.AlterniaFeatures;
+import com.apocfarce.minestuck_alternia.world.gen.feature.structure.PieceTypes;
 import com.apocfarce.minestuck_alternia.world.gen.surfacebuilder.AlterniaSurfaceBuilders;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
-import net.minecraft.world.gen.feature.Feature;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.event.world.RegisterDimensionsEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.DeferredWorkQueue;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
-import net.minecraftforge.fml.event.lifecycle.InterModEnqueueEvent;
-import net.minecraftforge.fml.event.lifecycle.InterModProcessEvent;
 import net.minecraftforge.fml.event.server.FMLServerStartingEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 
@@ -36,8 +35,6 @@ public class Minestuck_alternia {
     public Minestuck_alternia() {
         IEventBus modBus = FMLJavaModLoadingContext.get().getModEventBus();
         modBus.addListener(this::setup);
-        modBus.addListener(this::SendInterModCom);
-        modBus.addListener(this::ReciveInterModCom);
         modBus.addListener(this::doClientStuff);
         modBus.addListener(AlterniaData::gatherData);
         MinecraftForge.EVENT_BUS.register(this);
@@ -48,9 +45,14 @@ public class Minestuck_alternia {
         AlterniaChunkGenTypes.REGISTER.register(modBus);
         AlterniaBiomeProviderTypes.REGISTER.register(modBus);
         AlterniaBiomes.REGISTER.register(modBus);
+        AlterniaFeatures.REGISTER.register(modBus);
     }
+    
+    @SuppressWarnings("deprecation")    //The deferred work queue does not have a replacement yet. It'll come in 1.16
     private void setup(final FMLCommonSetupEvent event) {
-        AlterniaBiomeProvider.initBiomeList();
+        AlterniaBiomes.initBiomeFeatures();
+        DeferredWorkQueue.runLater(PieceTypes::register);
+        DeferredWorkQueue.runLater(AlterniaBiomeProvider::initBiomeList);
         AlterniaPacketHandler.registerPackets();
     }
     
@@ -59,11 +61,6 @@ public class Minestuck_alternia {
     }
     @SubscribeEvent
     public void onServerStarting(FMLServerStartingEvent event) {
-    }
-    private void SendInterModCom(final InterModEnqueueEvent event){
-    }
-    private void ReciveInterModCom(final InterModProcessEvent event){
-
     }
     
     @Mod.EventBusSubscriber(modid = "minestuck_alternia", bus=Mod.EventBusSubscriber.Bus.FORGE)
@@ -83,10 +80,6 @@ public class Minestuck_alternia {
         @SubscribeEvent
         public static void onItemRegistry(final RegistryEvent.Register<Item> ItemRegistryEvent) {
             AlterniaItems.registerItems(ItemRegistryEvent); 
-        }
-        @SubscribeEvent
-        public static void onFeatureRegistry(final RegistryEvent.Register<Feature<?>> featureRegistryEvent) {
-        	AlterniaFeatureHandeler.registerFeatures(featureRegistryEvent);
         }
     }
 

@@ -44,50 +44,50 @@ public final class HiveType {
 	private static final ResourceLocation DEFAULT_VALUE = new ResourceLocation(Minestuck_alternia.MOD_ID, "");
 	private static final Map<ResourceLocation, HiveType> hiveTypes = new HashMap<>();
 	
-	public static final HiveType BURGUNDY_1 = standardHive("burgundy_1", BloodColor.BURGUNDY, new BlockPos(5, 1, 6), new BlockPos(0, 0, 0));
-	public static final HiveType BURGUNDY_2 = standardHive("burgundy_2", BloodColor.BURGUNDY, new BlockPos(3, 1, 5), new BlockPos(0, 0, 0));
-	public static final HiveType BURGUNDY_3 = standardHive("burgundy_3", BloodColor.BURGUNDY, new BlockPos(15, 1, 0), new BlockPos(0, 0, 0));
+	public static final HiveType BURGUNDY_AWNING_SMALL = standardHive("burgundy_awning_small", BloodColor.BURGUNDY, new BlockPos(5, 1, 6), new BlockPos(15, 1, 12));
+	public static final HiveType BURGUNDY_SMALL = standardHive("burgundy_small", BloodColor.BURGUNDY, new BlockPos(3, 1, 5), new BlockPos(10, 1, 10));
+	public static final HiveType BURGUNDY_MANSION = standardHive("burgundy_mansion", BloodColor.BURGUNDY, new BlockPos(15, 1, 0), new BlockPos(15, 9, 10));
 	
-	public static final HiveType BRONZE_1 = standardHive("bronze_1", BloodColor.BRONZE, new BlockPos(8, 5, 1), new BlockPos(0, 0, 0));
-	public static final HiveType BRONZE_2 = standardHive("bronze_2", BloodColor.BRONZE, new BlockPos(8, 4, 0), new BlockPos(0, 0, 0));
-	public static final HiveType BRONZE_3 = standardHive("bronze_3", BloodColor.BRONZE, new BlockPos(1, 1, 6), new BlockPos(0, 0, 0));
+	public static final HiveType BRONZE_WOODEN = standardHive("bronze_wooden", BloodColor.BRONZE, new BlockPos(8, 5, 1), new BlockPos(5, 1, 10));
+	public static final HiveType BRONZE_FARM = standardHive("bronze_farm", BloodColor.BRONZE, new BlockPos(8, 4, 0), new BlockPos(8, 1, 5));
+	public static final HiveType BRONZE_WINDMILL = standardHive("bronze_windmill", BloodColor.BRONZE, new BlockPos(1, 1, 6), new BlockPos(4, 1, 6));
 	
-	public static final HiveType GOLD_1 = standardHive("gold_1", BloodColor.GOLD, new BlockPos(15, 0, 0), new BlockPos(0, 0, 0));
-	public static final HiveType GOLD_2 = standardHive("gold_2", BloodColor.GOLD, new BlockPos(7, 1, 9), new BlockPos(0, 0, 0));
-	public static final HiveType GOLD_3 = standardHive("gold_3", BloodColor.GOLD, new BlockPos(0, 1, 11), new BlockPos(0, 0, 0));
+	public static final HiveType GOLD_SYMMETRIC = standardHive("gold_symmetric", BloodColor.GOLD, new BlockPos(15, 0, 0), new BlockPos(15, 1, 5));
+	public static final HiveType GOLD_BEACON = standardHive("gold_beacon", BloodColor.GOLD, new BlockPos(7, 1, 9), new BlockPos(13, 17, 14));
+	public static final HiveType GOLD_TOWER = standardHive("gold_tower", BloodColor.GOLD, new BlockPos(0, 1, 11), new BlockPos(11, 27, 12));
 	
-	public static final HiveType MUTANT_1 = standardHive("mutant_1", BloodColor.MUTANT, new BlockPos(1, 4, 8), new BlockPos(0, 0, 0));
-	public static final HiveType MUTANT_2 = standardHive("mutant_2", BloodColor.MUTANT, new BlockPos(14, 0, 0), new BlockPos(0, 0, 0));
-	public static final HiveType MUTANT_3 = standardHive("mutant_3", BloodColor.MUTANT, new BlockPos(0, 0, 6), new BlockPos(0, 0, 0));
+	public static final HiveType MUTANT_PLUS = standardHive("mutant_plus", BloodColor.MUTANT, new BlockPos(1, 4, 8), new BlockPos(10, 1, 8));
+	public static final HiveType MUTANT_LARGE = standardHive("mutant_large", BloodColor.MUTANT, new BlockPos(14, 0, 0), new BlockPos(11, 1, 11));
+	public static final HiveType MUTANT_AWNING_LARGE = standardHive("mutant_awning_large", BloodColor.MUTANT, new BlockPos(0, 0, 6), new BlockPos(16, 5, 5));
 	
-	public static final HiveType LIME_1 = standardHive("lime_1", BloodColor.LIME, new BlockPos(9, 1, 0), new BlockPos(0, 0, 0));
-	public static final HiveType LIME_2 = standardHive("lime_2", BloodColor.LIME, new BlockPos(0, 1, 15), new BlockPos(0, 0, 0));
-	public static final HiveType LIME_3 = standardHive("lime_3", BloodColor.LIME, new BlockPos(0, 0, 15), new BlockPos(0, 0, 0));
+	public static final HiveType LIME_DIAGONAL = standardHive("lime_diagonal", BloodColor.LIME, new BlockPos(9, 1, 0), new BlockPos(4, 2, 11));
+	public static final HiveType LIME_ROUND_TOWER = standardHive("lime_round_tower", BloodColor.LIME, new BlockPos(0, 1, 14), new BlockPos(24, 1, 14));
+	public static final HiveType LIME_FARM = standardHive("lime_farm", BloodColor.LIME, new BlockPos(0, 0, 15), new BlockPos(17, 1, 15));
 	
-	public static final HiveType OLIVE_1 = standardHive("olive_1", BloodColor.OLIVE, new BlockPos(4, 1, 13), new BlockPos(0, 0, 0));
-	public static final HiveType OLIVE_2 = standardHive("olive_2", BloodColor.OLIVE, new BlockPos(13, 1, 6), new BlockPos(0, 0, 0));
-	public static final HiveType OLIVE_3 = standardHive("olive_3", BloodColor.OLIVE, new BlockPos(11, 19, 5), new BlockPos(0, 0, 0));
+	public static final HiveType OLIVE_CAVE = standardHive("olive_cave", BloodColor.OLIVE, new BlockPos(4, 1, 13), new BlockPos(15, 1, 11));
+	public static final HiveType OLIVE_TREE = standardHive("olive_tree", BloodColor.OLIVE, new BlockPos(13, 1, 6), new BlockPos(17, 1, 16));
+	public static final HiveType OLIVE_BASEMENT = standardHive("olive_basement", BloodColor.OLIVE, new BlockPos(11, 19, 5), new BlockPos(6, 1, 25));
 	
-	public static final HiveType JADE_1 = standardHive("jade_1", BloodColor.JADE, new BlockPos(10, 1, 31), new BlockPos(0, 0, 0));
-	public static final HiveType JADE_2 = standardHive("jade_2", BloodColor.JADE, new BlockPos(14, 1, 0), new BlockPos(0, 0, 0));
-	public static final HiveType JADE_3 = standardHive("jade_3", BloodColor.JADE, new BlockPos(3, 1, 5), new BlockPos(0, 0, 0));
+	public static final HiveType JADE_TOWER = standardHive("jade_tower", BloodColor.JADE, new BlockPos(10, 1, 31), new BlockPos(10, 5, 6));
+	public static final HiveType JADE_FOUNTAIN = standardHive("jade_fountain", BloodColor.JADE, new BlockPos(14, 1, 0), new BlockPos(4, 1, 4));
+	public static final HiveType JADE_TREE = standardHive("jade_tree", BloodColor.JADE, new BlockPos(3, 1, 5), new BlockPos(14, 9, 5));
 	
-	public static final HiveType TEAL_1 = standardHive("teal_1", BloodColor.TEAL, new BlockPos(0, 1, 15), new BlockPos(0, 0, 0));
-	public static final HiveType TEAL_2 = standardHive("teal_2", BloodColor.TEAL, new BlockPos(1, 1, 15), new BlockPos(0, 0, 0));
-	public static final HiveType TEAL_3 = standardHive("teal_3", BloodColor.TEAL, new BlockPos(15, 1, 0), new BlockPos(0, 0, 0));
+	public static final HiveType TEAL_BALCONY_MANSION = standardHive("teal_balcony_mansion", BloodColor.TEAL, new BlockPos(0, 1, 15), new BlockPos(20, 7, 15));
+	public static final HiveType TEAL_TREE_MANSION = standardHive("teal_tree_mansion", BloodColor.TEAL, new BlockPos(1, 1, 15), new BlockPos(5, 7, 15));
+	public static final HiveType TEAL_TOWER = standardHive("teal_tower", BloodColor.TEAL, new BlockPos(15, 1, 0), new BlockPos(15, 20, 12));
 	
-	public static final HiveType CERULEAN_1 = standardHive("cerulean_1", BloodColor.CERULEAN, new BlockPos(4, 0, 10), new BlockPos(0, 0, 0));
-	public static final HiveType CERULEAN_2 = standardHive("cerulean_2", BloodColor.CERULEAN, new BlockPos(21, 10, 15), new BlockPos(0, 0, 0));
-	public static final HiveType CERULEAN_3 = standardHive("cerulean_3", BloodColor.CERULEAN, new BlockPos(20, 21, 15), new BlockPos(0, 0, 0));
+	public static final HiveType CERULEAN_L = standardHive("cerulean_l", BloodColor.CERULEAN, new BlockPos(4, 0, 10), new BlockPos(12, 1, 4));
+	public static final HiveType CERULEAN_BASEMENT = standardHive("cerulean_basement", BloodColor.CERULEAN, new BlockPos(21, 10, 15), new BlockPos(23, 1, 15));
+	public static final HiveType CERULEAN_CAVE = standardHive("cerulean_cave", BloodColor.CERULEAN, new BlockPos(20, 21, 15), new BlockPos(20, 1, 15));
 	
-	public static final HiveType INDIGO_1 = standardHive("indigo_1", BloodColor.INDIGO, new BlockPos(3, 1, 0), new BlockPos(0, 0, 0));
-	public static final HiveType INDIGO_2 = standardHive("indigo_2", BloodColor.INDIGO, new BlockPos(1, 1, 15), new BlockPos(0, 0, 0));
-	public static final HiveType INDIGO_3 = standardHive("indigo_3", BloodColor.INDIGO, new BlockPos(0, 1, 15), new BlockPos(0, 0, 0));
+	public static final HiveType INDIGO_TOWER_PLUS = standardHive("indigo_tower_plus", BloodColor.INDIGO, new BlockPos(3, 1, 0), new BlockPos(19, 1, 11));
+	public static final HiveType INDIGO_TELESCOPE = standardHive("indigo_telescope", BloodColor.INDIGO, new BlockPos(1, 1, 15), new BlockPos(23, 4, 15));
+	public static final HiveType INDIGO_LARGE_CHIMNEYS = standardHive("indigo_large_chimneys", BloodColor.INDIGO, new BlockPos(0, 1, 15), new BlockPos(10, 9, 10));
 	
-	public static final HiveType PURPLE_1 = standardHive("purple_1", BloodColor.PURPLE, new BlockPos(15, 11, 13), new BlockPos(0, 0, 0));
-	public static final HiveType PURPLE_2 = standardHive("purple_2", BloodColor.PURPLE, new BlockPos(1, 0, 1), new BlockPos(0, 0, 0));
-	public static final HiveType PURPLE_3 = standardHive("purple_3", BloodColor.PURPLE, new BlockPos(15, 0, 0), new BlockPos(0, 0, 0));
-	public static final HiveType PURPLE_4 = standardHive("purple_4", BloodColor.PURPLE, new BlockPos(0, 1, 15), new BlockPos(0, 0, 0));
+	public static final HiveType PURPLE_BASEMENT = standardHive("purple_basement", BloodColor.PURPLE, new BlockPos(15, 11, 13), new BlockPos(20, 1, 20));
+	public static final HiveType PURPLE_BALCONY = standardHive("purple_balcony", BloodColor.PURPLE, new BlockPos(1, 0, 1), new BlockPos(14, 1, 17));
+	public static final HiveType PURPLE_CHURCH = standardHive("purple_church", BloodColor.PURPLE, new BlockPos(15, 0, 0), new BlockPos(15, 2, 25));
+	public static final HiveType PURPLE_TENT = standardHive("purple_tent", BloodColor.PURPLE, new BlockPos(0, 1, 15), new BlockPos(10, 1, 10));
 	
 	private static HiveType register(ResourceLocation name, Heightmap.Type heightmap, PieceConstructor constructor) {
 		HiveType type = new HiveType(name, heightmap, constructor);
@@ -97,5 +97,10 @@ public final class HiveType {
 	
 	private static HiveType standardHive(String name, BloodColor color, BlockPos floor, BlockPos spawn) {
 		return register(new ResourceLocation(Minestuck_alternia.MOD_ID, name), Heightmap.Type.WORLD_SURFACE_WG, SimpleHiveStructurePiece.with(color, floor, spawn));
+	}
+	
+	@Override
+	public String toString() {
+		return name.toString();
 	}
 }

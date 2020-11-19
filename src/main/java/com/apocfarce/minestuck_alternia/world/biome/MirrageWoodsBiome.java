@@ -20,8 +20,12 @@ public class MirrageWoodsBiome extends Biome {
 				.waterFogColor(0x115588)
 				.parent(null)
 				);
+	}
+	
+	public void addFeatures() {
+		AlterniaBiomeFeatures.addStructures(this);
 		
-		AlterniaBiomeFeatures.addHivesMutant(this);
+		AlterniaBiomeFeatures.addMidlowbloodHives(this);
 		
 		DefaultBiomeFeatures.addCarvers(this);
 		DefaultBiomeFeatures.addStructures(this);
@@ -34,16 +38,14 @@ public class MirrageWoodsBiome extends Biome {
 		AlterniaBiomeFeatures.addMirrageTrees(this);
 //	      addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.RANDOM_PATCH.withConfiguration(createGrassClusterConfig(AlterniaBlocks.mirrageGrass.getDefaultState())).withPlacement(Placement.COUNT_HEIGHTMAP.configure(new FrequencyConfig(1))));
 		
-
-	      DefaultBiomeFeatures.addExtraDefaultFlowers(this);
-	      DefaultBiomeFeatures.addJungleGrass(this);
-	      DefaultBiomeFeatures.addMushrooms(this);
-	      DefaultBiomeFeatures.addSprings(this);
-	      DefaultBiomeFeatures.addFreezeTopLayer(this);
 		
-
-		
+		DefaultBiomeFeatures.addExtraDefaultFlowers(this);
+		DefaultBiomeFeatures.addJungleGrass(this);
+		DefaultBiomeFeatures.addMushrooms(this);
+		DefaultBiomeFeatures.addSprings(this);
+		DefaultBiomeFeatures.addFreezeTopLayer(this);
 	}
+	
 	@Override
 	public int getFoliageColor() {
 		return(0x666666);
@@ -52,6 +54,4 @@ public class MirrageWoodsBiome extends Biome {
 	public int getGrassColor(double posX, double posZ) {
 		return(0x666666);
 	}
-
-
 }

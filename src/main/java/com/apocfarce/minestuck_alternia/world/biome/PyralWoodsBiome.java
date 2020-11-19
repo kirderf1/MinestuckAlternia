@@ -20,30 +20,31 @@ public class PyralWoodsBiome extends Biome {
 				.waterFogColor(0x115588)
 				.parent(null)
 				);
-		
-		AlterniaBiomeFeatures.addHivesJade(this);
-		
-	      DefaultBiomeFeatures.addCarvers(this);
-	      DefaultBiomeFeatures.addStructures(this);
-	      DefaultBiomeFeatures.addLakes(this);
-	      DefaultBiomeFeatures.addMonsterRooms(this);
-	      DefaultBiomeFeatures.addStoneVariants(this);
-	      DefaultBiomeFeatures.addOres(this);
-	      DefaultBiomeFeatures.addSedimentDisks(this);
-	      
-	      
-	      AlterniaBiomeFeatures.addPyralTrees(this);
-	      AlterniaBiomeFeatures.addPyralGrass(this);
-
-	      DefaultBiomeFeatures.addExtraDefaultFlowers(this);
-	      DefaultBiomeFeatures.addJungleGrass(this);
-	      DefaultBiomeFeatures.addMushrooms(this);
-	      DefaultBiomeFeatures.addSprings(this);
-	      DefaultBiomeFeatures.addFreezeTopLayer(this);
-		
-
-		
 	}
+	
+	public void addFeatures() {
+		AlterniaBiomeFeatures.addStructures(this);
+		
+		AlterniaBiomeFeatures.addMidhighbloodHives(this);
+		
+		DefaultBiomeFeatures.addCarvers(this);
+		DefaultBiomeFeatures.addStructures(this);
+		DefaultBiomeFeatures.addLakes(this);
+		DefaultBiomeFeatures.addMonsterRooms(this);
+		DefaultBiomeFeatures.addStoneVariants(this);
+		DefaultBiomeFeatures.addOres(this);
+		DefaultBiomeFeatures.addSedimentDisks(this);
+		
+		AlterniaBiomeFeatures.addPyralTrees(this);
+		AlterniaBiomeFeatures.addPyralGrass(this);
+		
+		DefaultBiomeFeatures.addExtraDefaultFlowers(this);
+		DefaultBiomeFeatures.addJungleGrass(this);
+		DefaultBiomeFeatures.addMushrooms(this);
+		DefaultBiomeFeatures.addSprings(this);
+		DefaultBiomeFeatures.addFreezeTopLayer(this);
+	}
+	
 	@Override
 	public int getFoliageColor() {
 		return(0xAA55EE);
@@ -52,6 +53,4 @@ public class PyralWoodsBiome extends Biome {
 	public int getGrassColor(double posX, double posZ) {
 		return(0x004455);
 	}
-
-
 }

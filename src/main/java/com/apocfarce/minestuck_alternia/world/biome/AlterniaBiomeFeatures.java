@@ -1,8 +1,11 @@
 package com.apocfarce.minestuck_alternia.world.biome;
 
 import com.apocfarce.minestuck_alternia.block.AlterniaBlocks;
-import com.apocfarce.minestuck_alternia.world.gen.feature.AlterniaFeatureHandeler;
+import com.apocfarce.minestuck_alternia.world.gen.feature.AlterniaFeatures;
+import com.apocfarce.minestuck_alternia.world.gen.feature.structure.HiveStructureConfig;
+import com.apocfarce.minestuck_alternia.world.gen.feature.structure.HiveType;
 import net.minecraft.block.BlockState;
+import net.minecraft.util.WeightedList;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.DefaultBiomeFeatures;
 import net.minecraft.world.gen.GenerationStage;
@@ -12,8 +15,8 @@ import net.minecraft.world.gen.feature.*;
 import net.minecraft.world.gen.foliageplacer.BlobFoliagePlacer;
 import net.minecraft.world.gen.foliageplacer.SpruceFoliagePlacer;
 import net.minecraft.world.gen.placement.AtSurfaceWithExtraConfig;
-import net.minecraft.world.gen.placement.ChanceConfig;
 import net.minecraft.world.gen.placement.FrequencyConfig;
+import net.minecraft.world.gen.placement.IPlacementConfig;
 import net.minecraft.world.gen.placement.Placement;
 
 import java.util.ArrayList;
@@ -25,103 +28,99 @@ import java.util.List;
  */
 public class AlterniaBiomeFeatures {
 	
-	public static void addHivesBurgundy(Biome biome) {
-		
-		List<ConfiguredRandomFeatureList<?>> biomeHives = new ArrayList<>();
-		
-		biomeHives.add(AlterniaFeatureHandeler.burgundyHiveFeature1.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withChance(0.1F));
-		biomeHives.add(AlterniaFeatureHandeler.burgundyHiveFeature2.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withChance(0.1F));
-		biomeHives.add(AlterniaFeatureHandeler.burgundyHiveFeature3.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withChance(0.1F));
-		
-		biomeHives.add(AlterniaFeatureHandeler.bronzeHiveFeature1.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withChance(0.3F));
-		biomeHives.add(AlterniaFeatureHandeler.bronzeHiveFeature2.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withChance(0.3F));
-		biomeHives.add(AlterniaFeatureHandeler.bronzeHiveFeature3.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withChance(0.3F));
-		
-		biomeHives.add(AlterniaFeatureHandeler.goldHiveFeature1.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withChance(0.1F));
-		biomeHives.add(AlterniaFeatureHandeler.goldHiveFeature2.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withChance(0.1F));
-		biomeHives.add(AlterniaFeatureHandeler.goldHiveFeature3.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withChance(0.1F));
-		
-		ConfiguredFeature<?, ?> defaultHive = AlterniaFeatureHandeler.burgundyHiveFeature3.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG);
-		biome.addFeature(GenerationStage.Decoration.SURFACE_STRUCTURES, Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(biomeHives, defaultHive))
-				.withPlacement(Placement.CHANCE_HEIGHTMAP.configure(new ChanceConfig(50))));
+	/**
+	 * This function need to be applied to all biomes in alternia for
+	 */
+	public static void addStructures(Biome biome) {
+		biome.addFeature(GenerationStage.Decoration.SURFACE_STRUCTURES, AlterniaFeatures.HIVE.get().withConfiguration(new HiveStructureConfig(new WeightedList<>()))
+				.withPlacement(Placement.NOPE.configure(IPlacementConfig.NO_PLACEMENT_CONFIG)));
 	}
 	
-	public static void addHivesMutant(Biome biome) {
+	public static void addLowbloodHives(Biome biome) {
+		WeightedList<HiveType> hives = new WeightedList<>();
 		
-		List<ConfiguredRandomFeatureList<?>> biomeHives = new ArrayList<>();
+		hives.func_226313_a_(HiveType.BURGUNDY_AWNING_SMALL, 1);
+		hives.func_226313_a_(HiveType.BURGUNDY_SMALL, 1);
+		hives.func_226313_a_(HiveType.BURGUNDY_MANSION, 1);
 		
-		biomeHives.add(AlterniaFeatureHandeler.mutantHiveFeature1.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withChance(0.1F));
-		biomeHives.add(AlterniaFeatureHandeler.mutantHiveFeature2.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withChance(0.3F));
-		biomeHives.add(AlterniaFeatureHandeler.mutantHiveFeature3.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withChance(0.1F));
+		hives.func_226313_a_(HiveType.BRONZE_WOODEN, 3);
+		hives.func_226313_a_(HiveType.BRONZE_FARM, 3);
+		hives.func_226313_a_(HiveType.BRONZE_WINDMILL, 3);
 		
-		biomeHives.add(AlterniaFeatureHandeler.limeHiveFeature1.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withChance(0.1F));
-		biomeHives.add(AlterniaFeatureHandeler.limeHiveFeature2.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withChance(0.1F));
-		biomeHives.add(AlterniaFeatureHandeler.limeHiveFeature3.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withChance(0.1F));
+		hives.func_226313_a_(HiveType.GOLD_SYMMETRIC, 1);
+		hives.func_226313_a_(HiveType.GOLD_BEACON, 1);
+		hives.func_226313_a_(HiveType.GOLD_TOWER, 1);
 		
-		biomeHives.add(AlterniaFeatureHandeler.oliveHiveFeature1.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withChance(0.1F));
-		biomeHives.add(AlterniaFeatureHandeler.oliveHiveFeature2.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withChance(0.3F));
-		biomeHives.add(AlterniaFeatureHandeler.oliveHiveFeature3.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withChance(0.3F));
-		
-		ConfiguredFeature<?, ?> defaultHive = AlterniaFeatureHandeler.mutantHiveFeature1.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG);
-		biome.addFeature(GenerationStage.Decoration.SURFACE_STRUCTURES, Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(biomeHives, defaultHive))
-				.withPlacement(Placement.CHANCE_HEIGHTMAP.configure(new ChanceConfig(50))));
+		biome.addStructure(AlterniaFeatures.HIVE.get().withConfiguration(new HiveStructureConfig(hives)));
 	}
 	
-	public static void addHivesJade(Biome biome) {
-		List<ConfiguredRandomFeatureList<?>> biomeHives = new ArrayList<>();
+	public static void addMidlowbloodHives(Biome biome) {
+		WeightedList<HiveType> hives = new WeightedList<>();
 		
-		biomeHives.add(AlterniaFeatureHandeler.jadeHiveFeature1.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withChance(0.1F));
-		biomeHives.add(AlterniaFeatureHandeler.jadeHiveFeature2.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withChance(0.1F));
-		biomeHives.add(AlterniaFeatureHandeler.jadeHiveFeature3.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withChance(0.1F));
+		hives.func_226313_a_(HiveType.MUTANT_PLUS, 1);
+		hives.func_226313_a_(HiveType.MUTANT_LARGE, 3);
+		hives.func_226313_a_(HiveType.MUTANT_AWNING_LARGE, 1);
 		
-		biomeHives.add(AlterniaFeatureHandeler.tealHiveFeature1.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withChance(0.1F));
-		biomeHives.add(AlterniaFeatureHandeler.tealHiveFeature2.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withChance(0.1F));
-		biomeHives.add(AlterniaFeatureHandeler.tealHiveFeature3.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withChance(0.1F));
+		hives.func_226313_a_(HiveType.LIME_DIAGONAL, 1);
+		hives.func_226313_a_(HiveType.LIME_ROUND_TOWER, 1);
+		hives.func_226313_a_(HiveType.LIME_FARM, 1);
 		
-		biomeHives.add(AlterniaFeatureHandeler.ceruleanHiveFeature1.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withChance(0.1F));
-		biomeHives.add(AlterniaFeatureHandeler.ceruleanHiveFeature2.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withChance(0.1F));
-		biomeHives.add(AlterniaFeatureHandeler.ceruleanHiveFeature3.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withChance(0.1F));
+		hives.func_226313_a_(HiveType.OLIVE_CAVE, 1);
+		hives.func_226313_a_(HiveType.OLIVE_TREE, 1);
+		hives.func_226313_a_(HiveType.OLIVE_BASEMENT, 3);
 		
-		ConfiguredFeature<?, ?> defaultHive = AlterniaFeatureHandeler.jadeHiveFeature1.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG);
-		biome.addFeature(GenerationStage.Decoration.SURFACE_STRUCTURES, Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(biomeHives, defaultHive))
-				.withPlacement(Placement.CHANCE_HEIGHTMAP.configure(new ChanceConfig(100))));
+		biome.addStructure(AlterniaFeatures.HIVE.get().withConfiguration(new HiveStructureConfig(hives)));
 	}
 	
-	public static void addHivesTeal(Biome biome) {
-		List<ConfiguredRandomFeatureList<?>> biomeHives = new ArrayList<>();
+	public static void addMidhighbloodHives(Biome biome) {
+		WeightedList<HiveType> hives = new WeightedList<>();
 		
-		biomeHives.add(AlterniaFeatureHandeler.jadeHiveFeature1.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withChance(0.1F));
-		biomeHives.add(AlterniaFeatureHandeler.jadeHiveFeature2.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withChance(0.1F));
-		biomeHives.add(AlterniaFeatureHandeler.jadeHiveFeature3.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withChance(0.1F));
+		hives.func_226313_a_(HiveType.JADE_TOWER, 1);
+		hives.func_226313_a_(HiveType.JADE_FOUNTAIN, 1);
+		hives.func_226313_a_(HiveType.JADE_TREE, 1);
 		
-		biomeHives.add(AlterniaFeatureHandeler.tealHiveFeature1.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withChance(0.1F));
-		biomeHives.add(AlterniaFeatureHandeler.tealHiveFeature2.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withChance(0.3F));
-		biomeHives.add(AlterniaFeatureHandeler.tealHiveFeature3.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withChance(0.1F));
+		hives.func_226313_a_(HiveType.TEAL_BALCONY_MANSION, 1);
+		hives.func_226313_a_(HiveType.TEAL_TREE_MANSION, 1);
+		hives.func_226313_a_(HiveType.TEAL_TOWER, 1);
 		
-		biomeHives.add(AlterniaFeatureHandeler.ceruleanHiveFeature1.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withChance(0.3F));
-		biomeHives.add(AlterniaFeatureHandeler.ceruleanHiveFeature2.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withChance(0.3F));
-		biomeHives.add(AlterniaFeatureHandeler.ceruleanHiveFeature3.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withChance(0.1F));
+		hives.func_226313_a_(HiveType.CERULEAN_L, 1);
+		hives.func_226313_a_(HiveType.CERULEAN_BASEMENT, 1);
+		hives.func_226313_a_(HiveType.CERULEAN_CAVE, 1);
 		
-		ConfiguredFeature<?, ?> defaultHive = AlterniaFeatureHandeler.tealHiveFeature1.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG);
-		biome.addFeature(GenerationStage.Decoration.SURFACE_STRUCTURES, Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(biomeHives, defaultHive))
-				.withPlacement(Placement.CHANCE_HEIGHTMAP.configure(new ChanceConfig(100))));
+		biome.addStructure(AlterniaFeatures.HIVE.get().withConfiguration(new HiveStructureConfig(hives)));
 	}
 	
-	public static void addHivesIndigo(Biome biome) {
-		List<ConfiguredRandomFeatureList<?>> biomeHives = new ArrayList<>();
+	public static void addMidhighbloodHives2(Biome biome) {
+		WeightedList<HiveType> hives = new WeightedList<>();
 		
-		biomeHives.add(AlterniaFeatureHandeler.indigoHiveFeature1.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withChance(0.1F));
-		biomeHives.add(AlterniaFeatureHandeler.indigoHiveFeature2.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withChance(0.1F));
-		biomeHives.add(AlterniaFeatureHandeler.indigoHiveFeature3.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withChance(0.1F));
+		hives.func_226313_a_(HiveType.JADE_TOWER, 1);
+		hives.func_226313_a_(HiveType.JADE_FOUNTAIN, 1);
+		hives.func_226313_a_(HiveType.JADE_TREE, 1);
 		
-		biomeHives.add(AlterniaFeatureHandeler.purpleHiveFeature1.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withChance(0.1F));
-		biomeHives.add(AlterniaFeatureHandeler.purpleHiveFeature2.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withChance(0.1F));
-		biomeHives.add(AlterniaFeatureHandeler.purpleHiveFeature3.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withChance(0.1F));
-		biomeHives.add(AlterniaFeatureHandeler.purpleHiveFeature4.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withChance(0.1F));
+		hives.func_226313_a_(HiveType.TEAL_BALCONY_MANSION, 1);
+		hives.func_226313_a_(HiveType.TEAL_TREE_MANSION, 3);
+		hives.func_226313_a_(HiveType.TEAL_TOWER, 1);
 		
-		ConfiguredFeature<?, ?> defaultHive = AlterniaFeatureHandeler.indigoHiveFeature1.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG);
-		biome.addFeature(GenerationStage.Decoration.SURFACE_STRUCTURES, Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(biomeHives, defaultHive))
-				.withPlacement(Placement.CHANCE_HEIGHTMAP.configure(new ChanceConfig(50))));
+		hives.func_226313_a_(HiveType.CERULEAN_L, 3);
+		hives.func_226313_a_(HiveType.CERULEAN_BASEMENT, 3);
+		hives.func_226313_a_(HiveType.CERULEAN_CAVE, 1);
+		
+		biome.addStructure(AlterniaFeatures.HIVE.get().withConfiguration(new HiveStructureConfig(hives)));
+	}
+	
+	public static void addHighbloodHives(Biome biome) {
+		WeightedList<HiveType> hives = new WeightedList<>();
+		
+		hives.func_226313_a_(HiveType.INDIGO_TOWER_PLUS, 1);
+		hives.func_226313_a_(HiveType.INDIGO_TELESCOPE, 1);
+		hives.func_226313_a_(HiveType.INDIGO_LARGE_CHIMNEYS, 1);
+		
+		hives.func_226313_a_(HiveType.PURPLE_BASEMENT, 1);
+		hives.func_226313_a_(HiveType.PURPLE_BALCONY, 1);
+		hives.func_226313_a_(HiveType.PURPLE_CHURCH, 1);
+		hives.func_226313_a_(HiveType.PURPLE_TENT, 1);
+		
+		biome.addStructure(AlterniaFeatures.HIVE.get().withConfiguration(new HiveStructureConfig(hives)));
 	}
 	
 	public static void addPyralTrees(Biome biome) {

@@ -35,8 +35,8 @@ public class SimpleHiveStructurePiece extends TemplateStructurePiece implements 
 		super(PieceTypes.HIVE, 0);
 		this.templateName = new ResourceLocation(templateName.getNamespace(), "hives/" + templateName.getPath());
 		this.color = color;
-		this.templatePosition = pos;
-		this.spawn = templatePosition.add(spawn.subtract(floor).rotate(rotation));
+		this.templatePosition = pos.subtract(Template.getTransformedPos(floor, Mirror.NONE, rotation, floor));
+		this.spawn = templatePosition.add(Template.getTransformedPos(spawn, Mirror.NONE, rotation, floor));
 		this.floor = floor;
 		this.rotation = rotation;
 		setupTemplate(templates);

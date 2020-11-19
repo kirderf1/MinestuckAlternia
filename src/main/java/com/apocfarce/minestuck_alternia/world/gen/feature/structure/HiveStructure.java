@@ -34,12 +34,22 @@ public class HiveStructure extends ScatteredStructure<HiveStructureConfig> {
 	
 	@Override
 	public String getStructureName() {
-		return "alternia_hive";
+		return String.valueOf(getRegistryName());
 	}
 	
 	@Override
 	public int getSize() {
 		return 3;
+	}
+	
+	@Override
+	protected int getBiomeFeatureDistance(ChunkGenerator<?> chunkGenerator) {
+		return 8;
+	}
+	
+	@Override
+	protected int getBiomeFeatureSeparation(ChunkGenerator<?> chunkGenerator) {
+		return 2;
 	}
 	
 	private static class Start extends StructureStart {
@@ -60,7 +70,7 @@ public class HiveStructure extends ScatteredStructure<HiveStructureConfig> {
 			
 			int x = chunkX * 16 + rand.nextInt(16);
 			int z = chunkZ * 16 + rand.nextInt(16);
-			int y = generator.getNoiseHeightMinusOne(x, z, Heightmap.Type.WORLD_SURFACE_WG);
+			int y = generator.getNoiseHeight(x, z, Heightmap.Type.WORLD_SURFACE_WG);
 			BlockPos position = new BlockPos(x, y, z);
 			
 			Rotation rotation = Rotation.randomRotation(rand);

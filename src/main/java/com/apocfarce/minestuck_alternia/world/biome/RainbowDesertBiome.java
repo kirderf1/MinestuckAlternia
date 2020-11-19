@@ -19,8 +19,12 @@ public class RainbowDesertBiome extends CustomSurfaceBiome {
 				.waterFogColor(0x115588)
 				.parent(null)
 				);
+	}
+	
+	public void addFeatures() {
+		AlterniaBiomeFeatures.addStructures(this);
 		
-		AlterniaBiomeFeatures.addHivesIndigo(this);
+		AlterniaBiomeFeatures.addHighbloodHives(this);
 		
 		DefaultBiomeFeatures.addCarvers(this);
 		DefaultBiomeFeatures.addStructures(this);
@@ -34,8 +38,8 @@ public class RainbowDesertBiome extends CustomSurfaceBiome {
 		DefaultBiomeFeatures.addMushrooms(this);
 		DefaultBiomeFeatures.addSprings(this);
 		DefaultBiomeFeatures.addFreezeTopLayer(this);
-		
 	}
+	
 	@Override
 	public int getFoliageColor() {
 		return(0x666666);

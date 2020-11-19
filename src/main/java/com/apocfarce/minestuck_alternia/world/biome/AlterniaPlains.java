@@ -21,13 +21,15 @@ public final class AlterniaPlains extends Biome {
 				.waterColor(0x113355)
 				.waterFogColor(0x115588)
 				.parent(null));
-
-      
-
+	}
+	
+	public void addFeatures() {
 		this.addStructure(Feature.MINESHAFT.withConfiguration(new MineshaftConfig(0.004D, MineshaftStructure.Type.NORMAL)));
 		this.addStructure(Feature.STRONGHOLD.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG));
 		
-		AlterniaBiomeFeatures.addHivesBurgundy(this);
+		AlterniaBiomeFeatures.addStructures(this);
+		
+		AlterniaBiomeFeatures.addLowbloodHives(this);
 		
 		DefaultBiomeFeatures.addCarvers(this);
 		DefaultBiomeFeatures.addStructures(this);
@@ -42,9 +44,8 @@ public final class AlterniaPlains extends Biome {
 		DefaultBiomeFeatures.addReedsAndPumpkins(this);
 		DefaultBiomeFeatures.addSprings(this);
 		DefaultBiomeFeatures.addFreezeTopLayer(this);
-		
-
 	}
+	
 	@Override
 	public int getFoliageColor() {
 		return(0x9955DD);
