@@ -61,6 +61,7 @@ public class SimpleHiveStructurePiece extends TemplateStructurePiece implements 
 		nbt.put("spawn", NBTUtil.writeBlockPos(spawn));
 		nbt.put("floor", NBTUtil.writeBlockPos(floor));
 		nbt.putString("rot", rotation.name());
+		nbt.putBoolean("occupied", isOccupied);
 	}
 	
 	private void setupTemplate(TemplateManager templates) {
