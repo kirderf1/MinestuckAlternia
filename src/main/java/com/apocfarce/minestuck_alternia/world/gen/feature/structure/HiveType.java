@@ -41,7 +41,7 @@ public final class HiveType {
 		return hiveTypes.get(new ResourceLocation(dynamic.asString(DEFAULT_VALUE.toString())));
 	}
 	
-	private static final ResourceLocation DEFAULT_VALUE = new ResourceLocation(Minestuck_alternia.MOD_ID, "");
+	private static final ResourceLocation DEFAULT_VALUE = new ResourceLocation(Minestuck_alternia.MOD_ID, "burgundy_small");
 	private static final Map<ResourceLocation, HiveType> hiveTypes = new HashMap<>();
 	
 	public static final HiveType BURGUNDY_AWNING_SMALL = standardHive("burgundy_awning_small", BloodColor.BURGUNDY, new BlockPos(5, 1, 6), new BlockPos(15, 1, 12));
