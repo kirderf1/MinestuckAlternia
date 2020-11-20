@@ -44,12 +44,12 @@ public class HiveStructure extends ScatteredStructure<HiveStructureConfig> {
 	
 	@Override
 	protected int getBiomeFeatureDistance(ChunkGenerator<?> chunkGenerator) {
-		return 8;
+		return 12;
 	}
 	
 	@Override
 	protected int getBiomeFeatureSeparation(ChunkGenerator<?> chunkGenerator) {
-		return 2;
+		return 3;
 	}
 	
 	private static class Start extends StructureStart {
