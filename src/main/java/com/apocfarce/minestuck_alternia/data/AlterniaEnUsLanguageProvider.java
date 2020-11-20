@@ -5,7 +5,7 @@ import com.apocfarce.minestuck_alternia.Item.ItemGroupAlternia;
 import com.apocfarce.minestuck_alternia.Item.block.PortalBaseItem;
 import com.apocfarce.minestuck_alternia.Item.block.PortalCenterItem;
 import com.apocfarce.minestuck_alternia.Item.block.PortalCrownItem;
-import com.apocfarce.minestuck_alternia.Minestuck_alternia;
+import com.apocfarce.minestuck_alternia.MinestuckAlternia;
 import com.apocfarce.minestuck_alternia.block.AlterniaBlocks;
 import com.apocfarce.minestuck_alternia.client.BloodSelectionScreen;
 import com.apocfarce.minestuck_alternia.client.StartDimensionSelectionScreen;
@@ -20,7 +20,7 @@ import net.minecraftforge.common.data.LanguageProvider;
 public class AlterniaEnUsLanguageProvider extends LanguageProvider {
 	
 	public AlterniaEnUsLanguageProvider(DataGenerator gen) {
-		super(gen, Minestuck_alternia.MOD_ID, "en_us");
+		super(gen, MinestuckAlternia.MOD_ID, "en_us");
 	}
 	
 	@Override

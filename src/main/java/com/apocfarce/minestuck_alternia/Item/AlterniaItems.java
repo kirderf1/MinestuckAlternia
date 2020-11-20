@@ -1,7 +1,7 @@
 package com.apocfarce.minestuck_alternia.Item;
 
 import com.apocfarce.minestuck_alternia.Item.block.*;
-import com.apocfarce.minestuck_alternia.Minestuck_alternia;
+import com.apocfarce.minestuck_alternia.MinestuckAlternia;
 import com.apocfarce.minestuck_alternia.block.AlterniaBlocks;
 import com.apocfarce.minestuck_alternia.util.BloodColor;
 import net.minecraft.block.Block;
@@ -16,7 +16,7 @@ import net.minecraftforge.registries.ObjectHolder;
 import javax.annotation.Nonnull;
 import java.util.Objects;
 
-@ObjectHolder(Minestuck_alternia.MOD_ID)
+@ObjectHolder(MinestuckAlternia.MOD_ID)
 public class AlterniaItems {
 	//items
 	public static final Item CHERUB_KEY = getNull();

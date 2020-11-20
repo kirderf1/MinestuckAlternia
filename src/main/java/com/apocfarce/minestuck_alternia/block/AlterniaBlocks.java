@@ -1,6 +1,6 @@
 package com.apocfarce.minestuck_alternia.block;
 
-import com.apocfarce.minestuck_alternia.Minestuck_alternia;
+import com.apocfarce.minestuck_alternia.MinestuckAlternia;
 import com.apocfarce.minestuck_alternia.block.tree.MirrageTree;
 import com.apocfarce.minestuck_alternia.block.tree.PyralTree;
 import com.apocfarce.minestuck_alternia.util.BloodColor;
@@ -13,7 +13,7 @@ import net.minecraftforge.registries.ObjectHolder;
 
 import javax.annotation.Nonnull;
 
-@ObjectHolder(Minestuck_alternia.MOD_ID)
+@ObjectHolder(MinestuckAlternia.MOD_ID)
 public class AlterniaBlocks
 {
 	

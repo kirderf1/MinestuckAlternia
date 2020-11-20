@@ -1,6 +1,5 @@
 package com.apocfarce.minestuck_alternia.Item;
 
-import com.apocfarce.minestuck_alternia.Minestuck_alternia;
 import com.apocfarce.minestuck_alternia.block.AlterniaBlocks;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;

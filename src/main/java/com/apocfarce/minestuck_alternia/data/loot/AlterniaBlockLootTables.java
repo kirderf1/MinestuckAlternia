@@ -1,9 +1,8 @@
 package com.apocfarce.minestuck_alternia.data.loot;
 
-import com.apocfarce.minestuck_alternia.Minestuck_alternia;
+import com.apocfarce.minestuck_alternia.MinestuckAlternia;
 import com.apocfarce.minestuck_alternia.block.AlterniaBlocks;
 import net.minecraft.block.Block;
-import net.minecraft.block.Blocks;
 import net.minecraft.data.loot.BlockLootTables;
 import net.minecraftforge.registries.ForgeRegistries;
 
@@ -68,6 +67,6 @@ public class AlterniaBlockLootTables extends BlockLootTables {
 	
 	@Override
 	protected Iterable<Block> getKnownBlocks() {
-		return ForgeRegistries.BLOCKS.getValues().stream().filter(block -> block.getRegistryName().getNamespace().equals(Minestuck_alternia.MOD_ID)).collect(Collectors.toList());
+		return ForgeRegistries.BLOCKS.getValues().stream().filter(block -> block.getRegistryName().getNamespace().equals(MinestuckAlternia.MOD_ID)).collect(Collectors.toList());
 	}
 }

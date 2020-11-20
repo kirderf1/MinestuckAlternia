@@ -1,6 +1,6 @@
 package com.apocfarce.minestuck_alternia.world.biome;
 
-import com.apocfarce.minestuck_alternia.Minestuck_alternia;
+import com.apocfarce.minestuck_alternia.MinestuckAlternia;
 import net.minecraft.world.biome.Biome;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
@@ -8,7 +8,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 
 public class AlterniaBiomes {
 	
-	public static final DeferredRegister<Biome> REGISTER = DeferredRegister.create(ForgeRegistries.BIOMES, Minestuck_alternia.MOD_ID);
+	public static final DeferredRegister<Biome> REGISTER = DeferredRegister.create(ForgeRegistries.BIOMES, MinestuckAlternia.MOD_ID);
 	
 	public static final RegistryObject<AlterniaPlains> ALTERNIA_PLAINS = REGISTER.register("alternia_plains", AlterniaPlains::new);
 	

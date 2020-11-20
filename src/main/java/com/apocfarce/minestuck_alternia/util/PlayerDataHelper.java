@@ -1,6 +1,6 @@
 package com.apocfarce.minestuck_alternia.util;
 
-import com.apocfarce.minestuck_alternia.Minestuck_alternia;
+import com.apocfarce.minestuck_alternia.MinestuckAlternia;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.ServerPlayerEntity;
 import net.minecraft.nbt.CompoundNBT;
@@ -26,7 +26,7 @@ public class PlayerDataHelper {
 	 * Returns a data tag for reading persisted player data.
 	 */
 	public static CompoundNBT getPersistedDataForReading(ServerPlayerEntity player) {
-		return player.getPersistentData().getCompound(PlayerEntity.PERSISTED_NBT_TAG).getCompound(Minestuck_alternia.MOD_ID);
+		return player.getPersistentData().getCompound(PlayerEntity.PERSISTED_NBT_TAG).getCompound(MinestuckAlternia.MOD_ID);
 	}
 	
 	/**
@@ -35,14 +35,14 @@ public class PlayerDataHelper {
 	 * Appropriate for basically any player data that should be carried over on death.
 	 */
 	public static CompoundNBT getPersistedDataForWriting(ServerPlayerEntity player) {
-		return getOrCreate(getOrCreate(player.getPersistentData(), PlayerEntity.PERSISTED_NBT_TAG), Minestuck_alternia.MOD_ID);
+		return getOrCreate(getOrCreate(player.getPersistentData(), PlayerEntity.PERSISTED_NBT_TAG), MinestuckAlternia.MOD_ID);
 	}
 	
 	/**
 	 * Returns a data tag for reading non-persisted player data.
 	 */
 	public static CompoundNBT getPlayerDataForReading(ServerPlayerEntity player) {
-		return player.getPersistentData().getCompound(Minestuck_alternia.MOD_ID);
+		return player.getPersistentData().getCompound(MinestuckAlternia.MOD_ID);
 	}
 	
 	/**
@@ -51,7 +51,7 @@ public class PlayerDataHelper {
 	 * Appropriate for any temporary data, such as effect timers.
 	 */
 	public static CompoundNBT getPlayerDataForWriting(ServerPlayerEntity player) {
-		return getOrCreate(player.getPersistentData(), Minestuck_alternia.MOD_ID);
+		return getOrCreate(player.getPersistentData(), MinestuckAlternia.MOD_ID);
 	}
 	
 	private static CompoundNBT getOrCreate(CompoundNBT nbt, String name) {

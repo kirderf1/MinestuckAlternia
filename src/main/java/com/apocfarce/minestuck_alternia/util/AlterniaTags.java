@@ -1,6 +1,6 @@
 package com.apocfarce.minestuck_alternia.util;
 
-import com.apocfarce.minestuck_alternia.Minestuck_alternia;
+import com.apocfarce.minestuck_alternia.MinestuckAlternia;
 import net.minecraft.block.Block;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.Tag;
@@ -15,7 +15,7 @@ public class AlterniaTags {
 		public static final Tag<Block> FENCES = tag("fences");
 		
 		private static Tag<Block> tag(String name) {
-			return new BlockTags.Wrapper(new ResourceLocation(Minestuck_alternia.MOD_ID, name));
+			return new BlockTags.Wrapper(new ResourceLocation(MinestuckAlternia.MOD_ID, name));
 		}
 	}
 }

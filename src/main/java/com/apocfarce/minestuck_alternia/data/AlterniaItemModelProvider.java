@@ -1,9 +1,7 @@
 package com.apocfarce.minestuck_alternia.data;
 
 import com.apocfarce.minestuck_alternia.Item.AlterniaItems;
-import com.apocfarce.minestuck_alternia.Minestuck_alternia;
-import com.apocfarce.minestuck_alternia.block.AlterniaBlocks;
-import net.minecraft.block.Block;
+import com.apocfarce.minestuck_alternia.MinestuckAlternia;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.item.Item;
 import net.minecraft.util.ResourceLocation;
@@ -14,7 +12,7 @@ import net.minecraftforge.client.model.generators.ItemModelProvider;
 public class AlterniaItemModelProvider extends ItemModelProvider {
 	
 	public AlterniaItemModelProvider(DataGenerator generator, ExistingFileHelper existingFileHelper) {
-		super(generator, Minestuck_alternia.MOD_ID, existingFileHelper);
+		super(generator, MinestuckAlternia.MOD_ID, existingFileHelper);
 	}
 	
 	@Override
