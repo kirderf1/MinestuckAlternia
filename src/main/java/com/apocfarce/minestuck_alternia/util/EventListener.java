@@ -60,7 +60,9 @@ public class EventListener {
 				
 				if(alterniaWorld != null) {
 					BlockPos spawnPos = AlterniaFeatures.HIVE.get().tryFindHiveToOccupy(alterniaWorld, color);
-					if(spawnPos == null) {
+					if(spawnPos != null) {
+						player.setSpawnPoint(spawnPos, true, false, AlterniaDimensions.getDimensionType());
+					} else {
 						LOGGER.warn("Unable to find hive for {} blood color. Player is teleported to spawn.", color.getBloodName());
 						alterniaWorld.getChunk(alterniaWorld.getSpawnPoint());    //Make sure that the chunk is created and exists before calling world.getHeight()
 						spawnPos = alterniaWorld.getHeight(Heightmap.Type.MOTION_BLOCKING, alterniaWorld.getSpawnPoint());
