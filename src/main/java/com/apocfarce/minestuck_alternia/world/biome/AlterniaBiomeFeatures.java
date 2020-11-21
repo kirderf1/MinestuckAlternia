@@ -39,17 +39,17 @@ public class AlterniaBiomeFeatures {
 	public static void addLowbloodHives(Biome biome) {
 		WeightedList<HiveType> hives = new WeightedList<>();
 		
-		hives.func_226313_a_(HiveType.BURGUNDY_AWNING_SMALL, 1);
-		hives.func_226313_a_(HiveType.BURGUNDY_SMALL, 1);
+		hives.func_226313_a_(HiveType.BURGUNDY_AWNING_SMALL, 2);
+		hives.func_226313_a_(HiveType.BURGUNDY_SMALL, 3);
 		hives.func_226313_a_(HiveType.BURGUNDY_MANSION, 1);
 		
 		hives.func_226313_a_(HiveType.BRONZE_WOODEN, 3);
-		hives.func_226313_a_(HiveType.BRONZE_FARM, 3);
-		hives.func_226313_a_(HiveType.BRONZE_WINDMILL, 3);
+		hives.func_226313_a_(HiveType.BRONZE_FARM, 2);
+		hives.func_226313_a_(HiveType.BRONZE_WINDMILL, 1);
 		
-		hives.func_226313_a_(HiveType.GOLD_SYMMETRIC, 1);
+		hives.func_226313_a_(HiveType.GOLD_SYMMETRIC, 3);
 		hives.func_226313_a_(HiveType.GOLD_BEACON, 1);
-		hives.func_226313_a_(HiveType.GOLD_TOWER, 1);
+		hives.func_226313_a_(HiveType.GOLD_TOWER, 2);
 		
 		biome.addStructure(AlterniaFeatures.HIVE.get().withConfiguration(new HiveStructureConfig(hives)));
 	}
@@ -59,15 +59,15 @@ public class AlterniaBiomeFeatures {
 		
 		hives.func_226313_a_(HiveType.MUTANT_PLUS, 1);
 		hives.func_226313_a_(HiveType.MUTANT_LARGE, 3);
-		hives.func_226313_a_(HiveType.MUTANT_AWNING_LARGE, 1);
+		hives.func_226313_a_(HiveType.MUTANT_AWNING_LARGE, 2);
 		
-		hives.func_226313_a_(HiveType.LIME_DIAGONAL, 1);
-		hives.func_226313_a_(HiveType.LIME_ROUND_TOWER, 1);
+		hives.func_226313_a_(HiveType.LIME_DIAGONAL, 3);
+		hives.func_226313_a_(HiveType.LIME_ROUND_TOWER, 2);
 		hives.func_226313_a_(HiveType.LIME_FARM, 1);
 		
-		hives.func_226313_a_(HiveType.OLIVE_CAVE, 1);
-		hives.func_226313_a_(HiveType.OLIVE_TREE, 1);
-		hives.func_226313_a_(HiveType.OLIVE_BASEMENT, 3);
+		hives.func_226313_a_(HiveType.OLIVE_CAVE, 3);
+		hives.func_226313_a_(HiveType.OLIVE_TREE, 2);
+		hives.func_226313_a_(HiveType.OLIVE_BASEMENT, 1);
 		
 		biome.addStructure(AlterniaFeatures.HIVE.get().withConfiguration(new HiveStructureConfig(hives)));
 	}
@@ -75,15 +75,15 @@ public class AlterniaBiomeFeatures {
 	public static void addMidhighbloodHives(Biome biome) {
 		WeightedList<HiveType> hives = new WeightedList<>();
 		
-		hives.func_226313_a_(HiveType.JADE_TOWER, 1);
-		hives.func_226313_a_(HiveType.JADE_FOUNTAIN, 1);
-		hives.func_226313_a_(HiveType.JADE_TREE, 1);
+		hives.func_226313_a_(HiveType.JADE_TOWER, 3);
+		hives.func_226313_a_(HiveType.JADE_FOUNTAIN, 2);
+		hives.func_226313_a_(HiveType.JADE_TREE, 3);
 		
-		hives.func_226313_a_(HiveType.TEAL_BALCONY_MANSION, 1);
-		hives.func_226313_a_(HiveType.TEAL_TREE_MANSION, 1);
+		hives.func_226313_a_(HiveType.TEAL_BALCONY_MANSION, 2);
+		hives.func_226313_a_(HiveType.TEAL_TREE_MANSION, 3);
 		hives.func_226313_a_(HiveType.TEAL_TOWER, 1);
 		
-		hives.func_226313_a_(HiveType.CERULEAN_L, 1);
+		hives.func_226313_a_(HiveType.CERULEAN_L, 2);
 		hives.func_226313_a_(HiveType.CERULEAN_BASEMENT, 1);
 		hives.func_226313_a_(HiveType.CERULEAN_CAVE, 1);
 		
@@ -93,17 +93,17 @@ public class AlterniaBiomeFeatures {
 	public static void addMidhighbloodHives2(Biome biome) {
 		WeightedList<HiveType> hives = new WeightedList<>();
 		
-		hives.func_226313_a_(HiveType.JADE_TOWER, 1);
+		hives.func_226313_a_(HiveType.JADE_TOWER, 2);
 		hives.func_226313_a_(HiveType.JADE_FOUNTAIN, 1);
 		hives.func_226313_a_(HiveType.JADE_TREE, 1);
 		
-		hives.func_226313_a_(HiveType.TEAL_BALCONY_MANSION, 1);
-		hives.func_226313_a_(HiveType.TEAL_TREE_MANSION, 3);
-		hives.func_226313_a_(HiveType.TEAL_TOWER, 1);
+		hives.func_226313_a_(HiveType.TEAL_BALCONY_MANSION, 2);
+		hives.func_226313_a_(HiveType.TEAL_TREE_MANSION, 1);
+		hives.func_226313_a_(HiveType.TEAL_TOWER, 3);
 		
-		hives.func_226313_a_(HiveType.CERULEAN_L, 3);
+		hives.func_226313_a_(HiveType.CERULEAN_L, 2);
 		hives.func_226313_a_(HiveType.CERULEAN_BASEMENT, 3);
-		hives.func_226313_a_(HiveType.CERULEAN_CAVE, 1);
+		hives.func_226313_a_(HiveType.CERULEAN_CAVE, 3);
 		
 		biome.addStructure(AlterniaFeatures.HIVE.get().withConfiguration(new HiveStructureConfig(hives)));
 	}
@@ -111,12 +111,12 @@ public class AlterniaBiomeFeatures {
 	public static void addHighbloodHives(Biome biome) {
 		WeightedList<HiveType> hives = new WeightedList<>();
 		
-		hives.func_226313_a_(HiveType.INDIGO_TOWER_PLUS, 1);
+		hives.func_226313_a_(HiveType.INDIGO_TOWER_PLUS, 3);
 		hives.func_226313_a_(HiveType.INDIGO_TELESCOPE, 1);
-		hives.func_226313_a_(HiveType.INDIGO_LARGE_CHIMNEYS, 1);
+		hives.func_226313_a_(HiveType.INDIGO_LARGE_CHIMNEYS, 2);
 		
-		hives.func_226313_a_(HiveType.PURPLE_BASEMENT, 1);
-		hives.func_226313_a_(HiveType.PURPLE_BALCONY, 1);
+		hives.func_226313_a_(HiveType.PURPLE_BASEMENT, 2);
+		hives.func_226313_a_(HiveType.PURPLE_BALCONY, 2);
 		hives.func_226313_a_(HiveType.PURPLE_CHURCH, 1);
 		hives.func_226313_a_(HiveType.PURPLE_TENT, 1);
 		
