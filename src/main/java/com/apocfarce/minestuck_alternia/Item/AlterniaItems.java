@@ -1,13 +1,9 @@
 package com.apocfarce.minestuck_alternia.Item;
 
-import com.apocfarce.minestuck_alternia.Minestuck_alternia;
-import com.apocfarce.minestuck_alternia.Item.block.GreenSnakeItem;
-import com.apocfarce.minestuck_alternia.Item.block.PortalBaseItem;
-import com.apocfarce.minestuck_alternia.Item.block.PortalCenterItem;
-import com.apocfarce.minestuck_alternia.Item.block.PortalCrownItem;
-import com.apocfarce.minestuck_alternia.Item.block.RedSnakeItem;
+import com.apocfarce.minestuck_alternia.Item.block.*;
+import com.apocfarce.minestuck_alternia.MinestuckAlternia;
 import com.apocfarce.minestuck_alternia.block.AlterniaBlocks;
-
+import com.apocfarce.minestuck_alternia.util.BloodColor;
 import net.minecraft.block.Block;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Food;
@@ -20,7 +16,7 @@ import net.minecraftforge.registries.ObjectHolder;
 import javax.annotation.Nonnull;
 import java.util.Objects;
 
-@ObjectHolder(Minestuck_alternia.MOD_ID)
+@ObjectHolder(MinestuckAlternia.MOD_ID)
 public class AlterniaItems {
 	//items
 	public static final Item CHERUB_KEY = getNull();
@@ -71,9 +67,7 @@ public class AlterniaItems {
 		
 		//blood
 		for(BloodColor color : BloodColor.values()) {
-			if (color != BloodColor.GREY) {
-				register(registry, color.name().toLowerCase() + "_blood_bottle", new BloodBottle(new Item.Properties().group(ItemGroupAlternia.instance).maxStackSize(1), color));
-			}
+			register(registry, color.getBloodName() + "_blood_bottle", new BloodBottle(new Item.Properties().group(ItemGroupAlternia.instance).maxStackSize(1), color));
 		}
 		
 		register(registry, AlterniaBlocks.DARK_COBBLE, ItemGroupAlternia.instance);

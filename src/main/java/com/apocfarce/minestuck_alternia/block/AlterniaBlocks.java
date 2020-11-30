@@ -1,10 +1,9 @@
 package com.apocfarce.minestuck_alternia.block;
 
-import com.apocfarce.minestuck_alternia.Item.BloodColor;
-import com.apocfarce.minestuck_alternia.Minestuck_alternia;
+import com.apocfarce.minestuck_alternia.MinestuckAlternia;
 import com.apocfarce.minestuck_alternia.block.tree.MirrageTree;
 import com.apocfarce.minestuck_alternia.block.tree.PyralTree;
-
+import com.apocfarce.minestuck_alternia.util.BloodColor;
 import net.minecraft.block.*;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.material.MaterialColor;
@@ -14,7 +13,7 @@ import net.minecraftforge.registries.ObjectHolder;
 
 import javax.annotation.Nonnull;
 
-@ObjectHolder(Minestuck_alternia.MOD_ID)
+@ObjectHolder(MinestuckAlternia.MOD_ID)
 public class AlterniaBlocks
 {
 	
@@ -80,9 +79,7 @@ public class AlterniaBlocks
 		IForgeRegistry<Block> registry = event.getRegistry();
 		//blood colored blocks
 		for (BloodColor color : BloodColor.values()) {
-			if (color != BloodColor.MUTANT) {
-				register(registry, color.name().toLowerCase() + "_hive_glass", new HiveGlass(Block.Properties.create(Material.GLASS).sound(SoundType.GLASS).notSolid(), color));
-			}
+			register(registry, color.getBlockName() + "_hive_glass", new HiveGlass(Block.Properties.create(Material.GLASS).sound(SoundType.GLASS).notSolid(), color));
 		}
 		
 		

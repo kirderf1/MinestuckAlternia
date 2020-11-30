@@ -1,7 +1,7 @@
 package com.apocfarce.minestuck_alternia.world.gen.feature.structure;
 
-import com.apocfarce.minestuck_alternia.Item.BloodColor;
-import com.apocfarce.minestuck_alternia.Minestuck_alternia;
+import com.apocfarce.minestuck_alternia.MinestuckAlternia;
+import com.apocfarce.minestuck_alternia.util.BloodColor;
 import com.mojang.datafixers.Dynamic;
 import com.mojang.datafixers.types.DynamicOps;
 import net.minecraft.util.ResourceLocation;
@@ -41,7 +41,7 @@ public final class HiveType {
 		return hiveTypes.get(new ResourceLocation(dynamic.asString(DEFAULT_VALUE.toString())));
 	}
 	
-	private static final ResourceLocation DEFAULT_VALUE = new ResourceLocation(Minestuck_alternia.MOD_ID, "burgundy_small");
+	private static final ResourceLocation DEFAULT_VALUE = new ResourceLocation(MinestuckAlternia.MOD_ID, "burgundy_small");
 	private static final Map<ResourceLocation, HiveType> hiveTypes = new HashMap<>();
 	
 	public static final HiveType BURGUNDY_AWNING_SMALL = standardHive("burgundy_awning_small", BloodColor.BURGUNDY, new BlockPos(5, 1, 6), new BlockPos(15, 1, 12));
@@ -56,7 +56,7 @@ public final class HiveType {
 	public static final HiveType GOLD_BEACON = standardHive("gold_beacon", BloodColor.GOLD, new BlockPos(7, 1, 9), new BlockPos(13, 17, 14));
 	public static final HiveType GOLD_TOWER = standardHive("gold_tower", BloodColor.GOLD, new BlockPos(0, 1, 11), new BlockPos(11, 27, 12));
 	
-	public static final HiveType MUTANT_PLUS = standardHive("mutant_plus", BloodColor.MUTANT, new BlockPos(1, 4, 8), new BlockPos(10, 1, 8));
+	public static final HiveType MUTANT_PLUS = standardHive("mutant_plus", BloodColor.MUTANT, new BlockPos(1, 4, 8), new BlockPos(11, 4, 3));
 	public static final HiveType MUTANT_LARGE = standardHive("mutant_large", BloodColor.MUTANT, new BlockPos(14, 0, 0), new BlockPos(11, 1, 11));
 	public static final HiveType MUTANT_AWNING_LARGE = standardHive("mutant_awning_large", BloodColor.MUTANT, new BlockPos(0, 0, 6), new BlockPos(16, 5, 5));
 	
@@ -96,7 +96,7 @@ public final class HiveType {
 	}
 	
 	private static HiveType standardHive(String name, BloodColor color, BlockPos floor, BlockPos spawn) {
-		return register(new ResourceLocation(Minestuck_alternia.MOD_ID, name), Heightmap.Type.WORLD_SURFACE_WG, SimpleHiveStructurePiece.with(color, floor, spawn));
+		return register(new ResourceLocation(MinestuckAlternia.MOD_ID, name), Heightmap.Type.WORLD_SURFACE_WG, SimpleHiveStructurePiece.with(color, floor, spawn));
 	}
 	
 	@Override

@@ -3,6 +3,7 @@ package com.apocfarce.minestuck_alternia;
 import com.apocfarce.minestuck_alternia.Item.AlterniaItems;
 import com.apocfarce.minestuck_alternia.block.AlterniaBlocks;
 import com.apocfarce.minestuck_alternia.client.ClientProxy;
+import com.apocfarce.minestuck_alternia.command.OccupyHiveCommand;
 import com.apocfarce.minestuck_alternia.data.AlterniaData;
 import com.apocfarce.minestuck_alternia.network.AlterniaPacketHandler;
 import com.apocfarce.minestuck_alternia.util.EventListener;
@@ -28,11 +29,11 @@ import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.event.server.FMLServerStartingEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 
-@Mod(Minestuck_alternia.MOD_ID)
-public class Minestuck_alternia {
+@Mod(MinestuckAlternia.MOD_ID)
+public class MinestuckAlternia {
 	public static final String MOD_ID = "minestuck_alternia";
 
-    public Minestuck_alternia() {
+    public MinestuckAlternia() {
         IEventBus modBus = FMLJavaModLoadingContext.get().getModEventBus();
         modBus.addListener(this::setup);
         modBus.addListener(this::doClientStuff);
@@ -59,8 +60,10 @@ public class Minestuck_alternia {
     private void doClientStuff(final FMLClientSetupEvent event) {
         ClientProxy.setup();
     }
+    
     @SubscribeEvent
     public void onServerStarting(FMLServerStartingEvent event) {
+        OccupyHiveCommand.register(event.getCommandDispatcher());
     }
     
     @Mod.EventBusSubscriber(modid = "minestuck_alternia", bus=Mod.EventBusSubscriber.Bus.FORGE)

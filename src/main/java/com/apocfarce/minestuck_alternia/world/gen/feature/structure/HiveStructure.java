@@ -1,11 +1,14 @@
 package com.apocfarce.minestuck_alternia.world.gen.feature.structure;
 
-import com.apocfarce.minestuck_alternia.Item.BloodColor;
+import com.apocfarce.minestuck_alternia.util.BloodColor;
 import com.mojang.datafixers.Dynamic;
 import net.minecraft.util.Rotation;
+import net.minecraft.util.SharedSeedRandom;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.ChunkPos;
 import net.minecraft.util.math.MutableBoundingBox;
 import net.minecraft.world.biome.Biome;
+import net.minecraft.world.chunk.ChunkStatus;
 import net.minecraft.world.gen.ChunkGenerator;
 import net.minecraft.world.gen.Heightmap;
 import net.minecraft.world.gen.feature.structure.ScatteredStructure;
@@ -13,6 +16,7 @@ import net.minecraft.world.gen.feature.structure.Structure;
 import net.minecraft.world.gen.feature.structure.StructurePiece;
 import net.minecraft.world.gen.feature.structure.StructureStart;
 import net.minecraft.world.gen.feature.template.TemplateManager;
+import net.minecraft.world.server.ServerWorld;
 
 import java.util.function.Function;
 
@@ -52,6 +56,38 @@ public class HiveStructure extends ScatteredStructure<HiveStructureConfig> {
 		return 3;
 	}
 	
+	public BlockPos tryFindHiveToOccupy(ServerWorld world, BloodColor color) {
+		final int maxRadius = 10;
+		BlockPos spawn = world.getSpawnPoint();
+		int chunkX = spawn.getX() >> 4;
+		int chunkZ = spawn.getZ() >> 4;
+		SharedSeedRandom random = new SharedSeedRandom();
+		ChunkGenerator<?> generator = world.getChunkProvider().getChunkGenerator();
+		
+		for(int radius = 0; radius <= maxRadius; radius++) {
+			for(int spacingX = -radius; spacingX <= radius; spacingX++) {
+				boolean borderX = spacingX == -radius || spacingX == radius;
+				for(int spacingZ = -radius; spacingZ <= radius; spacingZ++) {
+					boolean borderZ = spacingZ == -radius || spacingZ == radius;
+					
+					if(borderX || borderZ) {	//Don't search spaces that we've already visited for lower values of radius
+						
+						ChunkPos structurePos = getStartPositionForPosition(generator, random, chunkX, chunkZ, spacingX, spacingZ);
+						StructureStart start = world.getChunk(structurePos.x, structurePos.z, ChunkStatus.STRUCTURE_STARTS).getStructureStart(getStructureName());
+						
+						if(start != null && start.isValid()) {
+							BlockPos hivePos = tryOccupy(start, color);
+							if(hivePos != null)
+								return hivePos;
+						}
+					}
+				}
+			}
+		}
+		
+		return null;
+	}
+	
 	private static class Start extends StructureStart {
 		
 		public Start(Structure<?> structure, int chunkX, int chunkZ, MutableBoundingBox boundingBox, int references, long seed) {
@@ -81,10 +117,10 @@ public class HiveStructure extends ScatteredStructure<HiveStructureConfig> {
 			
 			recalculateStructureSize();
 		}
-		
-		public BlockPos tryOccupy(BloodColor color) {
-			StructurePiece piece = components.get(0);
-			return piece instanceof LiveableHive ? ((LiveableHive) piece).tryOccupy(color) : null;
-		}
+	}
+	
+	private static BlockPos tryOccupy(StructureStart start, BloodColor color) {
+		StructurePiece piece = start.getComponents().get(0);
+		return piece instanceof LiveableHive ? ((LiveableHive) piece).tryOccupy(color) : null;
 	}
 }

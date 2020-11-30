@@ -1,6 +1,6 @@
 package com.apocfarce.minestuck_alternia.data;
 
-import com.apocfarce.minestuck_alternia.Minestuck_alternia;
+import com.apocfarce.minestuck_alternia.MinestuckAlternia;
 import com.apocfarce.minestuck_alternia.block.AlterniaBlocks;
 import net.minecraft.block.*;
 import net.minecraft.data.DataGenerator;
@@ -13,7 +13,7 @@ import net.minecraftforge.client.model.generators.ModelProvider;
 public class AlterniaBlockStateProvider extends BlockStateProvider {
 	
 	public AlterniaBlockStateProvider(DataGenerator gen, ExistingFileHelper exFileHelper) {
-		super(gen, Minestuck_alternia.MOD_ID, exFileHelper);
+		super(gen, MinestuckAlternia.MOD_ID, exFileHelper);
 	}
 	
 	@Override

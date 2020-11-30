@@ -1,6 +1,6 @@
 package com.apocfarce.minestuck_alternia.network;
 
-import com.apocfarce.minestuck_alternia.Minestuck_alternia;
+import com.apocfarce.minestuck_alternia.MinestuckAlternia;
 import net.minecraft.network.PacketBuffer;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.network.NetworkDirection;
@@ -13,7 +13,7 @@ import java.util.function.Function;
 public class AlterniaPacketHandler {
 	private static final String PROTOCOL_VERSION = "1";
 	public static final SimpleChannel INSTANCE = NetworkRegistry.newSimpleChannel(
-			new ResourceLocation(Minestuck_alternia.MOD_ID, "main"),
+			new ResourceLocation(MinestuckAlternia.MOD_ID, "main"),
 			() -> PROTOCOL_VERSION,
 			PROTOCOL_VERSION::equals,
 			PROTOCOL_VERSION::equals
