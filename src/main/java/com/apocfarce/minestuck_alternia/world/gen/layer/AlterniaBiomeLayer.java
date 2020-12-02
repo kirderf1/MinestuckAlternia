@@ -25,6 +25,8 @@ public enum AlterniaBiomeLayer implements IC0Transformer {
 	
 	public int apply(INoiseRandom context, int value) {
 		switch (value) {
+			case 0:
+				return Registry.BIOME.getId(Biomes.OCEAN);
 			case 1:
 				return Registry.BIOME.getId(getWeightedBiomeEntry(BiomeType.DESERT, context).biome);
 			case 2:

@@ -20,12 +20,8 @@ import net.minecraft.world.gen.layer.ZoomLayer;
 public class AlterniaLayerUtil extends LayerUtil {
 
 	public static <T extends IArea, C extends IExtendedNoiseRandom<T>> IAreaFactory<T> buildAlterniaProcedure(WorldType worldTypeIn, OverworldGenSettings settings, LongFunction<C> contextFactory) {
-		//During these layers, the value represents a biome type (1: desert, 2: warm, 3: cool, 4: icy)
-		IAreaFactory<T> layerStack = AlterniaSeedLayer.INSTANCE.apply(contextFactory.apply(1L));
-		//add heat map
-		layerStack = AddSnowLayer.INSTANCE.apply(contextFactory.apply(2L), layerStack);
-		//heat upp the world because hot sun
-		layerStack = HeatWorldLayer.INSTANCE.apply(contextFactory.apply(2L),layerStack);
+		//During these layers, the value represents a biome type (0:ocean1: desert, 2: warm, 3: cool, 4: icy)
+		IAreaFactory<T> layerStack = AlterniaHeatMapLayer.INSTANCE.apply(contextFactory.apply(1L));
 		//layer that turns desert into warm if near cool or icy
 		layerStack = EdgeLayer.CoolWarm.INSTANCE.apply(contextFactory.apply(2L), layerStack);
 		//layer that turns icy into cool if near warm or desert
@@ -33,7 +29,10 @@ public class AlterniaLayerUtil extends LayerUtil {
 		
 		//Replaces biome types with biomes in the respective categories
 		layerStack = AlterniaBiomeLayer.INSTANCE.apply(contextFactory.apply(200L), layerStack);
-
+		
+		//i'll eventually want to do something with Oceans to spawn violet, and fucia hives in
+		//layerStack = AlterniaOceanLayer.INSTANCE.apply(contextFactory.apply(200L),layerStack);
+				
 		layerStack = ZoomLayer.NORMAL.apply(contextFactory.apply(2002L), layerStack);
 		layerStack = ZoomLayer.NORMAL.apply(contextFactory.apply(2003L), layerStack);
 		
