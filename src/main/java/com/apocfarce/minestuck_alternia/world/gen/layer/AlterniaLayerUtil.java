@@ -24,6 +24,8 @@ public class AlterniaLayerUtil extends LayerUtil {
 		IAreaFactory<T> layerStack = AlterniaSeedLayer.INSTANCE.apply(contextFactory.apply(1L));
 		//add heat map
 		layerStack = AddSnowLayer.INSTANCE.apply(contextFactory.apply(2L), layerStack);
+		//heat upp the world because hot sun
+		layerStack = HeatWorldLayer.INSTANCE.apply(contextFactory.apply(2L),layerStack);
 		//layer that turns desert into warm if near cool or icy
 		layerStack = EdgeLayer.CoolWarm.INSTANCE.apply(contextFactory.apply(2L), layerStack);
 		//layer that turns icy into cool if near warm or desert

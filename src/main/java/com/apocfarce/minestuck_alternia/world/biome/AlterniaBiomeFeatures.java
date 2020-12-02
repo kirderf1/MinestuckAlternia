@@ -1,20 +1,26 @@
 package com.apocfarce.minestuck_alternia.world.biome;
 
 import com.apocfarce.minestuck_alternia.block.AlterniaBlocks;
+import com.apocfarce.minestuck_alternia.world.gen.carver.AlterniaCarvers;
 import com.apocfarce.minestuck_alternia.world.gen.feature.AlterniaFeatures;
+import com.apocfarce.minestuck_alternia.world.gen.feature.AlterniaFillerBlockTypes;
 import com.apocfarce.minestuck_alternia.world.gen.feature.structure.HiveStructureConfig;
 import com.apocfarce.minestuck_alternia.world.gen.feature.structure.HiveType;
 import net.minecraft.block.BlockState;
+import net.minecraft.block.Blocks;
 import net.minecraft.util.WeightedList;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.DefaultBiomeFeatures;
 import net.minecraft.world.gen.GenerationStage;
 import net.minecraft.world.gen.blockplacer.SimpleBlockPlacer;
 import net.minecraft.world.gen.blockstateprovider.SimpleBlockStateProvider;
+import net.minecraft.world.gen.carver.WorldCarver;
 import net.minecraft.world.gen.feature.*;
 import net.minecraft.world.gen.foliageplacer.BlobFoliagePlacer;
 import net.minecraft.world.gen.foliageplacer.SpruceFoliagePlacer;
 import net.minecraft.world.gen.placement.AtSurfaceWithExtraConfig;
+import net.minecraft.world.gen.placement.CountRangeConfig;
+import net.minecraft.world.gen.placement.DepthAverageConfig;
 import net.minecraft.world.gen.placement.FrequencyConfig;
 import net.minecraft.world.gen.placement.IPlacementConfig;
 import net.minecraft.world.gen.placement.Placement;
@@ -28,6 +34,27 @@ import java.util.List;
  */
 public class AlterniaBiomeFeatures {
 	
+	
+	
+	
+	
+	public static void addCarvers(Biome biome) {
+		biome.addCarver(GenerationStage.Carving.AIR, Biome.createCarver(AlterniaCarvers.ALTERNIA_CAVES.get(), new ProbabilityConfig(0.14285715F)));
+		biome.addCarver(GenerationStage.Carving.AIR, Biome.createCarver(AlterniaCarvers.ALTERNIA_CANYONS.get(), new ProbabilityConfig(0.02F)));  
+	}
+	
+	public static void addOres(Biome biomeIn) {
+		biomeIn.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.withConfiguration(new OreFeatureConfig(AlterniaFillerBlockTypes.AlterniaNaturalStone, Blocks.COAL_ORE.getDefaultState(), 17)).withPlacement(Placement.COUNT_RANGE.configure(new CountRangeConfig(20, 0, 0, 128))));
+		biomeIn.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.withConfiguration(new OreFeatureConfig(AlterniaFillerBlockTypes.AlterniaNaturalStone, Blocks.IRON_ORE.getDefaultState(), 9)).withPlacement(Placement.COUNT_RANGE.configure(new CountRangeConfig(20, 0, 0, 64))));
+		biomeIn.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.withConfiguration(new OreFeatureConfig(AlterniaFillerBlockTypes.AlterniaNaturalStone, Blocks.GOLD_ORE.getDefaultState(), 9)).withPlacement(Placement.COUNT_RANGE.configure(new CountRangeConfig(2, 0, 0, 32))));
+		biomeIn.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.withConfiguration(new OreFeatureConfig(AlterniaFillerBlockTypes.AlterniaNaturalStone, Blocks.REDSTONE_ORE.getDefaultState(), 8)).withPlacement(Placement.COUNT_RANGE.configure(new CountRangeConfig(8, 0, 0, 16))));
+		biomeIn.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.withConfiguration(new OreFeatureConfig(AlterniaFillerBlockTypes.AlterniaNaturalStone, Blocks.DIAMOND_ORE.getDefaultState(), 8)).withPlacement(Placement.COUNT_RANGE.configure(new CountRangeConfig(1, 0, 0, 16))));
+		biomeIn.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.withConfiguration(new OreFeatureConfig(AlterniaFillerBlockTypes.AlterniaNaturalStone, Blocks.LAPIS_ORE.getDefaultState(), 7)).withPlacement(Placement.COUNT_DEPTH_AVERAGE.configure(new DepthAverageConfig(1, 16, 16))));
+	}
+	
+	public static void addStoneVariants(Biome biome){
+		biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.withConfiguration(new OreFeatureConfig(AlterniaFillerBlockTypes.AlterniaNaturalStone, AlterniaBlocks.RED_ROCK.getDefaultState(), 33)).withPlacement(Placement.COUNT_RANGE.configure(new CountRangeConfig(10, 0, 0, 256))));	
+	}
 	/**
 	 * This function need to be applied to all biomes in alternia for
 	 */

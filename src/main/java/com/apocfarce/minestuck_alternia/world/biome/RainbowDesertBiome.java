@@ -25,12 +25,12 @@ public class RainbowDesertBiome extends CustomSurfaceBiome {
 		AlterniaBiomeFeatures.addStructures(this);
 		
 		AlterniaBiomeFeatures.addHighbloodHives(this);
-		
-		DefaultBiomeFeatures.addCarvers(this);
+
+		AlterniaBiomeFeatures.addCarvers(this);
 		DefaultBiomeFeatures.addStructures(this);
 		DefaultBiomeFeatures.addMonsterRooms(this);
-		DefaultBiomeFeatures.addStoneVariants(this);
-		DefaultBiomeFeatures.addOres(this);
+		AlterniaBiomeFeatures.addStoneVariants(this);
+		AlterniaBiomeFeatures.addOres(this);
 		DefaultBiomeFeatures.addSedimentDisks(this);
 		
 		DefaultBiomeFeatures.addExtraDefaultFlowers(this);

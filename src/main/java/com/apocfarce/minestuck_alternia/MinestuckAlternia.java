@@ -12,6 +12,7 @@ import com.apocfarce.minestuck_alternia.world.biome.AlterniaBiomes;
 import com.apocfarce.minestuck_alternia.world.biome.provider.AlterniaBiomeProvider;
 import com.apocfarce.minestuck_alternia.world.biome.provider.AlterniaBiomeProviderTypes;
 import com.apocfarce.minestuck_alternia.world.gen.AlterniaChunkGenTypes;
+import com.apocfarce.minestuck_alternia.world.gen.carver.AlterniaCarvers;
 import com.apocfarce.minestuck_alternia.world.gen.feature.AlterniaFeatures;
 import com.apocfarce.minestuck_alternia.world.gen.feature.structure.PieceTypes;
 import com.apocfarce.minestuck_alternia.world.gen.surfacebuilder.AlterniaSurfaceBuilders;
@@ -47,6 +48,7 @@ public class MinestuckAlternia {
         AlterniaBiomeProviderTypes.REGISTER.register(modBus);
         AlterniaBiomes.REGISTER.register(modBus);
         AlterniaFeatures.REGISTER.register(modBus);
+        AlterniaCarvers.REGISTER.register(modBus);
     }
     
     @SuppressWarnings("deprecation")    //The deferred work queue does not have a replacement yet. It'll come in 1.16

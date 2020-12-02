@@ -1,5 +1,6 @@
 package com.apocfarce.minestuck_alternia.world;
 
+import com.apocfarce.minestuck_alternia.block.AlterniaBlocks;
 import com.apocfarce.minestuck_alternia.util.CustomDamageSources;
 import com.apocfarce.minestuck_alternia.util.PlayerDataHelper;
 import com.apocfarce.minestuck_alternia.world.biome.provider.AlterniaBiomeProvider;
@@ -41,6 +42,9 @@ public class AlterniaDimension extends Dimension {
 		
 		
 		OverworldGenSettings genSettings = ChunkGeneratorType.SURFACE.createSettings();
+	
+		genSettings.setDefaultBlock(AlterniaBlocks.DARK_STONE.getDefaultState());
+		
 		AlterniaBiomeProviderSettings alterniabiomeprovidersettings = biomeProviderType.createSettings(world.getWorldInfo()).setGeneratorSettings(genSettings);
 		return ChunkGeneratorType.SURFACE.create(this.world, biomeProviderType.create(alterniabiomeprovidersettings), genSettings);
 	}

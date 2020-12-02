@@ -8,10 +8,10 @@ import net.minecraft.world.gen.feature.structure.MineshaftConfig;
 import net.minecraft.world.gen.feature.structure.MineshaftStructure;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
 
-public final class AlterniaPlains extends Biome {
-	protected AlterniaPlains() {
+public final class ShrublandBiome extends Biome {
+	protected ShrublandBiome() {
 		super((new Biome.Builder())
-				.surfaceBuilder(SurfaceBuilder.DEFAULT, SurfaceBuilder.GRASS_DIRT_GRAVEL_CONFIG)
+				.surfaceBuilder(SurfaceBuilder.DEFAULT, SurfaceBuilder.CORASE_DIRT_DIRT_GRAVEL_CONFIG)
 				.precipitation(Biome.RainType.RAIN)
 				.category(Biome.Category.PLAINS)
 				.depth(0.125F)
@@ -35,23 +35,23 @@ public final class AlterniaPlains extends Biome {
 		DefaultBiomeFeatures.addStructures(this);
 		DefaultBiomeFeatures.addLakes(this);
 		DefaultBiomeFeatures.addMonsterRooms(this);
-		DefaultBiomeFeatures.addPlainsTallGrass(this);
 		AlterniaBiomeFeatures.addStoneVariants(this);
 		AlterniaBiomeFeatures.addOres(this);
-		DefaultBiomeFeatures.addSedimentDisks(this);
-		DefaultBiomeFeatures.addOakTreesFlowersGrass(this);
-		DefaultBiomeFeatures.addMushrooms(this);
-		DefaultBiomeFeatures.addReedsAndPumpkins(this);
-		DefaultBiomeFeatures.addSprings(this);
+		
+		
+		DefaultBiomeFeatures.addDeadBushes(this);
+		DefaultBiomeFeatures.addDesertLakes(this);
+		DefaultBiomeFeatures.addGrass(this);
+		
 		DefaultBiomeFeatures.addFreezeTopLayer(this);
 	}
 	
 	@Override
 	public int getFoliageColor() {
-		return(0x9955DD);
+		return(0x889933);
 	}
 	@Override
 	public int getGrassColor(double posX, double posZ) {
-		return(0x004411);
+		return(0x889944);
 	}
 }

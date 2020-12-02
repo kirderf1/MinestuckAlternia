@@ -6,6 +6,7 @@ import com.apocfarce.minestuck_alternia.world.gen.layer.AlterniaLayerUtil;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.Biomes;
 import net.minecraft.world.biome.provider.BiomeProvider;
+import net.minecraft.world.gen.GenerationStage;
 import net.minecraft.world.gen.layer.Layer;
 import net.minecraftforge.common.BiomeManager.BiomeEntry;
 import net.minecraftforge.common.BiomeManager.BiomeType;
@@ -24,22 +25,24 @@ public class AlterniaBiomeProvider extends BiomeProvider {
 	}
 	
 	public static void initBiomeList() {
-//		addVanilla(Biomes.BAMBOO_JUNGLE, BiomeType.WARM, 10);
-//		addVanilla(Biomes.SWAMP, BiomeType.COOL, 10);
-		addVanilla(Biomes.ICE_SPIKES, BiomeType.ICY, 10);
 		addVanilla(Biomes.BADLANDS, BiomeType.DESERT, 10);
+		addVanilla(Biomes.DESERT,BiomeType.DESERT, 20);
 		
-		addBiome(AlterniaBiomes.MIRRAGE_FOREST.get(), BiomeType.WARM, 10);
-		addBiome(AlterniaBiomes.PYRAL_FOREST.get(), BiomeType.WARM, 10);
-		addBiome(AlterniaBiomes.ALTERNIA_PLAINS.get(), BiomeType.COOL, 30);
-		addBiome(AlterniaBiomes.MIXED_FOREST.get(), BiomeType.WARM, 10);
-		addBiome(AlterniaBiomes.COLORED_DESERT.get(), BiomeType.DESERT, 40);
+		addBiome(AlterniaBiomes.MIRRAGE_FOREST.get(), BiomeType.COOL, 10);
+		addBiome(AlterniaBiomes.PYRAL_FOREST.get(), BiomeType.COOL, 10);
+		addBiome(AlterniaBiomes.MIXED_FOREST.get(), BiomeType.COOL, 10);
+		addBiome(AlterniaBiomes.ALTERNIA_PLAINS.get(), BiomeType.WARM, 30);
+		addBiome(AlterniaBiomes.VOLCANIC_FIELD.get(), BiomeType.WARM,10);
+		addBiome(AlterniaBiomes.SHRUBLAND.get(), BiomeType.WARM,10);
+		addBiome(AlterniaBiomes.COLORED_DESERT.get(), BiomeType.DESERT, 30);
 	}
 	
 	private static void addVanilla(Biome biome, BiomeType type, int weight) {
 		//This is needed so that alternia structures are generated correctly. (alternia biomes also has this, but elsewhere)
 		// This will not have an effect on the biomes in the overworld
 		AlterniaBiomeFeatures.addStructures(biome);
+		AlterniaBiomeFeatures.addCarvers(biome);
+		AlterniaBiomeFeatures.addOres(biome);
 		addBiome(biome, type, weight);
 	}
 	

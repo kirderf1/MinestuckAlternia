@@ -26,13 +26,13 @@ public class MixedWoodsBiome extends Biome {
 		AlterniaBiomeFeatures.addStructures(this);
 		
 		AlterniaBiomeFeatures.addMidhighbloodHives2(this);
-		
-		DefaultBiomeFeatures.addCarvers(this);
+
+		AlterniaBiomeFeatures.addCarvers(this);
 		DefaultBiomeFeatures.addStructures(this);
 		DefaultBiomeFeatures.addLakes(this);
 		DefaultBiomeFeatures.addMonsterRooms(this);
-		DefaultBiomeFeatures.addStoneVariants(this);
-		DefaultBiomeFeatures.addOres(this);
+		AlterniaBiomeFeatures.addStoneVariants(this);
+		AlterniaBiomeFeatures.addOres(this);
 		DefaultBiomeFeatures.addSedimentDisks(this);
 		
 		
