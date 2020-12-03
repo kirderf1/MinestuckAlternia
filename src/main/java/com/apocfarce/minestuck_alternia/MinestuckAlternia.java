@@ -54,6 +54,7 @@ public class MinestuckAlternia {
         event.enqueueWork(AlterniaBiomeProvider::initBiomeList);
         event.enqueueWork(AlterniaFeatures::initFeatures);
         event.enqueueWork(AlterniaStructures::initFeatures);
+        event.enqueueWork(AlterniaCarvers::initCarvers);
         AlterniaPacketHandler.registerPackets();
     }
     

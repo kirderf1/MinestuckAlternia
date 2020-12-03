@@ -1,11 +1,8 @@
 package com.apocfarce.minestuck_alternia.world.gen.carver;
 
-import java.util.function.Function;
-
 import com.apocfarce.minestuck_alternia.block.AlterniaBlocks;
 import com.google.common.collect.ImmutableSet;
-import com.mojang.datafixers.Dynamic;
-
+import com.mojang.serialization.Codec;
 import net.minecraft.block.Blocks;
 import net.minecraft.fluid.Fluids;
 import net.minecraft.world.gen.carver.CanyonWorldCarver;
@@ -13,8 +10,8 @@ import net.minecraft.world.gen.feature.ProbabilityConfig;
 
 public class AlterniaCanyonCarver extends CanyonWorldCarver {
 
-	public AlterniaCanyonCarver(Function<Dynamic<?>, ? extends ProbabilityConfig> carverConfig) {
-		super(carverConfig);
+	public AlterniaCanyonCarver(Codec<ProbabilityConfig> codec) {
+		super(codec);
 		this.carvableBlocks = ImmutableSet.of(AlterniaBlocks.DARK_STONE,AlterniaBlocks.RED_ROCK,//underground blocks
 				Blocks.GRASS_BLOCK,Blocks.DIRT,//most biomes surface
 				Blocks.SAND,Blocks.SANDSTONE,//desert

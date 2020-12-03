@@ -1,11 +1,8 @@
 package com.apocfarce.minestuck_alternia.world.gen.carver;
 
-import java.util.function.Function;
-
 import com.apocfarce.minestuck_alternia.block.AlterniaBlocks;
 import com.google.common.collect.ImmutableSet;
-import com.mojang.datafixers.Dynamic;
-
+import com.mojang.serialization.Codec;
 import net.minecraft.block.Blocks;
 import net.minecraft.fluid.Fluids;
 import net.minecraft.world.gen.carver.CaveWorldCarver;
@@ -13,8 +10,8 @@ import net.minecraft.world.gen.feature.ProbabilityConfig;
 
 public class AlterniaCaveCarver extends CaveWorldCarver {
 
-	public AlterniaCaveCarver(Function<Dynamic<?>, ? extends ProbabilityConfig> carverConfig, int p_i49929_2_) {
-		super(carverConfig, p_i49929_2_);
+	public AlterniaCaveCarver(Codec<ProbabilityConfig> codec, int maxHeight) {
+		super(codec, maxHeight);
 
 		
 		this.carvableBlocks = ImmutableSet.of(AlterniaBlocks.DARK_STONE,AlterniaBlocks.RED_ROCK,//underground blocks
