@@ -1,7 +1,6 @@
 package com.apocfarce.minestuck_alternia.data;
 
 import com.apocfarce.minestuck_alternia.Item.AlterniaItems;
-import com.apocfarce.minestuck_alternia.Item.ItemGroupAlternia;
 import com.apocfarce.minestuck_alternia.Item.block.PortalBaseItem;
 import com.apocfarce.minestuck_alternia.Item.block.PortalCenterItem;
 import com.apocfarce.minestuck_alternia.Item.block.PortalCrownItem;
@@ -13,7 +12,6 @@ import com.apocfarce.minestuck_alternia.util.BloodColor;
 import com.apocfarce.minestuck_alternia.util.CustomDamageSources;
 import com.apocfarce.minestuck_alternia.world.biome.AlterniaBiomes;
 import net.minecraft.data.DataGenerator;
-import net.minecraft.item.ItemGroup;
 import net.minecraft.util.DamageSource;
 import net.minecraftforge.common.data.LanguageProvider;
 
@@ -94,7 +92,7 @@ public class AlterniaEnUsLanguageProvider extends LanguageProvider {
 		
 		add(AlterniaItems.CHERUB_KEY, "Cherub Key");
 		
-		add(ItemGroupAlternia.instance, "Minestuck Alternia");
+		add("itemGroup.alternia", "Minestuck Alternia");
 		
 		add(CustomDamageSources.SUNBURN, "%1$s burned to death in the sun", "%1$s burned to death in the sun whilst fighting %2$s");
 		
@@ -129,11 +127,6 @@ public class AlterniaEnUsLanguageProvider extends LanguageProvider {
 		add(BloodColor.FUCHSIA, "Fuchsia");
 		add(BloodColor.MUTANT, "Mutant");
 		add(BloodColor.LIME, "Lime");
-	}
-	
-	protected void add(ItemGroup key, String value)
-	{
-		add(key.getTranslationKey(), value);
 	}
 	
 	protected void add(DamageSource source, String normalMessage, String fightingMessage) {

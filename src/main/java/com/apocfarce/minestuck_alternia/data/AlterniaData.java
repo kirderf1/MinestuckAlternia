@@ -16,7 +16,7 @@ public class AlterniaData {
 		}
 		
 		if(event.includeServer()) {
-			generator.addProvider(new AlterniaBlockTagsProvider(generator));
+			generator.addProvider(new AlterniaBlockTagsProvider(generator, event.getExistingFileHelper()));
 			generator.addProvider(new AlterniaRecipeProvider(generator));
 			generator.addProvider(new AlterniaLootTableProvider(generator));
 		}

@@ -5,8 +5,8 @@ import com.apocfarce.minestuck_alternia.MinestuckAlternia;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.item.Item;
 import net.minecraft.util.ResourceLocation;
-import net.minecraftforge.client.model.generators.ExistingFileHelper;
 import net.minecraftforge.client.model.generators.ItemModelProvider;
+import net.minecraftforge.common.data.ExistingFileHelper;
 
 @SuppressWarnings("ConstantConditions")
 public class AlterniaItemModelProvider extends ItemModelProvider {

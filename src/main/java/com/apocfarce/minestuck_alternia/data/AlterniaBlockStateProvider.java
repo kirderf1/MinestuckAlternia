@@ -6,8 +6,8 @@ import net.minecraft.block.*;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.model.generators.BlockStateProvider;
-import net.minecraftforge.client.model.generators.ExistingFileHelper;
 import net.minecraftforge.client.model.generators.ModelProvider;
+import net.minecraftforge.common.data.ExistingFileHelper;
 
 @SuppressWarnings("ConstantConditions")
 public class AlterniaBlockStateProvider extends BlockStateProvider {
@@ -140,7 +140,7 @@ public class AlterniaBlockStateProvider extends BlockStateProvider {
 		simpleBlock(leaves, models().singleTexture(leaves.getRegistryName().getPath(), mcLoc(ModelProvider.BLOCK_FOLDER + "/leaves"), "all", texture));
 	}
 	
-	protected void strippedLogBlock(LogBlock block, LogBlock regularLog) {
+	protected void strippedLogBlock(RotatedPillarBlock block, RotatedPillarBlock regularLog) {
 		axisBlock(block, blockTexture(block), extend(blockTexture(regularLog), "_top"));
 	}
 	

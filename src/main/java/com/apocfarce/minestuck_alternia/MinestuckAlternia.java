@@ -19,15 +19,14 @@ import com.apocfarce.minestuck_alternia.world.gen.surfacebuilder.AlterniaSurface
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.event.RegisterCommandsEvent;
 import net.minecraftforge.event.RegistryEvent;
-import net.minecraftforge.event.world.RegisterDimensionsEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.DeferredWorkQueue;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
-import net.minecraftforge.fml.event.server.FMLServerStartingEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 
 @Mod(MinestuckAlternia.MOD_ID)
@@ -64,18 +63,10 @@ public class MinestuckAlternia {
     }
     
     @SubscribeEvent
-    public void onServerStarting(FMLServerStartingEvent event) {
-        OccupyHiveCommand.register(event.getCommandDispatcher());
+    public void onRegisterCommands(RegisterCommandsEvent event) {
+        OccupyHiveCommand.register(event.getDispatcher());
     }
     
-    @Mod.EventBusSubscriber(modid = "minestuck_alternia", bus=Mod.EventBusSubscriber.Bus.FORGE)
-	public static class ForgeRegistryEvents {
-        @SubscribeEvent
-    	public static void registerDimensionTypes(final RegisterDimensionsEvent event) {
-        	AlterniaDimensions.registerDimensionTypes();
-        }
-	}
-
     @Mod.EventBusSubscriber(modid = "minestuck_alternia",bus=Mod.EventBusSubscriber.Bus.MOD)
     public static class RegistryEvents {
         @SubscribeEvent
