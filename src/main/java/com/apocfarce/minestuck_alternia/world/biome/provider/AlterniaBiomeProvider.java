@@ -1,12 +1,9 @@
 package com.apocfarce.minestuck_alternia.world.biome.provider;
 
-import com.apocfarce.minestuck_alternia.world.biome.AlterniaBiomeFeatures;
 import com.apocfarce.minestuck_alternia.world.biome.AlterniaBiomes;
 import com.apocfarce.minestuck_alternia.world.gen.layer.AlterniaLayerUtil;
 import net.minecraft.world.biome.Biome;
-import net.minecraft.world.biome.Biomes;
 import net.minecraft.world.biome.provider.BiomeProvider;
-import net.minecraft.world.gen.GenerationStage;
 import net.minecraft.world.gen.layer.Layer;
 import net.minecraftforge.common.BiomeManager.BiomeEntry;
 import net.minecraftforge.common.BiomeManager.BiomeType;
@@ -25,8 +22,8 @@ public class AlterniaBiomeProvider extends BiomeProvider {
 	}
 	
 	public static void initBiomeList() {
-		addVanilla(Biomes.BADLANDS, BiomeType.DESERT, 10);
-		addVanilla(Biomes.DESERT,BiomeType.DESERT, 20);
+		//addVanilla(Biomes.BADLANDS, BiomeType.DESERT, 10);
+		//addVanilla(Biomes.DESERT,BiomeType.DESERT, 20);
 		
 		addBiome(AlterniaBiomes.MIRRAGE_FOREST.get(), BiomeType.COOL, 10);
 		addBiome(AlterniaBiomes.PYRAL_FOREST.get(), BiomeType.COOL, 10);
@@ -36,16 +33,15 @@ public class AlterniaBiomeProvider extends BiomeProvider {
 		addBiome(AlterniaBiomes.SHRUBLAND.get(), BiomeType.WARM,10);
 		addBiome(AlterniaBiomes.COLORED_DESERT.get(), BiomeType.DESERT, 30);
 	}
-	
+	/* We can no longer modify vanilla biomes directly
 	private static void addVanilla(Biome biome, BiomeType type, int weight) {
 		//This is needed so that alternia structures are generated correctly. (alternia biomes also has this, but elsewhere)
 		// This will not have an effect on the biomes in the overworld
-		AlterniaBiomeFeatures.addStructures(biome);
-		AlterniaBiomeFeatures.addCarvers(biome);
-		AlterniaBiomeFeatures.addOres(biome);
+		AlterniaBiomeFeatures.withCarvers(biome);
+		AlterniaBiomeFeatures.withOres(biome);
 		addBiome(biome, type, weight);
 	}
-	
+	*/
 	private static void addBiome(Biome biome, BiomeType type, int weight) {
 		biomes.computeIfAbsent(type, AlterniaBiomeProvider::makeList).add(new BiomeEntry(biome,weight));
 		biomeSet.add(biome);

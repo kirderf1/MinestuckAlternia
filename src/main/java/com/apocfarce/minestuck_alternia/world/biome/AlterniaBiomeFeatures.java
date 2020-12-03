@@ -11,12 +11,12 @@ import net.minecraft.world.gen.GenerationStage;
  */
 public class AlterniaBiomeFeatures {
 	
-	public static void addCarvers(BiomeGenerationSettings.Builder builder) {
+	public static void withCarvers(BiomeGenerationSettings.Builder builder) {
 		builder.withCarver(GenerationStage.Carving.AIR, AlterniaCarvers.CONFIGURED_CAVE);
 		builder.withCarver(GenerationStage.Carving.AIR, AlterniaCarvers.CONFIGURED_CANYON);
 	}
 	
-	public static void addOres(BiomeGenerationSettings.Builder builder) {
+	public static void withOres(BiomeGenerationSettings.Builder builder) {
 		builder.withFeature(GenerationStage.Decoration.UNDERGROUND_ORES, AlterniaFeatures.COAL_ORE);
 		builder.withFeature(GenerationStage.Decoration.UNDERGROUND_ORES, AlterniaFeatures.IRON_ORE);
 		builder.withFeature(GenerationStage.Decoration.UNDERGROUND_ORES, AlterniaFeatures.GOLD_ORE);
@@ -25,19 +25,19 @@ public class AlterniaBiomeFeatures {
 		builder.withFeature(GenerationStage.Decoration.UNDERGROUND_ORES, AlterniaFeatures.LAPIS_ORE);
 	}
 	
-	public static void addStoneVariants(BiomeGenerationSettings.Builder builder) {
+	public static void withStoneVariants(BiomeGenerationSettings.Builder builder) {
 		builder.withFeature(GenerationStage.Decoration.UNDERGROUND_ORES, AlterniaFeatures.RED_ROCK_ORE);
 	}
 	
-	public static void addPyralTrees(BiomeGenerationSettings.Builder builder) {
+	public static void withPyralTrees(BiomeGenerationSettings.Builder builder) {
 		builder.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, AlterniaFeatures.PYRAL_TREES);
 	}
 	
-	public static void addMirrageTrees(BiomeGenerationSettings.Builder builder) {
+	public static void withMirrageTrees(BiomeGenerationSettings.Builder builder) {
 		builder.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, AlterniaFeatures.MIRRAGE_TREES);
 	}
 	
-	public static void addPyralGrass(BiomeGenerationSettings.Builder builder) {
+	public static void withPyralGrass(BiomeGenerationSettings.Builder builder) {
 		builder.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, AlterniaFeatures.PYRAL_GRASS);
 	}
 }

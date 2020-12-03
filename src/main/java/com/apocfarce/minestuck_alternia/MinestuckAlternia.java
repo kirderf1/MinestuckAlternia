@@ -49,7 +49,6 @@ public class MinestuckAlternia {
     }
     
     private void setup(final FMLCommonSetupEvent event) {
-        AlterniaBiomes.initBiomeFeatures();
         event.enqueueWork(PieceTypes::register);
         event.enqueueWork(AlterniaBiomeProvider::initBiomeList);
         event.enqueueWork(AlterniaFeatures::initFeatures);

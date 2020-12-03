@@ -13,7 +13,12 @@ import com.apocfarce.minestuck_alternia.util.CustomDamageSources;
 import com.apocfarce.minestuck_alternia.world.biome.AlterniaBiomes;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.util.DamageSource;
+import net.minecraft.util.ResourceLocation;
+import net.minecraft.world.biome.Biome;
 import net.minecraftforge.common.data.LanguageProvider;
+import net.minecraftforge.fml.RegistryObject;
+
+import java.util.Objects;
 
 public class AlterniaEnUsLanguageProvider extends LanguageProvider {
 	
@@ -127,6 +132,11 @@ public class AlterniaEnUsLanguageProvider extends LanguageProvider {
 		add(BloodColor.FUCHSIA, "Fuchsia");
 		add(BloodColor.MUTANT, "Mutant");
 		add(BloodColor.LIME, "Lime");
+	}
+	
+	protected void addBiome(RegistryObject<Biome> biome, String name) {
+		ResourceLocation regName = Objects.requireNonNull(biome.getId());
+		add("biome." + regName.getNamespace() + "." + regName.getPath(), name);
 	}
 	
 	protected void add(DamageSource source, String normalMessage, String fightingMessage) {

@@ -15,6 +15,7 @@ import net.minecraft.world.gen.foliageplacer.BlobFoliagePlacer;
 import net.minecraft.world.gen.foliageplacer.FancyFoliagePlacer;
 import net.minecraft.world.gen.foliageplacer.SpruceFoliagePlacer;
 import net.minecraft.world.gen.placement.AtSurfaceWithExtraConfig;
+import net.minecraft.world.gen.placement.ChanceConfig;
 import net.minecraft.world.gen.placement.DepthAverageConfig;
 import net.minecraft.world.gen.placement.Placement;
 import net.minecraft.world.gen.trunkplacer.FancyTrunkPlacer;
@@ -42,6 +43,8 @@ public class AlterniaFeatures {
 	public static ConfiguredFeature<?, ?> DIAMOND_ORE;
 	public static ConfiguredFeature<?, ?> LAPIS_ORE;
 	
+	public static ConfiguredFeature<?, ?> COMMON_LAVA_LAKE;
+	
 	public static void initFeatures() {
 		PYRAL = register("pyral", Feature.TREE.withConfiguration(new BaseTreeFeatureConfig.Builder(new SimpleBlockStateProvider(AlterniaBlocks.PYRAL_LOG.getDefaultState()), new SimpleBlockStateProvider(AlterniaBlocks.PYRAL_LEAVES.getDefaultState()), new SpruceFoliagePlacer(FeatureSpread.func_242253_a(2, 1), FeatureSpread.func_242253_a(0, 2), FeatureSpread.func_242253_a(1, 1)), new StraightTrunkPlacer(5, 2, 1), new TwoLayerFeature(2, 0, 2)).setIgnoreVines().build()));
 		LARGE_PYRAL = register("large_pyral", Feature.TREE.withConfiguration(new BaseTreeFeatureConfig.Builder(new SimpleBlockStateProvider(AlterniaBlocks.PYRAL_LOG.getDefaultState()), new SimpleBlockStateProvider(AlterniaBlocks.PYRAL_LEAVES.getDefaultState()), new FancyFoliagePlacer(FeatureSpread.func_242252_a(2), FeatureSpread.func_242252_a(4), 4), new FancyTrunkPlacer(3, 11, 0), new TwoLayerFeature(0, 0, 0, OptionalInt.of(4))).setIgnoreVines().func_236702_a_(Heightmap.Type.MOTION_BLOCKING).build()));
@@ -61,6 +64,7 @@ public class AlterniaFeatures {
 		DIAMOND_ORE = register("diamond_ore", Feature.ORE.withConfiguration(new OreFeatureConfig(AlterniaFillerBlockTypes.darkStone(), Blocks.DIAMOND_ORE.getDefaultState(), 8)).range(16).square());
 		LAPIS_ORE = register("lapis_ore", Feature.ORE.withConfiguration(new OreFeatureConfig(AlterniaFillerBlockTypes.darkStone(), Blocks.LAPIS_ORE.getDefaultState(), 7)).withPlacement(Placement.DEPTH_AVERAGE.configure(new DepthAverageConfig(16, 16))).square());
 		
+		COMMON_LAVA_LAKE = register("common_lava_lake", Feature.LAKE.withConfiguration(new BlockStateFeatureConfig(Blocks.LAVA.getDefaultState())).withPlacement(Placement.LAVA_LAKE.configure(new ChanceConfig(10))));
 	}
 	
 	private static <FC extends IFeatureConfig> ConfiguredFeature<FC, ?> register(String name, ConfiguredFeature<FC, ?> configuredFeature) {
