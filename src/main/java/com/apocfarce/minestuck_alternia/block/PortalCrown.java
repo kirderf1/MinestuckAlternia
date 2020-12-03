@@ -22,7 +22,7 @@ public class PortalCrown extends Portal {
 		BlockState state = worldIn.getBlockState(pos);
 		Direction facing = state.get(HORIZONTAL_FACING);
 		BlockPos pos1,pos2;
-		if(worldIn.getBlockState(pos.offset(facing.getOpposite())).has(GreenSnake.PART)) {
+		if(worldIn.getBlockState(pos.offset(facing.getOpposite())).hasProperty(GreenSnake.PART)) {
 			pos1 = pos.offset(facing.getOpposite()).down(3).offset(facing.rotateY(),2);
 			pos2=pos.offset(facing,2).down(3).offset(facing.rotateYCCW());
 		}else {
@@ -36,7 +36,7 @@ public class PortalCrown extends Portal {
 		BlockState state = worldIn.getBlockState(pos);
 		Direction facing = state.get(HORIZONTAL_FACING);
 		
-		if(worldIn.getBlockState(pos.offset(facing.getOpposite())).has(GreenSnake.PART)) {
+		if(worldIn.getBlockState(pos.offset(facing.getOpposite())).hasProperty(GreenSnake.PART)) {
 			return pos.offset(facing.getOpposite()).down(3).offset(facing.rotateY(),2);
 		}else {
 			return pos.offset(facing,2).down(3).offset(facing.rotateYCCW(),2);

@@ -35,7 +35,7 @@ public class RedSnake extends Portal{
 			return new MutableBoundingBox(mainPos2, oppositePos2);
 		case SNAKE_BODY:
 			for(int i =1;i<=3;i++) {
-				if(worldIn.getBlockState(pos.down(i)).has(PortalBase.PART)) {
+				if(worldIn.getBlockState(pos.down(i)).hasProperty(PortalBase.PART)) {
 					BlockPos mainPos3 = pos.offset(stateFacing.getOpposite(),3).down(i).offset(stateFacing.rotateY(),2);
 					BlockPos oppositePos3 = mainPos3.offset(stateFacing,3).offset(stateFacing.rotateYCCW());
 					return new MutableBoundingBox(mainPos3, oppositePos3);
@@ -56,7 +56,7 @@ public class RedSnake extends Portal{
 		case SNAKE_NECK:return pos.offset(stateFacing.getOpposite(),3).down(4).offset(stateFacing.rotateY(),2);
 		case SNAKE_BODY:
 			for(int i =1;i<=3;i++) {
-				if(worldIn.getBlockState(pos.down(i)).has(PortalBase.PART)) {
+				if(worldIn.getBlockState(pos.down(i)).hasProperty(PortalBase.PART)) {
 					return pos.offset(stateFacing.getOpposite(),3).down(i).offset(stateFacing.rotateY(),2);
 				}
 			}
@@ -104,7 +104,7 @@ public class RedSnake extends Portal{
 			
 
 			@Override
-			public String getName() {
+			public String getString() {
 				return name().toLowerCase();
 			}
 

@@ -39,7 +39,7 @@ public class PortalBase extends Portal{
 		BASE_CENTER;
 		
 		@Override
-		public String getName() {
+		public String getString() {
 			return name().toLowerCase();
 		}
 

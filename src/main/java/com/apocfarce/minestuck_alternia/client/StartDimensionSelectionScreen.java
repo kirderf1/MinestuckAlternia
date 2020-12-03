@@ -2,6 +2,7 @@ package com.apocfarce.minestuck_alternia.client;
 
 import com.apocfarce.minestuck_alternia.network.AlterniaPacketHandler;
 import com.apocfarce.minestuck_alternia.network.DimensionSelectionPacket;
+import com.mojang.blaze3d.matrix.MatrixStack;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.gui.widget.button.Button;
@@ -22,16 +23,16 @@ public class StartDimensionSelectionScreen extends Screen {
 	
 	@Override
 	protected void init() {
-		addButton(new Button(width/2 - 100, height/2 - 10, 200, 20, I18n.format(OVERWORLD), this::pickOverworld));
-		addButton(new Button(width/2 - 100, height/2 + 10, 200, 20, I18n.format(ALTERNIA), this::pickAlternia));
+		addButton(new Button(width/2 - 100, height/2 - 10, 200, 20, new TranslationTextComponent(OVERWORLD), this::pickOverworld));
+		addButton(new Button(width/2 - 100, height/2 + 10, 200, 20, new TranslationTextComponent(ALTERNIA), this::pickAlternia));
 	}
 	
 	@Override
-	public void render(int mouseX, int mouseY, float partialTicks) {
-		renderBackground();
+	public void render(MatrixStack matrixStack, int mouseX, int mouseY, float partialTicks) {
+		renderBackground(matrixStack);
 		
-		super.render(mouseX, mouseY, partialTicks);
-		drawCenteredString(font, I18n.format(PROMPT), width/2, height/2 - 50, 0xFFFFFF);
+		super.render(matrixStack, mouseX, mouseY, partialTicks);
+		drawCenteredString(matrixStack, font, I18n.format(PROMPT), width/2, height/2 - 50, 0xFFFFFF);
 	}
 	
 	@Override
