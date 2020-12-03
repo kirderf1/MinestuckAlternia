@@ -3,7 +3,7 @@ package com.apocfarce.minestuck_alternia.util;
 import com.apocfarce.minestuck_alternia.network.AlterniaPacketHandler;
 import com.apocfarce.minestuck_alternia.network.ShouldDoSelectionPacket;
 import com.apocfarce.minestuck_alternia.world.AlterniaDimensions;
-import com.apocfarce.minestuck_alternia.world.gen.feature.AlterniaFeatures;
+import com.apocfarce.minestuck_alternia.world.gen.feature.structure.AlterniaStructures;
 import net.minecraft.entity.player.ServerPlayerEntity;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.gen.Heightmap;
@@ -59,7 +59,7 @@ public class EventListener {
 				ServerWorld alterniaWorld = DimensionManager.getWorld(player.server, AlterniaDimensions.getDimensionType(), true, true);
 				
 				if(alterniaWorld != null) {
-					BlockPos spawnPos = AlterniaFeatures.HIVE.get().tryFindHiveToOccupy(alterniaWorld, color);
+					BlockPos spawnPos = AlterniaStructures.HIVE.get().tryFindHiveToOccupy(alterniaWorld, color);
 					if(spawnPos != null) {
 						player.setSpawnPoint(spawnPos, true, false, AlterniaDimensions.getDimensionType());
 					} else {
