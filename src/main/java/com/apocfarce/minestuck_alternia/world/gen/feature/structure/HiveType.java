@@ -2,8 +2,8 @@ package com.apocfarce.minestuck_alternia.world.gen.feature.structure;
 
 import com.apocfarce.minestuck_alternia.MinestuckAlternia;
 import com.apocfarce.minestuck_alternia.util.BloodColor;
-import com.mojang.datafixers.Dynamic;
-import com.mojang.datafixers.types.DynamicOps;
+import com.mojang.serialization.Codec;
+import com.mojang.serialization.DataResult;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.Rotation;
 import net.minecraft.util.math.BlockPos;
@@ -13,8 +13,11 @@ import net.minecraft.world.gen.feature.template.TemplateManager;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Optional;
 
 public final class HiveType {
+	public static final Codec<HiveType> CODEC = ResourceLocation.CODEC.comapFlatMap(HiveType::findInRegistry, hiveType -> hiveType.name);
+	
 	public final ResourceLocation name;
 	public final Heightmap.Type heightmap;
 	public final PieceConstructor constructor;
@@ -33,15 +36,11 @@ public final class HiveType {
 		StructurePiece create(TemplateManager templates, ResourceLocation name, BlockPos pos, Rotation rotation);
 	}
 	
-	public <T> Dynamic<T> serialize(DynamicOps<T> ops) {
-		return new Dynamic<>(ops, ops.createString(name.toString()));
+	private static DataResult<HiveType> findInRegistry(ResourceLocation name)
+	{
+		return Optional.ofNullable(hiveTypes.get(name)).map(DataResult::success).orElseGet(() -> DataResult.error("No hive type with name: " + name.toString()));
 	}
 	
-	public static <T> HiveType deserialize(Dynamic<T> dynamic) {
-		return hiveTypes.get(new ResourceLocation(dynamic.asString(DEFAULT_VALUE.toString())));
-	}
-	
-	private static final ResourceLocation DEFAULT_VALUE = new ResourceLocation(MinestuckAlternia.MOD_ID, "burgundy_small");
 	private static final Map<ResourceLocation, HiveType> hiveTypes = new HashMap<>();
 	
 	public static final HiveType BURGUNDY_AWNING_SMALL = standardHive("burgundy_awning_small", BloodColor.BURGUNDY, new BlockPos(5, 1, 6), new BlockPos(15, 1, 12));

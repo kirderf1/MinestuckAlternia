@@ -11,6 +11,6 @@ public class AlterniaSurfaceBuilders {
 	
 	public static final DeferredRegister<SurfaceBuilder<?>> REGISTER = DeferredRegister.create(ForgeRegistries.SURFACE_BUILDERS, MinestuckAlternia.MOD_ID);
 	
-	public static final RegistryObject<SurfaceBuilder<SurfaceBuilderConfig>> COLORED_SANDS = REGISTER.register("colored_sands", () -> new ColoredSandsSurfaceBuilder(SurfaceBuilderConfig::deserialize));
-	public static final RegistryObject<SurfaceBuilder<SurfaceBuilderConfig>> DARK_STONE = REGISTER.register("dark_stone", () -> new DarkStoneSurfaceBuilder(SurfaceBuilderConfig::deserialize));
+	public static final RegistryObject<SurfaceBuilder<SurfaceBuilderConfig>> COLORED_SANDS = REGISTER.register("colored_sands", () -> new ColoredSandsSurfaceBuilder(SurfaceBuilderConfig.field_237203_a_));
+	public static final RegistryObject<SurfaceBuilder<SurfaceBuilderConfig>> DARK_STONE = REGISTER.register("dark_stone", () -> new DarkStoneSurfaceBuilder(SurfaceBuilderConfig.field_237203_a_));
 }

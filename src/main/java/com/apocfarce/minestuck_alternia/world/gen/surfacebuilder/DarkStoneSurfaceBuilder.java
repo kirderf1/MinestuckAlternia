@@ -1,9 +1,8 @@
 package com.apocfarce.minestuck_alternia.world.gen.surfacebuilder;
 
 import com.apocfarce.minestuck_alternia.block.AlterniaBlocks;
-import com.mojang.datafixers.Dynamic;
+import com.mojang.serialization.Codec;
 import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.chunk.IChunk;
@@ -11,11 +10,10 @@ import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilderConfig;
 
 import java.util.Random;
-import java.util.function.Function;
 
 public class DarkStoneSurfaceBuilder extends SurfaceBuilder<SurfaceBuilderConfig> {
 	
-	public DarkStoneSurfaceBuilder(Function<Dynamic<?>, ? extends SurfaceBuilderConfig> configCodec) {
+	public DarkStoneSurfaceBuilder(Codec<SurfaceBuilderConfig> configCodec) {
 		super(configCodec);
 	}
 	

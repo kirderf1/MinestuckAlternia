@@ -1,6 +1,6 @@
 package com.apocfarce.minestuck_alternia.world.gen.surfacebuilder;
 
-import com.mojang.datafixers.Dynamic;
+import com.mojang.serialization.Codec;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.util.math.BlockPos;
@@ -10,11 +10,10 @@ import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilderConfig;
 
 import java.util.Random;
-import java.util.function.Function;
 
 public class ColoredSandsSurfaceBuilder extends SurfaceBuilder<SurfaceBuilderConfig> {
 	
-	public ColoredSandsSurfaceBuilder(Function<Dynamic<?>, ? extends SurfaceBuilderConfig> configCodec) {
+	public ColoredSandsSurfaceBuilder(Codec<SurfaceBuilderConfig> configCodec) {
 		super(configCodec);
 	}
 	
