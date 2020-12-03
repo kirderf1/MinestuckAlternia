@@ -11,7 +11,6 @@ import com.apocfarce.minestuck_alternia.world.AlterniaDimensions;
 import com.apocfarce.minestuck_alternia.world.biome.AlterniaBiomes;
 import com.apocfarce.minestuck_alternia.world.biome.provider.AlterniaBiomeProvider;
 import com.apocfarce.minestuck_alternia.world.biome.provider.AlterniaBiomeProviderTypes;
-import com.apocfarce.minestuck_alternia.world.gen.AlterniaChunkGenTypes;
 import com.apocfarce.minestuck_alternia.world.gen.carver.AlterniaCarvers;
 import com.apocfarce.minestuck_alternia.world.gen.feature.AlterniaFeatures;
 import com.apocfarce.minestuck_alternia.world.gen.feature.structure.AlterniaStructures;
@@ -43,7 +42,6 @@ public class MinestuckAlternia {
         
         AlterniaDimensions.REGISTER.register(modBus);
         AlterniaSurfaceBuilders.REGISTER.register(modBus);
-        AlterniaChunkGenTypes.REGISTER.register(modBus);
         AlterniaBiomeProviderTypes.REGISTER.register(modBus);
         AlterniaBiomes.REGISTER.register(modBus);
         AlterniaStructures.REGISTER.register(modBus);
