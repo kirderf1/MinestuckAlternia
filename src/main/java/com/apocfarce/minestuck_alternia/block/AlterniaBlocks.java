@@ -7,11 +7,13 @@ import com.apocfarce.minestuck_alternia.util.BloodColor;
 import net.minecraft.block.*;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.material.MaterialColor;
+import net.minecraft.util.Direction;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.registries.IForgeRegistry;
 import net.minecraftforge.registries.ObjectHolder;
 
 import javax.annotation.Nonnull;
+import java.util.function.Function;
 
 @ObjectHolder(MinestuckAlternia.MOD_ID)
 public class AlterniaBlocks
@@ -30,8 +32,8 @@ public class AlterniaBlocks
 	//wood stuff
 	public static final BushBlock PYRAL_SAPLING = getNull();
 	public static final Block PYRAL_LEAVES = getNull();
-	public static final LogBlock PYRAL_LOG = getNull();
-	public static final LogBlock STRIPPED_PYRAL_LOG = getNull();
+	public static final RotatedPillarBlock PYRAL_LOG = getNull();
+	public static final RotatedPillarBlock STRIPPED_PYRAL_LOG = getNull();
 	public static final Block PYRAL_WOOD = getNull();
 	public static final Block STRIPPED_PYRAL_WOOD = getNull();
 	public static final Block PYRAL_PLANKS = getNull();
@@ -42,8 +44,8 @@ public class AlterniaBlocks
 	
 	public static final BushBlock MIRRAGE_SAPLING = getNull();
 	public static final Block MIRRAGE_LEAVES = getNull();
-	public static final LogBlock MIRRAGE_LOG = getNull();
-	public static final LogBlock STRIPPED_MIRRAGE_LOG = getNull();
+	public static final RotatedPillarBlock MIRRAGE_LOG = getNull();
+	public static final RotatedPillarBlock STRIPPED_MIRRAGE_LOG = getNull();
 	public static final Block MIRRAGE_WOOD = getNull();
 	public static final Block STRIPPED_MIRRAGE_WOOD = getNull();
 	public static final Block MIRRAGE_PLANKS = getNull();
@@ -97,9 +99,9 @@ public class AlterniaBlocks
 		//wood
 		register(registry, "pyral_sapling", new AlterniaSapling(new PyralTree(), Block.Properties.create(Material.PLANTS).doesNotBlockMovement().tickRandomly().sound(SoundType.PLANT).notSolid()));
 		register(registry, "pyral_leaves", new LeavesBlock(Block.Properties.create(Material.LEAVES).sound(SoundType.PLANT).hardnessAndResistance(0.2F).tickRandomly().notSolid()));
-		register(registry, "stripped_pyral_log", new LogBlock(MaterialColor.BLUE, Block.Properties.create(Material.WOOD).sound(SoundType.WOOD).hardnessAndResistance(2.0F)));
+		register(registry, "stripped_pyral_log", new RotatedPillarBlock(Block.Properties.create(Material.WOOD, yAxisColor(MaterialColor.BLUE, MaterialColor.WOOD)).sound(SoundType.WOOD).hardnessAndResistance(2.0F)));
 		register(registry, "stripped_pyral_wood", new RotatedPillarBlock(Block.Properties.create(Material.WOOD).sound(SoundType.WOOD).hardnessAndResistance(2.0F)));
-		register(registry, "pyral_log", new AlterniaLogBlock(MaterialColor.BLUE, () -> AlterniaBlocks.STRIPPED_MIRRAGE_LOG, Block.Properties.create(Material.WOOD, MaterialColor.BLUE).sound(SoundType.WOOD).hardnessAndResistance(2.0F)));
+		register(registry, "pyral_log", new AxeModifiableBlock(() -> AlterniaBlocks.STRIPPED_MIRRAGE_LOG, Block.Properties.create(Material.WOOD, MaterialColor.BLUE).sound(SoundType.WOOD).hardnessAndResistance(2.0F)));
 		register(registry, "pyral_wood", new RotatedPillarBlock(Block.Properties.create(Material.WOOD).sound(SoundType.WOOD).hardnessAndResistance(2.0F)));
 		Block.Properties pyralPlankProperties = Block.Properties.create(Material.WOOD).sound(SoundType.WOOD).hardnessAndResistance(2.0F, 3.0F);
 		register(registry, "pyral_planks", new Block(pyralPlankProperties));
@@ -110,9 +112,9 @@ public class AlterniaBlocks
 		
 		register(registry, "mirrage_sapling", new AlterniaSapling(new MirrageTree(), Block.Properties.create(Material.PLANTS).doesNotBlockMovement().tickRandomly().sound(SoundType.PLANT).notSolid()));
 		register(registry, "mirrage_leaves", new LeavesBlock(Block.Properties.create(Material.LEAVES).sound(SoundType.PLANT).hardnessAndResistance(0.2F).tickRandomly().notSolid()));
-		register(registry, "stripped_mirrage_log", new LogBlock(MaterialColor.BLACK, Block.Properties.create(Material.WOOD).sound(SoundType.WOOD).hardnessAndResistance(2.0F)));
+		register(registry, "stripped_mirrage_log", new RotatedPillarBlock(Block.Properties.create(Material.WOOD, yAxisColor(MaterialColor.BLACK, MaterialColor.WOOD)).sound(SoundType.WOOD).hardnessAndResistance(2.0F)));
 		register(registry, "stripped_mirrage_wood", new RotatedPillarBlock(Block.Properties.create(Material.WOOD).sound(SoundType.WOOD).hardnessAndResistance(2.0F)));
-		register(registry, "mirrage_log", new AlterniaLogBlock(MaterialColor.GRAY, () -> AlterniaBlocks.STRIPPED_MIRRAGE_LOG, Block.Properties.create(Material.WOOD, MaterialColor.BLUE).sound(SoundType.WOOD).hardnessAndResistance(2.0F)));
+		register(registry, "mirrage_log", new AxeModifiableBlock(() -> AlterniaBlocks.STRIPPED_MIRRAGE_LOG, Block.Properties.create(Material.WOOD, yAxisColor(MaterialColor.GRAY, MaterialColor.BLUE)).sound(SoundType.WOOD).hardnessAndResistance(2.0F)));
 		register(registry, "mirrage_wood", new RotatedPillarBlock(Block.Properties.create(Material.WOOD).sound(SoundType.WOOD).hardnessAndResistance(2.0F)));
 		Block.Properties mirragePlankProperties = Block.Properties.create(Material.WOOD).sound(SoundType.WOOD).hardnessAndResistance(2.0F, 3.0F);
 		register(registry, "mirrage_planks", new Block(mirragePlankProperties));
@@ -121,10 +123,14 @@ public class AlterniaBlocks
 		register(registry, "mirrage_fence", new FenceBlock(mirragePlankProperties));
 		register(registry, "mirrage_fence_gate", new FenceGateBlock(mirragePlankProperties));
 		
-		register(registry, "pyral_grass", new AlterniaTallGrass(Block.Properties.create(Material.TALL_PLANTS).sound(SoundType.PLANT).doesNotBlockMovement().hardnessAndResistance(0).notSolid()));
+		register(registry, "pyral_grass", new TallGrassBlock(Block.Properties.create(Material.TALL_PLANTS).sound(SoundType.PLANT).doesNotBlockMovement().hardnessAndResistance(0).notSolid()));
 	}
 	
 	private static void register(IForgeRegistry<Block> registry, String name, Block block) {
 		registry.register(block.setRegistryName(name));
+	}
+	
+	private static Function<BlockState, MaterialColor> yAxisColor(MaterialColor topColor, MaterialColor sideColor) {
+		return state -> state.get(RotatedPillarBlock.AXIS) == Direction.Axis.Y ? topColor : sideColor;
 	}
 }

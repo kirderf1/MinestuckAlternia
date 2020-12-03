@@ -3,8 +3,6 @@ package com.apocfarce.minestuck_alternia.block;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.fluid.IFluidState;
 import net.minecraft.item.BlockItemUseContext;
 import net.minecraft.state.EnumProperty;
 import net.minecraft.state.StateContainer;
@@ -36,12 +34,9 @@ public class GreenSnake extends Portal{
 		GREEN_HEAD,
 		SNAKE_NECK,
 		SNAKE_BODY;
-
 		
-		
-
 		@Override
-		public String getName() {
+		public String getString() {
 			return name().toLowerCase();
 		}
 
@@ -61,7 +56,7 @@ public class GreenSnake extends Portal{
 			return new MutableBoundingBox(mainPos2, oppositePos2);
 		case SNAKE_BODY:
 			for(int i =1;i<=3;i++) {
-				if(worldIn.getBlockState(pos.down(i)).has(PortalBase.PART)) {
+				if(worldIn.getBlockState(pos.down(i)).hasProperty(PortalBase.PART)) {
 					BlockPos mainPos3 = pos.down(i).offset(stateFacing.rotateYCCW(),2);
 					BlockPos oppositePos3 = mainPos3.offset(stateFacing.getOpposite(),3).offset(stateFacing.rotateY());
 					return new MutableBoundingBox(mainPos3, oppositePos3);
@@ -80,7 +75,7 @@ public class GreenSnake extends Portal{
 		case SNAKE_NECK:return pos.down(4).offset(stateFacing.rotateYCCW(),2);
 		case SNAKE_BODY:
 			for(int i =1;i<=3;i++) {
-				if(worldIn.getBlockState(pos.down(i)).has(PortalBase.PART)) {
+				if(worldIn.getBlockState(pos.down(i)).hasProperty(PortalBase.PART)) {
 					return pos.down(i).offset(stateFacing.rotateYCCW(),2);
 				}
 			}
@@ -89,7 +84,7 @@ public class GreenSnake extends Portal{
 		}
 	}
 	@Override
-	public void DestroyPart(World worldIn, BlockPos mainCorner, Direction facing,boolean isCreative) { 
+	public void destroyPart(World worldIn, BlockPos mainCorner, Direction facing, boolean isCreative) {
 		if (!worldIn.isRemote&&!isCreative) {
 			spawnDrops(this.getDefaultState(), worldIn, mainCorner.offset(facing,2).up(1));
 		}
@@ -98,9 +93,7 @@ public class GreenSnake extends Portal{
 		worldIn.destroyBlock(mainCorner.offset(facing,2).up(3),false);
 		worldIn.destroyBlock(mainCorner.offset(facing,2).up(4),false);
 		worldIn.destroyBlock(mainCorner.offset(facing,2).up(4).offset(facing.rotateYCCW()),false);
-		DestroyPart(Portal.PortalPart.CENTER,worldIn,mainCorner,facing,isCreative);
-		DestroyPart(Portal.PortalPart.CROWN,worldIn,mainCorner,facing,isCreative);
-
-		
+		destroyPart(Portal.PortalPart.CENTER,worldIn,mainCorner,facing,isCreative);
+		destroyPart(Portal.PortalPart.CROWN,worldIn,mainCorner,facing,isCreative);
 	}
 }

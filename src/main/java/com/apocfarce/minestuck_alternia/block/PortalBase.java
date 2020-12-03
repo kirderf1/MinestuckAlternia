@@ -1,14 +1,10 @@
 package com.apocfarce.minestuck_alternia.block;
 
-import com.apocfarce.minestuck_alternia.Item.AlterniaItems;
-
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.item.BlockItemUseContext;
-import net.minecraft.item.ItemStack;
 import net.minecraft.state.EnumProperty;
 import net.minecraft.state.StateContainer;
-import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.Direction;
 import net.minecraft.util.IStringSerializable;
 import net.minecraft.util.math.BlockPos;
@@ -97,15 +93,15 @@ public class PortalBase extends Portal{
 
 
 	@Override
-	public void DestroyPart(World worldIn, BlockPos mainCorner, Direction facing, boolean isCreative) {
+	public void destroyPart(World worldIn, BlockPos mainCorner, Direction facing, boolean isCreative) {
 
         if (!worldIn.isRemote&&!isCreative) {
         	spawnDrops(this.getDefaultState(), worldIn, mainCorner.up());
         }
-		DestroyPart(Portal.PortalPart.GREEN_SNAKE,worldIn,mainCorner,facing,isCreative);
-		DestroyPart(Portal.PortalPart.RED_SNAKE,worldIn,mainCorner,facing,isCreative);
-		DestroyPart(Portal.PortalPart.CROWN,worldIn,mainCorner,facing,isCreative);
-		DestroyPart(Portal.PortalPart.CENTER,worldIn,mainCorner,facing,isCreative);
+		destroyPart(Portal.PortalPart.GREEN_SNAKE,worldIn,mainCorner,facing,isCreative);
+		destroyPart(Portal.PortalPart.RED_SNAKE,worldIn,mainCorner,facing,isCreative);
+		destroyPart(Portal.PortalPart.CROWN,worldIn,mainCorner,facing,isCreative);
+		destroyPart(Portal.PortalPart.CENTER,worldIn,mainCorner,facing,isCreative);
 		for (int x=0;x<4;x++) {
 			for(int z=0;z<4;z++) {
 				worldIn.destroyBlock(mainCorner.offset(facing, x).offset(facing.rotateY(),z),false);

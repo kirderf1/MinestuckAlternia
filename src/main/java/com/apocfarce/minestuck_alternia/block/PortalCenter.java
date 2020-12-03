@@ -2,7 +2,6 @@ package com.apocfarce.minestuck_alternia.block;
 
 import com.apocfarce.minestuck_alternia.Item.AlterniaItems;
 import com.apocfarce.minestuck_alternia.world.AlterniaDimensions;
-
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.Entity;
@@ -23,22 +22,16 @@ import net.minecraft.util.math.shapes.VoxelShape;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.world.IWorld;
 import net.minecraft.world.World;
-import net.minecraft.world.dimension.DimensionType;
 import net.minecraft.world.server.ServerWorld;
 import net.minecraft.world.server.TicketType;
 
 public class PortalCenter extends Portal{
 	public static final BooleanProperty IsOpen = BooleanProperty.create("is_open");
-
-	
 	
 	public PortalCenter(Properties properties) {
 		super(properties);
 	}
 	
-	
-	
-
 	@Override
 	protected MutableBoundingBox getBaseBox(IWorld worldIn, BlockPos pos) {
 		Portal blockDown = (Portal)worldIn.getBlockState(pos.down()).getBlock();
@@ -54,7 +47,7 @@ public class PortalCenter extends Portal{
 
 
 	@Override
-	public void DestroyPart(World worldIn, BlockPos mainCorner, Direction facing,boolean isCreative) {
+	public void destroyPart(World worldIn, BlockPos mainCorner, Direction facing, boolean isCreative) {
 		if (!worldIn.isRemote&&!isCreative) {
 			spawnDrops(this.getDefaultState(), worldIn, mainCorner.offset(facing,2).up(1).offset(facing.rotateY(),1));
 		}
@@ -63,18 +56,14 @@ public class PortalCenter extends Portal{
 		worldIn.destroyBlock(mainCorner.offset(facing,2).up(2).offset(facing.rotateY(),2),false);
 		worldIn.destroyBlock(mainCorner.offset(facing,2).up(2).offset(facing.rotateY(),1),false);
 		
-		
 	}
 	
-
+	private BlockPos[] getPortalBlocks(BlockPos pos, IWorld worldIn) {
 	
-	private BlockPos[] GetPortalBlocks(BlockPos pos, IWorld worldIn) {
-	
-		boolean up =(worldIn.getBlockState(pos.up()).has(IsOpen));
-		boolean north =(worldIn.getBlockState(pos.north()).has(IsOpen));
-		boolean east =(worldIn.getBlockState(pos.east()).has(IsOpen));
-		boolean west =(worldIn.getBlockState(pos.west()).has(IsOpen));
-
+		boolean up =(worldIn.getBlockState(pos.up()).hasProperty(IsOpen));
+		boolean north =(worldIn.getBlockState(pos.north()).hasProperty(IsOpen));
+		boolean east =(worldIn.getBlockState(pos.east()).hasProperty(IsOpen));
+		boolean west =(worldIn.getBlockState(pos.west()).hasProperty(IsOpen));
 		
 		if(east||west) {
 			if(up) {
@@ -107,29 +96,31 @@ public class PortalCenter extends Portal{
 		}
 	}
 	
-	
-	
-	
-	public void ClosePortal(BlockPos pos, World worldIn) {
-		BlockPos[] blocks = GetPortalBlocks(pos,worldIn);
+	public void closePortal(BlockPos pos, World worldIn) {
+		BlockPos[] blocks = getPortalBlocks(pos,worldIn);
 		for(int i = 0; i<blocks.length;i++) {
 			worldIn.setBlockState(blocks[i], worldIn.getBlockState(blocks[i]).with(IsOpen, false));
 		}
 	}
-	public void OpenPortal(BlockPos pos,World worldIn) {
-		BlockPos[] blocks = GetPortalBlocks(pos,worldIn);
+	
+	public void openPortal(BlockPos pos, World worldIn) {
+		BlockPos[] blocks = getPortalBlocks(pos,worldIn);
 		for(int i = 0; i<blocks.length;i++) {
 			worldIn.setBlockState(blocks[i], worldIn.getBlockState(blocks[i]).with(IsOpen, true));
 		}
 	}
+	
+	@Override
+	@SuppressWarnings("deprecation")
 	public ActionResultType onBlockActivated(BlockState state, World worldIn, BlockPos pos, PlayerEntity player, Hand handIn, BlockRayTraceResult hit) {
 		if(isComplete(worldIn,pos) && !state.get(IsOpen) && player.getHeldItem(handIn).getItem() == AlterniaItems.CHERUB_KEY) {
-			OpenPortal(pos,worldIn);
+			openPortal(pos,worldIn);
 			return ActionResultType.SUCCESS;
 		}
 		return super.onBlockActivated(state, worldIn, pos, player, handIn, hit);
 	}
 	@Override
+	@SuppressWarnings("deprecation")
 	public void onEntityCollision(BlockState state, World worldIn, BlockPos pos, Entity entityIn) {
 		if(entityIn instanceof ServerPlayerEntity&&worldIn instanceof ServerWorld){
 			if(state.get(IsOpen)) {
@@ -137,19 +128,19 @@ public class PortalCenter extends Portal{
 				ServerWorld from = (ServerWorld)worldIn;
 				ServerWorld to;
 				
-				if(from==from.getServer().getWorld(DimensionType.OVERWORLD)) {
+				if(from==from.getServer().getWorld(World.OVERWORLD)) {
 					to=from.getServer().getWorld(AlterniaDimensions.getDimensionType());
 				}else{
-					to=from.getServer().getWorld(DimensionType.OVERWORLD);
+					to=from.getServer().getWorld(World.OVERWORLD);
 				}
 				
-				teliport(from,to,entityIn.getPosition(),player);
-				ClosePortal(pos,from);
+				teleport(from,to,entityIn.getPosition(),player);
+				closePortal(pos,from);
 
 			}
 		}
 	}
-	public static void teliport(ServerWorld from, ServerWorld to, BlockPos spawnPos,ServerPlayerEntity player) {
+	public static void teleport(ServerWorld from, ServerWorld to, BlockPos spawnPos, ServerPlayerEntity player) {
 		from.getChunkProvider().registerTicket(TicketType.POST_TELEPORT, new ChunkPos(spawnPos), 1, player.getEntityId());
 		while(to.isAirBlock(spawnPos)){
 			spawnPos=spawnPos.down();
@@ -167,10 +158,15 @@ public class PortalCenter extends Portal{
 		player.teleport(to, spawnPos.getX(), spawnPos.getY(), spawnPos.getZ(), player.rotationYaw, player.rotationPitch);
 
 	}
+	
+	@Override
+	@SuppressWarnings("deprecation")
 	public VoxelShape getCollisionShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context) {
 		return Block.makeCuboidShape(1.0D, 0.0D, 1.0D, 15.0D, 15.0D, 15.0D);
 	}
 	
+	@Override
+	@SuppressWarnings("deprecation")
 	public VoxelShape getShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context) {
 		return Block.makeCuboidShape(1.0D, 0.0D, 1.0D, 15.0D, 15.0D, 15.0D);	
 	}

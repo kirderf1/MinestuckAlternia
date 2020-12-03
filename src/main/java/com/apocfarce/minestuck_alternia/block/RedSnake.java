@@ -1,11 +1,8 @@
 package com.apocfarce.minestuck_alternia.block;
 
-import com.apocfarce.minestuck_alternia.Item.AlterniaItems;
-
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.item.BlockItemUseContext;
-import net.minecraft.item.ItemStack;
 import net.minecraft.state.EnumProperty;
 import net.minecraft.state.StateContainer;
 import net.minecraft.util.Direction;
@@ -69,7 +66,7 @@ public class RedSnake extends Portal{
 	}
 
 	@Override
-	public void DestroyPart(World worldIn, BlockPos mainCorner, Direction facing,boolean isCreative) {
+	public void destroyPart(World worldIn, BlockPos mainCorner, Direction facing, boolean isCreative) {
         if (!worldIn.isRemote&&!isCreative) {
     		spawnDrops(this.getDefaultState(), worldIn, mainCorner.offset(facing,2).up(1).offset(facing.rotateY()));
         }
@@ -78,8 +75,8 @@ public class RedSnake extends Portal{
 		worldIn.destroyBlock(mainCorner.offset(facing,2).up(3).offset(facing.rotateY(),3),false);
 		worldIn.destroyBlock(mainCorner.offset(facing,2).up(4).offset(facing.rotateY(),3),false);
 		worldIn.destroyBlock(mainCorner.offset(facing,2).up(4).offset(facing.rotateY(),4),false);
-		DestroyPart(Portal.PortalPart.CENTER,worldIn,mainCorner,facing,isCreative);
-		DestroyPart(Portal.PortalPart.CROWN,worldIn,mainCorner,facing,isCreative);
+		destroyPart(Portal.PortalPart.CENTER,worldIn,mainCorner,facing,isCreative);
+		destroyPart(Portal.PortalPart.CROWN,worldIn,mainCorner,facing,isCreative);
 	}
 		
 		

@@ -1,26 +1,24 @@
 package com.apocfarce.minestuck_alternia.block;
 
-import java.util.ArrayList;
-
 import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
 import net.minecraft.block.HorizontalBlock;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.fluid.IFluidState;
+import net.minecraft.fluid.FluidState;
 import net.minecraft.item.ItemStack;
-import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MutableBoundingBox;
 import net.minecraft.world.IWorld;
 import net.minecraft.world.World;
 
+import java.util.ArrayList;
+
 public abstract class Portal extends HorizontalBlock{
 	
 
 	public abstract BlockPos getMainCorner(IWorld worldIn, BlockPos pos,Direction facing);
 	protected abstract MutableBoundingBox getBaseBox(IWorld worldIn, BlockPos pos);
-	public abstract void DestroyPart(World worldIn,BlockPos mainCorner,Direction facing,boolean isCreative);
+	public abstract void destroyPart(World worldIn, BlockPos mainCorner, Direction facing, boolean isCreative);
 
 	
 	
@@ -39,13 +37,14 @@ public abstract class Portal extends HorizontalBlock{
 
 	}
 	
-	public boolean removedByPlayer(BlockState state, World world, BlockPos pos, PlayerEntity player, boolean willHarvest, IFluidState fluid) {
+	@Override
+	public boolean removedByPlayer(BlockState state, World world, BlockPos pos, PlayerEntity player, boolean willHarvest, FluidState fluid) {
 		Direction facing = getOrientation(world, pos);
 		if(facing == null) {
 			facing = player.getHorizontalFacing();			
 		}
 		BlockPos mainCorner = getMainCorner(world, pos, facing);
-		DestroyPart(world, mainCorner, facing,player.isCreative());
+		destroyPart(world, mainCorner, facing,player.isCreative());
         ItemStack minedItem = player.getHeldItemMainhand();
 
 //       if (!world.isRemote && !player.isCreative()) {
@@ -62,20 +61,20 @@ public abstract class Portal extends HorizontalBlock{
 	 * @return
 	 */
 	public Direction getOrientation(IWorld worldIn, MutableBoundingBox baseBox){
-		if(worldIn.getBlockState(new BlockPos(baseBox.minX+2,baseBox.minY+1,baseBox.minZ)).has(GreenSnake.PART)
-			||worldIn.getBlockState(new BlockPos(baseBox.minX+2,baseBox.minY+1,baseBox.maxZ)).has(RedSnake.PART)) {
+		if(worldIn.getBlockState(new BlockPos(baseBox.minX+2,baseBox.minY+1,baseBox.minZ)).hasProperty(GreenSnake.PART)
+			||worldIn.getBlockState(new BlockPos(baseBox.minX+2,baseBox.minY+1,baseBox.maxZ)).hasProperty(RedSnake.PART)) {
 			return Direction.EAST;
 		}
-		if(worldIn.getBlockState(new BlockPos(baseBox.maxX-2,baseBox.minY+1,baseBox.maxZ)).has(GreenSnake.PART)
-				||worldIn.getBlockState(new BlockPos(baseBox.maxX-2,baseBox.minY+1,baseBox.minZ)).has(RedSnake.PART)) {
+		if(worldIn.getBlockState(new BlockPos(baseBox.maxX-2,baseBox.minY+1,baseBox.maxZ)).hasProperty(GreenSnake.PART)
+				||worldIn.getBlockState(new BlockPos(baseBox.maxX-2,baseBox.minY+1,baseBox.minZ)).hasProperty(RedSnake.PART)) {
 				return Direction.WEST;
 		}
-		if(worldIn.getBlockState(new BlockPos(baseBox.maxX,baseBox.minY+1,baseBox.minZ+2)).has(GreenSnake.PART)
-				||worldIn.getBlockState(new BlockPos(baseBox.minX,baseBox.minY+1,baseBox.minZ+2)).has(RedSnake.PART)) {
+		if(worldIn.getBlockState(new BlockPos(baseBox.maxX,baseBox.minY+1,baseBox.minZ+2)).hasProperty(GreenSnake.PART)
+				||worldIn.getBlockState(new BlockPos(baseBox.minX,baseBox.minY+1,baseBox.minZ+2)).hasProperty(RedSnake.PART)) {
 				return Direction.SOUTH;
 		}
-		if(worldIn.getBlockState(new BlockPos(baseBox.minX,baseBox.minY+1,baseBox.maxZ-2)).has(GreenSnake.PART)
-				||worldIn.getBlockState(new BlockPos(baseBox.maxX,baseBox.minY+1,baseBox.maxZ-2)).has(RedSnake.PART)) {
+		if(worldIn.getBlockState(new BlockPos(baseBox.minX,baseBox.minY+1,baseBox.maxZ-2)).hasProperty(GreenSnake.PART)
+				||worldIn.getBlockState(new BlockPos(baseBox.maxX,baseBox.minY+1,baseBox.maxZ-2)).hasProperty(RedSnake.PART)) {
 				return Direction.NORTH;
 		}
 		return null;
@@ -139,9 +138,9 @@ public abstract class Portal extends HorizontalBlock{
 	public boolean hasPart(PortalPart part,IWorld worldIn,BlockPos MainCorner) {
 		Direction facing = worldIn.getBlockState(MainCorner).get(HORIZONTAL_FACING).getOpposite();
 		switch(part) {
-			case GREEN_SNAKE:return worldIn.getBlockState(MainCorner.offset(facing,2).up()).has(GreenSnake.PART);
-			case RED_SNAKE: return worldIn.getBlockState(MainCorner.offset(facing,2).up().offset(facing.rotateY(),3)).has(RedSnake.PART);
-			case CENTER: return worldIn.getBlockState(MainCorner.offset(facing,2).up().offset(facing.rotateY(),1)).has(PortalCenter.IsOpen);
+			case GREEN_SNAKE:return worldIn.getBlockState(MainCorner.offset(facing,2).up()).hasProperty(GreenSnake.PART);
+			case RED_SNAKE: return worldIn.getBlockState(MainCorner.offset(facing,2).up().offset(facing.rotateY(),3)).hasProperty(RedSnake.PART);
+			case CENTER: return worldIn.getBlockState(MainCorner.offset(facing,2).up().offset(facing.rotateY(),1)).hasProperty(PortalCenter.IsOpen);
 			case CROWN:return worldIn.getBlockState(MainCorner.offset(facing,2).up(3).offset(facing.rotateY())).getBlock() instanceof PortalCrown;
 			default: return false;
 		}
@@ -159,7 +158,7 @@ public abstract class Portal extends HorizontalBlock{
 		}
 		return false;
 	}
-	public void DestroyPart(PortalPart part,World worldIn,BlockPos mainCorner,Direction facing,boolean isCreative) {
+	public void destroyPart(PortalPart part, World worldIn, BlockPos mainCorner, Direction facing, boolean isCreative) {
 		if(hasPart(part, worldIn, mainCorner)) {
 			Portal portalBlock;
 			switch(part) {
@@ -175,7 +174,7 @@ public abstract class Portal extends HorizontalBlock{
 			case BASE: default:	portalBlock=(Portal)worldIn.getBlockState(mainCorner).getBlock();
 				break;
 			}
-			portalBlock.DestroyPart(worldIn, mainCorner, facing,isCreative);
+			portalBlock.destroyPart(worldIn, mainCorner, facing,isCreative);
 		}
 	}
 	

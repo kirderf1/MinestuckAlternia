@@ -45,13 +45,13 @@ public class PortalCrown extends Portal {
 		
 	}
 	@Override
-	public void DestroyPart(World worldIn, BlockPos mainCorner, Direction facing,boolean isCreative) {
+	public void destroyPart(World worldIn, BlockPos mainCorner, Direction facing, boolean isCreative) {
         if (!worldIn.isRemote&&!isCreative) {
     		spawnDrops(this.getDefaultState(), worldIn, mainCorner.offset(facing,2).up(3).offset(facing.rotateY(),1));
         }
 		worldIn.destroyBlock(mainCorner.offset(facing,2).up(3).offset(facing.rotateY(),1),false);
 		worldIn.destroyBlock(mainCorner.offset(facing,2).up(3).offset(facing.rotateY(),2),false);
-		DestroyPart(Portal.PortalPart.CENTER,worldIn,mainCorner,facing,isCreative);
+		destroyPart(Portal.PortalPart.CENTER,worldIn,mainCorner,facing,isCreative);
 
 	}
 	

@@ -1,7 +1,5 @@
 package com.apocfarce.minestuck_alternia.block;
 
-import java.util.Random;
-
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.BushBlock;
@@ -14,9 +12,10 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.shapes.ISelectionContext;
 import net.minecraft.util.math.shapes.VoxelShape;
 import net.minecraft.world.IBlockReader;
-import net.minecraft.world.IWorld;
 import net.minecraft.world.World;
 import net.minecraft.world.server.ServerWorld;
+
+import java.util.Random;
 
 public class AlterniaSapling extends BushBlock implements IGrowable {
    public static final IntegerProperty STAGE = BlockStateProperties.STAGE_0_1;
@@ -29,6 +28,7 @@ public class AlterniaSapling extends BushBlock implements IGrowable {
       this.setDefaultState(this.stateContainer.getBaseState().with(STAGE, Integer.valueOf(0)));
    }
 
+   @Override
    public VoxelShape getShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context) {
       return SHAPE;
    }
@@ -45,10 +45,10 @@ public class AlterniaSapling extends BushBlock implements IGrowable {
    @Override
    public void grow(ServerWorld worldIn, Random rand, BlockPos pos, BlockState state) {
       if (state.get(STAGE) == 0) {
-         worldIn.setBlockState(pos, state.cycle(STAGE), 4);
+         worldIn.setBlockState(pos, state.func_235896_a_(STAGE), 4);
       } else {
          if (!net.minecraftforge.event.ForgeEventFactory.saplingGrowTree(worldIn, rand, pos)) return;
-         this.tree.place(worldIn, worldIn.getChunkProvider().getChunkGenerator(), pos, state, rand);
+         this.tree.attemptGrowTree(worldIn, worldIn.getChunkProvider().getChunkGenerator(), pos, state, rand);
       }
 
    }
@@ -56,14 +56,17 @@ public class AlterniaSapling extends BushBlock implements IGrowable {
    /**
     * Whether this IGrowable can grow
     */
+   @Override
    public boolean canGrow(IBlockReader worldIn, BlockPos pos, BlockState state, boolean isClient) {
       return true;
    }
-
+   
+   @Override
    public boolean canUseBonemeal(World worldIn, Random rand, BlockPos pos, BlockState state) {
       return (double)worldIn.rand.nextFloat() < 0.45D;
    }
-
+   
+   @Override
    protected void fillStateContainer(StateContainer.Builder<Block, BlockState> builder) {
       builder.add(STAGE);
    }
