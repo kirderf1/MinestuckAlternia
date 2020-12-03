@@ -23,7 +23,6 @@ import net.minecraftforge.event.RegisterCommandsEvent;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.DeferredWorkQueue;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
@@ -50,11 +49,11 @@ public class MinestuckAlternia {
         AlterniaCarvers.REGISTER.register(modBus);
     }
     
-    @SuppressWarnings("deprecation")    //The deferred work queue does not have a replacement yet. It'll come in 1.16
     private void setup(final FMLCommonSetupEvent event) {
         AlterniaBiomes.initBiomeFeatures();
-        DeferredWorkQueue.runLater(PieceTypes::register);
-        DeferredWorkQueue.runLater(AlterniaBiomeProvider::initBiomeList);
+        event.enqueueWork(PieceTypes::register);
+        event.enqueueWork(AlterniaBiomeProvider::initBiomeList);
+        event.enqueueWork(AlterniaStructures::initFeatures);
         AlterniaPacketHandler.registerPackets();
     }
     
