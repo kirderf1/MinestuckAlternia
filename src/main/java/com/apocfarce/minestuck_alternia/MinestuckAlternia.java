@@ -13,6 +13,7 @@ import com.apocfarce.minestuck_alternia.world.biome.provider.AlterniaBiomeProvid
 import com.apocfarce.minestuck_alternia.world.biome.provider.AlterniaBiomeProviderTypes;
 import com.apocfarce.minestuck_alternia.world.gen.AlterniaChunkGenTypes;
 import com.apocfarce.minestuck_alternia.world.gen.carver.AlterniaCarvers;
+import com.apocfarce.minestuck_alternia.world.gen.feature.AlterniaFeatures;
 import com.apocfarce.minestuck_alternia.world.gen.feature.structure.AlterniaStructures;
 import com.apocfarce.minestuck_alternia.world.gen.feature.structure.PieceTypes;
 import com.apocfarce.minestuck_alternia.world.gen.surfacebuilder.AlterniaSurfaceBuilders;
@@ -53,6 +54,7 @@ public class MinestuckAlternia {
         AlterniaBiomes.initBiomeFeatures();
         event.enqueueWork(PieceTypes::register);
         event.enqueueWork(AlterniaBiomeProvider::initBiomeList);
+        event.enqueueWork(AlterniaFeatures::initFeatures);
         event.enqueueWork(AlterniaStructures::initFeatures);
         AlterniaPacketHandler.registerPackets();
     }
