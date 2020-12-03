@@ -1,17 +1,15 @@
 package com.apocfarce.minestuck_alternia.world.gen.layer;
 
 import net.minecraft.world.gen.INoiseRandom;
-import net.minecraft.world.gen.layer.LayerUtil;
 import net.minecraft.world.gen.layer.traits.IAreaTransformer0;
-import net.minecraft.world.gen.layer.traits.IC1Transformer;
 
 public enum AlterniaHeatMapLayer implements IAreaTransformer0 {
 	INSTANCE;
-	private int OCEAN_CHANCE = 0;
-	private int DESERT_CHANCE = 45;
-	private int WARM_CHANCE = 30;
-	private int COOL_CHANCE = 25;
-	private int FROZEN_CHANCE = 0;
+	private static final int OCEAN_CHANCE = 0;
+	private static final int DESERT_CHANCE = 45;
+	private static final int WARM_CHANCE = 30;
+	private static final int COOL_CHANCE = 25;
+	private static final int FROZEN_CHANCE = 0;
 	
 	public int apply(INoiseRandom context, int x,int z) {
 		int RN = context.random(100);

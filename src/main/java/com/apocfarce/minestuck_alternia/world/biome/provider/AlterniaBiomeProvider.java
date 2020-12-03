@@ -2,6 +2,11 @@ package com.apocfarce.minestuck_alternia.world.biome.provider;
 
 import com.apocfarce.minestuck_alternia.world.biome.AlterniaBiomes;
 import com.apocfarce.minestuck_alternia.world.gen.layer.AlterniaLayerUtil;
+import com.mojang.serialization.Codec;
+import com.mojang.serialization.codecs.RecordCodecBuilder;
+import net.minecraft.util.registry.Registry;
+import net.minecraft.util.registry.RegistryLookupCodec;
+import net.minecraft.util.registry.WorldGenRegistries;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.provider.BiomeProvider;
 import net.minecraft.world.gen.layer.Layer;
@@ -11,14 +16,33 @@ import net.minecraftforge.common.BiomeManager.BiomeType;
 import java.util.*;
 
 public class AlterniaBiomeProvider extends BiomeProvider {
-	private final Layer genBiomes;
+	public static final Codec<AlterniaBiomeProvider> CODEC = RecordCodecBuilder.create(builder ->
+			builder.group(Codec.LONG.fieldOf("seed").stable().forGetter(provider -> provider.seed),
+			RegistryLookupCodec.getLookUpCodec(Registry.BIOME_KEY).forGetter(provider -> provider.lookupRegistry))
+			.apply(builder, builder.stable(AlterniaBiomeProvider::new)));
+	
 	private static final Map<BiomeType, List<BiomeEntry>> biomes = new EnumMap<>(BiomeType.class);
 	private static final Map<BiomeType, List<BiomeEntry>> unmodifiableBiomes = new EnumMap<>(BiomeType.class);
-   	private static final Set<Biome> biomeSet = new HashSet<>();
+   	private static final List<Biome> biomeSet = new ArrayList<>();
+   	private final long seed;
+	private final Layer genBiomes;
+	private final Registry<Biome> lookupRegistry;
    
-	public AlterniaBiomeProvider(AlterniaBiomeProviderSettings settings) {
-		super(Collections.unmodifiableSet(biomeSet));
-		this.genBiomes = AlterniaLayerUtil.buildAlterniaProcedure(settings.getSeed(), settings.getWorldType(), settings.getGeneratorSettings());
+	public AlterniaBiomeProvider(long seed, Registry<Biome> lookupRegistry) {
+		super(Collections.unmodifiableList(biomeSet));
+		this.seed = seed;
+		this.lookupRegistry = lookupRegistry;
+		this.genBiomes = AlterniaLayerUtil.buildAlterniaProcedure(seed);
+	}
+	
+	@Override
+	protected Codec<? extends BiomeProvider> getBiomeProviderCodec() {
+		return CODEC;
+	}
+	
+	@Override
+	public BiomeProvider getBiomeProvider(long seed) {
+		return new AlterniaBiomeProvider(seed, lookupRegistry);
 	}
 	
 	public static void initBiomeList() {
@@ -43,7 +67,7 @@ public class AlterniaBiomeProvider extends BiomeProvider {
 	}
 	*/
 	private static void addBiome(Biome biome, BiomeType type, int weight) {
-		biomes.computeIfAbsent(type, AlterniaBiomeProvider::makeList).add(new BiomeEntry(biome,weight));
+		biomes.computeIfAbsent(type, AlterniaBiomeProvider::makeList).add(new BiomeEntry(WorldGenRegistries.BIOME.getOptionalKey(biome).get(),weight));
 		biomeSet.add(biome);
 	}
 	
@@ -60,6 +84,6 @@ public class AlterniaBiomeProvider extends BiomeProvider {
 	
 	@Override
 	public Biome getNoiseBiome(int x, int y, int z) {
-		return genBiomes.func_215738_a(x, z);
+		return genBiomes.func_242936_a(lookupRegistry, x, z);
 	}
 }

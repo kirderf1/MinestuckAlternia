@@ -4,8 +4,7 @@ import com.apocfarce.minestuck_alternia.block.AlterniaBlocks;
 import com.apocfarce.minestuck_alternia.util.CustomDamageSources;
 import com.apocfarce.minestuck_alternia.util.PlayerDataHelper;
 import com.apocfarce.minestuck_alternia.world.biome.provider.AlterniaBiomeProvider;
-import com.apocfarce.minestuck_alternia.world.biome.provider.AlterniaBiomeProviderSettings;
-import com.apocfarce.minestuck_alternia.world.biome.provider.AlterniaBiomeProviderTypes;
+import com.apocfarce.minestuck_alternia.world.biome.provider.AlterniaBiomeProviders;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.ServerPlayerEntity;
@@ -38,7 +37,7 @@ public class AlterniaDimension extends Dimension {
 	@Override
 	public ChunkGenerator<?> createChunkGenerator() {
 		
-		BiomeProviderType<AlterniaBiomeProviderSettings, AlterniaBiomeProvider> biomeProviderType = AlterniaBiomeProviderTypes.ALTERNIA.get();
+		BiomeProviderType<AlterniaBiomeProviderSettings, AlterniaBiomeProvider> biomeProviderType = AlterniaBiomeProviders.ALTERNIA.get();
 		
 		
 		OverworldGenSettings genSettings = ChunkGeneratorType.SURFACE.createSettings();

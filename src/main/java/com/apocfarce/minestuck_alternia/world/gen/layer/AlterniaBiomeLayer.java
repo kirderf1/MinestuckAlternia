@@ -1,20 +1,13 @@
 package com.apocfarce.minestuck_alternia.world.gen.layer;
 
 import com.apocfarce.minestuck_alternia.world.biome.provider.AlterniaBiomeProvider;
-import com.google.common.collect.ImmutableList;
-
 import net.minecraft.util.WeightedRandom;
-import net.minecraft.util.registry.Registry;
-import net.minecraft.world.WorldType;
-import net.minecraft.world.biome.Biomes;
+import net.minecraft.util.registry.WorldGenRegistries;
 import net.minecraft.world.gen.INoiseRandom;
-import net.minecraft.world.gen.OverworldGenSettings;
 import net.minecraft.world.gen.layer.traits.IC0Transformer;
-import net.minecraftforge.common.BiomeManager;
 import net.minecraftforge.common.BiomeManager.BiomeEntry;
 import net.minecraftforge.common.BiomeManager.BiomeType;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -26,23 +19,24 @@ public enum AlterniaBiomeLayer implements IC0Transformer {
 	public int apply(INoiseRandom context, int value) {
 		switch (value) {
 			case 0:
-				return Registry.BIOME.getId(Biomes.OCEAN);
+				return 0; // ocean biome id
 			case 1:
-				return Registry.BIOME.getId(getWeightedBiomeEntry(BiomeType.DESERT, context).biome);
+				return getWeightedBiomeEntry(BiomeType.DESERT, context);
 			case 2:
-				return Registry.BIOME.getId(getWeightedBiomeEntry(BiomeType.WARM, context).biome);
+				return getWeightedBiomeEntry(BiomeType.WARM, context);
 			case 3:
-				return Registry.BIOME.getId(getWeightedBiomeEntry(BiomeType.COOL, context).biome);
-			case 4:
-				return Registry.BIOME.getId(getWeightedBiomeEntry(BiomeType.ICY, context).biome);
+				return getWeightedBiomeEntry(BiomeType.COOL, context);
+			/*case 4:
+				return getWeightedBiomeEntry(BiomeType.ICY, context);*/
 		}
 		throw new IllegalStateException("Got unexpected biome layer value: " + value);
 	}
 	
-	protected BiomeEntry getWeightedBiomeEntry(BiomeType type, INoiseRandom context) {
+	protected int getWeightedBiomeEntry(BiomeType type, INoiseRandom context) {
 		List<BiomeEntry> biomeList = AlterniaBiomeProvider.getBiomes(type);
 		int totalWeight = WeightedRandom.getTotalWeight(biomeList);
 		int weight = context.random(totalWeight);
-		return WeightedRandom.getRandomItem(biomeList, weight);
+		BiomeEntry entry = WeightedRandom.getRandomItem(biomeList, weight);
+		return WorldGenRegistries.BIOME.getId(WorldGenRegistries.BIOME.getValueForKey(entry.getKey()));
 	}
 }
