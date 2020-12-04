@@ -13,10 +13,10 @@ import com.apocfarce.minestuck_alternia.util.CustomDamageSources;
 import com.apocfarce.minestuck_alternia.world.biome.AlterniaBiomes;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.util.DamageSource;
+import net.minecraft.util.RegistryKey;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.biome.Biome;
 import net.minecraftforge.common.data.LanguageProvider;
-import net.minecraftforge.fml.RegistryObject;
 
 import java.util.Objects;
 
@@ -101,7 +101,9 @@ public class AlterniaEnUsLanguageProvider extends LanguageProvider {
 		
 		add(CustomDamageSources.SUNBURN, "%1$s burned to death in the sun", "%1$s burned to death in the sun whilst fighting %2$s");
 		
-		addBiome(AlterniaBiomes.ALTERNIA_PLAINS, "Alternia Plains");
+		addBiome(AlterniaBiomes.PLAINS, "Alternia Plains");
+		addBiome(AlterniaBiomes.VOLCANIC_FIELD, "Volcanic Field");
+		addBiome(AlterniaBiomes.SHRUB_LAND, "Shrub Land");
 		addBiome(AlterniaBiomes.MIRRAGE_FOREST, "Mirrage Forest");
 		addBiome(AlterniaBiomes.PYRAL_FOREST, "Pyral Forest");
 		addBiome(AlterniaBiomes.MIXED_FOREST, "Mixed Forest");
@@ -134,8 +136,8 @@ public class AlterniaEnUsLanguageProvider extends LanguageProvider {
 		add(BloodColor.LIME, "Lime");
 	}
 	
-	protected void addBiome(RegistryObject<Biome> biome, String name) {
-		ResourceLocation regName = Objects.requireNonNull(biome.getId());
+	protected void addBiome(RegistryKey<Biome> biome, String name) {
+		ResourceLocation regName = Objects.requireNonNull(biome.getLocation());
 		add("biome." + regName.getNamespace() + "." + regName.getPath(), name);
 	}
 	

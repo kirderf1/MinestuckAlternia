@@ -19,6 +19,7 @@ public class AlterniaData {
 			generator.addProvider(new AlterniaBlockTagsProvider(generator, event.getExistingFileHelper()));
 			generator.addProvider(new AlterniaRecipeProvider(generator));
 			generator.addProvider(new AlterniaLootTableProvider(generator));
+			generator.addProvider(new BiomeProvider(generator));
 		}
 	}
 }

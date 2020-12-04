@@ -7,23 +7,28 @@ import net.minecraft.world.gen.carver.ConfiguredCarver;
 import net.minecraft.world.gen.carver.ICarverConfig;
 import net.minecraft.world.gen.carver.WorldCarver;
 import net.minecraft.world.gen.feature.ProbabilityConfig;
-import net.minecraftforge.fml.RegistryObject;
-import net.minecraftforge.registries.DeferredRegister;
-import net.minecraftforge.registries.ForgeRegistries;
+import net.minecraftforge.event.RegistryEvent;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.registries.IForgeRegistry;
 
+@Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD, modid = MinestuckAlternia.MOD_ID)
 public class AlterniaCarvers {
-
-	public static final DeferredRegister<WorldCarver<?>> REGISTER = DeferredRegister.create(ForgeRegistries.WORLD_CARVERS, MinestuckAlternia.MOD_ID);
-	
-	public static final RegistryObject<WorldCarver<ProbabilityConfig>> CAVE = REGISTER.register("cave", () -> new AlterniaCaveCarver(ProbabilityConfig.CODEC, 256));
-	public static final RegistryObject<WorldCarver<ProbabilityConfig>> CANYON = REGISTER.register("canyon", () -> new AlterniaCanyonCarver(ProbabilityConfig.CODEC));
 	
 	public static ConfiguredCarver<ProbabilityConfig> CONFIGURED_CAVE;
 	public static ConfiguredCarver<ProbabilityConfig> CONFIGURED_CANYON;
 	
-	public static void initCarvers() {
-		CONFIGURED_CAVE = register("cave", CAVE.get().func_242761_a(new ProbabilityConfig(1/7F)));
-		CONFIGURED_CANYON = register("canyon", CANYON.get().func_242761_a(new ProbabilityConfig(1/50F)));
+	@SubscribeEvent
+	public static void registerCarvers(RegistryEvent.Register<WorldCarver<?>> event) {
+		WorldCarver<ProbabilityConfig> cave = register(event.getRegistry(), "cave", new AlterniaCaveCarver(ProbabilityConfig.CODEC, 256));
+		WorldCarver<ProbabilityConfig> canyon = register(event.getRegistry(), "canyon", new AlterniaCanyonCarver(ProbabilityConfig.CODEC));
+		CONFIGURED_CAVE = register("cave", cave.func_242761_a(new ProbabilityConfig(1/7F)));
+		CONFIGURED_CANYON = register("canyon", canyon.func_242761_a(new ProbabilityConfig(1/50F)));
+	}
+	
+	private static <C extends WorldCarver<?>> C register(IForgeRegistry<WorldCarver<?>> registry, String name, C carver) {
+		registry.register(carver.setRegistryName(name));
+		return carver;
 	}
 	
 	private static <C extends ICarverConfig> ConfiguredCarver<C> register(String name, ConfiguredCarver<C> carver) {

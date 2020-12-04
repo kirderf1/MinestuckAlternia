@@ -1,7 +1,7 @@
 {
   "variants": {
     "axis=x": {
-      "model": "minestuck_alternia:block/stripped_mirrage_log",
+      "model": "minestuck_alternia:block/stripped_mirrage_log_horizontal",
       "x": 90,
       "y": 90
     },
@@ -9,7 +9,7 @@
       "model": "minestuck_alternia:block/stripped_mirrage_log"
     },
     "axis=z": {
-      "model": "minestuck_alternia:block/stripped_mirrage_log",
+      "model": "minestuck_alternia:block/stripped_mirrage_log_horizontal",
       "x": 90
     }
   }

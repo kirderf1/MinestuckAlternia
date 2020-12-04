@@ -25,7 +25,7 @@ public class OccupyHiveCommand {
 	private static int perform(CommandSource source, ServerPlayerEntity player, BloodColor color) {
 		ServerWorld alterniaWorld = player.server.getWorld(AlterniaDimensions.ALTERNIA_KEY);
 		if(alterniaWorld != null) {
-			BlockPos spawnPos = AlterniaStructures.HIVE.get().tryFindHiveToOccupy(alterniaWorld, color);
+			BlockPos spawnPos = AlterniaStructures.HIVE.tryFindHiveToOccupy(alterniaWorld, color);
 			if(spawnPos != null) {
 				boolean success = PortalUtil.teleportEntity(player, alterniaWorld, spawnPos.getX() + 0.5, spawnPos.getY(), spawnPos.getZ() + 0.5, 0, 0) != null;
 				if(success)

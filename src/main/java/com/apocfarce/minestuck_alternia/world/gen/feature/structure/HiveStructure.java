@@ -11,6 +11,7 @@ import net.minecraft.util.registry.DynamicRegistries;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.chunk.ChunkStatus;
 import net.minecraft.world.gen.ChunkGenerator;
+import net.minecraft.world.gen.GenerationStage;
 import net.minecraft.world.gen.Heightmap;
 import net.minecraft.world.gen.feature.structure.Structure;
 import net.minecraft.world.gen.feature.structure.StructurePiece;
@@ -34,18 +35,12 @@ public class HiveStructure extends Structure<HiveStructureConfig> {
 	public String getStructureName() {
 		return String.valueOf(getRegistryName());
 	}
-	/*
-	TODO these are now stored based on the dimension. Figure out where once you start updating the dimension itself
-	@Override
-	protected int getBiomeFeatureDistance(ChunkGenerator<?> chunkGenerator) {
-		return 12;
-	}
 	
 	@Override
-	protected int getBiomeFeatureSeparation(ChunkGenerator<?> chunkGenerator) {
-		return 3;
+	public GenerationStage.Decoration getDecorationStage() {
+		return GenerationStage.Decoration.SURFACE_STRUCTURES;
 	}
-	*/
+	
 	public BlockPos tryFindHiveToOccupy(ServerWorld world, BloodColor color) {
 		
 		final int maxRadius = 10;

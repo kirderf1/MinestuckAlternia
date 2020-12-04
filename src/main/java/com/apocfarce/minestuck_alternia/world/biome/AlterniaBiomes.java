@@ -1,23 +1,36 @@
 package com.apocfarce.minestuck_alternia.world.biome;
 
 import com.apocfarce.minestuck_alternia.MinestuckAlternia;
+import com.google.common.collect.ImmutableList;
+import com.mojang.datafixers.util.Pair;
+import net.minecraft.util.RegistryKey;
+import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.registry.Registry;
 import net.minecraft.world.biome.Biome;
-import net.minecraftforge.fml.RegistryObject;
-import net.minecraftforge.registries.DeferredRegister;
-import net.minecraftforge.registries.ForgeRegistries;
+
+import java.util.List;
 
 public class AlterniaBiomes {
 	
-	public static final DeferredRegister<Biome> REGISTER = DeferredRegister.create(ForgeRegistries.BIOMES, MinestuckAlternia.MOD_ID);
+	public static final RegistryKey<Biome> PLAINS = makeKey("plains");
+	public static final RegistryKey<Biome> VOLCANIC_FIELD = makeKey("volcanic_fields");
+	public static final RegistryKey<Biome> SHRUB_LAND = makeKey("shrub_land");
 	
-	public static final RegistryObject<Biome> ALTERNIA_PLAINS = REGISTER.register("plains", WarmBiomeMaker::makePlains);
-	public static final RegistryObject<Biome> VOLCANIC_FIELD = REGISTER.register("volcanic_fields", WarmBiomeMaker::makeVolcanicFields);
-	public static final RegistryObject<Biome> SHRUBLAND = REGISTER.register("shrub_land", WarmBiomeMaker::makeShrublands);
+	public static final RegistryKey<Biome> MIRRAGE_FOREST = makeKey("mirrage_forest");
+	public static final RegistryKey<Biome> PYRAL_FOREST = makeKey("pyral_forest");
+	public static final RegistryKey<Biome> MIXED_FOREST = makeKey("mixed_forest");
 	
-	public static final RegistryObject<Biome> MIRRAGE_FOREST = REGISTER.register("mirrage_forest", CoolBiomeMaker::makeMirrageWoods);
-	public static final RegistryObject<Biome> PYRAL_FOREST = REGISTER.register("pyral_forest", CoolBiomeMaker::makePyralWoods);
-	public static final RegistryObject<Biome> MIXED_FOREST = REGISTER.register("mixed_forest", CoolBiomeMaker::makeMixedWoods);
+	public static final RegistryKey<Biome> COLORED_DESERT = makeKey("colored_desert");
 	
-	public static final RegistryObject<Biome> COLORED_DESERT = REGISTER.register("colored_desert", DesertBiomeMaker::makeRainbowDesert);
-
+	private static RegistryKey<Biome> makeKey(String name) {
+		return RegistryKey.getOrCreateKey(Registry.BIOME_KEY, new ResourceLocation(MinestuckAlternia.MOD_ID, name));
+	}
+	
+	public static List<Pair<RegistryKey<Biome>, Biome>> makeBiomesForDataGen() {
+		return ImmutableList.of(Pair.of(PLAINS, WarmBiomeMaker.makePlains()), Pair.of(VOLCANIC_FIELD, WarmBiomeMaker.makeVolcanicFields()),
+				Pair.of(SHRUB_LAND, WarmBiomeMaker.makeShrublands()),
+				Pair.of(MIRRAGE_FOREST, CoolBiomeMaker.makeMirrageWoods()), Pair.of(PYRAL_FOREST, CoolBiomeMaker.makePyralWoods()),
+				Pair.of(MIXED_FOREST, CoolBiomeMaker.makeMixedWoods()),
+				Pair.of(COLORED_DESERT, DesertBiomeMaker.makeRainbowDesert()));
+	}
 }

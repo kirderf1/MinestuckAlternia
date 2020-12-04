@@ -1,5 +1,5 @@
 {
-  "parent": "block/cube_column",
+  "parent": "minecraft:block/cube_column",
   "textures": {
     "side": "minestuck_alternia:block/stripped_mirrage_log",
     "end": "minestuck_alternia:block/mirrage_log_top"

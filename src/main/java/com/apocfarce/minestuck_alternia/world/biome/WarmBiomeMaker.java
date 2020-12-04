@@ -36,7 +36,7 @@ public class WarmBiomeMaker {
 		BiomeAmbience.Builder ambience = new BiomeAmbience.Builder();
 		ambience.setWaterColor(0x113355).setWaterFogColor(0x115588);
 		ambience.withFoliageColor(0x9955DD).withGrassColor(0x004411);
-		ambience.withSkyColor(0x77A7FF).setMoodSound(MoodSoundAmbience.DEFAULT_CAVE);
+		ambience.withSkyColor(0x77A7FF).setFogColor(0xC0D8FF).setMoodSound(MoodSoundAmbience.DEFAULT_CAVE);
 		
 		return new Biome.Builder().precipitation(Biome.RainType.RAIN).category(Biome.Category.PLAINS).depth(0.125F).scale(0.05F)
 				.temperature(0.8F).downfall(0.4F).setEffects(ambience.build()).withMobSpawnSettings(mobSpawns.copy()).withGenerationSettings(genSettings.build()).build();
@@ -62,7 +62,7 @@ public class WarmBiomeMaker {
 		BiomeAmbience.Builder ambience = new BiomeAmbience.Builder();
 		ambience.setWaterColor(0x113355).setWaterFogColor(0x115588);
 		ambience.withFoliageColor(0x9955DD).withGrassColor(0x004411);
-		ambience.withSkyColor(0x77A7FF).setMoodSound(MoodSoundAmbience.DEFAULT_CAVE);
+		ambience.withSkyColor(0x77A7FF).setFogColor(0xC0D8FF).setMoodSound(MoodSoundAmbience.DEFAULT_CAVE);
 		
 		return new Biome.Builder().precipitation(Biome.RainType.RAIN).category(Biome.Category.MESA).depth(0.8F).scale(0.25F)
 				.temperature(0.8F).downfall(0.4F).setEffects(ambience.build()).withMobSpawnSettings(mobSpawns.copy()).withGenerationSettings(genSettings.build()).build();
@@ -93,7 +93,7 @@ public class WarmBiomeMaker {
 		BiomeAmbience.Builder ambience = new BiomeAmbience.Builder();
 		ambience.setWaterColor(0x113355).setWaterFogColor(0x115588);
 		ambience.withFoliageColor(0x889933).withGrassColor(0x889944);
-		ambience.withSkyColor(0x77A7FF).setMoodSound(MoodSoundAmbience.DEFAULT_CAVE);
+		ambience.withSkyColor(0x77A7FF).setFogColor(0xC0D8FF).setMoodSound(MoodSoundAmbience.DEFAULT_CAVE);
 		
 		return new Biome.Builder().precipitation(Biome.RainType.RAIN).category(Biome.Category.PLAINS).depth(0.125F).scale(0.05F)
 				.temperature(0.8F).downfall(0.4F).setEffects(ambience.build()).withMobSpawnSettings(mobSpawns.copy()).withGenerationSettings(genSettings.build()).build();

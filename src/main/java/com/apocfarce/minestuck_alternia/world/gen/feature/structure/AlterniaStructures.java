@@ -8,15 +8,24 @@ import net.minecraft.util.registry.WorldGenRegistries;
 import net.minecraft.world.gen.feature.IFeatureConfig;
 import net.minecraft.world.gen.feature.StructureFeature;
 import net.minecraft.world.gen.feature.structure.Structure;
-import net.minecraftforge.fml.RegistryObject;
-import net.minecraftforge.registries.DeferredRegister;
-import net.minecraftforge.registries.ForgeRegistries;
+import net.minecraftforge.event.RegistryEvent;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.registries.ObjectHolder;
 
+import javax.annotation.Nonnull;
+
+@ObjectHolder(MinestuckAlternia.MOD_ID)
+@Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD, modid = MinestuckAlternia.MOD_ID)
 public class AlterniaStructures {
 	
-	public static final DeferredRegister<Structure<?>> REGISTER = DeferredRegister.create(ForgeRegistries.STRUCTURE_FEATURES, MinestuckAlternia.MOD_ID);
+	public static final HiveStructure HIVE = getNull();
 	
-	public static final RegistryObject<HiveStructure> HIVE = REGISTER.register("hive", () -> new HiveStructure(HiveStructureConfig.CODEC));
+	@Nonnull
+	@SuppressWarnings("ConstantConditions")
+	private static <T> T getNull() {
+		return null;
+	}
 	
 	public static StructureFeature<HiveStructureConfig, ? extends Structure<HiveStructureConfig>> LOWBLOOD_HIVE;
 	public static StructureFeature<HiveStructureConfig, ? extends Structure<HiveStructureConfig>> MID_LOWBLOOD_HIVE;
@@ -24,12 +33,15 @@ public class AlterniaStructures {
 	public static StructureFeature<HiveStructureConfig, ? extends Structure<HiveStructureConfig>> MIXED_MID_HIGHBLOOD_HIVE;
 	public static StructureFeature<HiveStructureConfig, ? extends Structure<HiveStructureConfig>> HIGHBLOOD_HIVE;
 	
-	public static void initFeatures() {
-		LOWBLOOD_HIVE = register("lowblood_hive", HIVE.get().withConfiguration(lowbloodConfig()));
-		MID_LOWBLOOD_HIVE = register("mid_lowblood_hive", HIVE.get().withConfiguration(midLowbloodConfig()));
-		PYRAL_MID_HIGHBLOOD_HIVE = register("pyral_mid_highblood_hive", HIVE.get().withConfiguration(pyralMidHighbloodConfig()));
-		MIXED_MID_HIGHBLOOD_HIVE = register("mixed_mid_highblood_hive", HIVE.get().withConfiguration(mixedMidHighbloodConfig()));
-		HIGHBLOOD_HIVE = register("highblood_hive", HIVE.get().withConfiguration(highbloodConfig()));
+	@SubscribeEvent
+	public static void registerStructures(RegistryEvent.Register<Structure<?>> event) {
+		HiveStructure hive = new HiveStructure(HiveStructureConfig.CODEC);
+		event.getRegistry().register(hive.setRegistryName("hive"));
+		LOWBLOOD_HIVE = register("lowblood_hive", hive.withConfiguration(lowbloodConfig()));
+		MID_LOWBLOOD_HIVE = register("mid_lowblood_hive", hive.withConfiguration(midLowbloodConfig()));
+		PYRAL_MID_HIGHBLOOD_HIVE = register("pyral_mid_highblood_hive", hive.withConfiguration(pyralMidHighbloodConfig()));
+		MIXED_MID_HIGHBLOOD_HIVE = register("mixed_mid_highblood_hive", hive.withConfiguration(mixedMidHighbloodConfig()));
+		HIGHBLOOD_HIVE = register("highblood_hive", hive.withConfiguration(highbloodConfig()));
 	}
 	
 	private static HiveStructureConfig lowbloodConfig() {

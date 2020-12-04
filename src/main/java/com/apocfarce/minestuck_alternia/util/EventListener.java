@@ -58,7 +58,7 @@ public class EventListener {
 				ServerWorld alterniaWorld = player.server.getWorld(AlterniaDimensions.ALTERNIA_KEY);
 				
 				if(alterniaWorld != null) {
-					BlockPos spawnPos = AlterniaStructures.HIVE.get().tryFindHiveToOccupy(alterniaWorld, color);
+					BlockPos spawnPos = AlterniaStructures.HIVE.tryFindHiveToOccupy(alterniaWorld, color);
 					if(spawnPos != null) {
 						player.func_242111_a(AlterniaDimensions.ALTERNIA_KEY, spawnPos, 0, true, false);
 					} else {

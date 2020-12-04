@@ -7,12 +7,8 @@ import com.apocfarce.minestuck_alternia.command.OccupyHiveCommand;
 import com.apocfarce.minestuck_alternia.data.AlterniaData;
 import com.apocfarce.minestuck_alternia.network.AlterniaPacketHandler;
 import com.apocfarce.minestuck_alternia.util.EventListener;
-import com.apocfarce.minestuck_alternia.world.biome.AlterniaBiomes;
 import com.apocfarce.minestuck_alternia.world.biome.provider.AlterniaBiomeProvider;
 import com.apocfarce.minestuck_alternia.world.biome.provider.AlterniaBiomeProviders;
-import com.apocfarce.minestuck_alternia.world.gen.carver.AlterniaCarvers;
-import com.apocfarce.minestuck_alternia.world.gen.feature.AlterniaFeatures;
-import com.apocfarce.minestuck_alternia.world.gen.feature.structure.AlterniaStructures;
 import com.apocfarce.minestuck_alternia.world.gen.feature.structure.PieceTypes;
 import com.apocfarce.minestuck_alternia.world.gen.surfacebuilder.AlterniaSurfaceBuilders;
 import net.minecraft.block.Block;
@@ -40,17 +36,11 @@ public class MinestuckAlternia {
         MinecraftForge.EVENT_BUS.register(EventListener.class);
         
         AlterniaSurfaceBuilders.REGISTER.register(modBus);
-        AlterniaBiomes.REGISTER.register(modBus);
-        AlterniaStructures.REGISTER.register(modBus);
-        AlterniaCarvers.REGISTER.register(modBus);
     }
     
     private void setup(final FMLCommonSetupEvent event) {
         event.enqueueWork(PieceTypes::register);
         event.enqueueWork(AlterniaBiomeProvider::initBiomeList);
-        event.enqueueWork(AlterniaFeatures::initFeatures);
-        event.enqueueWork(AlterniaStructures::initFeatures);
-        event.enqueueWork(AlterniaCarvers::initCarvers);
         event.enqueueWork(AlterniaBiomeProviders::init);
         AlterniaPacketHandler.registerPackets();
     }

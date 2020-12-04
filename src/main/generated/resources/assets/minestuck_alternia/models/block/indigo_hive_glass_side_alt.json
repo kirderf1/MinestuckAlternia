@@ -1,5 +1,5 @@
 {
-  "parent": "block/template_glass_pane_side_alt",
+  "parent": "minecraft:block/template_glass_pane_side_alt",
   "textures": {
     "pane": "minestuck_alternia:block/indigo_hive_glass",
     "edge": "minestuck_alternia:block/indigo_hive_glass"

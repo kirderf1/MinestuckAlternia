@@ -4,9 +4,9 @@ import com.apocfarce.minestuck_alternia.world.biome.AlterniaBiomes;
 import com.apocfarce.minestuck_alternia.world.biome.layer.AlterniaLayerUtil;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
+import net.minecraft.util.RegistryKey;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.util.registry.RegistryLookupCodec;
-import net.minecraft.util.registry.WorldGenRegistries;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.provider.BiomeProvider;
 import net.minecraft.world.gen.layer.Layer;
@@ -14,6 +14,7 @@ import net.minecraftforge.common.BiomeManager.BiomeEntry;
 import net.minecraftforge.common.BiomeManager.BiomeType;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class AlterniaBiomeProvider extends BiomeProvider {
 	public static final Codec<AlterniaBiomeProvider> CODEC = RecordCodecBuilder.create(builder ->
@@ -23,13 +24,13 @@ public class AlterniaBiomeProvider extends BiomeProvider {
 	
 	private static final Map<BiomeType, List<BiomeEntry>> biomes = new EnumMap<>(BiomeType.class);
 	private static final Map<BiomeType, List<BiomeEntry>> unmodifiableBiomes = new EnumMap<>(BiomeType.class);
-   	private static final List<Biome> biomeSet = new ArrayList<>();
+   	private static final List<RegistryKey<Biome>> biomeSet = new ArrayList<>();
    	private final long seed;
 	private final Layer genBiomes;
 	private final Registry<Biome> lookupRegistry;
    
 	public AlterniaBiomeProvider(long seed, Registry<Biome> lookupRegistry) {
-		super(Collections.unmodifiableList(biomeSet));
+		super(biomeSet.stream().map(lookupRegistry::getValueForKey).collect(Collectors.toList()));
 		this.seed = seed;
 		this.lookupRegistry = lookupRegistry;
 		this.genBiomes = AlterniaLayerUtil.buildAlterniaProcedure(seed);
@@ -49,13 +50,13 @@ public class AlterniaBiomeProvider extends BiomeProvider {
 		//addVanilla(Biomes.BADLANDS, BiomeType.DESERT, 10);
 		//addVanilla(Biomes.DESERT,BiomeType.DESERT, 20);
 		
-		addBiome(AlterniaBiomes.MIRRAGE_FOREST.get(), BiomeType.COOL, 10);
-		addBiome(AlterniaBiomes.PYRAL_FOREST.get(), BiomeType.COOL, 10);
-		addBiome(AlterniaBiomes.MIXED_FOREST.get(), BiomeType.COOL, 10);
-		addBiome(AlterniaBiomes.ALTERNIA_PLAINS.get(), BiomeType.WARM, 30);
-		addBiome(AlterniaBiomes.VOLCANIC_FIELD.get(), BiomeType.WARM,10);
-		addBiome(AlterniaBiomes.SHRUBLAND.get(), BiomeType.WARM,10);
-		addBiome(AlterniaBiomes.COLORED_DESERT.get(), BiomeType.DESERT, 30);
+		addBiome(AlterniaBiomes.MIRRAGE_FOREST, BiomeType.COOL, 10);
+		addBiome(AlterniaBiomes.PYRAL_FOREST, BiomeType.COOL, 10);
+		addBiome(AlterniaBiomes.MIXED_FOREST, BiomeType.COOL, 10);
+		addBiome(AlterniaBiomes.PLAINS, BiomeType.WARM, 30);
+		addBiome(AlterniaBiomes.VOLCANIC_FIELD, BiomeType.WARM,10);
+		addBiome(AlterniaBiomes.SHRUB_LAND, BiomeType.WARM,10);
+		addBiome(AlterniaBiomes.COLORED_DESERT, BiomeType.DESERT, 30);
 	}
 	/* We can no longer modify vanilla biomes directly
 	private static void addVanilla(Biome biome, BiomeType type, int weight) {
@@ -66,8 +67,8 @@ public class AlterniaBiomeProvider extends BiomeProvider {
 		addBiome(biome, type, weight);
 	}
 	*/
-	private static void addBiome(Biome biome, BiomeType type, int weight) {
-		biomes.computeIfAbsent(type, AlterniaBiomeProvider::makeList).add(new BiomeEntry(WorldGenRegistries.BIOME.getOptionalKey(biome).get(),weight));
+	private static void addBiome(RegistryKey<Biome> biome, BiomeType type, int weight) {
+		biomes.computeIfAbsent(type, AlterniaBiomeProvider::makeList).add(new BiomeEntry(biome, weight));
 		biomeSet.add(biome);
 	}
 	
