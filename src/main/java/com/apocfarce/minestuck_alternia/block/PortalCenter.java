@@ -129,7 +129,7 @@ public class PortalCenter extends Portal{
 				ServerWorld to;
 				
 				if(from==from.getServer().getWorld(World.OVERWORLD)) {
-					to=from.getServer().getWorld(AlterniaDimensions.getDimensionType());
+					to=from.getServer().getWorld(AlterniaDimensions.ALTERNIA_KEY);
 				}else{
 					to=from.getServer().getWorld(World.OVERWORLD);
 				}

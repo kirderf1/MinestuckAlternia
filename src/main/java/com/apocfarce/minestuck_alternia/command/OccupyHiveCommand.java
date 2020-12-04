@@ -11,7 +11,6 @@ import net.minecraft.command.arguments.EntityArgument;
 import net.minecraft.entity.player.ServerPlayerEntity;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.server.ServerWorld;
-import net.minecraftforge.common.DimensionManager;
 import net.minecraftforge.server.command.EnumArgument;
 
 public class OccupyHiveCommand {
@@ -24,7 +23,7 @@ public class OccupyHiveCommand {
 	}
 	
 	private static int perform(CommandSource source, ServerPlayerEntity player, BloodColor color) {
-		ServerWorld alterniaWorld = DimensionManager.getWorld(player.server, AlterniaDimensions.getDimensionType(), true, true);
+		ServerWorld alterniaWorld = player.server.getWorld(AlterniaDimensions.ALTERNIA_KEY);
 		if(alterniaWorld != null) {
 			BlockPos spawnPos = AlterniaStructures.HIVE.get().tryFindHiveToOccupy(alterniaWorld, color);
 			if(spawnPos != null) {

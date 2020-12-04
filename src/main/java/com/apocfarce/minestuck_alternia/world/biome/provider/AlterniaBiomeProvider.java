@@ -1,7 +1,7 @@
 package com.apocfarce.minestuck_alternia.world.biome.provider;
 
 import com.apocfarce.minestuck_alternia.world.biome.AlterniaBiomes;
-import com.apocfarce.minestuck_alternia.world.gen.layer.AlterniaLayerUtil;
+import com.apocfarce.minestuck_alternia.world.biome.layer.AlterniaLayerUtil;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.util.registry.Registry;

@@ -1,5 +1,5 @@
 package com.apocfarce.minestuck_alternia.world;
-
+/*
 import com.apocfarce.minestuck_alternia.block.AlterniaBlocks;
 import com.apocfarce.minestuck_alternia.util.CustomDamageSources;
 import com.apocfarce.minestuck_alternia.util.PlayerDataHelper;
@@ -96,7 +96,7 @@ public class AlterniaDimension extends Dimension {
 	
 	/**
 	 * Calculates the angle of sun and moon in the sky relative to a specified time (usually worldTime)
-	 */
+	 * /
 	@Override
 	public float calculateCelestialAngle(long worldTime, float partialTicks) {
 		// A term representing the day-night angle. 0: noon, 0.5: midnight, 1: noon on the following day
@@ -141,7 +141,7 @@ public class AlterniaDimension extends Dimension {
 	
 	/**
 	 * Returns 'true' if in the "main surface world", but 'false' if in the Nether or End dimensions.
-	 */
+	 * /
 	@Override
 	public boolean isSurfaceWorld() {
 		return true;
@@ -149,7 +149,7 @@ public class AlterniaDimension extends Dimension {
 	
 	/**
 	 * Return Vec3D with biome specific fog color
-	 */
+	 * /
 	@Override
 	public Vec3d getFogColor(float CelestialAngle, float partialTicks) {
 		float dayRed = 1.0F;
@@ -174,7 +174,7 @@ public class AlterniaDimension extends Dimension {
 	
 	/**
 	 * True if the player can respawn in this dimension (true = overworld, false = nether).
-	 */
+	 * /
 	@Override
 	public boolean canRespawnHere() {
 		return true;
@@ -182,7 +182,7 @@ public class AlterniaDimension extends Dimension {
 	
 	/**
 	 * Returns true if the given X,Z coordinate should show environmental fog.
-	 */
+	 * /
 	@Override
 	public boolean doesXZShowFog(int x, int z) {
 		return false;
@@ -195,3 +195,4 @@ public class AlterniaDimension extends Dimension {
 		}
 	}
 }
+*/

@@ -1,4 +1,4 @@
-package com.apocfarce.minestuck_alternia.world.gen.layer;
+package com.apocfarce.minestuck_alternia.world.biome.layer;
 
 import com.apocfarce.minestuck_alternia.world.biome.provider.AlterniaBiomeProvider;
 import net.minecraft.util.WeightedRandom;

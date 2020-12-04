@@ -1,4 +1,4 @@
-package com.apocfarce.minestuck_alternia.world.gen.layer;
+package com.apocfarce.minestuck_alternia.world.biome.layer;
 
 import net.minecraft.world.gen.INoiseRandom;
 import net.minecraft.world.gen.layer.traits.IAreaTransformer0;

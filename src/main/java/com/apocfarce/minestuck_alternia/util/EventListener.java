@@ -8,7 +8,6 @@ import net.minecraft.entity.player.ServerPlayerEntity;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.gen.Heightmap;
 import net.minecraft.world.server.ServerWorld;
-import net.minecraftforge.common.DimensionManager;
 import net.minecraftforge.event.entity.player.AdvancementEvent;
 import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -56,12 +55,12 @@ public class EventListener {
 			if(choseAlternia) {
 				PlayerDataHelper.setBloodColor(player, color);
 				
-				ServerWorld alterniaWorld = DimensionManager.getWorld(player.server, AlterniaDimensions.getDimensionType(), true, true);
+				ServerWorld alterniaWorld = player.server.getWorld(AlterniaDimensions.ALTERNIA_KEY);
 				
 				if(alterniaWorld != null) {
 					BlockPos spawnPos = AlterniaStructures.HIVE.get().tryFindHiveToOccupy(alterniaWorld, color);
 					if(spawnPos != null) {
-						player.setSpawnPoint(spawnPos, true, false, AlterniaDimensions.getDimensionType());
+						player.func_242111_a(AlterniaDimensions.ALTERNIA_KEY, spawnPos, 0, true, false);
 					} else {
 						LOGGER.warn("Unable to find hive for {} blood color. Player is teleported to spawn.", color.getBloodName());
 						alterniaWorld.getChunk(alterniaWorld.getSpawnPoint());    //Make sure that the chunk is created and exists before calling world.getHeight()

@@ -15,6 +15,7 @@ public class AlterniaBlockTagsProvider extends BlockTagsProvider {
 	}
 	
 	@Override
+	@SuppressWarnings("unchecked")
 	protected void registerTags() {
 		getOrCreateBuilder(BlockTags.LOGS).addTags(AlterniaTags.Blocks.PYRAL_LOGS, AlterniaTags.Blocks.MIRRAGE_LOGS);
 		getOrCreateBuilder(BlockTags.LEAVES).addTags(AlterniaTags.Blocks.LEAVES);

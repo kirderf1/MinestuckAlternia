@@ -7,7 +7,6 @@ import com.apocfarce.minestuck_alternia.command.OccupyHiveCommand;
 import com.apocfarce.minestuck_alternia.data.AlterniaData;
 import com.apocfarce.minestuck_alternia.network.AlterniaPacketHandler;
 import com.apocfarce.minestuck_alternia.util.EventListener;
-import com.apocfarce.minestuck_alternia.world.AlterniaDimensions;
 import com.apocfarce.minestuck_alternia.world.biome.AlterniaBiomes;
 import com.apocfarce.minestuck_alternia.world.biome.provider.AlterniaBiomeProvider;
 import com.apocfarce.minestuck_alternia.world.biome.provider.AlterniaBiomeProviders;
@@ -40,7 +39,6 @@ public class MinestuckAlternia {
         MinecraftForge.EVENT_BUS.register(this);
         MinecraftForge.EVENT_BUS.register(EventListener.class);
         
-        AlterniaDimensions.REGISTER.register(modBus);
         AlterniaSurfaceBuilders.REGISTER.register(modBus);
         AlterniaBiomes.REGISTER.register(modBus);
         AlterniaStructures.REGISTER.register(modBus);
