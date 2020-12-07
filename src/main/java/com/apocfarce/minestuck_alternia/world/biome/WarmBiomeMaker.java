@@ -12,12 +12,12 @@ public class WarmBiomeMaker {
 	public static Biome makePlains() {
 		MobSpawnInfo.Builder mobSpawns = new MobSpawnInfo.Builder();
 		
-		BiomeGenerationSettings.Builder genSettings = new BiomeGenerationSettings.Builder()
-				.withSurfaceBuilder(SurfaceBuilder.DEFAULT.func_242929_a(SurfaceBuilder.GRASS_DIRT_SAND_CONFIG));
+		BiomeGenBuilder genSettings = new BiomeGenBuilder();
+		genSettings.withSurfaceBuilder(SurfaceBuilder.DEFAULT.func_242929_a(SurfaceBuilder.GRASS_DIRT_SAND_CONFIG));
 		
 		DefaultBiomeFeatures.withStrongholdAndMineshaft(genSettings);
 		
-		genSettings.withStructure(AlterniaStructures.LOWBLOOD_HIVE);
+		genSettings.withStructure(() -> AlterniaStructures.LOWBLOOD_HIVE);
 		
 		AlterniaBiomeFeatures.withCarvers(genSettings);
 		DefaultBiomeFeatures.withLavaAndWaterLakes(genSettings);
@@ -45,12 +45,12 @@ public class WarmBiomeMaker {
 	public static Biome makeVolcanicFields() {
 		MobSpawnInfo.Builder mobSpawns = new MobSpawnInfo.Builder();
 		
-		BiomeGenerationSettings.Builder genSettings = new BiomeGenerationSettings.Builder()
-				.withSurfaceBuilder(AlterniaSurfaceBuilders.DARK_STONE.get().func_242929_a(SurfaceBuilder.CORASE_DIRT_DIRT_GRAVEL_CONFIG));
+		BiomeGenBuilder genSettings = new BiomeGenBuilder();
+		genSettings.withSurfaceBuilder(() -> AlterniaSurfaceBuilders.DARK_STONE.get().func_242929_a(SurfaceBuilder.CORASE_DIRT_DIRT_GRAVEL_CONFIG));
 		
 		DefaultBiomeFeatures.withStrongholdAndMineshaft(genSettings);
 		
-		genSettings.withStructure(AlterniaStructures.HIGHBLOOD_HIVE);
+		genSettings.withStructure(() -> AlterniaStructures.HIGHBLOOD_HIVE);
 		
 		AlterniaBiomeFeatures.withCarvers(genSettings);
 		DefaultBiomeFeatures.withLavaAndWaterLakes(genSettings);
@@ -71,12 +71,12 @@ public class WarmBiomeMaker {
 	public static Biome makeShrublands() {
 		MobSpawnInfo.Builder mobSpawns = new MobSpawnInfo.Builder();
 		
-		BiomeGenerationSettings.Builder genSettings = new BiomeGenerationSettings.Builder()
-				.withSurfaceBuilder(SurfaceBuilder.DEFAULT.func_242929_a(SurfaceBuilder.CORASE_DIRT_DIRT_GRAVEL_CONFIG));
+		BiomeGenBuilder genSettings = new BiomeGenBuilder();
+		genSettings.withSurfaceBuilder(SurfaceBuilder.DEFAULT.func_242929_a(SurfaceBuilder.CORASE_DIRT_DIRT_GRAVEL_CONFIG));
 		
 		DefaultBiomeFeatures.withStrongholdAndMineshaft(genSettings);
 		
-		genSettings.withStructure(AlterniaStructures.LOWBLOOD_HIVE);
+		genSettings.withStructure(() -> AlterniaStructures.LOWBLOOD_HIVE);
 		
 		AlterniaBiomeFeatures.withCarvers(genSettings);
 		DefaultBiomeFeatures.withLavaAndWaterLakes(genSettings);

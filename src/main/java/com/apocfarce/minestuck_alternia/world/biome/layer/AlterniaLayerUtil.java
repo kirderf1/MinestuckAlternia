@@ -1,5 +1,7 @@
 package com.apocfarce.minestuck_alternia.world.biome.layer;
 
+import net.minecraft.util.registry.Registry;
+import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.IExtendedNoiseRandom;
 import net.minecraft.world.gen.LazyAreaLayerContext;
 import net.minecraft.world.gen.area.IArea;
@@ -14,7 +16,7 @@ import java.util.function.LongFunction;
 
 public class AlterniaLayerUtil extends LayerUtil {
 
-	public static <T extends IArea, C extends IExtendedNoiseRandom<T>> IAreaFactory<T> buildAlterniaProcedure(LongFunction<C> contextFactory) {
+	public static <T extends IArea, C extends IExtendedNoiseRandom<T>> IAreaFactory<T> buildAlterniaProcedure(Registry<Biome> lookupRegistry, LongFunction<C> contextFactory) {
 		//During these layers, the value represents a biome type (0:ocean1: desert, 2: warm, 3: cool, 4: icy)
 		IAreaFactory<T> layerStack = AlterniaHeatMapLayer.INSTANCE.apply(contextFactory.apply(1L));
 		//layer that turns desert into warm if near cool or icy
@@ -23,7 +25,7 @@ public class AlterniaLayerUtil extends LayerUtil {
 		layerStack = EdgeLayer.HeatIce.INSTANCE.apply(contextFactory.apply(2L), layerStack);
 		
 		//Replaces biome types with biomes in the respective categories
-		layerStack = AlterniaBiomeLayer.INSTANCE.apply(contextFactory.apply(200L), layerStack);
+		layerStack = new AlterniaBiomeLayer(lookupRegistry).apply(contextFactory.apply(200L), layerStack);
 		
 		//i'll eventually want to do something with Oceans to spawn violet, and fucia hives in
 		//layerStack = AlterniaOceanLayer.INSTANCE.apply(contextFactory.apply(200L),layerStack);
@@ -41,9 +43,9 @@ public class AlterniaLayerUtil extends LayerUtil {
 		return layerStack;
 	}
 
-	public static Layer buildAlterniaProcedure(long seed) {
+	public static Layer buildAlterniaProcedure(Registry<Biome> lookupRegistry, long seed) {
 	
-		IAreaFactory<LazyArea> areaFactory = buildAlterniaProcedure(seedModifier -> new LazyAreaLayerContext(25, seed, seedModifier));
+		IAreaFactory<LazyArea> areaFactory = buildAlterniaProcedure(lookupRegistry, seedModifier -> new LazyAreaLayerContext(25, seed, seedModifier));
 		return new Layer(areaFactory);
 	}
 }

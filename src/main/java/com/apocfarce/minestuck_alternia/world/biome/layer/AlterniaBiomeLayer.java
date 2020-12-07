@@ -2,19 +2,29 @@ package com.apocfarce.minestuck_alternia.world.biome.layer;
 
 import com.apocfarce.minestuck_alternia.world.biome.provider.AlterniaBiomeProvider;
 import net.minecraft.util.WeightedRandom;
-import net.minecraft.util.registry.WorldGenRegistries;
+import net.minecraft.util.registry.Registry;
+import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.INoiseRandom;
 import net.minecraft.world.gen.layer.traits.IC0Transformer;
 import net.minecraftforge.common.BiomeManager.BiomeEntry;
 import net.minecraftforge.common.BiomeManager.BiomeType;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.util.List;
 
 /**
  * Biome layer that converts biome types to biome ids based on the map in AlterniaBiomeProvider
  */
-public enum AlterniaBiomeLayer implements IC0Transformer {
-	INSTANCE;
+public class AlterniaBiomeLayer implements IC0Transformer {
+	
+	private static final Logger LOGGER = LogManager.getLogger();
+	
+	private final Registry<Biome> lookupRegistry;
+	
+	public AlterniaBiomeLayer(Registry<Biome> lookupRegistry) {
+		this.lookupRegistry = lookupRegistry;
+	}
 	
 	public int apply(INoiseRandom context, int value) {
 		switch (value) {
@@ -37,6 +47,10 @@ public enum AlterniaBiomeLayer implements IC0Transformer {
 		int totalWeight = WeightedRandom.getTotalWeight(biomeList);
 		int weight = context.random(totalWeight);
 		BiomeEntry entry = WeightedRandom.getRandomItem(biomeList, weight);
-		return WorldGenRegistries.BIOME.getId(WorldGenRegistries.BIOME.getValueForKey(entry.getKey()));
+		int id = lookupRegistry.getId(lookupRegistry.getValueForKey(entry.getKey()));
+		if(id == -1) {
+			LOGGER.error("Unable to find biome {}", entry.getKey());
+			return 0;
+		} else return id;
 	}
 }

@@ -33,7 +33,7 @@ public class AlterniaBiomeProvider extends BiomeProvider {
 		super(biomeSet.stream().map(lookupRegistry::getValueForKey).collect(Collectors.toList()));
 		this.seed = seed;
 		this.lookupRegistry = lookupRegistry;
-		this.genBiomes = AlterniaLayerUtil.buildAlterniaProcedure(seed);
+		this.genBiomes = AlterniaLayerUtil.buildAlterniaProcedure(lookupRegistry, seed);
 	}
 	
 	@Override

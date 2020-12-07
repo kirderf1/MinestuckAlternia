@@ -11,9 +11,9 @@ import net.minecraft.world.gen.GenerationStage;
  */
 public class AlterniaBiomeFeatures {
 	
-	public static void withCarvers(BiomeGenerationSettings.Builder builder) {
-		builder.withCarver(GenerationStage.Carving.AIR, AlterniaCarvers.CONFIGURED_CAVE);
-		builder.withCarver(GenerationStage.Carving.AIR, AlterniaCarvers.CONFIGURED_CANYON);
+	public static void withCarvers(BiomeGenBuilder builder) {
+		builder.withCarver(GenerationStage.Carving.AIR, () -> AlterniaCarvers.CONFIGURED_CAVE);
+		builder.withCarver(GenerationStage.Carving.AIR, () -> AlterniaCarvers.CONFIGURED_CANYON);
 	}
 	
 	public static void withOres(BiomeGenerationSettings.Builder builder) {

@@ -68,7 +68,7 @@ public class EventListener {
 					}
 					
 					PortalUtil.teleportEntity(player, alterniaWorld, spawnPos.getX() + 0.5, spawnPos.getY(), spawnPos.getZ() + 0.5, 0, 0);
-				} else LOGGER.error("Couldn't teleport player to alternia. Got null world from the DimensionManager!");
+				} else LOGGER.error("Couldn't teleport player to alternia. Alternia world was not found!");
 			}
 		}
 	}

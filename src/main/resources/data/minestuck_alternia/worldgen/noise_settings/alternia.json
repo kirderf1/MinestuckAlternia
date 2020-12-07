@@ -1,0 +1,56 @@
+{
+  "bedrock_roof_position": -1,
+  "bedrock_floor_position": 0,
+  "sea_level": 63,
+  "disable_mob_generation": false,
+  "default_block": {
+    "Name": "minestuck_alternia:dark_stone"
+  },
+  "default_fluid": {
+    "Properties": {
+      "level": "0"
+    },
+    "Name": "minecraft:water"
+  },
+  "structures": {
+    "stronghold": {
+      "distance": 32,
+      "count": 1,
+      "spread": 3
+    },
+    "structures": {
+      "minestuck_alternia:hive": {
+        "spacing": 16,
+        "separation": 3,
+        "salt": 555768014
+      }
+    }
+  },
+  "noise": {
+    "top_slide": {
+      "target": -10,
+      "size": 3,
+      "offset": 0
+    },
+    "bottom_slide": {
+      "target": -30,
+      "size": 0,
+      "offset": 0
+    },
+    "sampling": {
+      "xz_scale": 1,
+      "xz_factor": 80,
+      "y_scale": 1,
+      "y_factor": 160
+    },
+    "size_vertical": 2,
+    "size_horizontal": 1,
+    "height": 256,
+    "density_factor": 1,
+    "density_offset": -0.46875,
+    "random_density_offset": true,
+    "simplex_surface_noise": true,
+    "island_noise_override": false,
+    "amplified": false
+  }
+}

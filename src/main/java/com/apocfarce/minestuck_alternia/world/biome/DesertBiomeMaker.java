@@ -10,10 +10,10 @@ public class DesertBiomeMaker {
 	public static Biome makeRainbowDesert() {
 		MobSpawnInfo.Builder mobSpawns = new MobSpawnInfo.Builder();
 		
-		BiomeGenerationSettings.Builder genSettings = new BiomeGenerationSettings.Builder()
-				.withSurfaceBuilder(AlterniaSurfaceBuilders.COLORED_SANDS.get().func_242929_a(SurfaceBuilder.SAND_CONFIG));
+		BiomeGenBuilder genSettings = new BiomeGenBuilder();
+		genSettings.withSurfaceBuilder(() -> AlterniaSurfaceBuilders.COLORED_SANDS.get().func_242929_a(SurfaceBuilder.SAND_CONFIG));
 		
-		genSettings.withStructure(AlterniaStructures.HIGHBLOOD_HIVE);
+		genSettings.withStructure(() -> AlterniaStructures.HIGHBLOOD_HIVE);
 		
 		AlterniaBiomeFeatures.withCarvers(genSettings);
 		DefaultBiomeFeatures.withMonsterRoom(genSettings);

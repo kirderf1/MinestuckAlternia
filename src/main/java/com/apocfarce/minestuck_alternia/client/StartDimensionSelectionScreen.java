@@ -43,7 +43,7 @@ public class StartDimensionSelectionScreen extends Screen {
 	private void pickOverworld(Button button) {
 		AlterniaPacketHandler.INSTANCE.sendToServer(DimensionSelectionPacket.overworld());
 		shouldShowScreen = false;
-		onClose();
+		closeScreen();
 	}
 	
 	@SuppressWarnings("ConstantConditions")

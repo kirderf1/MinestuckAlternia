@@ -45,6 +45,6 @@ public class BloodSelectionScreen extends Screen {
 	private void pickColor(BloodColor color) {
 		AlterniaPacketHandler.INSTANCE.sendToServer(DimensionSelectionPacket.alternia(color));
 		StartDimensionSelectionScreen.shouldShowScreen = false;
-		onClose();
+		closeScreen();
 	}
 }

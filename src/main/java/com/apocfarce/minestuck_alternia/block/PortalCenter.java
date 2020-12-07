@@ -98,15 +98,15 @@ public class PortalCenter extends Portal{
 	
 	public void closePortal(BlockPos pos, World worldIn) {
 		BlockPos[] blocks = getPortalBlocks(pos,worldIn);
-		for(int i = 0; i<blocks.length;i++) {
-			worldIn.setBlockState(blocks[i], worldIn.getBlockState(blocks[i]).with(IsOpen, false));
+		for (BlockPos block : blocks) {
+			worldIn.setBlockState(block, worldIn.getBlockState(block).with(IsOpen, false));
 		}
 	}
 	
 	public void openPortal(BlockPos pos, World worldIn) {
 		BlockPos[] blocks = getPortalBlocks(pos,worldIn);
-		for(int i = 0; i<blocks.length;i++) {
-			worldIn.setBlockState(blocks[i], worldIn.getBlockState(blocks[i]).with(IsOpen, true));
+		for (BlockPos block : blocks) {
+			worldIn.setBlockState(block, worldIn.getBlockState(block).with(IsOpen, true));
 		}
 	}
 	
@@ -125,38 +125,38 @@ public class PortalCenter extends Portal{
 		if(entityIn instanceof ServerPlayerEntity&&worldIn instanceof ServerWorld){
 			if(state.get(IsOpen)) {
 				ServerPlayerEntity player = (ServerPlayerEntity) entityIn;
-				ServerWorld from = (ServerWorld)worldIn;
+				ServerWorld from = (ServerWorld) worldIn;
 				ServerWorld to;
 				
-				if(from==from.getServer().getWorld(World.OVERWORLD)) {
-					to=from.getServer().getWorld(AlterniaDimensions.ALTERNIA_KEY);
-				}else{
-					to=from.getServer().getWorld(World.OVERWORLD);
+				if (from.getDimensionKey() == World.OVERWORLD) {
+					to = from.getServer().getWorld(AlterniaDimensions.ALTERNIA_KEY);
+				} else {
+					to = from.getServer().func_241755_D_();
 				}
 				
-				teleport(from,to,entityIn.getPosition(),player);
-				closePortal(pos,from);
-
+				if(to != null) {
+					teleport(from, to, entityIn.getPosition(), player);
+					closePortal(pos, from);
+				} else LOGGER.error("Destination world for cherub portal not found");
 			}
 		}
 	}
 	public static void teleport(ServerWorld from, ServerWorld to, BlockPos spawnPos, ServerPlayerEntity player) {
 		from.getChunkProvider().registerTicket(TicketType.POST_TELEPORT, new ChunkPos(spawnPos), 1, player.getEntityId());
-		while(to.isAirBlock(spawnPos)){
-			spawnPos=spawnPos.down();
+		while (to.isAirBlock(spawnPos)) {
+			spawnPos = spawnPos.down();
 		}
-		while(!to.canBlockSeeSky(spawnPos)) {
-			spawnPos=spawnPos.up();
+		while (!to.canBlockSeeSky(spawnPos)) {
+			spawnPos = spawnPos.up();
 		}
-		spawnPos=spawnPos.up();
+		spawnPos = spawnPos.up();
 		
-		if(player.isSleeping()) {
+		if (player.isSleeping()) {
 			player.stopSleepInBed(true, true);
 		}
 		player.stopRiding();
 		
 		player.teleport(to, spawnPos.getX(), spawnPos.getY(), spawnPos.getZ(), player.rotationYaw, player.rotationPitch);
-
 	}
 	
 	@Override

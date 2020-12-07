@@ -50,7 +50,7 @@ public class BiomeProvider implements IDataProvider {
 	}
 	
 	private Path getPath(Path path, RegistryKey<Biome> key) {
-		return path.resolve("data/" + key.getLocation().getNamespace() + "/biome/" + key.getLocation().getPath());
+		return path.resolve("data/" + key.getLocation().getNamespace() + "/worldgen/biome/" + key.getLocation().getPath() + ".json");
 	}
 	
 	@Override

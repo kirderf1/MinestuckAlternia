@@ -9,10 +9,10 @@ public class CoolBiomeMaker {
 	public static Biome makePyralWoods() {
 		MobSpawnInfo.Builder mobSpawns = new MobSpawnInfo.Builder();
 		
-		BiomeGenerationSettings.Builder genSettings = new BiomeGenerationSettings.Builder()
-				.withSurfaceBuilder(SurfaceBuilder.DEFAULT.func_242929_a(SurfaceBuilder.GRASS_DIRT_SAND_CONFIG));
+		BiomeGenBuilder genSettings = new BiomeGenBuilder();
+		genSettings.withSurfaceBuilder(SurfaceBuilder.DEFAULT.func_242929_a(SurfaceBuilder.GRASS_DIRT_SAND_CONFIG));
 		
-		genSettings.withStructure(AlterniaStructures.PYRAL_MID_HIGHBLOOD_HIVE);
+		genSettings.withStructure(() -> AlterniaStructures.PYRAL_MID_HIGHBLOOD_HIVE);
 		
 		AlterniaBiomeFeatures.withCarvers(genSettings);
 		DefaultBiomeFeatures.withLavaAndWaterLakes(genSettings);
@@ -42,10 +42,10 @@ public class CoolBiomeMaker {
 	public static Biome makeMixedWoods() {
 		MobSpawnInfo.Builder mobSpawns = new MobSpawnInfo.Builder();
 		
-		BiomeGenerationSettings.Builder genSettings = new BiomeGenerationSettings.Builder()
-				.withSurfaceBuilder(SurfaceBuilder.DEFAULT.func_242929_a(SurfaceBuilder.GRASS_DIRT_SAND_CONFIG));
+		BiomeGenBuilder genSettings = new BiomeGenBuilder();
+		genSettings.withSurfaceBuilder(SurfaceBuilder.DEFAULT.func_242929_a(SurfaceBuilder.GRASS_DIRT_SAND_CONFIG));
 		
-		genSettings.withStructure(AlterniaStructures.MIXED_MID_HIGHBLOOD_HIVE);
+		genSettings.withStructure(() -> AlterniaStructures.MIXED_MID_HIGHBLOOD_HIVE);
 		
 		AlterniaBiomeFeatures.withCarvers(genSettings);
 		DefaultBiomeFeatures.withLavaAndWaterLakes(genSettings);
@@ -76,10 +76,10 @@ public class CoolBiomeMaker {
 	public static Biome makeMirrageWoods() {
 		MobSpawnInfo.Builder mobSpawns = new MobSpawnInfo.Builder();
 		
-		BiomeGenerationSettings.Builder genSettings = new BiomeGenerationSettings.Builder()
-				.withSurfaceBuilder(SurfaceBuilder.DEFAULT.func_242929_a(SurfaceBuilder.GRASS_DIRT_SAND_CONFIG));
+		BiomeGenBuilder genSettings = new BiomeGenBuilder();
+		genSettings.withSurfaceBuilder(SurfaceBuilder.DEFAULT.func_242929_a(SurfaceBuilder.GRASS_DIRT_SAND_CONFIG));
 		
-		genSettings.withStructure(AlterniaStructures.MID_LOWBLOOD_HIVE);
+		genSettings.withStructure(() -> AlterniaStructures.MID_LOWBLOOD_HIVE);
 		
 		AlterniaBiomeFeatures.withCarvers(genSettings);
 		DefaultBiomeFeatures.withLavaAndWaterLakes(genSettings);
