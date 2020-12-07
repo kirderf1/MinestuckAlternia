@@ -81,7 +81,7 @@ public class AlterniaBlocks
 		IForgeRegistry<Block> registry = event.getRegistry();
 		//blood colored blocks
 		for (BloodColor color : BloodColor.values()) {
-			register(registry, color.getBlockName() + "_hive_glass", new HiveGlass(Block.Properties.create(Material.GLASS).sound(SoundType.GLASS).notSolid(), color));
+			register(registry, color.getBlockName() + "_hive_glass", new HiveGlass(Block.Properties.create(Material.GLASS).sound(SoundType.GLASS).hardnessAndResistance(0.3F).notSolid(), color));
 		}
 		
 		
