@@ -13,7 +13,7 @@ public class AlterniaSunBurner {
 	public static void onTick(TickEvent.PlayerTickEvent event) {
 		if(event.side.isServer() && event.phase == TickEvent.Phase.END) {
 			ServerPlayerEntity player = (ServerPlayerEntity) event.player;
-			if (player.world.getDimensionKey() == AlterniaDimensions.ALTERNIA_KEY
+			if (player.world.getDimensionKey() == AlterniaDimensions.ALTERNIA_WORLD_KEY
 					&& player.interactionManager.survivalOrAdventure())
 				updateSunburn(player);
 		}

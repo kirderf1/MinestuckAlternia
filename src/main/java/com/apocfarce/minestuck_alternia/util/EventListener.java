@@ -55,12 +55,12 @@ public class EventListener {
 			if(choseAlternia) {
 				PlayerDataHelper.setBloodColor(player, color);
 				
-				ServerWorld alterniaWorld = player.server.getWorld(AlterniaDimensions.ALTERNIA_KEY);
+				ServerWorld alterniaWorld = player.server.getWorld(AlterniaDimensions.ALTERNIA_WORLD_KEY);
 				
 				if(alterniaWorld != null) {
 					BlockPos spawnPos = AlterniaStructures.HIVE.tryFindHiveToOccupy(alterniaWorld, color);
 					if(spawnPos != null) {
-						player.func_242111_a(AlterniaDimensions.ALTERNIA_KEY, spawnPos, 0, true, false);
+						player.func_242111_a(AlterniaDimensions.ALTERNIA_WORLD_KEY, spawnPos, 0, true, false);
 					} else {
 						LOGGER.warn("Unable to find hive for {} blood color. Player is teleported to spawn.", color.getBloodName());
 						alterniaWorld.getChunk(alterniaWorld.getSpawnPoint());    //Make sure that the chunk is created and exists before calling world.getHeight()

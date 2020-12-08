@@ -23,7 +23,7 @@ public class OccupyHiveCommand {
 	}
 	
 	private static int perform(CommandSource source, ServerPlayerEntity player, BloodColor color) {
-		ServerWorld alterniaWorld = player.server.getWorld(AlterniaDimensions.ALTERNIA_KEY);
+		ServerWorld alterniaWorld = player.server.getWorld(AlterniaDimensions.ALTERNIA_WORLD_KEY);
 		if(alterniaWorld != null) {
 			BlockPos spawnPos = AlterniaStructures.HIVE.tryFindHiveToOccupy(alterniaWorld, color);
 			if(spawnPos != null) {
