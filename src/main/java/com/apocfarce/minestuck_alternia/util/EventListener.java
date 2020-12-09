@@ -27,7 +27,7 @@ public class EventListener {
 	@SubscribeEvent
 	public static void onPlayerLogin(PlayerEvent.PlayerLoggedInEvent event) {
 		ServerPlayerEntity player = (ServerPlayerEntity) event.getPlayer();
-		if(PlayerDataHelper.hasNotSelectedDimension(player)) {
+		if(PlayerDataHelper.hasNotSelectedDimension(player) && !player.isSpectator()) {
 			if(mightBeFirstTimeLogin(player)) {
 				playerInSelection.add(player);
 				AlterniaPacketHandler.INSTANCE.send(PacketDistributor.PLAYER.with(() -> player), new ShouldDoSelectionPacket());
