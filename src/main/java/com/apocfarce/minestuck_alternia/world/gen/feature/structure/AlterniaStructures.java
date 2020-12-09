@@ -37,6 +37,8 @@ public class AlterniaStructures {
 	public static void registerStructures(RegistryEvent.Register<Structure<?>> event) {
 		HiveStructure hive = new HiveStructure(HiveStructureConfig.CODEC);
 		event.getRegistry().register(hive.setRegistryName("hive"));
+		Structure.NAME_STRUCTURE_BIMAP.put(String.valueOf(hive.getRegistryName()), hive);
+		
 		LOWBLOOD_HIVE = register("lowblood_hive", hive.withConfiguration(lowbloodConfig()));
 		MID_LOWBLOOD_HIVE = register("mid_lowblood_hive", hive.withConfiguration(midLowbloodConfig()));
 		PYRAL_MID_HIGHBLOOD_HIVE = register("pyral_mid_highblood_hive", hive.withConfiguration(pyralMidHighbloodConfig()));

@@ -32,11 +32,6 @@ public class HiveStructure extends Structure<HiveStructureConfig> {
 	}
 	
 	@Override
-	public String getStructureName() {
-		return String.valueOf(getRegistryName());
-	}
-	
-	@Override
 	public GenerationStage.Decoration getDecorationStage() {
 		return GenerationStage.Decoration.SURFACE_STRUCTURES;
 	}
