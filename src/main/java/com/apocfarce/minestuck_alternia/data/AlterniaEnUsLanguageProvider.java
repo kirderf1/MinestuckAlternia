@@ -33,6 +33,13 @@ public class AlterniaEnUsLanguageProvider extends LanguageProvider {
 		add(AlterniaBlocks.RED_ROCK, "Red Stone");
 		add(AlterniaBlocks.RED_COBBLE, "Red Cobblestone");
 		
+		add(AlterniaBlocks.DARK_STONE_COAL_ORE, "Coal Ore");
+		add(AlterniaBlocks.DARK_STONE_IRON_ORE, "Iron Ore");
+		add(AlterniaBlocks.DARK_STONE_GOLD_ORE, "Gold Ore");
+		add(AlterniaBlocks.DARK_STONE_REDSTONE_ORE, "Redstone Ore");
+		add(AlterniaBlocks.DARK_STONE_DIAMOND_ORE, "Diamond Ore");
+		add(AlterniaBlocks.DARK_STONE_LAPIS_ORE, "Lapis Lazuli Ore");
+		
 		add(AlterniaBlocks.PORTAL_BASE, "Cherub Portal Base");
 		add(AlterniaBlocks.PORTAL_CENTER, "Cherub Portal Center");
 		add(AlterniaBlocks.PORTAL_CROWN, "Cherub Portal Crown");

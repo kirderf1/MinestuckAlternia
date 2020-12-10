@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "minestuck_alternia:block/dark_stone_lapis_ore"
+  }
+}

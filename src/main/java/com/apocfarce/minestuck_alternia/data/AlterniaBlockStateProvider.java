@@ -18,14 +18,17 @@ public class AlterniaBlockStateProvider extends BlockStateProvider {
 	
 	@Override
 	protected void registerStatesAndModels() {
-		simpleBlock(AlterniaBlocks.DARK_STONE);
-		simpleBlockItem(AlterniaBlocks.DARK_STONE);
-		simpleBlock(AlterniaBlocks.DARK_COBBLE);
-		simpleBlockItem(AlterniaBlocks.DARK_COBBLE);
-		simpleBlock(AlterniaBlocks.RED_ROCK);
-		simpleBlockItem(AlterniaBlocks.RED_ROCK);
-		simpleBlock(AlterniaBlocks.RED_COBBLE);
-		simpleBlockItem(AlterniaBlocks.RED_COBBLE);
+		simpleBlockWithItem(AlterniaBlocks.DARK_STONE);
+		simpleBlockWithItem(AlterniaBlocks.DARK_COBBLE);
+		simpleBlockWithItem(AlterniaBlocks.RED_ROCK);
+		simpleBlockWithItem(AlterniaBlocks.RED_COBBLE);
+		
+		simpleBlockWithItem(AlterniaBlocks.DARK_STONE_COAL_ORE);
+		simpleBlockWithItem(AlterniaBlocks.DARK_STONE_IRON_ORE);
+		simpleBlockWithItem(AlterniaBlocks.DARK_STONE_GOLD_ORE);
+		simpleBlockWithItem(AlterniaBlocks.DARK_STONE_REDSTONE_ORE);
+		simpleBlockWithItem(AlterniaBlocks.DARK_STONE_DIAMOND_ORE);
+		simpleBlockWithItem(AlterniaBlocks.DARK_STONE_LAPIS_ORE);
 		
 		cross(AlterniaBlocks.PYRAL_SAPLING);
 		simpleFlatBlockItem(AlterniaBlocks.PYRAL_SAPLING);
@@ -39,8 +42,7 @@ public class AlterniaBlockStateProvider extends BlockStateProvider {
 		simpleBlockItem(AlterniaBlocks.PYRAL_WOOD);
 		simpleBlock(AlterniaBlocks.STRIPPED_PYRAL_WOOD, blockTexture(AlterniaBlocks.STRIPPED_PYRAL_LOG));
 		simpleBlockItem(AlterniaBlocks.STRIPPED_PYRAL_WOOD);
-		simpleBlock(AlterniaBlocks.PYRAL_PLANKS);
-		simpleBlockItem(AlterniaBlocks.PYRAL_PLANKS);
+		simpleBlockWithItem(AlterniaBlocks.PYRAL_PLANKS);
 		stairsBlock(AlterniaBlocks.PYRAL_STAIRS, blockTexture(AlterniaBlocks.PYRAL_PLANKS));
 		simpleBlockItem(AlterniaBlocks.PYRAL_STAIRS);
 		slabBlock(AlterniaBlocks.PYRAL_SLAB, blockTexture(AlterniaBlocks.PYRAL_PLANKS), blockTexture(AlterniaBlocks.PYRAL_PLANKS));
@@ -62,8 +64,7 @@ public class AlterniaBlockStateProvider extends BlockStateProvider {
 		simpleBlockItem(AlterniaBlocks.MIRRAGE_WOOD);
 		simpleBlock(AlterniaBlocks.STRIPPED_MIRRAGE_WOOD, blockTexture(AlterniaBlocks.STRIPPED_MIRRAGE_LOG));
 		simpleBlockItem(AlterniaBlocks.STRIPPED_MIRRAGE_WOOD);
-		simpleBlock(AlterniaBlocks.MIRRAGE_PLANKS);
-		simpleBlockItem(AlterniaBlocks.MIRRAGE_PLANKS);
+		simpleBlockWithItem(AlterniaBlocks.MIRRAGE_PLANKS);
 	stairsBlock(AlterniaBlocks.MIRRAGE_STAIRS, blockTexture(AlterniaBlocks.MIRRAGE_PLANKS));
 		simpleBlockItem(AlterniaBlocks.MIRRAGE_STAIRS);
 		slabBlock(AlterniaBlocks.MIRRAGE_SLAB, blockTexture(AlterniaBlocks.MIRRAGE_PLANKS), blockTexture(AlterniaBlocks.MIRRAGE_PLANKS));
@@ -106,6 +107,11 @@ public class AlterniaBlockStateProvider extends BlockStateProvider {
 	
 	protected ResourceLocation extend(ResourceLocation rl, String suffix) {
 		return new ResourceLocation(rl.getNamespace(), rl.getPath() + suffix);
+	}
+	
+	public void simpleBlockWithItem(Block block) {
+		simpleBlock(block);
+		simpleBlockItem(block);
 	}
 	
 	protected void simpleBlock(Block block, ResourceLocation texture) {

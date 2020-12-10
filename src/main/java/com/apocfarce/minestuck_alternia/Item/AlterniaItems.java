@@ -75,6 +75,13 @@ public class AlterniaItems {
 		register(registry, AlterniaBlocks.RED_COBBLE, ItemGroupAlternia.instance);
 		register(registry, AlterniaBlocks.RED_ROCK, ItemGroupAlternia.instance);
 		
+		register(registry, AlterniaBlocks.DARK_STONE_COAL_ORE, ItemGroupAlternia.instance);
+		register(registry, AlterniaBlocks.DARK_STONE_IRON_ORE, ItemGroupAlternia.instance);
+		register(registry, AlterniaBlocks.DARK_STONE_GOLD_ORE, ItemGroupAlternia.instance);
+		register(registry, AlterniaBlocks.DARK_STONE_REDSTONE_ORE, ItemGroupAlternia.instance);
+		register(registry, AlterniaBlocks.DARK_STONE_DIAMOND_ORE, ItemGroupAlternia.instance);
+		register(registry, AlterniaBlocks.DARK_STONE_LAPIS_ORE, ItemGroupAlternia.instance);
+		
 		register(registry, AlterniaBlocks.PYRAL_SAPLING, ItemGroupAlternia.instance);
 		register(registry, AlterniaBlocks.PYRAL_LEAVES, ItemGroupAlternia.instance);
 		register(registry, AlterniaBlocks.PYRAL_LOG, ItemGroupAlternia.instance);

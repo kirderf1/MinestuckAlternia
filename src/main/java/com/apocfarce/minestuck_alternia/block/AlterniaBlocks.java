@@ -8,6 +8,7 @@ import net.minecraft.block.*;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.material.MaterialColor;
 import net.minecraft.util.Direction;
+import net.minecraftforge.common.ToolType;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.registries.IForgeRegistry;
 import net.minecraftforge.registries.ObjectHolder;
@@ -24,6 +25,14 @@ public class AlterniaBlocks
 	public static final Block DARK_COBBLE = getNull();
 	public static final Block RED_ROCK = getNull();
 	public static final Block RED_COBBLE = getNull();
+	
+	public static final Block DARK_STONE_COAL_ORE = getNull();
+	public static final Block DARK_STONE_IRON_ORE = getNull();
+	public static final Block DARK_STONE_GOLD_ORE = getNull();
+	public static final Block DARK_STONE_REDSTONE_ORE = getNull();
+	public static final Block DARK_STONE_DIAMOND_ORE = getNull();
+	public static final Block DARK_STONE_LAPIS_ORE = getNull();
+	
 	public static final Block PORTAL_CENTER = getNull();
 	public static final Block PORTAL_BASE = getNull();
 	public static final Block PORTAL_CROWN = getNull();
@@ -89,6 +98,13 @@ public class AlterniaBlocks
 		register(registry, "dark_cobble", new Block(Block.Properties.create(Material.ROCK).sound(SoundType.STONE).hardnessAndResistance(2.0F, 10.0F)));
 		register(registry, "red_rock", new Block(Block.Properties.create(Material.ROCK).sound(SoundType.STONE).hardnessAndResistance(1.5F, 6.0F)));
 		register(registry, "red_cobble", new Block(Block.Properties.create(Material.ROCK).sound(SoundType.STONE).hardnessAndResistance(2.0F, 10.0F)));
+		
+		register(registry, "dark_stone_coal_ore", new CustomOreBlock(0, 2, Block.Properties.create(Material.ROCK).setRequiresTool().harvestTool(ToolType.PICKAXE).harvestLevel(0).hardnessAndResistance(3.0F, 3.0F)));
+		register(registry, "dark_stone_iron_ore", new Block(Block.Properties.create(Material.ROCK).setRequiresTool().harvestTool(ToolType.PICKAXE).harvestLevel(1).hardnessAndResistance(3.0F, 3.0F)));
+		register(registry, "dark_stone_gold_ore", new Block(Block.Properties.create(Material.ROCK).setRequiresTool().harvestTool(ToolType.PICKAXE).harvestLevel(2).hardnessAndResistance(3.0F, 3.0F)));
+		register(registry, "dark_stone_redstone_ore", new RedstoneOreBlock(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().harvestTool(ToolType.PICKAXE).harvestLevel(2).tickRandomly().setLightLevel(state -> state.get(RedstoneOreBlock.LIT) ? 9 : 0).hardnessAndResistance(3.0F, 3.0F)));
+		register(registry, "dark_stone_diamond_ore", new CustomOreBlock(3, 7, Block.Properties.create(Material.ROCK).setRequiresTool().harvestTool(ToolType.PICKAXE).harvestLevel(2).hardnessAndResistance(3.0F, 3.0F)));
+		register(registry, "dark_stone_lapis_ore", new CustomOreBlock(2, 5, Block.Properties.create(Material.ROCK).setRequiresTool().harvestTool(ToolType.PICKAXE).harvestLevel(1).hardnessAndResistance(3.0F, 3.0F)));
 		
 		register(registry, "portal_center", new PortalCenter(Block.Properties.create(Material.IRON).sound(SoundType.STONE).hardnessAndResistance(5.0F, 6.0F)));
 		register(registry, "portal_crown", new PortalCrown(Block.Properties.create(Material.IRON).sound(SoundType.STONE).hardnessAndResistance(5.0F, 6.0F)));

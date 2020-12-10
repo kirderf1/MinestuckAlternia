@@ -4,6 +4,12 @@ import com.apocfarce.minestuck_alternia.MinestuckAlternia;
 import com.apocfarce.minestuck_alternia.block.AlterniaBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.data.loot.BlockLootTables;
+import net.minecraft.enchantment.Enchantments;
+import net.minecraft.item.Items;
+import net.minecraft.loot.ItemLootEntry;
+import net.minecraft.loot.RandomValueRange;
+import net.minecraft.loot.functions.ApplyBonus;
+import net.minecraft.loot.functions.SetCount;
 import net.minecraftforge.registries.ForgeRegistries;
 
 import java.util.stream.Collectors;
@@ -17,6 +23,18 @@ public class AlterniaBlockLootTables extends BlockLootTables {
 		registerLootTable(AlterniaBlocks.DARK_STONE, block -> droppingWithSilkTouch(block, AlterniaBlocks.DARK_COBBLE));
 		registerDropSelfLootTable(AlterniaBlocks.DARK_COBBLE);
 		registerLootTable(AlterniaBlocks.RED_ROCK, block -> droppingWithSilkTouch(block, AlterniaBlocks.RED_COBBLE));
+		
+		registerLootTable(AlterniaBlocks.DARK_STONE_COAL_ORE, ore -> droppingItemWithFortune(ore, Items.COAL));
+		registerDropSelfLootTable(AlterniaBlocks.DARK_STONE_IRON_ORE);
+		registerDropSelfLootTable(AlterniaBlocks.DARK_STONE_GOLD_ORE);
+		registerLootTable(AlterniaBlocks.DARK_STONE_REDSTONE_ORE, ore -> droppingWithSilkTouch(ore, withExplosionDecay(ore,
+				ItemLootEntry.builder(Items.REDSTONE).acceptFunction(SetCount.builder(RandomValueRange.of(4, 5)))
+						.acceptFunction(ApplyBonus.uniformBonusCount(Enchantments.FORTUNE)))));
+		registerLootTable(AlterniaBlocks.DARK_STONE_DIAMOND_ORE, ore -> droppingItemWithFortune(ore, Items.DIAMOND));
+		registerLootTable(AlterniaBlocks.DARK_STONE_LAPIS_ORE, ore -> droppingWithSilkTouch(ore, withExplosionDecay(ore,
+				ItemLootEntry.builder(Items.LAPIS_LAZULI).acceptFunction(SetCount.builder(RandomValueRange.of(4, 9)))
+				.acceptFunction(ApplyBonus.oreDrops(Enchantments.FORTUNE)))));
+		
 		registerDropSelfLootTable(AlterniaBlocks.RED_COBBLE);
 		registerDropSelfLootTable(AlterniaBlocks.PORTAL_CENTER);
 		registerDropSelfLootTable(AlterniaBlocks.PORTAL_BASE);

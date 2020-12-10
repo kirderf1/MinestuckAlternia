@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "minestuck_alternia:dark_stone_coal_ore"
+  },
+  "result": "minecraft:coal",
+  "experience": 0.1,
+  "cookingtime": 200
+}
