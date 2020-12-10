@@ -15,7 +15,7 @@ public class CoolBiomeMaker {
 		genSettings.withStructure(() -> AlterniaStructures.PYRAL_MID_HIGHBLOOD_HIVE);
 		
 		AlterniaBiomeFeatures.withCarvers(genSettings);
-		DefaultBiomeFeatures.withLavaAndWaterLakes(genSettings);
+		AlterniaBiomeFeatures.withLavaAndWaterLakes(genSettings);
 		DefaultBiomeFeatures.withMonsterRoom(genSettings);
 		AlterniaBiomeFeatures.withStoneVariants(genSettings);
 		AlterniaBiomeFeatures.withOres(genSettings);
@@ -48,7 +48,7 @@ public class CoolBiomeMaker {
 		genSettings.withStructure(() -> AlterniaStructures.MIXED_MID_HIGHBLOOD_HIVE);
 		
 		AlterniaBiomeFeatures.withCarvers(genSettings);
-		DefaultBiomeFeatures.withLavaAndWaterLakes(genSettings);
+		AlterniaBiomeFeatures.withLavaAndWaterLakes(genSettings);
 		DefaultBiomeFeatures.withMonsterRoom(genSettings);
 		AlterniaBiomeFeatures.withStoneVariants(genSettings);
 		AlterniaBiomeFeatures.withOres(genSettings);
@@ -82,7 +82,7 @@ public class CoolBiomeMaker {
 		genSettings.withStructure(() -> AlterniaStructures.MID_LOWBLOOD_HIVE);
 		
 		AlterniaBiomeFeatures.withCarvers(genSettings);
-		DefaultBiomeFeatures.withLavaAndWaterLakes(genSettings);
+		AlterniaBiomeFeatures.withLavaAndWaterLakes(genSettings);
 		DefaultBiomeFeatures.withMonsterRoom(genSettings);
 		AlterniaBiomeFeatures.withStoneVariants(genSettings);
 		AlterniaBiomeFeatures.withOres(genSettings);

@@ -9,10 +9,12 @@ import com.apocfarce.minestuck_alternia.network.AlterniaPacketHandler;
 import com.apocfarce.minestuck_alternia.util.EventListener;
 import com.apocfarce.minestuck_alternia.world.biome.provider.AlterniaBiomeProvider;
 import com.apocfarce.minestuck_alternia.world.biome.provider.AlterniaBiomeProviders;
+import com.apocfarce.minestuck_alternia.world.gen.feature.AlterniaFeatures;
 import com.apocfarce.minestuck_alternia.world.gen.feature.structure.PieceTypes;
 import com.apocfarce.minestuck_alternia.world.gen.surfacebuilder.AlterniaSurfaceBuilders;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
+import net.minecraft.world.gen.feature.Feature;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegisterCommandsEvent;
 import net.minecraftforge.event.RegistryEvent;
@@ -63,6 +65,10 @@ public class MinestuckAlternia {
         @SubscribeEvent
         public static void onItemRegistry(final RegistryEvent.Register<Item> ItemRegistryEvent) {
             AlterniaItems.registerItems(ItemRegistryEvent); 
+        }
+        @SubscribeEvent
+        public static void onFeatureRegistry(final RegistryEvent.Register<Feature<?>> event) {
+            AlterniaFeatures.registerFeatures(event.getRegistry());
         }
     }
 

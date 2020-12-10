@@ -1,10 +1,8 @@
 package com.apocfarce.minestuck_alternia.world.biome;
 
-import com.apocfarce.minestuck_alternia.world.gen.feature.AlterniaFeatures;
 import com.apocfarce.minestuck_alternia.world.gen.feature.structure.AlterniaStructures;
 import com.apocfarce.minestuck_alternia.world.gen.surfacebuilder.AlterniaSurfaceBuilders;
 import net.minecraft.world.biome.*;
-import net.minecraft.world.gen.GenerationStage;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
 
 public class WarmBiomeMaker {
@@ -20,7 +18,7 @@ public class WarmBiomeMaker {
 		genSettings.withStructure(() -> AlterniaStructures.LOWBLOOD_HIVE);
 		
 		AlterniaBiomeFeatures.withCarvers(genSettings);
-		DefaultBiomeFeatures.withLavaAndWaterLakes(genSettings);
+		AlterniaBiomeFeatures.withLavaAndWaterLakes(genSettings);
 		DefaultBiomeFeatures.withMonsterRoom(genSettings);
 		DefaultBiomeFeatures.withNoiseTallGrass(genSettings);
 		AlterniaBiomeFeatures.withStoneVariants(genSettings);
@@ -53,10 +51,9 @@ public class WarmBiomeMaker {
 		genSettings.withStructure(() -> AlterniaStructures.HIGHBLOOD_HIVE);
 		
 		AlterniaBiomeFeatures.withCarvers(genSettings);
-		DefaultBiomeFeatures.withLavaAndWaterLakes(genSettings);
 		DefaultBiomeFeatures.withMonsterRoom(genSettings);
 		
-		genSettings.withFeature(GenerationStage.Decoration.LOCAL_MODIFICATIONS, AlterniaFeatures.COMMON_LAVA_LAKE);
+		AlterniaBiomeFeatures.withExtraLavaLakes(genSettings);
 		DefaultBiomeFeatures.withFrozenTopLayer(genSettings);
 		
 		BiomeAmbience.Builder ambience = new BiomeAmbience.Builder();
@@ -79,13 +76,12 @@ public class WarmBiomeMaker {
 		genSettings.withStructure(() -> AlterniaStructures.LOWBLOOD_HIVE);
 		
 		AlterniaBiomeFeatures.withCarvers(genSettings);
-		DefaultBiomeFeatures.withLavaAndWaterLakes(genSettings);
 		DefaultBiomeFeatures.withMonsterRoom(genSettings);
 		AlterniaBiomeFeatures.withStoneVariants(genSettings);
 		AlterniaBiomeFeatures.withOres(genSettings);
 		
 		DefaultBiomeFeatures.withDesertDeadBushes(genSettings);
-		DefaultBiomeFeatures.withLavaLakes(genSettings);
+		AlterniaBiomeFeatures.withLavaLakes(genSettings);
 		DefaultBiomeFeatures.withBadlandsGrass(genSettings);
 		
 		DefaultBiomeFeatures.withFrozenTopLayer(genSettings);

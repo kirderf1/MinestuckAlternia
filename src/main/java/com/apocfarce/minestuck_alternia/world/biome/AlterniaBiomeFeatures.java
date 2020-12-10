@@ -25,6 +25,19 @@ public class AlterniaBiomeFeatures {
 		builder.withFeature(GenerationStage.Decoration.UNDERGROUND_ORES, AlterniaFeatures.LAPIS_ORE);
 	}
 	
+	public static void withLavaAndWaterLakes(BiomeGenerationSettings.Builder builder) {
+		builder.withFeature(GenerationStage.Decoration.LAKES, AlterniaFeatures.WATER_LAKE);
+		builder.withFeature(GenerationStage.Decoration.LAKES, AlterniaFeatures.LAVA_LAKE);
+	}
+	
+	public static void withLavaLakes(BiomeGenerationSettings.Builder builder) {
+		builder.withFeature(GenerationStage.Decoration.LAKES, AlterniaFeatures.LAVA_LAKE);
+	}
+	
+	public static void withExtraLavaLakes(BiomeGenerationSettings.Builder builder) {
+		builder.withFeature(GenerationStage.Decoration.LAKES, AlterniaFeatures.COMMON_LAVA_LAKE);
+	}
+	
 	public static void withStoneVariants(BiomeGenerationSettings.Builder builder) {
 		builder.withFeature(GenerationStage.Decoration.UNDERGROUND_ORES, AlterniaFeatures.RED_ROCK_ORE);
 	}
