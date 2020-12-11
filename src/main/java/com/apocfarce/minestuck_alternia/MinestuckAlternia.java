@@ -7,6 +7,7 @@ import com.apocfarce.minestuck_alternia.command.OccupyHiveCommand;
 import com.apocfarce.minestuck_alternia.data.AlterniaData;
 import com.apocfarce.minestuck_alternia.network.AlterniaPacketHandler;
 import com.apocfarce.minestuck_alternia.util.EventListener;
+import com.apocfarce.minestuck_alternia.world.biome.AlterniaBiomes;
 import com.apocfarce.minestuck_alternia.world.biome.provider.AlterniaBiomeProvider;
 import com.apocfarce.minestuck_alternia.world.biome.provider.AlterniaBiomeProviders;
 import com.apocfarce.minestuck_alternia.world.gen.feature.AlterniaFeatures;
@@ -42,6 +43,7 @@ public class MinestuckAlternia {
     
     private void setup(final FMLCommonSetupEvent event) {
         event.enqueueWork(PieceTypes::register);
+        event.enqueueWork(AlterniaBiomes::initBiomeTypes);
         event.enqueueWork(AlterniaBiomeProvider::initBiomeList);
         event.enqueueWork(AlterniaBiomeProviders::init);
         AlterniaPacketHandler.registerPackets();

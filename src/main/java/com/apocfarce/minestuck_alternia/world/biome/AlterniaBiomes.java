@@ -1,21 +1,21 @@
 package com.apocfarce.minestuck_alternia.world.biome;
 
 import com.apocfarce.minestuck_alternia.MinestuckAlternia;
-import com.google.common.collect.ImmutableList;
-import com.mojang.datafixers.util.Pair;
 import net.minecraft.util.RegistryKey;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.biome.Biome;
+import net.minecraftforge.common.BiomeDictionary;
+import net.minecraftforge.common.BiomeDictionary.Type;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.registries.IForgeRegistry;
 
-import java.util.List;
-
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD, modid = MinestuckAlternia.MOD_ID)
 public class AlterniaBiomes {
+	
+	public static final BiomeDictionary.Type ALTERNIA = Type.getType("ALTERNIA");
 	
 	public static final RegistryKey<Biome> PLAINS = makeKey("plains");
 	public static final RegistryKey<Biome> VOLCANIC_FIELD = makeKey("volcanic_fields");
@@ -47,11 +47,13 @@ public class AlterniaBiomes {
 		registry.register(biome.setRegistryName(key.getLocation()));
 	}
 	
-	public static List<Pair<RegistryKey<Biome>, Biome>> makeBiomesForDataGen() {
-		return ImmutableList.of(Pair.of(PLAINS, WarmBiomeMaker.makePlains()), Pair.of(VOLCANIC_FIELD, WarmBiomeMaker.makeVolcanicFields()),
-				Pair.of(SHRUB_LAND, WarmBiomeMaker.makeShrublands()),
-				Pair.of(MIRRAGE_FOREST, CoolBiomeMaker.makeMirrageWoods()), Pair.of(PYRAL_FOREST, CoolBiomeMaker.makePyralWoods()),
-				Pair.of(MIXED_FOREST, CoolBiomeMaker.makeMixedWoods()),
-				Pair.of(COLORED_DESERT, DesertBiomeMaker.makeRainbowDesert()));
+	public static void initBiomeTypes() {
+		BiomeDictionary.addTypes(PLAINS, ALTERNIA, Type.PLAINS);
+		BiomeDictionary.addTypes(VOLCANIC_FIELD, ALTERNIA, Type.WASTELAND);
+		BiomeDictionary.addTypes(SHRUB_LAND, ALTERNIA, Type.SPARSE, Type.WASTELAND);
+		BiomeDictionary.addTypes(MIRRAGE_FOREST, ALTERNIA, Type.FOREST);
+		BiomeDictionary.addTypes(PYRAL_FOREST, ALTERNIA, Type.FOREST);
+		BiomeDictionary.addTypes(MIXED_FOREST, ALTERNIA, Type.FOREST);
+		BiomeDictionary.addTypes(COLORED_DESERT, ALTERNIA, Type.HOT, Type.DRY, Type.SANDY);
 	}
 }
