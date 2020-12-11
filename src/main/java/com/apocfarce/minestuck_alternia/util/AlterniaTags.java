@@ -13,6 +13,7 @@ public class AlterniaTags {
 		public static final Tags.IOptionalNamedTag<Block> MIRRAGE_LOGS = tag("logs/mirrage");
 		public static final Tags.IOptionalNamedTag<Block> LEAVES = tag("leaves");
 		public static final Tags.IOptionalNamedTag<Block> FENCES = tag("fences");
+		public static final Tags.IOptionalNamedTag<Block> ALTERNIA_STONE = tag("alternia_stone");
 		
 		private static Tags.IOptionalNamedTag<Block> tag(String name) {
 			return BlockTags.createOptional(new ResourceLocation(MinestuckAlternia.MOD_ID, name));

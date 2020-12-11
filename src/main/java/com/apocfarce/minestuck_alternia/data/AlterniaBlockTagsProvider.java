@@ -34,6 +34,7 @@ public class AlterniaBlockTagsProvider extends BlockTagsProvider {
 		getOrCreateBuilder(AlterniaTags.Blocks.MIRRAGE_LOGS).add(AlterniaBlocks.MIRRAGE_LOG, AlterniaBlocks.MIRRAGE_WOOD, AlterniaBlocks.STRIPPED_MIRRAGE_LOG, AlterniaBlocks.STRIPPED_MIRRAGE_WOOD);
 		getOrCreateBuilder(AlterniaTags.Blocks.LEAVES).add(AlterniaBlocks.PYRAL_LEAVES, AlterniaBlocks.MIRRAGE_LEAVES);
 		getOrCreateBuilder(AlterniaTags.Blocks.FENCES).add(AlterniaBlocks.PYRAL_FENCE, AlterniaBlocks.MIRRAGE_FENCE);
+		getOrCreateBuilder(AlterniaTags.Blocks.ALTERNIA_STONE).add(AlterniaBlocks.DARK_STONE, AlterniaBlocks.RED_ROCK);
 	}
 	
 	@Override
