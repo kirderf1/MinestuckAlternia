@@ -42,6 +42,9 @@ public class AlterniaRecipeProvider extends RecipeProvider {
 		
 		ShapedRecipeBuilder.shapedRecipe(AlterniaItems.OBLONG_MEAT_PRODUCT).key('B', Items.BREAD).key('G', Items.PORKCHOP).patternLine("BBB").patternLine("GGG").patternLine("BBB").addCriterion("has_bread", hasItem(Items.BREAD)).build(consumer);
 		
+		CookingRecipeBuilder.smeltingRecipe(Ingredient.fromItems(AlterniaItems.DARK_COBBLE), AlterniaItems.DARK_STONE, 0.1F, 200).addCriterion("has_dark_cobble", hasItem(AlterniaItems.DARK_COBBLE)).build(consumer);
+		CookingRecipeBuilder.smeltingRecipe(Ingredient.fromItems(AlterniaItems.RED_COBBLE), AlterniaItems.RED_ROCK, 0.1F, 200).addCriterion("has_red_cobble", hasItem(AlterniaItems.RED_COBBLE)).build(consumer);
+		
 		CookingRecipeBuilder.smeltingRecipe(Ingredient.fromItems(AlterniaBlocks.DARK_STONE_COAL_ORE.asItem()), Items.COAL, 0.1F, 200).addCriterion("has_coal_ore", hasItem(AlterniaBlocks.DARK_STONE_COAL_ORE)).build(consumer, new ResourceLocation(MinestuckAlternia.MOD_ID, "coal_from_smelting"));
 		CookingRecipeBuilder.smeltingRecipe(Ingredient.fromItems(AlterniaBlocks.DARK_STONE_IRON_ORE.asItem()), Items.IRON_INGOT, 0.7F, 200).addCriterion("has_iron_ore", hasItem(AlterniaBlocks.DARK_STONE_IRON_ORE)).build(consumer, new ResourceLocation(MinestuckAlternia.MOD_ID, "iron_from_smelting"));
 		CookingRecipeBuilder.smeltingRecipe(Ingredient.fromItems(AlterniaBlocks.DARK_STONE_GOLD_ORE.asItem()), Items.GOLD_INGOT, 1.0F, 200).addCriterion("has_gold_ore", hasItem(AlterniaBlocks.DARK_STONE_GOLD_ORE)).build(consumer, new ResourceLocation(MinestuckAlternia.MOD_ID, "gold_from_smelting"));

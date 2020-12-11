@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "minestuck_alternia:dark_stone"
+    ]
+  },
+  "criteria": {
+    "has_dark_cobble": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "minestuck_alternia:dark_cobble"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "minestuck_alternia:dark_stone"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_dark_cobble",
+      "has_the_recipe"
+    ]
+  ]
+}

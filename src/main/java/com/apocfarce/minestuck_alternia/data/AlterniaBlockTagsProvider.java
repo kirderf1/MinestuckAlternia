@@ -21,6 +21,8 @@ public class AlterniaBlockTagsProvider extends BlockTagsProvider {
 		getOrCreateBuilder(BlockTags.LOGS).addTags(AlterniaTags.Blocks.PYRAL_LOGS, AlterniaTags.Blocks.MIRRAGE_LOGS);
 		getOrCreateBuilder(BlockTags.LEAVES).addTags(AlterniaTags.Blocks.LEAVES);
 		getOrCreateBuilder(BlockTags.FENCES).addTags(AlterniaTags.Blocks.FENCES);
+		getOrCreateBuilder(Tags.Blocks.STONE).add(AlterniaBlocks.DARK_STONE, AlterniaBlocks.RED_ROCK);
+		getOrCreateBuilder(Tags.Blocks.COBBLESTONE).add(AlterniaBlocks.DARK_COBBLE, AlterniaBlocks.RED_COBBLE);
 		getOrCreateBuilder(BlockTags.GOLD_ORES).add(AlterniaBlocks.DARK_STONE_GOLD_ORE);
 		getOrCreateBuilder(Tags.Blocks.ORES_COAL).add(AlterniaBlocks.DARK_STONE_COAL_ORE);
 		getOrCreateBuilder(Tags.Blocks.ORES_IRON).add(AlterniaBlocks.DARK_STONE_IRON_ORE);

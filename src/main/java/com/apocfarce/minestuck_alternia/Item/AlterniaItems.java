@@ -46,6 +46,11 @@ public class AlterniaItems {
 	public static final Item PORTAL_CENTER = getNull();
 	public static final Item PORTAL_BASE = getNull();
 	
+	public static final Item DARK_STONE = getNull();
+	public static final Item DARK_COBBLE = getNull();
+	public static final Item RED_ROCK = getNull();
+	public static final Item RED_COBBLE = getNull();
+	
 	@Nonnull
 	@SuppressWarnings("ConstantConditions")
 	private static <T> T getNull() {
